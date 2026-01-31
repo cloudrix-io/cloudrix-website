@@ -9,3 +9,4 @@ export { default as ProcessStep, type IProcessStep } from "./process-step";
 export { default as Technology, type ITechnology } from "./technology";
 export { default as Admin, type IAdmin } from "./admin";
 export { default as Page, type IPage } from "./page";
+export { default as BlogPost, type IBlogPost } from "./blog-post";

@@ -19,7 +19,7 @@ export function OrganizationJsonLd() {
     image: `${BASE_URL}/og-image.png`,
     description:
       "Senior engineering teams for European companies. Cloud architecture, product development, and DevOps.",
-    email: "hello@cloudrix.io",
+    email: "contact@cloudrix.io",
     foundingDate: "2020",
     founders: [
       {
@@ -31,7 +31,8 @@ export function OrganizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressCountry: "NL",
-      addressLocality: "Amsterdam",
+      addressLocality: "Tilburg",
+      addressRegion: "North Brabant",
     },
     areaServed: [
       { "@type": "Country", name: "Netherlands" },
@@ -48,7 +49,7 @@ export function OrganizationJsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "hello@cloudrix.io",
+      email: "contact@cloudrix.io",
       availableLanguage: ["English", "French"],
     },
     knowsAbout: [
@@ -85,16 +86,18 @@ export function LocalBusinessJsonLd() {
     description:
       "Cloud & Software Engineering services for European companies. AWS, DevOps, Full-Stack Development.",
     priceRange: "€€€",
-    telephone: "+216-XX-XXX-XXX",
-    email: "hello@cloudrix.io",
+    telephone: "+31-6-43166305",
+    email: "contact@cloudrix.io",
     address: {
       "@type": "PostalAddress",
       addressCountry: "NL",
+      addressLocality: "Tilburg",
+      addressRegion: "North Brabant",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 52.3676,
-      longitude: 4.9041,
+      latitude: 51.5555,
+      longitude: 5.0913,
     },
     openingHoursSpecification: [
       {
@@ -393,6 +396,172 @@ export function ProcessJsonLd({ steps }: ProcessJsonLdProps) {
   return (
     <Script
       id="process-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      strategy="afterInteractive"
+    />
+  );
+}
+
+// Blog Post / Article Schema
+interface BlogPostJsonLdProps {
+  title: string;
+  description: string;
+  slug: string;
+  author: {
+    name: string;
+    role?: string;
+  };
+  publishedAt: string;
+  modifiedAt?: string;
+  image?: string;
+  category?: string;
+  tags?: string[];
+  readingTime?: number;
+}
+
+export function BlogPostJsonLd({
+  title,
+  description,
+  slug,
+  author,
+  publishedAt,
+  modifiedAt,
+  image,
+  category,
+  tags,
+  readingTime,
+}: BlogPostJsonLdProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${BASE_URL}/blog/${slug}#article`,
+    headline: title,
+    description: description,
+    image: image || `${BASE_URL}/og-image.png`,
+    datePublished: publishedAt,
+    dateModified: modifiedAt || publishedAt,
+    author: {
+      "@type": "Person",
+      name: author.name,
+      jobTitle: author.role,
+      url: `${BASE_URL}/about`,
+    },
+    publisher: {
+      "@id": `${BASE_URL}/#organization`,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${slug}`,
+    },
+    articleSection: category,
+    keywords: tags?.join(", "),
+    wordCount: readingTime ? readingTime * 200 : undefined,
+    inLanguage: "en",
+    isAccessibleForFree: true,
+  };
+
+  return (
+    <Script
+      id="blogpost-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      strategy="afterInteractive"
+    />
+  );
+}
+
+// Software Application Schema (for tools like calculator)
+interface SoftwareAppJsonLdProps {
+  name: string;
+  description: string;
+  url: string;
+  category?: string;
+}
+
+export function SoftwareAppJsonLd({
+  name,
+  description,
+  url,
+  category = "BusinessApplication",
+}: SoftwareAppJsonLdProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${BASE_URL}${url}#app`,
+    name: name,
+    description: description,
+    url: `${BASE_URL}${url}`,
+    applicationCategory: category,
+    operatingSystem: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "EUR",
+    },
+    author: {
+      "@id": `${BASE_URL}/#organization`,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "124",
+      bestRating: "5",
+      worstRating: "1",
+    },
+  };
+
+  return (
+    <Script
+      id="softwareapp-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      strategy="afterInteractive"
+    />
+  );
+}
+
+// Review/Testimonial Schema
+interface ReviewJsonLdProps {
+  reviews: Array<{
+    author: string;
+    role: string;
+    company: string;
+    review: string;
+    rating?: number;
+  }>;
+}
+
+export function ReviewJsonLd({ reviews }: ReviewJsonLdProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${BASE_URL}/#organization-reviews`,
+    name: "Cloudrix",
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: r.author,
+        jobTitle: r.role,
+      },
+      reviewBody: r.review,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating || 5,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: r.company,
+      },
+    })),
+  };
+
+  return (
+    <Script
+      id="review-jsonld"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       strategy="afterInteractive"

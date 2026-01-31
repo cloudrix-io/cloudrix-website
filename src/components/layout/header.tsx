@@ -15,9 +15,9 @@ export function Header() {
   const navigation = [
     { name: t("Home", "Accueil"), href: "/" },
     { name: t("Services", "Services"), href: "/services" },
-    { name: t("How We Work", "Comment Nous Travaillons"), href: "/how-we-work" },
-    { name: t("About", "A Propos"), href: "/about" },
+    { name: t("Pricing", "Tarifs"), href: "/pricing" },
     { name: t("Case Studies", "Etudes de Cas"), href: "/case-studies" },
+    { name: t("About", "A Propos"), href: "/about" },
     { name: t("Contact", "Contact"), href: "/contact" },
   ];
 
@@ -62,7 +62,7 @@ export function Header() {
               href="/contact"
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
             >
-              {t("Book a Call", "Reserver un Appel")}
+              {t("Get Free Strategy Call", "Appel Stratégique Gratuit")}
             </Link>
           </div>
 
@@ -106,7 +106,7 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center font-medium"
             >
-              {t("Book a Call", "Reserver un Appel")}
+              {t("Get Free Strategy Call", "Appel Stratégique Gratuit")}
             </Link>
           </div>
         </div>

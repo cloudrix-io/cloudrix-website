@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 import { ContactForm } from "@/components/forms";
+import { BookingCalendar, TrustBadgeStrip } from "@/components/ui";
 import connectDB from "@/lib/mongodb";
 import { CompanyInfo, Service, Page } from "@/lib/models";
 import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/seo";
@@ -93,9 +94,9 @@ async function getContactData() {
 export default async function ContactPage() {
   const { companyInfo } = await getContactData();
 
-  const email = companyInfo?.email || "hello@cloudrix.io";
-  const phone = companyInfo?.phone || "+216 XX XXX XXX";
-  const location = companyInfo?.location || "Tunisia (serving EU clients)";
+  const email = companyInfo?.email || "contact@cloudrix.io";
+  const phone = companyInfo?.phone || "+31 6 43166305";
+  const location = companyInfo?.location || "Tilburg, Netherlands";
 
   return (
     <>
@@ -112,26 +113,108 @@ export default async function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-center mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Let&apos;s Talk
+              Your Project Deserves Better
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Ready to transform your business with expert cloud and software
-              engineering? Book a free consultation call with our team.
+              Stop wasting time with agencies that don&apos;t get it. In 30 minutes,
+              we&apos;ll tell you exactly what your project needs and what it will take.
+              No fluff. No sales pitch. Just answers.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
+      {/* Trust Badge Strip */}
+      <TrustBadgeStrip />
+
+      {/* Booking Calendar Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Booking Calendar */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar className="w-6 h-6 text-blue-600" />
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Book Your Free Strategy Call
+                </h2>
+              </div>
+              <p className="text-gray-600 mb-6">
+                Skip the back-and-forth. Pick a time that works for you.
+              </p>
+              <BookingCalendar />
+            </div>
+
+            {/* Why Book Section */}
+            <div className="bg-white rounded-2xl border border-gray-200 p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                What You&apos;ll Get From This Call:
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-green-600 text-sm font-bold">1</span>
+                  </div>
+                  <div>
+                    <strong className="text-gray-900">Honest Assessment</strong>
+                    <p className="text-sm text-gray-600">We&apos;ll tell you if we can help - and if not, point you in the right direction</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-green-600 text-sm font-bold">2</span>
+                  </div>
+                  <div>
+                    <strong className="text-gray-900">Quick Wins</strong>
+                    <p className="text-sm text-gray-600">Actionable advice you can implement immediately, even if we never work together</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-green-600 text-sm font-bold">3</span>
+                  </div>
+                  <div>
+                    <strong className="text-gray-900">Clear Next Steps</strong>
+                    <p className="text-sm text-gray-600">A roadmap of what needs to happen to solve your challenges</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-green-600 text-sm font-bold">4</span>
+                  </div>
+                  <div>
+                    <strong className="text-gray-900">Zero Pressure</strong>
+                    <p className="text-sm text-gray-600">No hard sell. Just a conversation between engineers about your challenges</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div className="mt-8 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  <strong>Can&apos;t find a good time?</strong> Send us an email at{" "}
+                  <a href={`mailto:${email}`} className="underline">{email}</a> and we&apos;ll work something out.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form & Info - Alternative */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Prefer to Send a Message?
+            </h2>
+            <p className="text-gray-600">
+              Fill out the form and we&apos;ll get back to you within 24 hours.
+            </p>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Book a Free Consultation
-                </h2>
                 <ContactForm />
               </div>
             </div>
@@ -282,11 +365,11 @@ export default async function ContactPage() {
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Prefer to Talk First?
+            The Longer You Wait, The More It Costs
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Schedule a 30-minute discovery call with one of our cloud experts to
-            discuss your project.
+            Technical debt compounds daily. Competitors ship while you research.
+            One call could change everything.
           </p>
           <a
             href={`tel:${phone.replace(/\s/g, "")}`}

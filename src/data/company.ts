@@ -6,9 +6,9 @@ export const companyInfo = {
   description:
     "We help EU companies build, scale, and optimize their software systems. From cloud architecture to full-stack development, we deliver production-grade solutions with a focus on reliability, security, and maintainability.",
   founded: 2024,
-  location: "Tunisia (serving EU clients)",
-  email: "hello@cloudrix.io",
-  phone: "+216 XX XXX XXX",
+  location: "Tilburg, Netherlands",
+  email: "contact@cloudrix.io",
+  phone: "+31 6 43166305",
   linkedin: "https://linkedin.com/company/cloudrix",
   github: "https://github.com/cloudrix",
 };

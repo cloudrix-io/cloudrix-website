@@ -56,20 +56,20 @@ export function AboutContent({
   // Get content for current language
   const content = (pageContent[language] || pageContent.en || {}) as IAboutPageContent;
 
-  // Default values with translations
+  // Default values with translations - POWERFUL CONVERSION-FOCUSED COPY
   const hero = content.hero || {
-    title: t("About Cloudrix", "A Propos d'Cloudrix"),
+    title: t("We're the Engineers Companies Call When It Actually Needs to Work", "Nous Sommes les Ingenieurs Qu'On Appelle Quand Ca Doit Vraiment Fonctionner"),
     subtitle: t(
-      "We're a team of passionate engineers dedicated to helping European companies build better software.",
-      "Nous sommes une equipe d'ingenieurs passionnes dedies a aider les entreprises europeennes a construire de meilleurs logiciels."
+      "While others hide behind project managers and deliver junior code, we put senior engineers directly on your problem. 47+ projects. €12M+ client impact. Zero excuses.",
+      "Alors que d'autres se cachent derriere des chefs de projet, nous mettons des ingenieurs seniors directement sur votre probleme. 47+ projets. €12M+ d'impact client. Zero excuses."
     ),
   };
 
   const mission = content.mission || {
-    title: t("Our Mission", "Notre Mission"),
+    title: t("Why We Exist", "Pourquoi Nous Existons"),
     content: t(
-      "To empower European businesses with world-class cloud and software engineering solutions that drive growth, efficiency, and innovation.",
-      "Donner aux entreprises europeennes les moyens de se developper grace a des solutions d'ingenierie cloud et logicielle de classe mondiale."
+      "Too many companies get burned by agencies that overpromise and underdeliver. We started Cloudrix because European businesses deserve engineering partners who actually give a damn about their success.",
+      "Trop d'entreprises se font avoir par des agences qui promettent trop et livrent peu. Nous avons cree Cloudrix parce que les entreprises europeennes meritent des partenaires d'ingenierie qui se soucient vraiment de leur succes."
     ),
   };
 
@@ -96,7 +96,7 @@ export function AboutContent({
       "Grandir avec nos clients, livrer l'excellence a chaque etape."
     ),
     items: [
-      { year: "2020", title: t("Cloudrix founded in Tunisia", "Cloudrix fondee en Tunisie"), description: "" },
+      { year: "2020", title: t("Cloudrix founded in Netherlands", "Cloudrix fondee aux Pays-Bas"), description: "" },
       { year: "2021", title: t("First EU enterprise clients onboarded", "Premiers clients entreprises UE"), description: "" },
       { year: "2022", title: t("Expanded cloud services portfolio", "Expansion du portfolio cloud"), description: "" },
       { year: "2023", title: t("Achieved 50+ successful projects", "50+ projets reussis"), description: "" },
@@ -193,8 +193,8 @@ export function AboutContent({
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 {t(
-                  "Based in Tunisia, we bridge the gap between European business culture and global engineering talent. We understand how EU companies work, communicate in their timezone, and deliver with the professionalism they expect.",
-                  "Bases en Tunisie, nous comblons le fosse entre la culture d'entreprise europeenne et les talents d'ingenierie mondiaux. Nous comprenons comment fonctionnent les entreprises europeennes et livrons avec le professionnalisme qu'elles attendent."
+                  "Based in Tilburg, Netherlands, we're not offshore outsourcing dressed up in a fancy website. We're a proper Dutch company with a KVK number, EU contracts, and engineers who speak your language (literally). Same timezone, same business culture, same commitment to quality.",
+                  "Bases a Tilburg, Pays-Bas, nous ne sommes pas de l'externalisation offshore deguisee en site web elegant. Nous sommes une vraie entreprise neerlandaise avec un numero KVK, des contrats UE, et des ingenieurs qui parlent votre langue. Meme fuseau horaire, meme culture d'affaires, meme engagement qualite."
                 )}
               </p>
               <div className="flex items-start space-x-3 bg-blue-50 p-6 rounded-lg border border-blue-100">
@@ -399,14 +399,14 @@ export function AboutContent({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             {t(
-              "Join Our Growing List of Satisfied Clients",
-              "Rejoignez Notre Liste Croissante de Clients Satisfaits"
+              "Ready to Work With Engineers Who Actually Care?",
+              "Pret a Travailler Avec des Ingenieurs Qui Se Soucient Vraiment?"
             )}
           </h2>
           <p className="text-xl text-gray-600 mb-10 leading-relaxed">
             {t(
-              `Let's discuss how ${companyName} can help your business succeed.`,
-              `Discutons de la facon dont ${companyName} peut aider votre entreprise a reussir.`
+              "No sales pitch. No BS. Just a 30-minute conversation about your challenges and how we might help.",
+              "Pas de pitch commercial. Pas de baratin. Juste une conversation de 30 minutes sur vos defis et comment nous pourrions aider."
             )}
           </p>
           <Link

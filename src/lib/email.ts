@@ -13,7 +13,7 @@ interface LeadNotificationData {
 }
 
 export async function sendLeadNotification(data: LeadNotificationData) {
-  const adminEmail = process.env.ADMIN_EMAIL || "hello@cloudrix.io";
+  const adminEmail = process.env.ADMIN_EMAIL || "contact@cloudrix.io";
 
   try {
     await resend.emails.send({
@@ -67,7 +67,7 @@ export async function sendLeadNotification(data: LeadNotificationData) {
 export async function sendThankYouEmail(data: { name: string; email: string }) {
   try {
     await resend.emails.send({
-      from: "Cloudrix <hello@cloudrix.io>",
+      from: "Cloudrix <contact@cloudrix.io>",
       to: data.email,
       subject: "Thank you for contacting Cloudrix",
       html: `

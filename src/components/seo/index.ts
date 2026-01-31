@@ -8,4 +8,7 @@ export {
   CaseStudyJsonLd,
   TeamJsonLd,
   ProcessJsonLd,
+  BlogPostJsonLd,
+  SoftwareAppJsonLd,
+  ReviewJsonLd,
 } from "./json-ld";
