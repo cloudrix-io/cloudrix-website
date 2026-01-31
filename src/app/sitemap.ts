@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { caseStudies } from "@/data/case-studies";
-import dbConnect from "@/lib/db";
+import dbConnect from "@/lib/mongodb";
 import { BlogPost } from "@/lib/models";
 
 // Industry slugs for sitemap
