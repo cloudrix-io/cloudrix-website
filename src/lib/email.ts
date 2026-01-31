@@ -1,6 +1,18 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors
+let resend: Resend | null = null;
+
+function getResend(): Resend {
+  if (!resend) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error("RESEND_API_KEY environment variable is not set");
+    }
+    resend = new Resend(apiKey);
+  }
+  return resend;
+}
 
 interface LeadNotificationData {
   name: string;
@@ -16,7 +28,7 @@ export async function sendLeadNotification(data: LeadNotificationData) {
   const adminEmail = process.env.ADMIN_EMAIL || "contact@cloudrix.io";
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: "Cloudrix Website <noreply@cloudrix.io>",
       to: adminEmail,
       subject: `New Lead: ${data.company} - ${data.problemType}`,
@@ -66,7 +78,7 @@ export async function sendLeadNotification(data: LeadNotificationData) {
 
 export async function sendThankYouEmail(data: { name: string; email: string }) {
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: "Cloudrix <contact@cloudrix.io>",
       to: data.email,
       subject: "Thank you for contacting Cloudrix",
