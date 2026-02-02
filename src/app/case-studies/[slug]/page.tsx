@@ -14,6 +14,7 @@ import {
 import connectDB from "@/lib/mongodb";
 import { CaseStudy } from "@/lib/models";
 import { CaseStudyJsonLd, BreadcrumbJsonLd } from "@/components/seo";
+import { caseStudies as staticCaseStudies } from "@/data/case-studies";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,11 +24,15 @@ async function getCaseStudyBySlug(slug: string) {
   try {
     await connectDB();
     const caseStudy = await CaseStudy.findOne({ slug, isActive: true }).lean();
-    return caseStudy ? JSON.parse(JSON.stringify(caseStudy)) : null;
+    if (caseStudy) {
+      return JSON.parse(JSON.stringify(caseStudy));
+    }
   } catch (error) {
-    console.error("Error fetching case study:", error);
-    return null;
+    console.error("Error fetching case study from DB:", error);
   }
+  // Fallback to static data
+  const staticStudy = staticCaseStudies.find((s) => s.slug === slug);
+  return staticStudy || null;
 }
 
 async function getAllCaseStudies() {
@@ -36,11 +41,14 @@ async function getAllCaseStudies() {
     const caseStudies = await CaseStudy.find({ isActive: true })
       .sort({ order: 1 })
       .lean();
-    return JSON.parse(JSON.stringify(caseStudies));
+    if (caseStudies && caseStudies.length > 0) {
+      return JSON.parse(JSON.stringify(caseStudies));
+    }
   } catch (error) {
-    console.error("Error fetching case studies:", error);
-    return [];
+    console.error("Error fetching case studies from DB:", error);
   }
+  // Fallback to static data
+  return staticCaseStudies;
 }
 
 export async function generateStaticParams() {
@@ -289,7 +297,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 <p className="font-semibold text-gray-900">
                   {study.testimonial.author}
                 </p>
-                <p className="text-gray-500">{study.testimonial.position}</p>
+                <p className="text-gray-500">{study.testimonial.position || study.testimonial.role}</p>
               </div>
             </div>
           )}
