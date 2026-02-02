@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Free Resources - Cloud & DevOps Guides | Cloudrix",
     description:
       "Download free guides, checklists, and templates for cloud migration, DevOps, and software development.",
-    url: "https://cloudrix.io/resources",
+    url: "https://www.cloudrix.io/resources",
     type: "website",
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://cloudrix.io/resources",
+    canonical: "https://www.cloudrix.io/resources",
   },
 };
 

@@ -92,9 +92,9 @@ export async function sendThankYouEmail(data: { name: string; email: string }) {
             In the meantime, feel free to:
           </p>
           <ul style="color: #475569; line-height: 1.8;">
-            <li>Check out our <a href="https://cloudrix.io/case-studies" style="color: #2563eb;">case studies</a></li>
-            <li>Learn more about <a href="https://cloudrix.io/how-we-work" style="color: #2563eb;">how we work</a></li>
-            <li>Explore our <a href="https://cloudrix.io/services" style="color: #2563eb;">services</a></li>
+            <li>Check out our <a href="https://www.cloudrix.io/case-studies" style="color: #2563eb;">case studies</a></li>
+            <li>Learn more about <a href="https://www.cloudrix.io/how-we-work" style="color: #2563eb;">how we work</a></li>
+            <li>Explore our <a href="https://www.cloudrix.io/services" style="color: #2563eb;">services</a></li>
           </ul>
           <p style="color: #475569; line-height: 1.6;">
             Looking forward to speaking with you soon!
@@ -106,7 +106,7 @@ export async function sendThankYouEmail(data: { name: string; email: string }) {
           <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
           <p style="color: #94a3b8; font-size: 12px;">
             Cloudrix - Software Engineering for EU Companies<br />
-            <a href="https://cloudrix.io" style="color: #94a3b8;">cloudrix.io</a>
+            <a href="https://www.cloudrix.io" style="color: #94a3b8;">cloudrix.io</a>
           </p>
         </div>
       `,

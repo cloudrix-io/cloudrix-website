@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-const BASE_URL = "https://cloudrix.io";
+const BASE_URL = "https://www.cloudrix.io";
 
 // Organization Schema
 export function OrganizationJsonLd() {

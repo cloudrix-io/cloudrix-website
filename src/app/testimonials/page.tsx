@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: "Client Testimonials | Cloudrix",
     description:
       "Hear from the European companies we've helped with cloud architecture, software development, and DevOps.",
-    url: "https://cloudrix.io/testimonials",
+    url: "https://www.cloudrix.io/testimonials",
   },
   alternates: {
-    canonical: "https://cloudrix.io/testimonials",
+    canonical: "https://www.cloudrix.io/testimonials",
   },
 };
 

@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     title: "Industries We Serve | Cloudrix",
     description:
       "Industry-specific cloud and software engineering solutions for European companies.",
-    url: "https://cloudrix.io/industries",
+    url: "https://www.cloudrix.io/industries",
   },
   alternates: {
-    canonical: "https://cloudrix.io/industries",
+    canonical: "https://www.cloudrix.io/industries",
   },
 };
 

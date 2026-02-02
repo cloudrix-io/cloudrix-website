@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Free LinkedIn Post Templates for Tech Founders | Cloudrix",
     description:
       "50+ proven LinkedIn post templates for tech founders and CTOs. Grow your personal brand.",
-    url: "https://cloudrix.io/linkedin-templates",
+    url: "https://www.cloudrix.io/linkedin-templates",
   },
   alternates: {
-    canonical: "https://cloudrix.io/linkedin-templates",
+    canonical: "https://www.cloudrix.io/linkedin-templates",
   },
 };
 

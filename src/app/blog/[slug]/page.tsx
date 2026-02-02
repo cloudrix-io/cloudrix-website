@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${title} | Cloudrix Blog`,
       description,
-      url: `https://cloudrix.io/blog/${post.slug}`,
+      url: `https://www.cloudrix.io/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [post.featuredImage || `/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.category)}&type=blog`],
     },
     alternates: {
-      canonical: `https://cloudrix.io/blog/${post.slug}`,
+      canonical: `https://www.cloudrix.io/blog/${post.slug}`,
     },
   };
 }
@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: post.featuredImage || "https://cloudrix.io/og-image.png",
+    image: post.featuredImage || "https://www.cloudrix.io/og-image.png",
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     author: {
@@ -126,12 +126,12 @@ export default async function BlogPostPage({ params }: Props) {
       name: "Cloudrix",
       logo: {
         "@type": "ImageObject",
-        url: "https://cloudrix.io/logo.png",
+        url: "https://www.cloudrix.io/logo.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://cloudrix.io/blog/${post.slug}`,
+      "@id": `https://www.cloudrix.io/blog/${post.slug}`,
     },
   };
 
@@ -207,7 +207,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-500 mr-2">Share:</span>
                 <a
-                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://cloudrix.io/blog/${post.slug}`)}`}
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://www.cloudrix.io/blog/${post.slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-gray-100 hover:bg-blue-100 text-gray-600 hover:text-blue-600 transition-colors"
@@ -215,7 +215,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <Twitter className="w-4 h-4" />
                 </a>
                 <a
-                  href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://cloudrix.io/blog/${post.slug}`)}&title=${encodeURIComponent(post.title)}`}
+                  href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://www.cloudrix.io/blog/${post.slug}`)}&title=${encodeURIComponent(post.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-gray-100 hover:bg-blue-100 text-gray-600 hover:text-blue-600 transition-colors"

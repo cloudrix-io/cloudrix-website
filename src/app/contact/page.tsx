@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       openGraph: {
         title: `${title} | Cloudrix`,
         description,
-        url: "https://cloudrix.io/contact",
+        url: "https://www.cloudrix.io/contact",
         type: "website",
         images: [
           {
@@ -58,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
         images: [`/og?title=${encodeURIComponent("Let's Talk About Your Project")}&subtitle=${encodeURIComponent("Book a free 30-minute consultation")}&type=contact`],
       },
       alternates: {
-        canonical: "https://cloudrix.io/contact",
+        canonical: "https://www.cloudrix.io/contact",
       },
     };
   } catch {

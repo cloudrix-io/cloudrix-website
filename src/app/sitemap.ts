@@ -14,7 +14,7 @@ const industries = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cloudrix.io";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cloudrix.io";
 
   // Fetch blog posts from database
   let blogPosts: { slug: string; updatedAt: Date }[] = [];

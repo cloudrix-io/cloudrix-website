@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cloudrix.io"),
+  metadataBase: new URL("https://www.cloudrix.io"),
   title: {
     default: "Cloudrix | Cloud & Software Engineering for EU Companies",
     template: "%s | Cloudrix",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     "SaaS development",
     "e-commerce development",
   ],
-  authors: [{ name: "Cloudrix", url: "https://cloudrix.io" }],
+  authors: [{ name: "Cloudrix", url: "https://www.cloudrix.io" }],
   creator: "Cloudrix",
   publisher: "Cloudrix",
   formatDetection: {
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: "fr_FR",
-    url: "https://cloudrix.io",
+    url: "https://www.cloudrix.io",
     siteName: "Cloudrix",
     title: "Cloudrix | Cloud & Software Engineering for EU Companies",
     description:
@@ -123,10 +123,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://cloudrix.io",
+    canonical: "https://www.cloudrix.io",
     languages: {
-      "en-US": "https://cloudrix.io",
-      "fr-FR": "https://cloudrix.io",
+      "en-US": "https://www.cloudrix.io",
+      "fr-FR": "https://www.cloudrix.io",
     },
   },
   verification: {
@@ -141,7 +141,7 @@ export const metadata: Metadata = {
   },
   appLinks: {
     web: {
-      url: "https://cloudrix.io",
+      url: "https://www.cloudrix.io",
       should_fallback: true,
     },
   },

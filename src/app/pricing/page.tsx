@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Pricing - Transparent Engineering Rates | Cloudrix",
     description:
       "Transparent pricing for cloud architecture, software development, and DevOps services. Project-based, dedicated teams, or enterprise partnerships.",
-    url: "https://cloudrix.io/pricing",
+    url: "https://www.cloudrix.io/pricing",
     type: "website",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Transparent pricing for cloud architecture, software development, and DevOps services.",
   },
   alternates: {
-    canonical: "https://cloudrix.io/pricing",
+    canonical: "https://www.cloudrix.io/pricing",
   },
 };
 

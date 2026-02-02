@@ -359,10 +359,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${industry.title} | Cloudrix`,
       description: industry.description,
-      url: `https://cloudrix.io/industries/${slug}`,
+      url: `https://www.cloudrix.io/industries/${slug}`,
     },
     alternates: {
-      canonical: `https://cloudrix.io/industries/${slug}`,
+      canonical: `https://www.cloudrix.io/industries/${slug}`,
     },
   };
 }

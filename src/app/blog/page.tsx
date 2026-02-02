@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Blog - Cloud & Software Engineering Insights | Cloudrix",
     description:
       "Expert insights on cloud architecture, DevOps, software development, and digital transformation.",
-    url: "https://cloudrix.io/blog",
+    url: "https://www.cloudrix.io/blog",
     type: "website",
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Expert insights on cloud architecture, DevOps, and software development.",
   },
   alternates: {
-    canonical: "https://cloudrix.io/blog",
+    canonical: "https://www.cloudrix.io/blog",
   },
 };
 

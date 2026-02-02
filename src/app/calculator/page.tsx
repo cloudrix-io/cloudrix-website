@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     title: "ROI Calculator - How Much Is Bad Software Costing You? | Cloudrix",
     description:
       "Calculate the true cost of technical debt, slow deployments, and system downtime.",
-    url: "https://cloudrix.io/calculator",
+    url: "https://www.cloudrix.io/calculator",
     type: "website",
   },
   alternates: {
-    canonical: "https://cloudrix.io/calculator",
+    canonical: "https://www.cloudrix.io/calculator",
   },
 };
 

@@ -71,7 +71,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${title} | Cloudrix Case Study`,
       description,
-      url: `https://cloudrix.io/case-studies/${slug}`,
+      url: `https://www.cloudrix.io/case-studies/${slug}`,
       type: "article",
       siteName: "Cloudrix",
       images: [
@@ -92,7 +92,7 @@ export async function generateMetadata({
       images: [study.image || `/og?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(study.industry + " - " + study.client)}&type=case-studies`],
     },
     alternates: {
-      canonical: `https://cloudrix.io/case-studies/${slug}`,
+      canonical: `https://www.cloudrix.io/case-studies/${slug}`,
     },
   };
 }
