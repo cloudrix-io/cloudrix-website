@@ -4,11 +4,11 @@ import { Check, ArrowRight, HelpCircle, Zap, Users, Building2 } from "lucide-rea
 import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Pricing - Transparent Engineering Rates | Cloudrix",
+  title: "Pricing - Transparent Engineering Rates",
   description:
     "Transparent pricing for cloud architecture, software development, and DevOps services. Project-based, dedicated teams, or enterprise partnerships. EUR invoicing, no hidden fees.",
   openGraph: {
-    title: "Pricing - Transparent Engineering Rates | Cloudrix",
+    title: "Pricing - Transparent Engineering Rates",
     description:
       "Transparent pricing for cloud architecture, software development, and DevOps services. Project-based, dedicated teams, or enterprise partnerships.",
     url: "https://www.cloudrix.io/pricing",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing - Transparent Engineering Rates | Cloudrix",
+    title: "Pricing - Transparent Engineering Rates",
     description:
       "Transparent pricing for cloud architecture, software development, and DevOps services.",
   },
