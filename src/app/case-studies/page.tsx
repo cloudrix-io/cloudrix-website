@@ -5,6 +5,15 @@ import { ArrowRight, TrendingUp, Clock, Award } from "lucide-react";
 import connectDB from "@/lib/mongodb";
 import { CaseStudy, Stat, Page } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
+import { caseStudies as staticCaseStudies } from "@/data/case-studies";
+
+// Static stats for fallback
+const staticStats = [
+  { value: "47", label: "Projects Delivered" },
+  { value: "€12M+", label: "Client Revenue Impact" },
+  { value: "99.9%", label: "Average Uptime Achieved" },
+  { value: "94%", label: "Client Retention Rate" },
+];
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
@@ -59,17 +68,20 @@ async function getCaseStudiesData() {
       Stat.find({ isActive: true }).sort({ order: 1 }).lean(),
     ]);
 
-    return {
-      caseStudies: JSON.parse(JSON.stringify(caseStudies)),
-      stats: JSON.parse(JSON.stringify(stats)),
-    };
+    if (caseStudies && caseStudies.length > 0) {
+      return {
+        caseStudies: JSON.parse(JSON.stringify(caseStudies)),
+        stats: stats && stats.length > 0 ? JSON.parse(JSON.stringify(stats)) : staticStats,
+      };
+    }
   } catch (error) {
     console.error("Error fetching case studies data:", error);
-    return {
-      caseStudies: [],
-      stats: [],
-    };
   }
+  // Fallback to static data
+  return {
+    caseStudies: staticCaseStudies.map((cs, index) => ({ ...cs, _id: cs.id || String(index) })),
+    stats: staticStats,
+  };
 }
 
 export default async function CaseStudiesPage() {
@@ -229,7 +241,7 @@ export default async function CaseStudiesPage() {
 
                       {/* Technologies */}
                       {study.technologies && study.technologies.length > 0 && (
-                        <div>
+                        <div className="mb-6">
                           <h3 className="font-semibold text-gray-900 mb-3">
                             Technologies Used
                           </h3>
@@ -245,6 +257,15 @@ export default async function CaseStudiesPage() {
                           </div>
                         </div>
                       )}
+
+                      {/* View Full Case Study Link */}
+                      <Link
+                        href={`/case-studies/${study.slug}`}
+                        className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors group"
+                      >
+                        View Full Case Study
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </div>
                   </div>
                 );

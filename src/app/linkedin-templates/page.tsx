@@ -4,11 +4,11 @@ import { Linkedin, Copy, ArrowRight, CheckCircle, Download, Sparkles, Users } fr
 import { BreadcrumbJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Free LinkedIn Post Templates for Tech Founders | Cloudrix",
+  title: "Free LinkedIn Post Templates for Tech Founders",
   description:
     "50+ proven LinkedIn post templates for tech founders and CTOs. Grow your personal brand and attract clients. Free download, no sign-up required.",
   openGraph: {
-    title: "Free LinkedIn Post Templates for Tech Founders | Cloudrix",
+    title: "Free LinkedIn Post Templates for Tech Founders",
     description:
       "50+ proven LinkedIn post templates for tech founders and CTOs. Grow your personal brand.",
     url: "https://www.cloudrix.io/linkedin-templates",

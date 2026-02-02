@@ -15,11 +15,11 @@ import {
 import { BreadcrumbJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Free Resources - Cloud & DevOps Guides | Cloudrix",
+  title: "Free Resources - Cloud & DevOps Guides",
   description:
     "Download free guides, checklists, and templates for cloud migration, DevOps, and software development. Practical resources from senior engineers.",
   openGraph: {
-    title: "Free Resources - Cloud & DevOps Guides | Cloudrix",
+    title: "Free Resources - Cloud & DevOps Guides",
     description:
       "Download free guides, checklists, and templates for cloud migration, DevOps, and software development.",
     url: "https://www.cloudrix.io/resources",

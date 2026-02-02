@@ -6,8 +6,120 @@ import connectDB from "@/lib/mongodb";
 import { BlogPost } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
 
+// Static blog posts data for fallback
+const staticBlogPosts = [
+  {
+    _id: "1",
+    title: "Cloud Migration Checklist: 15 Steps to a Successful AWS Migration",
+    slug: "cloud-migration-checklist-aws",
+    excerpt: "A comprehensive guide to planning and executing your AWS cloud migration. From assessment to optimization, learn the proven steps that ensure zero-downtime migrations.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Cloud Architecture",
+    tags: ["aws", "cloud migration", "devops"],
+    readingTime: 8,
+    publishedAt: "2024-01-15",
+    isFeatured: true,
+  },
+  {
+    _id: "2",
+    title: "Scaling Node.js Applications: From 1K to 100K Users",
+    slug: "scaling-nodejs-applications-guide",
+    excerpt: "Practical guide to scaling Node.js applications. Clustering, caching, database optimization, and architectural patterns that handle real growth.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Software Development",
+    tags: ["nodejs", "scaling", "performance"],
+    readingTime: 7,
+    publishedAt: "2024-05-05",
+    isFeatured: false,
+  },
+  {
+    _id: "3",
+    title: "Terraform vs Pulumi vs CloudFormation: IaC Tool Comparison",
+    slug: "terraform-vs-pulumi-vs-cloudformation-comparison",
+    excerpt: "Detailed comparison of Infrastructure as Code tools. When to use Terraform, Pulumi, or CloudFormation based on team skills and project requirements.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "DevOps",
+    tags: ["terraform", "pulumi", "iac"],
+    readingTime: 6,
+    publishedAt: "2024-04-28",
+    isFeatured: false,
+  },
+  {
+    _id: "4",
+    title: "How to Build an MVP in 12 Weeks: A Technical Founder's Guide",
+    slug: "build-mvp-12-weeks-technical-guide",
+    excerpt: "Practical roadmap for building a production-ready MVP in 12 weeks. Technology choices, scope management, and avoiding common pitfalls.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Software Development",
+    tags: ["mvp", "startup", "product"],
+    readingTime: 6,
+    publishedAt: "2024-04-20",
+    isFeatured: false,
+  },
+  {
+    _id: "5",
+    title: "API Security Best Practices: Protecting Your Backend in 2025",
+    slug: "api-security-best-practices-2025",
+    excerpt: "Comprehensive guide to API security. Authentication, authorization, rate limiting, input validation, and common vulnerabilities to avoid.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Software Development",
+    tags: ["api", "security", "backend"],
+    readingTime: 7,
+    publishedAt: "2024-04-10",
+    isFeatured: false,
+  },
+  {
+    _id: "6",
+    title: "AWS Cost Optimization: 15 Ways to Cut Your Cloud Bill by 40%",
+    slug: "aws-cost-optimization-reduce-cloud-bill",
+    excerpt: "Practical strategies to reduce your AWS spend without sacrificing performance. Reserved instances, right-sizing, and architectural patterns that save money.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Cloud Architecture",
+    tags: ["aws", "cost-optimization", "finops"],
+    readingTime: 7,
+    publishedAt: "2024-04-02",
+    isFeatured: false,
+  },
+  {
+    _id: "7",
+    title: "Microservices vs Monolith: When to Make the Switch",
+    slug: "microservices-vs-monolith-when-to-switch",
+    excerpt: "Stop following trends blindly. Learn the real criteria for choosing between monolithic and microservices architectures.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Cloud Architecture",
+    tags: ["microservices", "monolith", "architecture"],
+    readingTime: 6,
+    publishedAt: "2024-03-25",
+    isFeatured: false,
+  },
+  {
+    _id: "8",
+    title: "Technical Debt: How to Quantify It and Convince Leadership to Fix It",
+    slug: "technical-debt-quantify-convince-leadership",
+    excerpt: "Learn how to measure technical debt in euros, not just gut feelings. Frameworks for communicating technical debt to non-technical stakeholders.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Technical Leadership",
+    tags: ["technical-debt", "leadership", "engineering-management"],
+    readingTime: 6,
+    publishedAt: "2024-03-18",
+    isFeatured: false,
+  },
+  {
+    _id: "9",
+    title: "React vs Vue vs Angular: Which Framework for Your Enterprise App?",
+    slug: "react-vs-vue-vs-angular-enterprise-comparison",
+    excerpt: "Objective comparison of React, Vue, and Angular for enterprise applications. Performance, ecosystem, hiring, and maintainability considerations.",
+    author: { name: "Firas Sayah", role: "Founder & Principal Engineer" },
+    category: "Software Development",
+    tags: ["react", "vue", "angular", "frontend"],
+    readingTime: 6,
+    publishedAt: "2024-03-10",
+    isFeatured: false,
+  },
+];
+
 export const metadata: Metadata = {
-  title: "Blog - Cloud & Software Engineering Insights | Cloudrix",
+  title: "Blog - Cloud & Software Engineering Insights",
   description:
     "Expert insights on cloud architecture, DevOps, software development, and digital transformation. Practical guides and industry best practices from senior engineers.",
   openGraph: {
@@ -71,15 +183,18 @@ async function getBlogPosts() {
       .sort({ publishedAt: -1 })
       .lean();
 
-    return {
-      posts: JSON.parse(JSON.stringify(posts)) as BlogPostData[],
-    };
+    if (posts && posts.length > 0) {
+      return {
+        posts: JSON.parse(JSON.stringify(posts)) as BlogPostData[],
+      };
+    }
   } catch (error) {
     console.error("Error fetching blog posts:", error);
-    return {
-      posts: [],
-    };
   }
+  // Fallback to static data
+  return {
+    posts: staticBlogPosts as unknown as BlogPostData[],
+  };
 }
 
 export default async function BlogPage() {

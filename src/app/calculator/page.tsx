@@ -5,11 +5,11 @@ import { ROICalculator, TrustBadgeStrip } from "@/components/ui";
 import { BreadcrumbJsonLd, SoftwareAppJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "ROI Calculator - How Much Is Bad Software Costing You? | Cloudrix",
+  title: "ROI Calculator - How Much Is Bad Software Costing You?",
   description:
     "Calculate the true cost of technical debt, slow deployments, and system downtime. Free ROI calculator for engineering leaders.",
   openGraph: {
-    title: "ROI Calculator - How Much Is Bad Software Costing You? | Cloudrix",
+    title: "ROI Calculator - How Much Is Bad Software Costing You?",
     description:
       "Calculate the true cost of technical debt, slow deployments, and system downtime.",
     url: "https://www.cloudrix.io/calculator",

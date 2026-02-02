@@ -6,11 +6,11 @@ import { CaseStudy } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Client Testimonials - What Our Clients Say | Cloudrix",
+  title: "Client Testimonials - What Our Clients Say",
   description:
     "Hear from the European companies we've helped with cloud architecture, software development, and DevOps. Real feedback from real clients.",
   openGraph: {
-    title: "Client Testimonials | Cloudrix",
+    title: "Client Testimonials",
     description:
       "Hear from the European companies we've helped with cloud architecture, software development, and DevOps.",
     url: "https://www.cloudrix.io/testimonials",
