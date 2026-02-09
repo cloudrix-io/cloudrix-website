@@ -13,6 +13,24 @@ const industries = [
   "logistics",
 ];
 
+// Static blog post slugs as fallback when MongoDB is unavailable
+const staticBlogSlugs = [
+  "cloud-migration-checklist-aws",
+  "scaling-nodejs-applications-guide",
+  "terraform-vs-pulumi-vs-cloudformation-comparison",
+  "build-mvp-12-weeks-technical-guide",
+  "api-security-best-practices-2025",
+  "aws-cost-optimization-reduce-cloud-bill",
+  "microservices-vs-monolith-when-to-switch",
+  "technical-debt-quantify-convince-leadership",
+  "react-vs-vue-vs-angular-enterprise-comparison",
+  "gdpr-compliant-cloud-architecture-guide",
+  "devops-engineer-cost-europe-salary-guide",
+  "postgresql-performance-optimization-tips",
+  "cicd-best-practices-pipelines",
+  "kubernetes-vs-serverless-architecture",
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cloudrix.io";
 
@@ -24,7 +42,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .select("slug updatedAt")
       .lean();
   } catch {
-    // If DB fails, continue with empty blog posts
+    // If DB fails, use static blog slugs as fallback
+    blogPosts = staticBlogSlugs.map((slug) => ({
+      slug,
+      updatedAt: new Date(),
+    }));
   }
 
   // Static pages with language alternates
