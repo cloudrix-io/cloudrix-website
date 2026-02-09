@@ -34,7 +34,7 @@ const staticBlogSlugs = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cloudrix.io";
 
-  // Fetch blog posts from database
+  // Fetch blog posts from database, fallback to static slugs
   let blogPosts: { slug: string; updatedAt: Date }[] = [];
   try {
     await dbConnect();
@@ -42,7 +42,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .select("slug updatedAt")
       .lean();
   } catch {
-    // If DB fails, use static blog slugs as fallback
+    // DB connection failed
+  }
+
+  // Use static fallback if DB returned no results
+  if (blogPosts.length === 0) {
     blogPosts = staticBlogSlugs.map((slug) => ({
       slug,
       updatedAt: new Date(),
