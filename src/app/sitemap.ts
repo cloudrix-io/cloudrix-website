@@ -245,7 +245,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // City + Service pages
   const cityServiceCombos = ["cloud-migration", "devops-consulting", "ai-consulting", "full-stack-development", "dedicated-teams", "llm-integration", "legacy-modernization", "technical-due-diligence", "api-development"];
   const dutchCities = ["amsterdam", "rotterdam", "the-hague", "utrecht", "eindhoven"];
-  const cityServicePages: MetadataRoute.Sitemap = cityServiceCombos.flatMap((service) =>
+  // Top 20 international cities (high priority for sitemap)
+  const internationalCities = [
+    "new-york", "san-francisco", "austin", "boston", "chicago", "seattle", "miami", "los-angeles",
+    "london", "manchester",
+    "berlin", "munich", "frankfurt",
+    "dubai", "riyadh", "abu-dhabi",
+    "singapore", "tokyo", "sydney", "bangalore",
+    "lagos", "cape-town", "nairobi",
+    "sao-paulo", "mexico-city",
+  ];
+  const dutchCityServicePages: MetadataRoute.Sitemap = cityServiceCombos.flatMap((service) =>
     dutchCities.map((city) => ({
       url: `${baseUrl}/services/${service}/${city}`,
       lastModified: new Date(),
@@ -253,6 +263,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }))
   );
+  const internationalCityServicePages: MetadataRoute.Sitemap = cityServiceCombos.flatMap((service) =>
+    internationalCities.map((city) => ({
+      url: `${baseUrl}/services/${service}/${city}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    }))
+  );
+  const cityServicePages: MetadataRoute.Sitemap = [...dutchCityServicePages, ...internationalCityServicePages];
 
   // Blog category pages
   const blogCategoryPages: MetadataRoute.Sitemap = [
