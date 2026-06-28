@@ -19,6 +19,14 @@ const comparisonImages: Record<string, { url: string; alt: string }> = {
     url: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=800&q=80",
     alt: "European engineering team collaborating in a modern workspace",
   },
+  "accenture-alternative": {
+    url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    alt: "Modern corporate office building representing enterprise consulting",
+  },
+  "cognizant-alternative": {
+    url: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80",
+    alt: "Senior engineers focused on quality software development",
+  },
 };
 
 interface Props {
