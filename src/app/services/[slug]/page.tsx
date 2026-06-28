@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getStaticServiceData } from "@/data/static-services";
 import {
   ArrowRight,
   CheckCircle,
@@ -65,12 +66,7 @@ async function getService(slug: string) {
   }
 
   // Static fallback from seed data
-  try {
-    const { getStaticServiceData } = await import("@/data/static-services");
-    return getStaticServiceData(slug);
-  } catch {
-    return null;
-  }
+  return getStaticServiceData(slug);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
