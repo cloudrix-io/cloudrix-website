@@ -27,6 +27,30 @@ const comparisonImages: Record<string, { url: string; alt: string }> = {
     url: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80",
     alt: "Senior engineers focused on quality software development",
   },
+  "wipro-alternative": {
+    url: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=800&q=80",
+    alt: "Modern software development team working on digital solutions",
+  },
+  "turing-alternative": {
+    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+    alt: "Remote engineering team collaborating on a software project",
+  },
+  "andela-alternative": {
+    url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    alt: "Diverse team of developers working together in a tech workspace",
+  },
+  "infosys-alternative": {
+    url: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    alt: "Enterprise technology consulting and digital transformation",
+  },
+  "tcs-alternative": {
+    url: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&q=80",
+    alt: "Modern office environment for technology services",
+  },
+  "sciencesoft-alternative": {
+    url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    alt: "Technology research and software engineering laboratory",
+  },
 };
 
 interface Props {

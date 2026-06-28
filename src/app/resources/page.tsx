@@ -11,22 +11,31 @@ import {
   BookOpen,
   Video,
   Code,
+  Lock,
+  Brain,
+  Wrench,
+  BookMarked,
+  Layout,
+  Globe,
+  Cpu,
+  Lightbulb,
 } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/seo";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Free Resources - Cloud & DevOps Guides",
+  title: "Free Resources - Guides, Whitepapers, Templates & AI Use Cases",
   description:
-    "Download free guides, checklists, and templates for cloud migration, DevOps, and software development. Practical resources from senior engineers.",
+    "Download free guides, whitepapers, templates, and AI use case libraries for cloud migration, DevOps, and software development. Practical resources from senior engineers.",
   openGraph: {
-    title: "Free Resources - Cloud & DevOps Guides",
+    title: "Free Resources - Guides, Whitepapers & Templates | Cloudrix",
     description:
-      "Download free guides, checklists, and templates for cloud migration, DevOps, and software development.",
+      "Download free guides, whitepapers, and templates for cloud migration, DevOps, and AI integration.",
     url: "https://www.cloudrix.io/resources",
     type: "website",
     images: [
       {
-        url: "/og?title=Free%20Engineering%20Resources&subtitle=Guides,%20Checklists%20%26%20Templates&type=resources",
+        url: "/og?title=Free%20Engineering%20Resources&subtitle=Guides,%20Whitepapers%20%26%20Templates&type=resources",
         width: 1200,
         height: 630,
         alt: "Cloudrix Resources",
@@ -107,13 +116,112 @@ const resources = [
   },
 ];
 
+const whitepapers = [
+  {
+    title: "The True Cost of Technical Debt",
+    description: "A data-driven analysis of how technical debt impacts velocity, retention, and revenue. Includes a framework for quantifying debt in your organization.",
+    pages: 28,
+    readTime: "15 min",
+  },
+  {
+    title: "EU AI Act Compliance for Engineering Teams",
+    description: "Practical guide to building AI systems that comply with the EU AI Act. Risk classification, documentation requirements, and implementation patterns.",
+    pages: 22,
+    readTime: "12 min",
+  },
+  {
+    title: "Cloud Migration ROI: Beyond Cost Savings",
+    description: "Why cloud migration delivers more than infrastructure savings. Speed, security, scalability, and talent acquisition benefits quantified.",
+    pages: 18,
+    readTime: "10 min",
+  },
+];
+
+const webinars = [
+  {
+    title: "Scaling Node.js to 1M Requests/Second",
+    description: "Live walkthrough of techniques for horizontal scaling, connection pooling, and performance optimization in production Node.js applications.",
+    duration: "45 min",
+    status: "Recording Available",
+  },
+  {
+    title: "From Monolith to Microservices: A Real-World Journey",
+    description: "How we helped a FinTech company decompose a monolith into 12 microservices without downtime. Lessons learned and patterns that worked.",
+    duration: "60 min",
+    status: "Recording Available",
+  },
+  {
+    title: "AI-First Development: Practical Patterns for 2025",
+    description: "How to integrate LLMs into production workflows without creating a maintenance nightmare. Includes prompt engineering, caching, and fallback strategies.",
+    duration: "45 min",
+    status: "Coming Soon",
+  },
+];
+
+const aiUseCases = [
+  {
+    title: "Document Processing & Extraction",
+    description: "Automated extraction of structured data from invoices, contracts, and legal documents using LLMs.",
+    industry: "Financial Services",
+  },
+  {
+    title: "Customer Support Automation",
+    description: "AI-powered support agents that handle 60% of tier-1 tickets with human-quality responses.",
+    industry: "SaaS",
+  },
+  {
+    title: "Code Review Assistant",
+    description: "Automated code review that catches bugs, security issues, and style violations before human review.",
+    industry: "Technology",
+  },
+  {
+    title: "Predictive Maintenance",
+    description: "ML models that predict equipment failures 72 hours in advance using IoT sensor data.",
+    industry: "Manufacturing",
+  },
+  {
+    title: "Content Generation Pipeline",
+    description: "Multi-stage content generation with quality checks, fact-verification, and brand voice consistency.",
+    industry: "E-Commerce",
+  },
+  {
+    title: "Fraud Detection System",
+    description: "Real-time transaction scoring using ensemble models to detect fraudulent patterns with 99.7% accuracy.",
+    industry: "FinTech",
+  },
+];
+
+const templates = [
+  {
+    title: "Architecture Decision Record (ADR)",
+    description: "Document and track architecture decisions with context, consequences, and alternatives.",
+    format: "Markdown",
+  },
+  {
+    title: "Sprint Retrospective Template",
+    description: "Structured retro format with actions, owners, and follow-up tracking.",
+    format: "Notion",
+  },
+  {
+    title: "Incident Response Runbook",
+    description: "Step-by-step guide for handling production incidents, from detection to post-mortem.",
+    format: "Markdown",
+  },
+  {
+    title: "Technical Proposal Template",
+    description: "Professional proposal template for engineering projects, including scope, timeline, and pricing.",
+    format: "Google Docs",
+  },
+];
+
 const categories = [
-  { name: "All", count: resources.length },
+  { name: "All", count: resources.length + whitepapers.length + templates.length },
   { name: "Checklist", count: resources.filter((r) => r.category === "Checklist").length },
   { name: "Guide", count: resources.filter((r) => r.category === "Guide").length },
   { name: "Assessment", count: resources.filter((r) => r.category === "Assessment").length },
-  { name: "Template", count: resources.filter((r) => r.category === "Template").length },
+  { name: "Template", count: resources.filter((r) => r.category === "Template").length + templates.length },
   { name: "Playbook", count: resources.filter((r) => r.category === "Playbook").length },
+  { name: "Whitepaper", count: whitepapers.length },
 ];
 
 export default function ResourcesPage() {
@@ -127,6 +235,16 @@ export default function ResourcesPage() {
       />
 
       <div className="bg-white">
+        {/* Breadcrumbs */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", url: "/" },
+              { name: "Resources", url: "/resources" },
+            ]}
+          />
+        </div>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,7 +258,7 @@ export default function ResourcesPage() {
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Why spend months figuring it out when you can download what senior engineers
-                already know? These are the exact frameworks and checklists we use on €500K+ projects.
+                already know? These are the exact frameworks and checklists we use on projects.
               </p>
             </div>
           </div>
@@ -200,23 +318,172 @@ export default function ResourcesPage() {
           </div>
         </section>
 
-        {/* Additional Resources */}
+        {/* Whitepapers Section */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">More Ways to Learn</h2>
-              <p className="text-xl text-gray-600">
-                Explore our blog and case studies for more insights
-              </p>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Lock className="w-5 h-5 text-purple-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Whitepapers</h2>
+                <p className="text-gray-500 text-sm">In-depth research and analysis (email required)</p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {whitepapers.map((paper) => (
+                <div key={paper.title} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded font-medium">Whitepaper</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">{paper.pages} pages</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">{paper.readTime} read</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{paper.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{paper.description}</p>
+                  <button className="w-full bg-purple-600 text-white py-2.5 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium flex items-center justify-center">
+                    <Lock className="w-4 h-4 mr-2" />
+                    Download (Free with Email)
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Webinars Section */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                <Video className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Webinars</h2>
+                <p className="text-gray-500 text-sm">Live sessions and recorded talks from our engineers</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {webinars.map((webinar) => (
+                <div key={webinar.title} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className={`text-xs px-2 py-1 rounded font-medium ${
+                      webinar.status === "Coming Soon"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : "bg-green-100 text-green-700"
+                    }`}>
+                      {webinar.status}
+                    </span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">{webinar.duration}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{webinar.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{webinar.description}</p>
+                  <button className="w-full bg-red-600 text-white py-2.5 px-4 rounded-lg hover:bg-red-700 transition-colors font-medium flex items-center justify-center">
+                    <Video className="w-4 h-4 mr-2" />
+                    {webinar.status === "Coming Soon" ? "Register for Notification" : "Watch Recording"}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* AI Use Cases Library */}
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Brain className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">AI Use Cases Library</h2>
+                <p className="text-gray-500 text-sm">Real-world AI implementations across industries</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {aiUseCases.map((useCase) => (
+                <div key={useCase.title} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded font-medium">
+                    {useCase.industry}
+                  </span>
+                  <h3 className="text-lg font-semibold text-gray-900 mt-3 mb-2">{useCase.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{useCase.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link
+                href="/ai-services"
+                className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors group"
+              >
+                Explore Our AI Services
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Templates Section */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <Layout className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Templates</h2>
+                <p className="text-gray-500 text-sm">Ready-to-use templates for engineering teams</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {templates.map((template) => (
+                <div key={template.title} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-medium">
+                    {template.format}
+                  </span>
+                  <h3 className="text-base font-semibold text-gray-900 mt-3 mb-2">{template.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{template.description}</p>
+                  <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium text-sm flex items-center justify-center">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Free
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Links: Glossary & Tools */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Link
+                href="/ai-tools"
+                className="group bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow text-center"
+              >
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                  <Wrench className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">AI Tools</h3>
+                <p className="text-gray-600 mb-4">
+                  Free interactive tools: compliance scanner, scope generator, and readiness assessment
+                </p>
+                <span className="text-blue-600 font-medium flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  Try Tools
+                  <ArrowRight className="ml-1 w-4 h-4" />
+                </span>
+              </Link>
+
               <Link
                 href="/blog"
                 className="group bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow text-center"
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                  <BookOpen className="w-8 h-8 text-blue-600" />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                  <BookOpen className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Engineering Blog</h3>
                 <p className="text-gray-600 mb-4">
@@ -232,32 +499,15 @@ export default function ResourcesPage() {
                 href="/case-studies"
                 className="group bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow text-center"
               >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                  <BarChart3 className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
+                  <BarChart3 className="w-8 h-8 text-purple-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Case Studies</h3>
                 <p className="text-gray-600 mb-4">
-                  Real-world examples of how we've helped companies succeed
+                  Real-world examples of how we&apos;ve helped companies succeed
                 </p>
                 <span className="text-blue-600 font-medium flex items-center justify-center group-hover:translate-x-1 transition-transform">
                   View Case Studies
-                  <ArrowRight className="ml-1 w-4 h-4" />
-                </span>
-              </Link>
-
-              <Link
-                href="/how-we-work"
-                className="group bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow text-center"
-              >
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
-                  <Video className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Process</h3>
-                <p className="text-gray-600 mb-4">
-                  Learn how we deliver successful projects for our clients
-                </p>
-                <span className="text-blue-600 font-medium flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                  Learn More
                   <ArrowRight className="ml-1 w-4 h-4" />
                 </span>
               </Link>

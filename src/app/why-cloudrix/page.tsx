@@ -15,7 +15,6 @@ import {
   Award,
   Play,
   ChevronDown,
-  Minus,
 } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/seo";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";

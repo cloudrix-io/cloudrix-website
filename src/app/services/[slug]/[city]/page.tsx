@@ -137,7 +137,7 @@ const services: Record<string, { title: string; shortTitle: string; description:
     title: "Dedicated Development Teams",
     shortTitle: "Dedicated Teams",
     description: "Senior engineers who integrate with your team. EU timezone, no lock-in.",
-    features: ["Senior engineers (5+ yrs)", "Full team integration", "Month-to-month contracts", "EU timezone overlap", "English & French fluency"],
+    features: ["Senior engineers (5+ yrs)", "Full team integration", "Month-to-month contracts", "EU timezone overlap", "Multilingual communication"],
   },
   "llm-integration": {
     title: "LLM Integration Services",
@@ -238,35 +238,55 @@ export default async function CityServicePage({ params }: Props) {
         {/* Hero */}
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-2 text-blue-600 mb-4">
-                <MapPin className="w-5 h-5" />
-                <span className="font-medium">{cityData.name}, {cityData.country}</span>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center gap-2 text-blue-600 mb-4">
+                  <MapPin className="w-5 h-5" />
+                  <span className="font-medium">{cityData.name}, {cityData.country}</span>
+                </div>
+                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  {serviceData.shortTitle} in {cityData.name}
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                  {serviceData.description}{" "}
+                  {cityData.isDutch
+                    ? `Based in the Netherlands, we serve ${cityData.name} companies with senior engineers who understand your market, speak your language, and work in your timezone.`
+                    : `From our Netherlands HQ, we serve ${cityData.name} companies with senior EU-based engineers who deliver production-quality work on your schedule.`}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg group"
+                  >
+                    Get Free Consultation
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link
+                    href={`/services/${slug}`}
+                    className="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-medium text-lg"
+                  >
+                    Full Service Details
+                  </Link>
+                </div>
               </div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                {serviceData.shortTitle} in {cityData.name}
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                {serviceData.description}{" "}
-                {cityData.isDutch
-                  ? `Based in the Netherlands, we serve ${cityData.name} companies with senior engineers who understand your market, speak your language, and work in your timezone.`
-                  : `From our Netherlands HQ, we serve ${cityData.name} companies with senior EU-based engineers who deliver production-quality work on your schedule.`}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg group"
-                >
-                  Get Free Consultation
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href={`/services/${slug}`}
-                  className="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-medium text-lg"
-                >
-                  Full Service Details
-                </Link>
-              </div>
+              {cityServiceImages[slug] && (
+                <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src={cityServiceImages[slug].url}
+                    alt={`${serviceData.shortTitle} in ${cityData.name} — ${cityServiceImages[slug].alt}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                    <p className="text-white text-sm font-medium flex items-center gap-1">
+                      <MapPin className="w-4 h-4" />
+                      {serviceData.shortTitle} &middot; {cityData.name}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
