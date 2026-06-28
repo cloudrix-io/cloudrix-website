@@ -31,7 +31,7 @@ const blogImageMap: Record<string, string> = {
 
   // 7. Signs legacy system needs modernization
   "signs-legacy-system-needs-modernization":
-    "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    "https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80",
 
   // 8. Why cloud migration failed 7 mistakes
   "why-cloud-migration-failed-7-mistakes":

@@ -73,10 +73,13 @@ Respond in this exact JSON format (no markdown, no code fences):
       message.content[0].type === "text" ? message.content[0].text : "";
 
     try {
-      const parsed = JSON.parse(text);
+      let jsonStr = rawText;
+      const jsonMatch = rawText.match(/```(?:json)?\s*([\s\S]*?)```/);
+      if (jsonMatch) jsonStr = jsonMatch[1];
+      const parsed = JSON.parse(jsonStr.trim());
       return NextResponse.json(parsed);
     } catch {
-      return NextResponse.json({ raw: text });
+      return NextResponse.json({ raw: rawText });
     }
   } catch {
     return NextResponse.json(

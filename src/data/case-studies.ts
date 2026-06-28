@@ -36,7 +36,7 @@ export const caseStudies: CaseStudy[] = [
       author: "VP of Engineering",
       role: "FinTech Company",
     },
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     metrics: [
       { label: "Uptime", value: "99.99%" },
       { label: "Deploy Speed", value: "12x/day" },
@@ -155,7 +155,7 @@ export const caseStudies: CaseStudy[] = [
       author: "Chief Digital Officer",
       role: "Insurance Company",
     },
-    image: "https://images.unsplash.com/photo-1531746790095-e5cb157f8489?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80",
     metrics: [
       { label: "Automation", value: "73%" },
       { label: "Response Time", value: "<30s" },
