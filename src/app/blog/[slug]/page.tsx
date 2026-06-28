@@ -90,6 +90,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   try {
     await connectDB();
