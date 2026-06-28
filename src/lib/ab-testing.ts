@@ -104,14 +104,16 @@ export interface ConversionEvent {
   metadata?: Record<string, unknown>;
 }
 
-// In production, you'd send this to your analytics service
+// Send conversion events to Google Analytics 4
 export function trackConversion(event: ConversionEvent): void {
-  // Log for development
-  console.log("[A/B Test Conversion]", event);
-
-  // In production, send to:
-  // - Google Analytics 4 (gtag)
-  // - Mixpanel
-  // - Amplitude
-  // - Your own analytics API
+  if (typeof window !== "undefined" && "gtag" in window) {
+    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
+    gtag("event", "ab_test_conversion", {
+      experiment_id: event.experimentId,
+      variant: event.variant,
+      conversion_event: event.event,
+      event_timestamp: event.timestamp.toISOString(),
+      ...(event.metadata || {}),
+    });
+  }
 }

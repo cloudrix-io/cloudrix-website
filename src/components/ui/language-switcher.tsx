@@ -19,7 +19,7 @@ export function LanguageSwitcher({ variant = "default", className }: LanguageSwi
 
   if (variant === "compact") {
     return (
-      <div className={cn("flex items-center gap-1", className)}>
+      <div className={cn("flex items-center gap-1", className)} role="group" aria-label="Language switcher">
         {languages.map((lang) => (
           <button
             key={lang.code}

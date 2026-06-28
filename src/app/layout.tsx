@@ -81,7 +81,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    alternateLocale: "fr_FR",
+    alternateLocale: [],
     url: "https://www.cloudrix.io",
     siteName: "Cloudrix",
     title: "Cloudrix | Cloud & Software Engineering for EU Companies",
@@ -126,7 +126,6 @@ export const metadata: Metadata = {
     canonical: "https://www.cloudrix.io",
     languages: {
       "en-US": "https://www.cloudrix.io",
-      "fr-FR": "https://www.cloudrix.io",
     },
   },
   verification: {

@@ -3,11 +3,30 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -42,14 +61,60 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--muted);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: var(--muted-foreground);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
+}
+
+/* Dark mode overrides for common patterns */
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    background-color: var(--background);
+  }
+
+  .bg-gray-50 {
+    background-color: var(--muted);
+  }
+
+  .border-gray-200 {
+    border-color: var(--card-border);
+  }
+
+  .text-gray-900 {
+    color: var(--foreground);
+  }
+
+  .text-gray-600,
+  .text-gray-500 {
+    color: var(--muted-foreground);
+  }
+
+  .prose {
+    color: var(--foreground);
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: var(--foreground);
+  }
+
+  .prose p,
+  .prose li {
+    color: var(--muted-foreground);
+  }
+
+  .prose code {
+    background-color: var(--card-bg);
+  }
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { jwtVerify } from "jose";
 import {
   experiments,
   AB_COOKIE_NAME,
@@ -8,7 +9,52 @@ import {
   getVariantAssignment,
 } from "@/lib/ab-testing";
 
-export function middleware(request: NextRequest) {
+const AUTH_COOKIE_NAME = "cloudrix_admin_token";
+
+async function verifyAdminToken(token: string): Promise<boolean> {
+  if (!process.env.JWT_SECRET) return false;
+  try {
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+    await jwtVerify(token, secret);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // --- Admin route protection ---
+  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
+    const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
+
+    if (!token) {
+      const loginUrl = new URL("/admin/login", request.url);
+      loginUrl.searchParams.set("from", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    const isValid = await verifyAdminToken(token);
+    if (!isValid) {
+      const loginUrl = new URL("/admin/login", request.url);
+      loginUrl.searchParams.set("from", pathname);
+      const response = NextResponse.redirect(loginUrl);
+      response.cookies.delete(AUTH_COOKIE_NAME);
+      return response;
+    }
+  }
+
+  // --- A/B Testing (skip for admin, API, static files) ---
+  if (
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/_next") ||
+    pathname.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
   const response = NextResponse.next();
 
   // Get existing assignments from cookie
@@ -46,17 +92,14 @@ export function middleware(request: NextRequest) {
   return response;
 }
 
-// Only run middleware on pages (not API routes, static files, etc.)
 export const config = {
   matcher: [
     /*
      * Match all request paths except:
-     * - api (API routes)
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
-     * - public folder
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\..*|admin).*)",
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$).*)",
   ],
 };

@@ -60,72 +60,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-      alternates: {
-        languages: {
-          en: baseUrl,
-          fr: baseUrl,
-        },
-      },
     },
     {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/services`,
-          fr: `${baseUrl}/services`,
-        },
-      },
     },
     {
       url: `${baseUrl}/case-studies`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/case-studies`,
-          fr: `${baseUrl}/case-studies`,
-        },
-      },
     },
     {
       url: `${baseUrl}/how-we-work`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/how-we-work`,
-          fr: `${baseUrl}/how-we-work`,
-        },
-      },
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/about`,
-          fr: `${baseUrl}/about`,
-        },
-      },
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/contact`,
-          fr: `${baseUrl}/contact`,
-        },
-      },
     },
     // New high-value pages
     {

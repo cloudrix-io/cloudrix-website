@@ -43,8 +43,6 @@ export function useABTest(experimentId: string): UseABTestResult {
         url: window.location.href,
       };
 
-      console.log("[A/B Conversion]", conversionData);
-
       // Send to Google Analytics 4 if available
       if (typeof window !== "undefined" && "gtag" in window) {
         (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "ab_test_conversion", {

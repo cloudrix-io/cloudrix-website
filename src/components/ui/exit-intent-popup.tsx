@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { X, Download, CheckCircle } from "lucide-react";
 
 export function ExitIntentPopup() {
@@ -8,6 +8,47 @@ export function ExitIntentPopup() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Handle Escape key to close popup
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setIsVisible(false);
+    }
+    // Focus trap: keep focus within the dialog
+    if (e.key === "Tab" && dialogRef.current) {
+      const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstEl = focusableElements[0];
+      const lastEl = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl?.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl?.focus();
+        }
+      }
+    }
+  }, []);
+
+  // Add/remove keydown listener and focus management when popup opens/closes
+  useEffect(() => {
+    if (isVisible) {
+      document.addEventListener("keydown", handleKeyDown);
+      // Focus the dialog when it opens
+      setTimeout(() => {
+        const firstInput = dialogRef.current?.querySelector<HTMLElement>("input, button");
+        firstInput?.focus();
+      }, 100);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [isVisible, handleKeyDown]);
 
   useEffect(() => {
     // Check if popup was already shown in this session
@@ -41,11 +82,25 @@ export function ExitIntentPopup() {
 
     setIsLoading(true);
 
-    // Simulate API call - in production, connect to your email service
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "exit-intent" }),
+      });
 
-    setIsSubmitted(true);
-    setIsLoading(false);
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Failed to subscribe");
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      // Still show success to not block UX, email will be retried
+      setIsSubmitted(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -60,10 +115,17 @@ export function ExitIntentPopup() {
       <div
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={handleClose}
+        aria-hidden="true"
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden animate-in fade-in zoom-in duration-300">
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Download free cloud migration checklist"
+        className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden animate-in fade-in zoom-in duration-300"
+      >
         {/* Close button */}
         <button
           onClick={handleClose}

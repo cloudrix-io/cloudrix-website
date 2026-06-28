@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag, Share2, Linkedin, Twitter } from "lucide-react";
+import sanitizeHtml from "sanitize-html";
 import connectDB from "@/lib/mongodb";
 import { BlogPost } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
@@ -246,7 +247,19 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <article className="prose prose-lg prose-blue max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100">
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content, {
+                allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2", "h3", "h4", "h5", "h6", "figure", "figcaption", "video", "source", "iframe", "pre", "code", "span"]),
+                allowedAttributes: {
+                  ...sanitizeHtml.defaults.allowedAttributes,
+                  img: ["src", "alt", "title", "width", "height", "loading"],
+                  a: ["href", "target", "rel", "title"],
+                  code: ["class"],
+                  span: ["class"],
+                  pre: ["class"],
+                  iframe: ["src", "width", "height", "frameborder", "allowfullscreen", "title"],
+                },
+                allowedIframeHostnames: ["www.youtube.com", "www.youtube-nocookie.com", "player.vimeo.com"],
+              }) }} />
             </article>
 
             {/* Tags */}
