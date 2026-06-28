@@ -1,5 +1,8 @@
 import { MetadataRoute } from "next";
 import { caseStudies } from "@/data/case-studies";
+import { technologies } from "@/data/technologies";
+import { roles } from "@/data/roles";
+import { complianceFrameworks } from "@/data/compliance";
 import dbConnect from "@/lib/mongodb";
 import { BlogPost, Service } from "@/lib/models";
 
@@ -264,5 +267,55 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages];
+  // Technology pages
+  const technologyPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/technologies`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...technologies.map((tech) => ({
+      url: `${baseUrl}/technologies/${tech.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  // Hire pages
+  const hirePages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/hire`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...roles.map((role) => ({
+      url: `${baseUrl}/hire/${role.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  // Compliance pages
+  const compliancePages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/compliance`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...complianceFrameworks
+      .filter((f) => !f.externalLink)
+      .map((framework) => ({
+        url: `${baseUrl}/compliance/${framework.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
+  ];
+
+  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages, ...technologyPages, ...hirePages, ...compliancePages];
 }
