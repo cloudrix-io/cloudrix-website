@@ -6,7 +6,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Cloud & AI Engineering for US Companies - USD Pricing",
   description:
-    "Enterprise cloud architecture, AI agent development, and DevOps consulting for US businesses. SOC 2 and HIPAA compliant. Timezone overlap with EST and PST. Book a free strategy call.",
+    "Cloud & AI engineering for US companies. SOC 2 & HIPAA compliance, USD pricing, 6+ hours daily timezone overlap. Senior engineers from $10,500/month.",
   openGraph: {
     title: "Cloud & AI Engineering for US Companies",
     description:

@@ -43,7 +43,7 @@ import {
 export const metadata: Metadata = {
   title: "Products & Tools — Built to Solve Real Problems",
   description:
-    "Explore 24 AI-powered products, intelligent business solutions, and engineering tools built by Cloudrix. From AI chat agents to cloud cost calculators — tools that deliver real value.",
+    "24 free tools and AI-powered products: code reviewer, compliance scanner, cost calculator, tech advisor, CRM, and more. Try them free.",
   openGraph: {
     title: "Products & Tools — Built to Solve Real Problems | Cloudrix",
     description:

@@ -17,6 +17,12 @@ interface Props {
   params: Promise<{ role: string }>;
 }
 
+function getArticle(title: string): string {
+  const vowelSoundPrefixes = ["AI ", "Angular", "ML ", "iOS", "Ubuntu", "Elixir", "Erlang", "Oracle", "AWS", "Azure", "API ", "ERP", "ETL"];
+  const startsWithVowelSound = vowelSoundPrefixes.some((prefix) => title.startsWith(prefix)) || /^[aeiouAEIOU]/.test(title);
+  return startsWithVowelSound ? "an" : "a";
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { role: roleSlug } = await params;
   const role = roles.find((r) => r.slug === roleSlug);
@@ -26,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${role.metaTitle} | Cloudrix`,
+    title: role.metaTitle,
     description: role.metaDescription,
     openGraph: {
       title: `${role.metaTitle} | Cloudrix`,
@@ -71,7 +77,7 @@ export default async function HireRolePage({ params }: Props) {
                 <span>Hire Engineers</span>
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Hire a {role.title}
+                Hire {getArticle(role.title)} {role.title}
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Senior talent, EU timezone, no lock-in. Start with a trial month.
@@ -101,7 +107,7 @@ export default async function HireRolePage({ params }: Props) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
               <div className="lg:col-span-2">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  What a {role.title} Does at Cloudrix
+                  What {getArticle(role.title)} {role.title} Does at Cloudrix
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-10">
                   {role.whatTheyDo}
@@ -236,7 +242,7 @@ export default async function HireRolePage({ params }: Props) {
         <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Hire a {role.title}?
+              Ready to Hire {getArticle(role.title)} {role.title}?
             </h2>
             <p className="text-xl text-blue-100 mb-10">
               Tell us what you need and we will match you with the right engineer

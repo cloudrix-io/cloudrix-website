@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${tech.metaTitle} | Cloudrix`,
+    title: tech.metaTitle,
     description: tech.metaDescription,
     openGraph: {
       title: `${tech.metaTitle} | Cloudrix`,

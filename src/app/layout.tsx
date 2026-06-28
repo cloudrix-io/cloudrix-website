@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s | Cloudrix",
   },
   description:
-    "AI agent development, RAG systems, EU AI Act compliance, and cloud engineering for companies worldwide. Serving Europe, US, Middle East, Asia-Pacific, and Africa. Book a free AI strategy call.",
+    "AI agent development, RAG systems, EU AI Act compliance, and cloud engineering for companies worldwide. Europe, US, Middle East, and APAC. Free strategy call.",
   keywords: [
     // AI keywords
     "AI agent development",

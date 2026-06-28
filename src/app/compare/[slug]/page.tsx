@@ -495,11 +495,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = comparisons[slug];
 
   if (!data) {
-    return { title: "Comparison Not Found | Cloudrix" };
+    return { title: "Comparison Not Found" };
   }
 
   return {
-    title: `${data.seoTitle} | Cloudrix`,
+    title: data.seoTitle,
     description: data.seoDescription,
     openGraph: {
       title: `${data.seoTitle} | Cloudrix`,

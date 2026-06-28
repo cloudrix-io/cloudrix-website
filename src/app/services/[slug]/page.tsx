@@ -114,7 +114,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getService(slug);
 
   if (!data) {
-    return { title: "Service Not Found | Cloudrix" };
+    return { title: "Service Not Found" };
   }
 
   const { service } = data;
@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = service.seoDescription || service.description;
 
   return {
-    title: `${title} | Cloudrix`,
+    title,
     description,
     openGraph: {
       title: `${title} | Cloudrix`,
@@ -141,7 +141,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: `${title} | Cloudrix`,
-      description,
+      description: description,
     },
     alternates: {
       canonical: `https://www.cloudrix.io/services/${service.slug}`,
