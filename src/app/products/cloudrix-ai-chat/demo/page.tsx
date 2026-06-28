@@ -26,8 +26,20 @@ const DEMO_RESPONSES: Record<string, string> = {
     "Thank you for your question! As a demo, I have limited responses. In the full version, CloudrixAI can answer any question about our services, pricing, capabilities, and more. Would you like to try one of the starter questions, or contact our team directly?",
 };
 
+const WELCOME_MESSAGE = `Hi there! 👋 I'm CloudrixAI, your engineering consultant.
+
+I can help you with:
+• **Getting a cost estimate** for your project
+• **Choosing the right service** (cloud, AI, DevOps, full-stack)
+• **Understanding our pricing** and how we work
+• **Answering technical questions** about our capabilities
+
+What brings you here today?`;
+
 export default function CloudrixAIChatDemo() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    { role: "assistant", content: WELCOME_MESSAGE },
+  ]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [showEmailCapture, setShowEmailCapture] = useState(false);

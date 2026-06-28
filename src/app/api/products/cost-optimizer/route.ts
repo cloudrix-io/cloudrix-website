@@ -69,7 +69,7 @@ Respond in this exact JSON format (no markdown, no code fences):
       ],
     });
 
-    const text =
+    const rawText =
       message.content[0].type === "text" ? message.content[0].text : "";
 
     try {

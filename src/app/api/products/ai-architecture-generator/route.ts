@@ -206,9 +206,12 @@ Respond ONLY with valid JSON (no markdown, no code fences) in this exact structu
       ],
     });
 
-    const text =
+    const rawText =
       message.content[0].type === "text" ? message.content[0].text : "";
-    const result = JSON.parse(text);
+    let jsonStr = rawText;
+    const jsonMatch = rawText.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (jsonMatch) jsonStr = jsonMatch[1];
+    const result = JSON.parse(jsonStr.trim());
 
     return NextResponse.json(result);
   } catch (error) {
