@@ -264,5 +264,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages];
+  // Market pages
+  const marketSlugs = [
+    "markets",
+    "markets/us",
+    "markets/us/new-york",
+    "markets/us/san-francisco",
+    "markets/us/austin",
+    "markets/us/boston",
+    "markets/middle-east",
+    "markets/uae",
+    "markets/uae/dubai",
+    "markets/saudi-arabia",
+    "markets/qatar",
+    "markets/asia-pacific",
+    "markets/singapore",
+    "markets/australia",
+    "markets/japan",
+    "markets/south-korea",
+    "markets/africa",
+    "markets/nigeria",
+    "markets/kenya",
+    "markets/south-africa",
+    "markets/latin-america",
+    "markets/brazil",
+    "markets/mexico",
+    "markets/uk",
+    "markets/germany",
+  ];
+  const marketPages: MetadataRoute.Sitemap = marketSlugs.map((slug) => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: slug === "markets" ? 0.8 : 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages, ...marketPages];
 }
