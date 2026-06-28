@@ -43,24 +43,32 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 async function getService(slug: string) {
+  // Try MongoDB first
   try {
     await connectDB();
     const service = await Service.findOne({ slug, isActive: true }).lean();
-    if (!service) return null;
+    if (service) {
+      const relatedServices = await Service.find({
+        slug: { $in: service.relatedServiceSlugs || [] },
+        isActive: true,
+      })
+        .select("title slug description icon")
+        .lean();
 
-    const relatedServices = await Service.find({
-      slug: { $in: service.relatedServiceSlugs || [] },
-      isActive: true,
-    })
-      .select("title slug description icon")
-      .lean();
+      return {
+        service: JSON.parse(JSON.stringify(service)),
+        relatedServices: JSON.parse(JSON.stringify(relatedServices)),
+      };
+    }
+  } catch {
+    // Fall through to static data
+  }
 
-    return {
-      service: JSON.parse(JSON.stringify(service)),
-      relatedServices: JSON.parse(JSON.stringify(relatedServices)),
-    };
-  } catch (error) {
-    console.error("Error fetching service:", error);
+  // Static fallback from seed data
+  try {
+    const { getStaticServiceData } = await import("@/data/static-services");
+    return getStaticServiceData(slug);
+  } catch {
     return null;
   }
 }
@@ -105,14 +113,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const dynamicParams = true;
+
+const STATIC_SLUGS = [
+  "cloud-migration",
+  "devops-consulting",
+  "ai-consulting",
+  "full-stack-development",
+  "technical-due-diligence",
+  "dedicated-teams",
+  "api-development",
+  "llm-integration",
+  "legacy-modernization",
+];
+
 export async function generateStaticParams() {
   try {
     await connectDB();
     const services = await Service.find({ isActive: true }).select("slug").lean();
-    return services.map((s) => ({ slug: s.slug }));
+    if (services.length > 0) {
+      return services.map((s) => ({ slug: s.slug }));
+    }
   } catch {
-    return [];
+    // Fall through to static slugs
   }
+  return STATIC_SLUGS.map((slug) => ({ slug }));
 }
 
 export default async function ServicePage({ params }: Props) {

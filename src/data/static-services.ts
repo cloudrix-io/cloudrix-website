@@ -1,0 +1,195 @@
+// Static service data for when MongoDB is unavailable (build time / no DB)
+// This is extracted from src/scripts/seed-services.ts
+
+const staticServices = [
+  {
+    title: "Cloud Migration Services",
+    slug: "cloud-migration",
+    description: "Migrate your infrastructure to AWS, GCP, or Azure with zero downtime. We handle assessment, planning, execution, and optimization — so you can focus on your business.",
+    longDescription: `<h2>Why Companies Migrate to the Cloud</h2><p>On-premise infrastructure is expensive, inflexible, and creates a ceiling on your growth. Cloud migration enables auto-scaling, pay-as-you-go pricing, and global availability — but only if done correctly.</p><h2>Our Cloud Migration Process</h2><p>We follow a proven 6-phase methodology: Discovery & Assessment, Strategy & Planning, Proof of Concept, Migration Execution, Optimization, and Handover & Support.</p><h2>What Makes Our Approach Different</h2><p>We evaluate each workload individually. Some applications benefit from containerization with Kubernetes. Others are better served by serverless architectures. We match the solution to the workload.</p>`,
+    icon: "Cloud",
+    problem: "Legacy infrastructure is expensive to maintain, doesn't scale, and creates operational bottlenecks.",
+    solution: "A systematic cloud migration with zero-downtime cutover, cost optimization from day one, and Infrastructure as Code.",
+    result: "40-60% reduction in infrastructure costs, 99.9%+ uptime, and the ability to scale instantly.",
+    features: ["Cloud readiness assessment & migration roadmap", "Multi-cloud strategy (AWS, GCP, Azure)", "Zero-downtime migration execution", "Infrastructure as Code (Terraform, Pulumi)", "Kubernetes orchestration & container migration", "Cost optimization & FinOps setup", "Security hardening & compliance (SOC2, GDPR)", "Post-migration monitoring & alerting"],
+    useCases: ["SaaS company migrating from managed hosting to AWS", "Enterprise moving on-premise workloads to Azure", "Startup consolidating multi-cloud setup", "Healthcare company migrating to HIPAA-compliant cloud", "E-commerce platform preparing for peak traffic", "Financial services firm meeting regulatory requirements"],
+    technologies: ["AWS", "Google Cloud", "Microsoft Azure", "Terraform", "Pulumi", "Kubernetes", "Docker", "CloudFormation", "Datadog", "Grafana"],
+    faqs: [
+      { question: "How long does a typical cloud migration take?", answer: "A straightforward lift-and-shift of 5-10 servers takes 4-6 weeks. A full re-architecture typically takes 3-6 months." },
+      { question: "Will there be downtime during migration?", answer: "Our methodology is designed for zero downtime using blue-green deployments and DNS-based cutover." },
+      { question: "How much will we save on cloud costs?", answer: "Most clients see 40-60% cost reduction compared to on-premise infrastructure." },
+    ],
+    relatedServiceSlugs: ["devops-consulting", "legacy-modernization", "technical-due-diligence"],
+    seoTitle: "Cloud Migration Services — Zero-Downtime AWS, GCP & Azure",
+    seoDescription: "Migrate to the cloud with zero downtime. Assessment, planning, execution & optimization for AWS, GCP, Azure. 40-60% cost reduction.",
+  },
+  {
+    title: "DevOps Consulting",
+    slug: "devops-consulting",
+    description: "Implement CI/CD pipelines, monitoring, and infrastructure automation. Ship faster, break less, and sleep better at night.",
+    longDescription: `<h2>What DevOps Consulting Actually Means</h2><p>DevOps isn't about tools — it's about removing friction between development and operations. Our engagements focus on measurable outcomes: faster deployments, fewer incidents, and more time building features.</p>`,
+    icon: "Zap",
+    problem: "Manual deployments are slow and error-prone. Your team spends more time on operations than building features.",
+    solution: "Fully automated CI/CD pipelines with testing, security scanning, and rollback capabilities.",
+    result: "Deploy multiple times per day with confidence. Reduce incidents by 80%.",
+    features: ["CI/CD pipeline design & implementation", "GitHub Actions, GitLab CI setup", "Docker containerization", "Kubernetes cluster management", "Monitoring & alerting (Datadog, Grafana)", "Security scanning (SAST, DAST)", "Infrastructure as Code", "Log aggregation & observability"],
+    useCases: ["Startup automating manual deployment", "Enterprise standardizing CI/CD across microservices", "SaaS company implementing zero-downtime deployments"],
+    technologies: ["GitHub Actions", "GitLab CI", "Docker", "Kubernetes", "Terraform", "Datadog", "Grafana", "Prometheus", "ArgoCD"],
+    faqs: [
+      { question: "What does DevOps consulting include?", answer: "CI/CD pipeline setup, infrastructure automation, monitoring, security scanning, and team training." },
+      { question: "How long until we see results?", answer: "Quick wins ship within 2-4 weeks. A full transformation takes 3-6 months with improvements every sprint." },
+    ],
+    relatedServiceSlugs: ["cloud-migration", "full-stack-development", "dedicated-teams"],
+    seoTitle: "DevOps Consulting Services — CI/CD, Kubernetes & Automation",
+    seoDescription: "Expert DevOps consulting: CI/CD pipelines, Kubernetes, monitoring, IaC. Deploy faster, break less. Senior engineers, EU timezone.",
+  },
+  {
+    title: "AI & ML Consulting",
+    slug: "ai-consulting",
+    description: "From strategy to production: AI agent development, RAG systems, computer vision, and GDPR-compliant ML solutions for European enterprises.",
+    longDescription: `<h2>AI That Solves Real Business Problems</h2><p>We help European companies cut through the hype and implement AI solutions that deliver measurable ROI while staying GDPR-compliant.</p><h2>Our AI Services</h2><p>AI Strategy & Readiness Assessment, Custom AI/ML Development, LLM Integration & RAG Systems, AI Agent Development, and GDPR & EU AI Act Compliance.</p>`,
+    icon: "Brain",
+    problem: "You know AI can transform your business, but you're overwhelmed by options, worried about compliance, and unsure which use cases will deliver ROI.",
+    solution: "Practical AI consulting that starts with your business problems, not the technology.",
+    result: "Production AI systems that deliver measurable business value.",
+    features: ["AI strategy & readiness assessment", "Custom ML model development", "LLM integration (GPT-4, Claude, Llama)", "RAG system architecture", "AI agent development", "Computer vision & NLP", "GDPR & EU AI Act compliance", "MLOps & model monitoring"],
+    useCases: ["Customer support automation with AI agents", "Document processing pipeline", "RAG-powered knowledge base", "Predictive maintenance", "Fraud detection", "Product recommendations"],
+    technologies: ["Python", "PyTorch", "LangChain", "OpenAI API", "Claude API", "Hugging Face", "Pinecone", "Weaviate", "MLflow", "AWS SageMaker"],
+    faqs: [
+      { question: "Do we need a lot of data to start with AI?", answer: "Not always. Pre-trained models and transfer learning allow you to get started with relatively small datasets." },
+      { question: "How do you ensure GDPR compliance?", answer: "We implement privacy by design: data minimization, purpose limitation, right to explanation, and proper consent management." },
+    ],
+    relatedServiceSlugs: ["llm-integration", "full-stack-development", "technical-due-diligence"],
+    seoTitle: "AI & ML Consulting — GDPR-Compliant AI for EU Companies",
+    seoDescription: "AI consulting for European companies: strategy, LLM integration, RAG systems, AI agents. GDPR & EU AI Act compliant.",
+  },
+  {
+    title: "Full-Stack Development",
+    slug: "full-stack-development",
+    description: "Build production-ready applications with modern frameworks. From MVPs to enterprise-grade systems.",
+    longDescription: `<h2>Modern Applications Built to Scale</h2><p>We build applications using battle-tested stacks that balance developer productivity with long-term maintainability.</p>`,
+    icon: "Code",
+    problem: "You need to ship features faster without compromising quality.",
+    solution: "Senior engineers who write clean, tested, well-documented code using modern frameworks.",
+    result: "Faster time-to-market with maintainable code. 90%+ test coverage.",
+    features: ["React / Next.js frontend", "Node.js / Python backend", "REST & GraphQL APIs", "Database design", "Real-time features", "Performance optimization", "Comprehensive testing", "Third-party integrations"],
+    useCases: ["SaaS MVP development", "Enterprise dashboards", "E-commerce platforms", "Internal tools", "API platforms"],
+    technologies: ["React", "Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "GraphQL", "Tailwind CSS"],
+    faqs: [
+      { question: "Can you build an MVP in 8 weeks?", answer: "Yes, for well-scoped MVPs. We work in 2-week sprints with demos after each." },
+    ],
+    relatedServiceSlugs: ["devops-consulting", "api-development", "dedicated-teams"],
+    seoTitle: "Full-Stack Development — React, Next.js, Node.js, Python",
+    seoDescription: "Production-ready full-stack development. React, Next.js, Node.js, Python. MVPs to enterprise systems.",
+  },
+  {
+    title: "Technical Due Diligence",
+    slug: "technical-due-diligence",
+    description: "Independent technical assessment for M&A, investment decisions, or internal audits.",
+    longDescription: `<h2>Make Informed Decisions About Technology Investments</h2><p>Our technical due diligence reports are used by PE firms, VCs, corporate acquirers, and CTOs across Europe.</p>`,
+    icon: "Shield",
+    problem: "You're about to invest millions but don't have the expertise to evaluate the technology.",
+    solution: "An independent, comprehensive technical assessment delivered as a clear, actionable report.",
+    result: "A detailed due diligence report with risk ratings and remediation cost estimates. 2-3 week turnaround.",
+    features: ["Code quality review", "Architecture assessment", "Security scanning", "Technical debt quantification", "Infrastructure evaluation", "Team capability assessment", "GDPR compliance check", "Executive summary"],
+    useCases: ["PE firm evaluating SaaS acquisition", "VC due diligence on Series B", "CTO internal technology audit"],
+    technologies: ["SonarQube", "Snyk", "OWASP ZAP", "AWS Well-Architected Framework"],
+    faqs: [
+      { question: "How long does a due diligence take?", answer: "2-3 weeks standard, 1 week expedited for time-sensitive transactions." },
+    ],
+    relatedServiceSlugs: ["ai-consulting", "legacy-modernization", "cloud-migration"],
+    seoTitle: "Technical Due Diligence — M&A, Investment & Code Audits",
+    seoDescription: "Independent technical due diligence for M&A and investments. Code quality, architecture, security assessment.",
+  },
+  {
+    title: "Dedicated Development Teams",
+    slug: "dedicated-teams",
+    description: "Extend your engineering capacity with senior developers who integrate seamlessly with your team.",
+    longDescription: `<h2>Scale Your Engineering Without the Hiring Headache</h2><p>Hiring senior engineers takes 3-6 months. With dedicated teams from Cloudrix, you get experienced engineers within 1-2 weeks.</p>`,
+    icon: "Code",
+    problem: "You need to scale development capacity quickly, but hiring takes months.",
+    solution: "Vetted senior engineers who join your team within 1-2 weeks. EU timezone, English & French fluency.",
+    result: "Immediate capacity boost with zero ramp-up friction. Month-to-month flexibility.",
+    features: ["Senior full-stack developers (5+ years)", "DevOps & SRE engineers", "AI/ML engineers", "Technical leads", "EU timezone", "Month-to-month contracts", "English & French fluency", "Seamless workflow integration"],
+    useCases: ["Scale-up needing extra engineers for launch", "Enterprise filling architect gap", "Startup augmenting team"],
+    technologies: ["React", "Next.js", "Node.js", "Python", "TypeScript", "AWS", "Kubernetes", "Docker", "Terraform", "PostgreSQL"],
+    faqs: [
+      { question: "How quickly can engineers start?", answer: "Within 1-2 weeks. We propose candidates within 48 hours." },
+    ],
+    relatedServiceSlugs: ["full-stack-development", "devops-consulting", "ai-consulting"],
+    seoTitle: "Dedicated Development Teams — Senior Engineers, EU Timezone",
+    seoDescription: "Dedicated senior development teams for European companies. 1-2 week onboarding, EU timezone, no lock-in.",
+  },
+  {
+    title: "API Development & Integration",
+    slug: "api-development",
+    description: "Design, build, and integrate REST and GraphQL APIs that are fast, secure, and well-documented.",
+    longDescription: `<h2>APIs Are the Backbone of Modern Software</h2><p>We design APIs that are fast, secure, well-documented, and a joy to integrate with.</p>`,
+    icon: "Workflow",
+    problem: "Your systems don't talk to each other. Data is siloed, integrations are fragile.",
+    solution: "Well-designed APIs with comprehensive documentation, versioning, and robust error handling.",
+    result: "Reliable, fast APIs. Integration time reduced from weeks to days.",
+    features: ["REST API design", "GraphQL implementation", "API gateway setup", "Third-party integration", "OAuth2/JWT auth", "API documentation", "Rate limiting", "Webhook systems"],
+    useCases: ["SaaS building public API", "E-commerce integrating payments/shipping", "FinTech aggregating banking APIs"],
+    technologies: ["Node.js", "Python", "Go", "GraphQL", "REST", "OpenAPI", "Kong", "AWS API Gateway"],
+    faqs: [
+      { question: "REST or GraphQL?", answer: "REST for most use cases and public APIs. GraphQL when your frontend needs complex nested data." },
+    ],
+    relatedServiceSlugs: ["full-stack-development", "legacy-modernization", "ai-consulting"],
+    seoTitle: "API Development & Integration — REST, GraphQL & More",
+    seoDescription: "API design, development & integration. REST, GraphQL, third-party integrations. Well-documented, secure, built to scale.",
+  },
+  {
+    title: "LLM Integration Services",
+    slug: "llm-integration",
+    description: "Integrate large language models into your applications with RAG, fine-tuning, and prompt engineering.",
+    longDescription: `<h2>From AI Demos to Production Features</h2><p>We've integrated LLMs into production applications serving thousands of users. We know what works and what doesn't.</p>`,
+    icon: "Bot",
+    problem: "You want AI-powered features but production LLM integration requires careful engineering.",
+    solution: "End-to-end LLM integration: model selection, RAG architecture, prompt engineering, and production infrastructure.",
+    result: "Production AI features. 95%+ response accuracy with RAG. 60% reduction in support tickets.",
+    features: ["RAG system architecture", "Vector database setup", "Prompt engineering", "Model selection & benchmarking", "Fine-tuning", "Streaming responses", "Cost monitoring", "Content moderation"],
+    useCases: ["Customer support chatbot", "Internal search tool", "Content generation", "Code assistant", "Document analysis"],
+    technologies: ["OpenAI API", "Claude API", "Llama", "LangChain", "LlamaIndex", "Pinecone", "Weaviate", "pgvector", "Vercel AI SDK"],
+    faqs: [
+      { question: "What is RAG?", answer: "RAG fetches relevant information from your data before generating a response, dramatically reducing hallucinations." },
+    ],
+    relatedServiceSlugs: ["ai-consulting", "full-stack-development", "api-development"],
+    seoTitle: "LLM Integration Services — RAG, Fine-Tuning & Production AI",
+    seoDescription: "LLM integration: RAG systems, prompt engineering, model selection, production infrastructure. GPT-4, Claude, open-source.",
+  },
+  {
+    title: "Legacy System Modernization",
+    slug: "legacy-modernization",
+    description: "Modernize your legacy applications without disrupting your business.",
+    longDescription: `<h2>Your Legacy System Is Holding You Back</h2><p>We take an incremental approach using the Strangler Fig pattern — gradually replacing legacy components while your business continues running.</p>`,
+    icon: "Layers",
+    problem: "Your legacy system is a bottleneck. Expensive to maintain, hard to hire for, risky to change.",
+    solution: "Incremental modernization using the Strangler Fig pattern.",
+    result: "A modern, maintainable system. 70% reduction in maintenance costs. 3-5x development velocity.",
+    features: ["Legacy assessment & roadmap", "Strangler Fig pattern", "Monolith to microservices", "Database migration", "API facade", "Frontend modernization", "Automated testing", "Knowledge transfer"],
+    useCases: ["Enterprise replacing PHP monolith", "Financial institution migrating from Oracle to PostgreSQL", "Manufacturing modernizing custom ERP"],
+    technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "Docker", "Kubernetes", "Terraform"],
+    faqs: [
+      { question: "Rewrite or modernize incrementally?", answer: "Almost always modernize incrementally. Full rewrites are expensive, risky, and have high failure rates." },
+    ],
+    relatedServiceSlugs: ["cloud-migration", "full-stack-development", "technical-due-diligence"],
+    seoTitle: "Legacy System Modernization — Incremental, Zero-Risk Migration",
+    seoDescription: "Modernize legacy systems without disruption. Strangler Fig pattern, monolith to microservices. 70% maintenance cost reduction.",
+  },
+];
+
+export function getStaticServiceData(slug: string) {
+  const service = staticServices.find((s) => s.slug === slug);
+  if (!service) return null;
+
+  const relatedServices = staticServices
+    .filter((s) => service.relatedServiceSlugs.includes(s.slug))
+    .map(({ title, slug, description, icon }) => ({ title, slug, description, icon }));
+
+  return { service, relatedServices };
+}
+
+export function getAllStaticServiceSlugs() {
+  return staticServices.map((s) => s.slug);
+}
