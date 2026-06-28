@@ -125,6 +125,21 @@ export function Footer() {
                   API Development
                 </Link>
               </li>
+              <li>
+                <Link href="/ai-services" className="text-sm hover:text-white transition-colors font-medium text-indigo-400">
+                  AI Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/eu-ai-act" className="text-sm hover:text-white transition-colors">
+                  EU AI Act Compliance
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-tools" className="text-sm hover:text-white transition-colors">
+                  Free AI Tools
+                </Link>
+              </li>
             </ul>
           </div>
 

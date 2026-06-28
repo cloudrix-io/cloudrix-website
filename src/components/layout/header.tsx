@@ -30,6 +30,8 @@ export function Header() {
   const navigation = [
     { name: t("Home", "Accueil"), href: "/" },
     { name: t("Services", "Services"), href: "/services", hasDropdown: true },
+    { name: t("AI Services", "Services IA"), href: "/ai-services" },
+    { name: t("EU AI Act", "EU AI Act"), href: "/eu-ai-act" },
     { name: t("Pricing", "Tarifs"), href: "/pricing" },
     { name: t("Case Studies", "Etudes de Cas"), href: "/case-studies" },
     { name: t("About", "A Propos"), href: "/about" },
@@ -139,7 +141,7 @@ export function Header() {
               href="/contact"
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
             >
-              {t("Get Free Consultation", "Consultation Gratuite")}
+              {t("Get AI Strategy Call", "Appel Stratégique IA")}
             </Link>
           </div>
 
@@ -223,7 +225,7 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center font-medium mt-2"
             >
-              {t("Get Free Consultation", "Consultation Gratuite")}
+              {t("Get AI Strategy Call", "Appel Stratégique IA")}
             </Link>
           </div>
         </div>

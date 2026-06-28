@@ -68,12 +68,22 @@ async function getCaseStudiesData() {
       Stat.find({ isActive: true }).sort({ order: 1 }).lean(),
     ]);
 
-    if (caseStudies && caseStudies.length > 0) {
-      return {
-        caseStudies: JSON.parse(JSON.stringify(caseStudies)),
-        stats: stats && stats.length > 0 ? JSON.parse(JSON.stringify(stats)) : staticStats,
-      };
-    }
+    const dbCaseStudies = caseStudies && caseStudies.length > 0
+      ? JSON.parse(JSON.stringify(caseStudies))
+      : [];
+
+    // Merge: use DB case studies + append any static ones not in DB (by slug)
+    const dbSlugs = new Set(dbCaseStudies.map((cs: { slug: string }) => cs.slug));
+    const extraStatic = staticCaseStudies
+      .filter((cs) => !dbSlugs.has(cs.slug))
+      .map((cs, index) => ({ ...cs, _id: cs.id || `static-${index}` }));
+
+    const allCaseStudies = [...dbCaseStudies, ...extraStatic];
+
+    return {
+      caseStudies: allCaseStudies.length > 0 ? allCaseStudies : staticCaseStudies.map((cs, index) => ({ ...cs, _id: cs.id || String(index) })),
+      stats: stats && stats.length > 0 ? JSON.parse(JSON.stringify(stats)) : staticStats,
+    };
   } catch (error) {
     console.error("Error fetching case studies data:", error);
   }

@@ -274,7 +274,8 @@ export default async function ServicesPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             {Object.keys(technologies).length > 0 ? (
-              Object.entries(technologies).map(([category, techs]) => (
+              <>
+              {Object.entries(technologies).map(([category, techs]) => (
                 <div key={category} className="text-center">
                   <h3 className="font-semibold text-gray-900 mb-4 capitalize">
                     {category}
@@ -285,7 +286,19 @@ export default async function ServicesPage() {
                     ))}
                   </ul>
                 </div>
-              ))
+              ))}
+              {!technologies["ai"] && !technologies["ai & ml"] && (
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-900 mb-4">AI & ML</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>Claude / GPT-4</li>
+                    <li>LangChain</li>
+                    <li>Pinecone / pgvector</li>
+                    <li>vLLM / Ollama</li>
+                  </ul>
+                </div>
+              )}
+              </>
             ) : (
               <>
                 <div className="text-center">
