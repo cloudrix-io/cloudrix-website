@@ -46,7 +46,7 @@ const services: Record<string, { title: string; shortTitle: string; description:
     title: "Dedicated Development Teams",
     shortTitle: "Dedicated Teams",
     description: "Senior engineers who integrate with your team. EU timezone, no lock-in.",
-    features: ["Senior engineers (5+ yrs)", "Full team integration", "Month-to-month contracts", "EU timezone overlap", "English & French fluency"],
+    features: ["Senior engineers (5+ yrs)", "Full team integration", "Month-to-month contracts", "EU timezone overlap", "Multilingual communication"],
   },
   "llm-integration": {
     title: "LLM Integration Services",

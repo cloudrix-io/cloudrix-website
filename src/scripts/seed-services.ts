@@ -287,7 +287,7 @@ const services = [
   {
     title: "Dedicated Development Teams",
     slug: "dedicated-teams",
-    description: "Extend your engineering capacity with senior developers who integrate seamlessly with your team. EU timezone, English & French fluency, no long-term commitments.",
+    description: "Extend your engineering capacity with senior developers who integrate seamlessly with your team. EU timezone, Multilingual communication, no long-term commitments.",
     longDescription: `<h2>Scale Your Engineering Without the Hiring Headache</h2>
 <p>Hiring senior engineers takes 3-6 months and costs €15-25K in recruitment fees alone. With dedicated teams from Cloudrix, you get experienced engineers embedded in your workflow within 1-2 weeks.</p>
 
@@ -308,7 +308,7 @@ const services = [
 </ul>`,
     icon: "Users",
     problem: "You need to scale development capacity quickly, but hiring takes months and freelancers are unreliable. You need engineers who can integrate with your team immediately.",
-    solution: "Vetted senior engineers who join your team within 1-2 weeks. They use your tools, attend your meetings, and follow your processes. EU timezone, English & French fluency.",
+    solution: "Vetted senior engineers who join your team within 1-2 weeks. They use your tools, attend your meetings, and follow your processes. EU timezone, Multilingual communication.",
     result: "Immediate capacity boost with zero ramp-up friction. Month-to-month flexibility. Engineers who feel like part of your team, not outsiders.",
     features: [
       "Senior full-stack developers (5+ years experience)",
@@ -316,7 +316,7 @@ const services = [
       "AI/ML engineers",
       "Technical leads & architects",
       "EU timezone coverage (CET/CEST)",
-      "English & French fluency",
+      "Multilingual communication",
       "Month-to-month contracts, no lock-in",
       "Seamless integration with your workflow",
     ],

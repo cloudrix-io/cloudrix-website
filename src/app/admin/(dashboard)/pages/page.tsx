@@ -84,7 +84,7 @@ export default function PagesPage() {
     <div>
       <PageHeader
         title="Pages"
-        description="Manage all website pages and their content in English and French"
+        description="Manage all website pages and their content"
       />
 
       <Card variant="bordered">

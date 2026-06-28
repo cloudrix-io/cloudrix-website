@@ -460,7 +460,7 @@ export default function EditPagePage({ params }: { params: Promise<{ slug: strin
     <div>
       <PageHeader
         title={`Edit ${page.title}`}
-        description="Manage page content in English and French"
+        description="Manage page content"
         backHref="/admin/pages"
       />
 

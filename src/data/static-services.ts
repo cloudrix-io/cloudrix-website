@@ -108,9 +108,9 @@ const staticServices = [
     longDescription: `<h2>Scale Your Engineering Without the Hiring Headache</h2><p>Hiring senior engineers takes 3-6 months. With dedicated teams from Cloudrix, you get experienced engineers within 1-2 weeks.</p>`,
     icon: "Code",
     problem: "You need to scale development capacity quickly, but hiring takes months.",
-    solution: "Vetted senior engineers who join your team within 1-2 weeks. EU timezone, English & French fluency.",
+    solution: "Vetted senior engineers who join your team within 1-2 weeks. EU timezone, Multilingual communication.",
     result: "Immediate capacity boost with zero ramp-up friction. Month-to-month flexibility.",
-    features: ["Senior full-stack developers (5+ years)", "DevOps & SRE engineers", "AI/ML engineers", "Technical leads", "EU timezone", "Month-to-month contracts", "English & French fluency", "Seamless workflow integration"],
+    features: ["Senior full-stack developers (5+ years)", "DevOps & SRE engineers", "AI/ML engineers", "Technical leads", "EU timezone", "Month-to-month contracts", "Multilingual communication", "Seamless workflow integration"],
     useCases: ["Scale-up needing extra engineers for launch", "Enterprise filling architect gap", "Startup augmenting team"],
     technologies: ["React", "Next.js", "Node.js", "Python", "TypeScript", "AWS", "Kubernetes", "Docker", "Terraform", "PostgreSQL"],
     faqs: [

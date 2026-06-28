@@ -48,7 +48,7 @@ export function OrganizationJsonLd() {
       "@type": "ContactPoint",
       contactType: "sales",
       email: "contact@cloudrix.io",
-      availableLanguage: ["English", "French"],
+      availableLanguage: ["English"],
     },
     knowsAbout: [
       "Cloud Architecture",

@@ -92,7 +92,7 @@ export const services: Service[] = [
       "DevOps / SRE engineers",
       "Technical leads",
       "EU timezone coverage",
-      "English & French fluency",
+      "Multilingual communication",
       "Agile / Scrum experience",
     ],
   },

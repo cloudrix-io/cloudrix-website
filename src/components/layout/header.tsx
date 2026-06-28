@@ -4,9 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { LanguageSwitcher } from "@/components/ui";
-import { useLanguage } from "@/contexts/language-context";
-
 const serviceLinks = [
   { name: "Cloud Migration", href: "/services/cloud-migration" },
   { name: "DevOps Consulting", href: "/services/devops-consulting" },
@@ -25,17 +22,16 @@ export function Header() {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const { t } = useLanguage();
 
   const navigation = [
-    { name: t("Home", "Accueil"), href: "/" },
-    { name: t("Services", "Services"), href: "/services", hasDropdown: true },
-    { name: t("AI Services", "Services IA"), href: "/ai-services" },
-    { name: t("EU AI Act", "EU AI Act"), href: "/eu-ai-act" },
-    { name: t("Pricing", "Tarifs"), href: "/pricing" },
-    { name: t("Case Studies", "Etudes de Cas"), href: "/case-studies" },
-    { name: t("About", "A Propos"), href: "/about" },
-    { name: t("Contact", "Contact"), href: "/contact" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services", hasDropdown: true },
+    { name: "AI Services", href: "/ai-services" },
+    { name: "EU AI Act", href: "/eu-ai-act" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -134,20 +130,16 @@ export function Header() {
               )
             )}
 
-            {/* Language Switcher */}
-            <LanguageSwitcher variant="compact" />
-
             <Link
               href="/contact"
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
             >
-              {t("Get AI Strategy Call", "Appel Stratégique IA")}
+              Get AI Strategy Call
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex items-center gap-2 lg:hidden">
-            <LanguageSwitcher variant="compact" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -225,7 +217,7 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center font-medium mt-2"
             >
-              {t("Get AI Strategy Call", "Appel Stratégique IA")}
+              Get AI Strategy Call
             </Link>
           </div>
         </div>

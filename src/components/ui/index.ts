@@ -13,7 +13,6 @@ export {
 } from "./card";
 export { Section, Container, type SectionProps, type ContainerProps } from "./section";
 export { Badge, type BadgeProps } from "./badge";
-export { LanguageSwitcher } from "./language-switcher";
 export { BookingCalendar } from "./booking-calendar";
 export { ROICalculator } from "./roi-calculator";
 export { SocialProofNotification, TrustBadgeStrip } from "./social-proof-notification";

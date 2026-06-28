@@ -108,7 +108,7 @@ const servicesData = [
     features: [
       "Senior engineers with 7+ years average experience",
       "Full EU timezone coverage (CET/CEST)",
-      "Native English and French communication",
+      "Native English communication",
       "Experience with Agile, Scrum, and Kanban",
       "Seamless integration with your existing tools",
       "Flexible scaling - add or reduce capacity monthly"
