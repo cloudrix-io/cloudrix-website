@@ -36,7 +36,7 @@ export const caseStudies: CaseStudy[] = [
       author: "VP of Engineering",
       role: "FinTech Company",
     },
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
     metrics: [
       { label: "Uptime", value: "99.99%" },
       { label: "Deploy Speed", value: "12x/day" },
@@ -76,7 +76,7 @@ export const caseStudies: CaseStudy[] = [
       author: "Co-founder & CEO",
       role: "SaaS Startup",
     },
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800",
     metrics: [
       { label: "Time to MVP", value: "14 weeks" },
       { label: "Funding", value: "Secured" },
@@ -116,7 +116,7 @@ export const caseStudies: CaseStudy[] = [
       author: "Operations Director",
       role: "Manufacturing Company",
     },
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
     metrics: [
       { label: "Modernized", value: "73%" },
       { label: "Downtime", value: "0 hrs" },
@@ -155,7 +155,7 @@ export const caseStudies: CaseStudy[] = [
       author: "Chief Digital Officer",
       role: "Insurance Company",
     },
-    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800",
     metrics: [
       { label: "Automation", value: "73%" },
       { label: "Response Time", value: "<30s" },
@@ -192,7 +192,7 @@ export const caseStudies: CaseStudy[] = [
       author: "Head of Compliance",
       role: "FinTech Company",
     },
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800",
     metrics: [
       { label: "Systems", value: "All compliant" },
       { label: "Risk", value: "Mitigated" },
