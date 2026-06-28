@@ -135,12 +135,10 @@ function PricingBadge({ pricing }: { pricing: Product["pricing"] }) {
 function ProductCard({ product }: { product: Product }) {
   const Icon = iconMap[product.icon];
   const categoryGradient = categoryInfo[product.category].gradient;
+  const hasDemo = product.status !== "coming-soon";
 
   return (
-    <Link
-      href={`/products/${product.slug}`}
-      className="group relative flex flex-col rounded-2xl border border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-purple-500/5 hover:-translate-y-1"
-    >
+    <div className="group relative flex flex-col rounded-2xl border border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-purple-500/5 hover:-translate-y-1">
       {/* Gradient glow on hover */}
       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${categoryGradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300`} />
 
@@ -152,27 +150,60 @@ function ProductCard({ product }: { product: Product }) {
           </div>
           <div className="flex items-center gap-2">
             <StatusBadge status={product.status} />
+            <PricingBadge pricing={product.pricing} />
           </div>
         </div>
 
         {/* Content */}
-        <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all duration-300">
+        <h3 className="text-lg font-semibold text-white mb-2">
           {product.name}
         </h3>
-        <p className="text-sm text-slate-400 mb-4 flex-1 line-clamp-2">
+        <p className="text-sm text-slate-400 mb-2 line-clamp-2">
           {product.tagline}
         </p>
+        <p className="text-xs text-slate-500 mb-4 flex-1 line-clamp-2">
+          {product.description}
+        </p>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-          <PricingBadge pricing={product.pricing} />
-          <span className="flex items-center gap-1 text-sm font-medium text-slate-400 group-hover:text-white transition-colors">
-            Learn more
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </span>
+        {/* Tech stack tags */}
+        <div className="flex flex-wrap gap-1 mb-4">
+          {product.techStack.slice(0, 4).map((tech) => (
+            <span key={tech} className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">
+              {tech}
+            </span>
+          ))}
+          {product.techStack.length > 4 && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-500">
+              +{product.techStack.length - 4}
+            </span>
+          )}
+        </div>
+
+        {/* Action buttons */}
+        <div className="flex items-center gap-2 pt-4 border-t border-slate-800">
+          {hasDemo ? (
+            <Link
+              href={`/products/${product.slug}/demo`}
+              className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white rounded-lg bg-gradient-to-r ${categoryGradient} hover:opacity-90 transition-opacity`}
+            >
+              <Sparkles className="h-4 w-4" />
+              Try Demo Free
+            </Link>
+          ) : (
+            <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-slate-500 rounded-lg bg-slate-800 cursor-not-allowed">
+              Coming Soon
+            </span>
+          )}
+          <Link
+            href={`/products/${product.slug}`}
+            className="inline-flex items-center justify-center px-3 py-2.5 text-sm font-medium text-slate-400 rounded-lg border border-slate-700 hover:text-white hover:border-slate-500 transition-colors"
+          >
+            Details
+            <ArrowRight className="h-3.5 w-3.5 ml-1" />
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

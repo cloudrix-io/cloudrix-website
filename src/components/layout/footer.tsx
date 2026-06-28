@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
@@ -171,6 +171,48 @@ export function Footer() {
             <p className="text-xs text-gray-500 mt-4">
               Invoicing in EUR, USD, GBP, and AED
             </p>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Products</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/products" className="text-sm hover:text-white transition-colors font-medium text-emerald-400">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/eu-ai-act-scanner/demo" className="text-sm hover:text-white transition-colors">
+                  AI Act Scanner
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/ai-code-reviewer/demo" className="text-sm hover:text-white transition-colors">
+                  AI Code Reviewer
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/ai-scope-generator/demo" className="text-sm hover:text-white transition-colors">
+                  Project Scope AI
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/cloud-cost-calculator/demo" className="text-sm hover:text-white transition-colors">
+                  Cloud Cost Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/tech-stack-advisor/demo" className="text-sm hover:text-white transition-colors">
+                  Tech Stack Advisor
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/devops-assessment/demo" className="text-sm hover:text-white transition-colors">
+                  DevOps Assessment
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Contact Info */}
