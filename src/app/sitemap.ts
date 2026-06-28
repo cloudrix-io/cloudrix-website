@@ -3,6 +3,7 @@ import { caseStudies } from "@/data/case-studies";
 import { technologies } from "@/data/technologies";
 import { roles } from "@/data/roles";
 import { complianceFrameworks } from "@/data/compliance";
+import { products } from "@/data/products";
 import dbConnect from "@/lib/mongodb";
 import { BlogPost, Service } from "@/lib/models";
 
@@ -419,5 +420,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })),
   ];
 
-  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages, ...marketPages, ...technologyPages, ...hirePages, ...compliancePages];
+  // Product pages
+  const productPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/products`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    ...products.map((product) => ({
+      url: `${baseUrl}/products/${product.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
+
+  // Product demo pages
+  const productDemoSlugs = [
+    "cloudrix-ai-chat", "ai-code-reviewer", "ai-scope-generator", "eu-ai-act-scanner",
+    "ai-architecture-generator", "ai-doc-generator", "ai-cost-optimizer", "smart-crm",
+    "ai-hiring-assistant", "smart-analytics", "ai-content-studio", "smart-helpdesk",
+    "ai-translation", "smart-invoice", "saas-starter", "cloud-cost-calculator",
+    "devops-assessment", "api-monitor", "tech-stack-advisor", "security-scanner",
+    "migration-calculator", "status-page", "db-migration-tool", "performance-profiler",
+  ];
+  const productDemoPages: MetadataRoute.Sitemap = productDemoSlugs.map((slug) => ({
+    url: `${baseUrl}/products/${slug}/demo`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages, ...marketPages, ...technologyPages, ...hirePages, ...compliancePages, ...productPages, ...productDemoPages];
 }
