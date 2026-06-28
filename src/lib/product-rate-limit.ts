@@ -1,10 +1,10 @@
-// In-memory rate limiter for product demo APIs (max 5 requests per IP per hour)
+// In-memory rate limiter for product demo APIs (max 10 requests per IP per 24 hours)
 const store = new Map<string, { count: number; resetTime: number }>();
 
 export function checkProductRateLimit(
   ip: string,
-  maxRequests = 5,
-  windowMs = 3600000 // 1 hour
+  maxRequests = 10,
+  windowMs = 86400000 // 24 hours
 ): { allowed: boolean; remaining: number; resetTime: number } {
   const now = Date.now();
   const record = store.get(ip);

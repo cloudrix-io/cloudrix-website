@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     const forwardedFor = headersList.get("x-forwarded-for");
     const ip = forwardedFor?.split(",")[0] || "unknown";
 
-    const { allowed, remaining } = checkProductRateLimit(ip, 30); // 30 messages/hour for chat
+    const { allowed, remaining } = checkProductRateLimit(ip); // 10 messages per 24h
     if (!allowed) {
       return new Response(
         JSON.stringify({ error: "You've reached the message limit. Please email us at contact@cloudrix.io or try again in an hour." }),
