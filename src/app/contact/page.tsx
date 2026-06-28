@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "What currencies do you invoice in?",
-    answer: "We invoice in EUR for all EU clients. This keeps things simple and avoids currency conversion issues.",
+    answer: "We invoice in EUR, USD, GBP, and AED depending on your region and preference. This keeps things simple for our global client base.",
   },
 ];
 
@@ -270,10 +270,42 @@ export default async function ContactPage() {
                   <div>
                     <div className="font-semibold text-gray-900">{location}</div>
                     <div className="text-sm text-gray-600 mt-1">
-                      EU timezone overlap for seamless communication
+                      Headquartered in CET, with flexible scheduling for global clients
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Global Timezone Support */}
+              <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Global Timezone Support
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex justify-between">
+                    <span>Europe (CET)</span>
+                    <span className="text-gray-500">09:00 - 18:00 CET</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>US East (EST)</span>
+                    <span className="text-gray-500">14:00 - 20:00 CET</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>US West (PST)</span>
+                    <span className="text-gray-500">17:00 - 21:00 CET</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Middle East (GST)</span>
+                    <span className="text-gray-500">08:00 - 16:00 CET</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Asia-Pacific (SGT)</span>
+                    <span className="text-gray-500">Async + overlap hours</span>
+                  </li>
+                </ul>
+                <p className="text-xs text-gray-500 mt-3">
+                  We use async-first workflows and adapt meeting schedules to your timezone.
+                </p>
               </div>
 
               {/* What to Expect */}
@@ -358,8 +390,9 @@ export default async function ContactPage() {
                 What currencies do you invoice in?
               </h3>
               <p className="mt-2 text-gray-600">
-                We invoice in EUR for all EU clients. This keeps things simple
-                and avoids currency conversion issues.
+                We invoice in EUR, USD, GBP, and AED depending on your region
+                and preference. Multi-currency invoicing keeps things simple for
+                our global client base.
               </p>
             </div>
           </div>

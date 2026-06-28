@@ -11,7 +11,7 @@ import { caseStudies as staticCaseStudies } from "@/data/case-studies";
 const staticStats = [
   { value: "8+", label: "Years Engineering Experience" },
   { value: "NL", label: "KVK-Registered Entity" },
-  { value: "CET", label: "EU Timezone Coverage" },
+  { value: "24/7", label: "Global Timezone Coverage" },
   { value: "24h", label: "Response Time" },
 ];
 
@@ -20,9 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
     await connectDB();
     const pageData = await Page.findOne({ slug: "case-studies", isPublished: true }).lean();
 
-    const title = pageData?.seoTitle?.en || "Case Studies - Real Results for EU Companies";
+    const title = pageData?.seoTitle?.en || "Case Studies - Real Results for Global Companies";
     const description = pageData?.seoDescription?.en ||
-      "See how we helped European companies reduce costs by 55%, launch products in 14 weeks, and achieve 99.99% uptime. Real projects, real results.";
+      "See how we helped companies worldwide reduce costs by 55%, launch products in 14 weeks, and achieve 99.99% uptime. Real projects, real results.";
 
     return {
       title,
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
         type: "website",
         images: [
           {
-            url: `/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how we've helped EU companies succeed")}&type=case-studies`,
+            url: `/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how See how we've helped companies succeed")}&type=case-studies`,
             width: 1200,
             height: 630,
             alt: "Cloudrix Case Studies",
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
         card: "summary_large_image",
         title: `${title} | Cloudrix`,
         description,
-        images: [`/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how we've helped EU companies succeed")}&type=case-studies`],
+        images: [`/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how See how we've helped companies succeed")}&type=case-studies`],
       },
       alternates: {
         canonical: "https://www.cloudrix.io/case-studies",
@@ -54,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
   } catch {
     return {
       title: "Case Studies",
-      description: "Real results for European companies. See how we helped clients solve complex technical challenges.",
+      description: "Real results for companies worldwide. See how we helped clients solve complex technical challenges.",
     };
   }
 }

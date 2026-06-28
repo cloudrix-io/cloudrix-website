@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getStaticServiceData } from "@/data/static-services";
 import {
@@ -24,6 +25,45 @@ import connectDB from "@/lib/mongodb";
 import { Service } from "@/lib/models";
 import { ServicePageJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
 import { Breadcrumbs } from "@/components/ui";
+
+const serviceImages: Record<string, { url: string; alt: string }> = {
+  "cloud-migration": {
+    url: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80",
+    alt: "Modern data center with cloud server infrastructure",
+  },
+  "devops-consulting": {
+    url: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&q=80",
+    alt: "Developer terminal showing CI/CD pipeline and code deployment",
+  },
+  "ai-consulting": {
+    url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    alt: "Abstract AI neural network visualization with data connections",
+  },
+  "full-stack-development": {
+    url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+    alt: "Code editor showing modern web application development",
+  },
+  "technical-due-diligence": {
+    url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    alt: "Business professional reviewing technical audit documents",
+  },
+  "dedicated-teams": {
+    url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    alt: "Diverse team of engineers collaborating in a modern office",
+  },
+  "api-development": {
+    url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    alt: "Connected network systems representing API integrations",
+  },
+  "llm-integration": {
+    url: "https://images.unsplash.com/photo-1684369176170-463e84248b70?w=800&q=80",
+    alt: "AI language model conversational interface visualization",
+  },
+  "legacy-modernization": {
+    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    alt: "Circuit board representing technology modernization and transformation",
+  },
+};
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -146,6 +186,7 @@ export default async function ServicePage({ params }: Props) {
 
   const { service, relatedServices } = data;
   const Icon = iconMap[service.icon || "Cloud"] || Cloud;
+  const heroImage = serviceImages[slug];
 
   const breadcrumbItems = [
     { name: "Home", url: "/" },
@@ -202,19 +243,33 @@ export default async function ServicePage({ params }: Props) {
                   </Link>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Target className="w-5 h-5 text-blue-600" />
-                  What You Get
-                </h3>
-                <ul className="space-y-3">
-                  {service.features?.slice(0, 6).map((feature: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="space-y-6">
+                {heroImage && (
+                  <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src={heroImage.url}
+                      alt={heroImage.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                    />
+                  </div>
+                )}
+                <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <Target className="w-5 h-5 text-blue-600" />
+                    What You Get
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.features?.slice(0, 6).map((feature: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

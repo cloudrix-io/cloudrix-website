@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle, MapPin } from "lucide-react";
 import { BreadcrumbJsonLd, ServicePageJsonLd } from "@/components/seo";
@@ -8,6 +9,68 @@ import { Breadcrumbs } from "@/components/ui";
 interface Props {
   params: Promise<{ slug: string; city: string }>;
 }
+
+const cityImages: Record<string, { url: string; alt: string }> = {
+  amsterdam: {
+    url: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=80",
+    alt: "Amsterdam canal houses and bridges at sunset",
+  },
+  rotterdam: {
+    url: "https://images.unsplash.com/photo-1543872084-c7bd3822856f?w=800&q=80",
+    alt: "Rotterdam modern architecture and Erasmus Bridge skyline",
+  },
+  "the-hague": {
+    url: "https://images.unsplash.com/photo-1580996141498-b60af37b4575?w=800&q=80",
+    alt: "The Hague city center with Binnenhof government buildings",
+  },
+  utrecht: {
+    url: "https://images.unsplash.com/photo-1560714592-82e2a1e5f3c4?w=800&q=80",
+    alt: "Utrecht Dom Tower and canals in the historic city center",
+  },
+  eindhoven: {
+    url: "https://images.unsplash.com/photo-1623177625684-360eabd4f214?w=800&q=80",
+    alt: "Eindhoven modern technology district and innovation campus",
+  },
+};
+
+const serviceImages: Record<string, { url: string; alt: string }> = {
+  "cloud-migration": {
+    url: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80",
+    alt: "Cloud server infrastructure and data center",
+  },
+  "devops-consulting": {
+    url: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&q=80",
+    alt: "DevOps terminal and CI/CD pipeline",
+  },
+  "ai-consulting": {
+    url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    alt: "AI neural network visualization",
+  },
+  "full-stack-development": {
+    url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+    alt: "Full-stack web application code editor",
+  },
+  "technical-due-diligence": {
+    url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    alt: "Technical audit and code review process",
+  },
+  "dedicated-teams": {
+    url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    alt: "Engineering team collaboration",
+  },
+  "api-development": {
+    url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    alt: "Connected API systems and integrations",
+  },
+  "llm-integration": {
+    url: "https://images.unsplash.com/photo-1684369176170-463e84248b70?w=800&q=80",
+    alt: "AI language model interface",
+  },
+  "legacy-modernization": {
+    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    alt: "Technology modernization and transformation",
+  },
+};
 
 const cities: Record<string, { name: string; region: string; population: string; techScene: string }> = {
   amsterdam: { name: "Amsterdam", region: "North Holland", population: "900K+", techScene: "Europe's 4th largest tech hub with 800+ startups and major tech employers like Booking.com, Adyen, and TomTom." },

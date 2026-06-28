@@ -1,9 +1,25 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, X, Minus } from "lucide-react";
 import { BreadcrumbJsonLd, FAQJsonLd, ComparisonJsonLd } from "@/components/seo";
 import { Breadcrumbs } from "@/components/ui";
+
+const comparisonImages: Record<string, { url: string; alt: string }> = {
+  "toptal-alternative": {
+    url: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    alt: "Professional team reviewing engineering talent and collaboration options",
+  },
+  "thoughtworks-alternative": {
+    url: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
+    alt: "Agile software consulting team working on enterprise solutions",
+  },
+  "epam-alternative": {
+    url: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=800&q=80",
+    alt: "European engineering team collaborating in a modern workspace",
+  },
+};
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,10 +47,10 @@ const comparisons: Record<string, ComparisonData> = {
   "toptal-alternative": {
     slug: "toptal-alternative",
     competitor: "Toptal",
-    title: "Cloudrix vs Toptal: Which Is Right for Your European Company?",
-    seoTitle: "Cloudrix vs Toptal — EU-Focused Alternative to Toptal",
+    title: "Cloudrix vs Toptal: Which Is Right for Your Company?",
+    seoTitle: "Cloudrix vs Toptal — Senior Engineering Alternative to Toptal",
     seoDescription: "Compare Cloudrix and Toptal for software engineering services. See pricing, talent quality, EU timezone coverage, and cultural fit differences.",
-    heroSubtitle: "Toptal connects you with global freelancers. Cloudrix provides dedicated senior engineering teams built for European companies. Here's how they compare.",
+    heroSubtitle: "Toptal connects you with global freelancers. Cloudrix provides dedicated senior engineering teams with global reach and European quality standards. Here's how they compare.",
     features: [
       { feature: "Base in Europe", cloudrix: true, competitor: false },
       { feature: "EU Timezone Coverage", cloudrix: "Full CET/CEST overlap", competitor: "Varies by freelancer" },
@@ -194,6 +210,19 @@ export default async function ComparePage({ params }: Props) {
         {/* Hero */}
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {comparisonImages[slug] && (
+              <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg mb-10">
+                <Image
+                  src={comparisonImages[slug].url}
+                  alt={comparisonImages[slug].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+            )}
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               {data.title}
             </h1>

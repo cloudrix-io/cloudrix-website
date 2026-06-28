@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
     const title = pageData?.seoTitle?.en || "Cloud, AI & Software Engineering Services";
     const description = pageData?.seoDescription?.en ||
-      "AI agent development, RAG systems, EU AI Act compliance, cloud architecture, and full-stack development for European companies. Senior engineers, transparent pricing.";
+      "AI agent development, RAG systems, EU AI Act compliance, cloud architecture, and full-stack development for companies worldwide. Senior engineers, transparent pricing.";
 
     return {
       title,
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
         type: "website",
         images: [
           {
-            url: `/og?title=${encodeURIComponent("Engineering Services Built for Scale")}&subtitle=${encodeURIComponent("Cloud architecture, development & DevOps for EU companies")}&type=services`,
+            url: `/og?title=${encodeURIComponent("Engineering Services Built for Scale")}&subtitle=${encodeURIComponent("Cloud architecture, development & DevOps for global companies")}&type=services`,
             width: 1200,
             height: 630,
             alt: "Cloudrix Engineering Services",
@@ -46,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
         card: "summary_large_image",
         title: `${title} | Cloudrix`,
         description,
-        images: [`/og?title=${encodeURIComponent("Engineering Services Built for Scale")}&subtitle=${encodeURIComponent("Cloud architecture, development & DevOps for EU companies")}&type=services`],
+        images: [`/og?title=${encodeURIComponent("Engineering Services Built for Scale")}&subtitle=${encodeURIComponent("Cloud architecture, development & DevOps for global companies")}&type=services`],
       },
       alternates: {
         canonical: "https://www.cloudrix.io/services",
@@ -55,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
   } catch {
     return {
       title: "Services",
-      description: "Cloud architecture, full-stack development, DevOps, and technical consulting services for European companies.",
+      description: "Cloud architecture, full-stack development, DevOps, and technical consulting services for companies worldwide.",
     };
   }
 }
@@ -142,7 +142,7 @@ export default async function ServicesPage() {
               Engineering & AI Services
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              From AI agent deployment and RAG systems to cloud architecture and DevOps — comprehensive engineering solutions designed to help European businesses lead with technology.
+              From AI agent deployment and RAG systems to cloud architecture and DevOps — comprehensive engineering solutions designed to help businesses worldwide lead with technology.
             </p>
           </div>
         </div>

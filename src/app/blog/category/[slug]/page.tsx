@@ -15,7 +15,7 @@ interface Props {
 const categories: Record<string, { name: string; description: string; dbCategory: string }> = {
   "cloud-architecture": {
     name: "Cloud Architecture",
-    description: "Guides and insights on cloud migration, AWS, Azure, GCP, and infrastructure design for European companies.",
+    description: "Guides and insights on cloud migration, AWS, Azure, GCP, and infrastructure design for companies worldwide.",
     dbCategory: "Cloud Architecture",
   },
   devops: {

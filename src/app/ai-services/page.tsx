@@ -23,11 +23,11 @@ import { BreadcrumbJsonLd } from "@/components/seo";
 export const metadata: Metadata = {
   title: "AI Services — Agent Development, RAG Systems & EU AI Act Compliance",
   description:
-    "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for European companies. Production-first approach, 50-70% lower cost than Big Four rates.",
+    "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for companies worldwide. Production-first approach, 50-70% lower cost than Big Four rates.",
   openGraph: {
     title: "AI Services — Agent Development, RAG Systems & EU AI Act Compliance | Cloudrix",
     description:
-      "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for European companies. Production-first approach.",
+      "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for companies worldwide. Production-first approach.",
     url: "https://www.cloudrix.io/ai-services",
     type: "website",
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Services — Agent Development, RAG Systems & EU AI Act Compliance | Cloudrix",
     description:
-      "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for European companies.",
+      "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for companies worldwide.",
   },
   alternates: {
     canonical: "https://www.cloudrix.io/ai-services",

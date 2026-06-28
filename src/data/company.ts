@@ -2,9 +2,9 @@ import { ProcessStep, TeamMember } from "@/types";
 
 export const companyInfo = {
   name: "Cloudrix",
-  tagline: "AI-Powered Engineering for European Companies",
+  tagline: "AI-Powered Engineering for Companies Worldwide",
   description:
-    "We help EU companies build, scale, and optimize their software systems with cutting-edge AI solutions. From AI agent deployment and RAG systems to cloud architecture and EU AI Act compliance, we deliver production-grade solutions with a focus on reliability, security, and regulatory compliance.",
+    "We help companies worldwide build, scale, and optimize their software systems with cutting-edge AI solutions. From AI agent deployment and RAG systems to cloud architecture and EU AI Act compliance, we deliver production-grade solutions with a focus on reliability, security, and regulatory compliance. Serving Europe, US, Middle East, Asia-Pacific, and Africa.",
   founded: 2024,
   kvk: "94892610",
   location: "Tilburg, Netherlands",
@@ -20,12 +20,12 @@ export const trustPoints = [
     description: "GDPR-compliant, secure delivery practices",
   },
   {
-    title: "EUR Invoicing",
-    description: "Simple billing, no currency hassle",
+    title: "Multi-Currency Invoicing",
+    description: "Invoice in EUR, USD, GBP, or AED",
   },
   {
     title: "Remote-First",
-    description: "Async communication, EU timezone overlap",
+    description: "Async communication, global timezone flexibility",
   },
   {
     title: "Secure Delivery",
@@ -134,7 +134,7 @@ export const teamMembers: TeamMember[] = [
 export const stats = [
   { value: "8+", label: "Years Engineering Experience" },
   { value: "NL", label: "KVK-Registered Entity" },
-  { value: "CET", label: "EU Timezone Coverage" },
+  { value: "24/7", label: "Global Timezone Coverage" },
   { value: "24h", label: "Response Time" },
 ];
 

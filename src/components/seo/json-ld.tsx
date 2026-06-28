@@ -16,7 +16,7 @@ export function OrganizationJsonLd() {
     },
     image: `${BASE_URL}/og-image.png`,
     description:
-      "Senior engineering teams for European companies. Cloud architecture, product development, DevOps, and AI/ML consulting.",
+      "Senior engineering teams for companies worldwide. Cloud architecture, product development, DevOps, and AI/ML consulting. Serving Europe, US, Middle East, Asia-Pacific, and Africa.",
     email: "contact@cloudrix.io",
     foundingDate: "2024",
     founders: [
@@ -33,12 +33,24 @@ export function OrganizationJsonLd() {
       addressRegion: "North Brabant",
     },
     areaServed: [
+      { "@type": "Continent", name: "Europe" },
       { "@type": "Country", name: "Netherlands" },
       { "@type": "Country", name: "Belgium" },
       { "@type": "Country", name: "France" },
       { "@type": "Country", name: "Germany" },
       { "@type": "Country", name: "United Kingdom" },
-      { "@type": "Continent", name: "Europe" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Arab Emirates" },
+      { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "Country", name: "Qatar" },
+      { "@type": "Country", name: "Singapore" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "Japan" },
+      { "@type": "Country", name: "South Africa" },
+      { "@type": "Country", name: "Nigeria" },
+      { "@type": "Country", name: "Kenya" },
+      { "@type": "Country", name: "Brazil" },
+      { "@type": "Country", name: "Mexico" },
     ],
     sameAs: [
       "https://linkedin.com/company/cloudrix",
@@ -86,7 +98,7 @@ export function LocalBusinessJsonLd() {
     url: BASE_URL,
     image: `${BASE_URL}/og-image.png`,
     description:
-      "Cloud, Software Engineering & AI services for European companies. AWS, DevOps, Full-Stack Development, LLM Integration.",
+      "Cloud, Software Engineering & AI services for companies worldwide. AWS, DevOps, Full-Stack Development, LLM Integration.",
     priceRange: "€€€",
     telephone: "+31-6-43166305",
     email: "contact@cloudrix.io",
@@ -127,7 +139,7 @@ export function WebsiteJsonLd() {
     "@id": `${BASE_URL}/#website`,
     url: BASE_URL,
     name: "Cloudrix",
-    description: "Cloud, Software Engineering & AI Consulting for EU Companies",
+    description: "Cloud, Software Engineering & AI Consulting for Global Companies",
     publisher: {
       "@id": `${BASE_URL}/#organization`,
     },
@@ -157,7 +169,7 @@ export function ServicesJsonLd({ services }: ServiceJsonLdProps) {
     "@type": "ItemList",
     "@id": `${BASE_URL}/services#servicelist`,
     name: "Cloud, Software Engineering & AI Services",
-    description: "Professional engineering and AI services for European companies",
+    description: "Professional engineering and AI services for companies worldwide",
     numberOfItems: services.length,
     itemListElement: services.map((service, index) => ({
       "@type": "ListItem",
@@ -203,10 +215,12 @@ export function ServicePageJsonLd({ title, description, slug, features }: Servic
     provider: {
       "@id": `${BASE_URL}/#organization`,
     },
-    areaServed: {
-      "@type": "Continent",
-      name: "Europe",
-    },
+    areaServed: [
+      { "@type": "Continent", name: "Europe" },
+      { "@type": "Continent", name: "North America" },
+      { "@type": "Continent", name: "Asia" },
+      { "@type": "Continent", name: "Africa" },
+    ],
     ...(features && features.length > 0 && {
       hasOfferCatalog: {
         "@type": "OfferCatalog",

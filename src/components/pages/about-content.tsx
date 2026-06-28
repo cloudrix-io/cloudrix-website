@@ -71,8 +71,8 @@ export function AboutContent({
   const mission = content.mission || {
     title: t("Why Cloudrix Exists", "Pourquoi Cloudrix Existe"),
     content: t(
-      "European businesses deserve engineering partners who deliver real results without the overhead of large agencies or the risk of unreliable freelancers. Cloudrix bridges that gap — offering senior-level cloud architecture, DevOps, and AI expertise with the accountability of a proper Dutch company.",
-      "Les entreprises européennes méritent des partenaires d'ingénierie qui livrent des résultats réels. Cloudrix comble ce fossé — offrant une expertise senior en architecture cloud, DevOps et IA avec la responsabilité d'une vraie entreprise néerlandaise."
+      "Businesses worldwide deserve engineering partners who deliver real results without the overhead of large agencies or the risk of unreliable freelancers. Cloudrix bridges that gap — offering senior-level cloud architecture, DevOps, and AI expertise with the accountability of a proper Dutch company, serving clients across Europe, the US, Middle East, Asia-Pacific, and Africa.",
+      "Les entreprises du monde entier méritent des partenaires d'ingénierie qui livrent des résultats réels. Cloudrix comble ce fossé — offrant une expertise senior en architecture cloud, DevOps et IA avec la responsabilité d'une vraie entreprise néerlandaise, au service de clients en Europe, aux États-Unis, au Moyen-Orient, en Asie-Pacifique et en Afrique."
     ),
   };
 
@@ -100,7 +100,7 @@ export function AboutContent({
     ),
     items: [
       { year: "2016", title: t("Started professional software engineering career", "Début de carrière en ingénierie logicielle"), description: t("Full-stack development across Angular, PHP, NestJS, and cloud platforms", "Développement full-stack: Angular, PHP, NestJS, plateformes cloud") },
-      { year: "2024", title: t("Cloudrix founded in Tilburg, Netherlands", "Cloudrix fondée à Tilburg, Pays-Bas"), description: t("Registered as a Dutch KVK entity to serve European companies directly", "Enregistrée comme entité KVK néerlandaise") },
+      { year: "2024", title: t("Cloudrix founded in Tilburg, Netherlands", "Cloudrix fondée à Tilburg, Pays-Bas"), description: t("Registered as a Dutch KVK entity to serve companies globally with European quality standards", "Enregistrée comme entité KVK néerlandaise pour servir les entreprises mondiales avec des standards européens") },
       { year: "2025", title: t("Launched AI & EU AI Act consulting services", "Lancement des services IA et conseil EU AI Act"), description: t("Expanded into AI agent development, RAG systems, and regulatory compliance", "Expansion vers les agents IA, systèmes RAG et conformité réglementaire") },
       { year: "2026", title: t("SaaS boilerplate product launch", "Lancement du produit SaaS boilerplate"), description: t("NestJS + Angular boilerplate — the only one of its kind on the market", "Boilerplate NestJS + Angular — le seul de son genre sur le marché") },
     ],
@@ -200,20 +200,20 @@ export function AboutContent({
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 {t(
-                  "Based in Tilburg, Netherlands, we're not offshore outsourcing dressed up in a fancy website. We're a proper Dutch company with a KVK number, EU contracts, and engineers who speak your language (literally). Same timezone, same business culture, same commitment to quality.",
-                  "Bases a Tilburg, Pays-Bas, nous ne sommes pas de l'externalisation offshore deguisee en site web elegant. Nous sommes une vraie entreprise neerlandaise avec un numero KVK, des contrats UE, et des ingenieurs qui parlent votre langue. Meme fuseau horaire, meme culture d'affaires, meme engagement qualite."
+                  "Based in Tilburg, Netherlands, with a global client base. We're a proper Dutch company with a KVK number, international contracts, and engineers who adapt to your timezone. Whether you're in New York, Dubai, or Singapore — we deliver the same commitment to quality with async-first workflows and flexible scheduling.",
+                  "Basés à Tilburg, Pays-Bas, avec une clientèle mondiale. Nous sommes une vraie entreprise néerlandaise avec un numéro KVK, des contrats internationaux, et des ingénieurs qui s'adaptent à votre fuseau horaire. Que vous soyez à New York, Dubaï ou Singapour — nous offrons le même engagement qualité avec des flux de travail asynchrones."
                 )}
               </p>
               <div className="flex items-start space-x-3 bg-blue-50 p-6 rounded-lg border border-blue-100">
                 <Globe className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">
-                    {t("European Focus", "Focus Europeen")}
+                    {t("Global Reach, European Roots", "Portée Mondiale, Racines Européennes")}
                   </h3>
                   <p className="text-gray-700">
                     {t(
-                      "We understand the unique regulatory, compliance, and business requirements of European markets, including GDPR, the EU AI Act, and other regional standards.",
-                      "Nous comprenons les exigences reglementaires et commerciales uniques des marches europeens, y compris le RGPD, le EU AI Act, et autres normes regionales."
+                      "Headquartered in the Netherlands with clients across 5 continents. We understand international regulatory requirements including GDPR, the EU AI Act, SOC 2, and regional compliance standards — wherever your business operates.",
+                      "Basés aux Pays-Bas avec des clients sur 5 continents. Nous comprenons les exigences réglementaires internationales incluant le RGPD, le EU AI Act, SOC 2, et les normes de conformité régionales — où que votre entreprise opère."
                     )}
                   </p>
                 </div>

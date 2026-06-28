@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
   } catch {
     return {
       title: "How We Work",
-      description: "Our process, security practices, and communication standards. Learn how we deliver projects for EU clients.",
+      description: "Our process, security practices, and communication standards. Learn how we deliver projects for clients worldwide.",
     };
   }
 }
@@ -186,19 +186,19 @@ const principles = [
 const communication = [
   {
     icon: "MessageSquare",
-    title: "Regular Updates",
-    description: "Daily stand-ups and weekly progress reports keep you informed.",
+    title: "Async-First Communication",
+    description: "Detailed written updates, recorded demos, and shared docs ensure no timezone blocks your progress.",
   },
   {
     icon: "Users",
     title: "Dedicated Team",
     description:
-      "A dedicated project manager serves as your single point of contact.",
+      "A dedicated project manager serves as your single point of contact, with meeting times adapted to your timezone.",
   },
   {
     icon: "Calendar",
-    title: "Sprint Reviews",
-    description: "Bi-weekly sprint reviews to demo progress and gather feedback.",
+    title: "Flexible Sprint Reviews",
+    description: "Bi-weekly sprint reviews scheduled at times that work for your team, with recordings available for async review.",
   },
 ];
 
@@ -257,7 +257,9 @@ export default async function HowWeWorkPage() {
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Our proven methodology combines agile practices with deep technical
-              expertise to deliver exceptional results for every project.
+              expertise to deliver exceptional results for every project. We work async-first
+              with timezone flexibility, ensuring smooth collaboration whether you are in
+              New York, Dubai, or Singapore.
             </p>
           </div>
         </div>

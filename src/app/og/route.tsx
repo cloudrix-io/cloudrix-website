@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
   const title = searchParams.get("title") || "Cloud & Software Engineering";
-  const subtitle = searchParams.get("subtitle") || "Senior engineering teams for European companies";
+  const subtitle = searchParams.get("subtitle") || "Senior engineering teams for companies worldwide";
   const type = searchParams.get("type") || "default";
 
   // Color schemes based on page type

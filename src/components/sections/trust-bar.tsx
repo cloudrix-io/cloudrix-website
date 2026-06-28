@@ -9,13 +9,13 @@ const trustPoints = [
   },
   {
     icon: CreditCard,
-    title: "EUR Invoicing",
-    description: "Simple, transparent billing",
+    title: "Multi-Currency",
+    description: "EUR, USD, GBP, AED",
   },
   {
     icon: Globe,
     title: "Remote-First",
-    description: "EU timezone overlap",
+    description: "Global timezone flexibility",
   },
   {
     icon: Lock,

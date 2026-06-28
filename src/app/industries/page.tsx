@@ -14,11 +14,11 @@ import { BreadcrumbJsonLd } from "@/components/seo";
 export const metadata: Metadata = {
   title: "Industries We Serve - Specialized Cloud Solutions",
   description:
-    "Industry-specific cloud and software engineering solutions for FinTech, Healthcare, E-commerce, SaaS, Manufacturing, and Logistics companies across Europe.",
+    "Industry-specific cloud and software engineering solutions for FinTech, Healthcare, E-commerce, SaaS, Manufacturing, and Logistics companies worldwide.",
   openGraph: {
     title: "Industries We Serve",
     description:
-      "Industry-specific cloud and software engineering solutions for European companies.",
+      "Industry-specific cloud and software engineering solutions for companies worldwide.",
     url: "https://www.cloudrix.io/industries",
   },
   alternates: {
