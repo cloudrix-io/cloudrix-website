@@ -5,6 +5,7 @@ import { BookingCalendar, TrustBadgeStrip } from "@/components/ui";
 import connectDB from "@/lib/mongodb";
 import { CompanyInfo, Service, Page } from "@/lib/models";
 import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/seo";
+import { Breadcrumbs } from "@/components/ui";
 
 const faqs = [
   {
@@ -108,6 +109,10 @@ export default async function ContactPage() {
         ]}
       />
       <div className="bg-white">
+      {/* Breadcrumbs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Contact", url: "/contact" }]} />
+      </div>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

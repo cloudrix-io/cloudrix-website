@@ -17,7 +17,7 @@ export function Footer() {
               <span className="text-xl font-semibold text-white">Cloudrix</span>
             </div>
             <p className="text-sm text-gray-400 mb-4">
-              Expert software and cloud engineering solutions for European businesses.
+              AI-powered software and cloud engineering for European businesses. EU AI Act compliance experts.
             </p>
             <div className="flex space-x-4">
               <a
@@ -81,38 +81,48 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services/cloud-architecture" className="text-sm hover:text-white transition-colors">
-                  Cloud Architecture
+                <Link href="/services/cloud-migration" className="text-sm hover:text-white transition-colors">
+                  Cloud Migration
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/devops-consulting" className="text-sm hover:text-white transition-colors">
+                  DevOps Consulting
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-consulting" className="text-sm hover:text-white transition-colors">
+                  AI & ML Consulting
                 </Link>
               </li>
               <li>
                 <Link href="/services/full-stack-development" className="text-sm hover:text-white transition-colors">
-                  Software Development
+                  Full-Stack Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/devops-automation" className="text-sm hover:text-white transition-colors">
-                  DevOps & Automation
+                <Link href="/services/llm-integration" className="text-sm hover:text-white transition-colors">
+                  LLM Integration
                 </Link>
               </li>
               <li>
-                <Link href="/services/technical-consulting" className="text-sm hover:text-white transition-colors">
-                  Technical Consulting
+                <Link href="/services/dedicated-teams" className="text-sm hover:text-white transition-colors">
+                  Dedicated Teams
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-sm hover:text-white transition-colors">
-                  Resources
+                <Link href="/services/legacy-modernization" className="text-sm hover:text-white transition-colors">
+                  Legacy Modernization
                 </Link>
               </li>
               <li>
-                <Link href="/calculator" className="text-sm hover:text-white transition-colors">
-                  ROI Calculator
+                <Link href="/services/technical-due-diligence" className="text-sm hover:text-white transition-colors">
+                  Technical Due Diligence
                 </Link>
               </li>
               <li>
-                <Link href="/linkedin-templates" className="text-sm hover:text-white transition-colors">
-                  LinkedIn Templates
+                <Link href="/services/api-development" className="text-sm hover:text-white transition-colors">
+                  API Development
                 </Link>
               </li>
             </ul>
@@ -177,6 +187,12 @@ export function Footer() {
                 <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
               </svg>
               NDA Available
+            </span>
+            <span className="flex items-center gap-1">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              EU AI Act Compliant
             </span>
           </div>
         </div>

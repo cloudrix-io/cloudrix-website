@@ -14,15 +14,16 @@ import {
 import connectDB from "@/lib/mongodb";
 import { Service, Technology, Page } from "@/lib/models";
 import { ServicesJsonLd, BreadcrumbJsonLd } from "@/components/seo";
+import { Breadcrumbs } from "@/components/ui";
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
     await connectDB();
     const pageData = await Page.findOne({ slug: "services", isPublished: true }).lean();
 
-    const title = pageData?.seoTitle?.en || "Cloud & Software Engineering Services";
+    const title = pageData?.seoTitle?.en || "Cloud, AI & Software Engineering Services";
     const description = pageData?.seoDescription?.en ||
-      "Cloud architecture, full-stack development, DevOps, and technical consulting services for European companies. Senior engineers, transparent pricing.";
+      "AI agent development, RAG systems, EU AI Act compliance, cloud architecture, and full-stack development for European companies. Senior engineers, transparent pricing.";
 
     return {
       title,
@@ -129,16 +130,19 @@ export default async function ServicesPage() {
         ]}
       />
       <div className="bg-white">
+      {/* Breadcrumbs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services" }]} />
+      </div>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Our Services
+              Engineering & AI Services
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Comprehensive cloud and software engineering solutions designed to
-              help your business thrive in the digital age.
+              From AI agent deployment and RAG systems to cloud architecture and DevOps — comprehensive engineering solutions designed to help European businesses lead with technology.
             </p>
           </div>
         </div>
@@ -152,6 +156,7 @@ export default async function ServicesPage() {
               (
                 service: {
                   _id: string;
+                  slug?: string;
                   icon?: string;
                   title: string;
                   description?: string;
@@ -162,14 +167,15 @@ export default async function ServicesPage() {
               ) => {
                 const Icon = iconMap[service.icon || "Cloud"] || Cloud;
                 return (
-                  <div
+                  <Link
                     key={service._id || index}
-                    className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300"
+                    href={`/services/${service.slug || service._id}`}
+                    className="group bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300"
                   >
                     <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
                       <Icon className="w-7 h-7 text-blue-600" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">
@@ -185,10 +191,44 @@ export default async function ServicesPage() {
                         ))}
                       </ul>
                     )}
-                  </div>
+                    <span className="inline-flex items-center text-blue-600 font-medium mt-6 group-hover:gap-2 transition-all">
+                      Learn more
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
                 );
               }
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Services Highlight */}
+      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              New: AI & Machine Learning Services
+            </h2>
+            <p className="text-lg text-indigo-100 max-w-3xl mx-auto mb-8">
+              AI agent development, RAG systems, EU AI Act compliance, conversational AI, and MCP server development.
+              We build AI that ships to production.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/ai-services"
+                className="inline-flex items-center justify-center bg-white text-indigo-700 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold group"
+              >
+                Explore AI Services
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/eu-ai-act"
+                className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white/10 transition-colors font-semibold"
+              >
+                EU AI Act Compliance
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -232,7 +272,7 @@ export default async function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             {Object.keys(technologies).length > 0 ? (
               Object.entries(technologies).map(([category, techs]) => (
                 <div key={category} className="text-center">
@@ -284,6 +324,15 @@ export default async function ServicesPage() {
                     <li>Docker</li>
                     <li>Terraform</li>
                     <li>Jenkins / GitLab CI</li>
+                  </ul>
+                </div>
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-900 mb-4">AI & ML</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>Claude / GPT-4</li>
+                    <li>LangChain</li>
+                    <li>Pinecone / pgvector</li>
+                    <li>vLLM / Ollama</li>
                   </ul>
                 </div>
               </>

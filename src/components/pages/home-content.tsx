@@ -9,8 +9,9 @@ import {
   Zap,
   Shield,
   CheckCircle2,
-  Star,
   Award,
+  Brain,
+  Bot,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import type { IHomePageContent, ILocalizedContent } from "@/lib/models/page";
@@ -21,6 +22,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code,
   Zap,
   Shield,
+  Brain,
+  Bot,
 };
 
 interface HomeContentProps {
@@ -58,29 +61,29 @@ export function HomeContent({
 
   // Default values - POWERFUL CONVERSION-FOCUSED COPY
   const hero = content.hero || {
-    badge: t("🚀 2 Spots Left for Q1 2025", "🚀 2 Places Restantes pour T1 2025"),
-    title: t("Stop Losing Money on Bad Software", "Arrêtez de Perdre de l'Argent avec de Mauvais Logiciels"),
+    badge: t("EU AI Act Deadline: August 2, 2026 — Are You Ready?", "Délai EU AI Act: 2 Août 2026 — Êtes-vous Prêt?"),
+    title: t("Senior Engineering & AI for European Companies", "Ingénierie Senior & IA pour les Entreprises Européennes"),
     subtitle: t(
-      "We turn struggling tech projects into revenue machines. €12M+ in client impact. 99.9% uptime. Zero BS.",
-      "Nous transformons les projets tech en difficulté en machines à revenus. €12M+ d'impact client. 99.9% uptime. Zéro baratin."
+      "We build AI agents, RAG systems, and cloud infrastructure that works in production. A Dutch-registered consultancy with 8+ years of hands-on engineering experience. EU AI Act compliant.",
+      "Nous construisons des agents IA, des systèmes RAG et des infrastructures cloud qui fonctionnent en production. Un cabinet néerlandais avec 8+ ans d'expérience. Conforme EU AI Act."
     ),
-    ctaText: t("Get Your Free Strategy Call", "Obtenez Votre Appel Stratégique Gratuit"),
+    ctaText: t("Book a Free 30-Min Call", "Réservez un Appel Gratuit de 30 Min"),
     ctaLink: "/contact",
-    secondaryCtaText: t("See Our Results", "Voir Nos Résultats"),
-    secondaryCtaLink: "/case-studies",
+    secondaryCtaText: t("See How We Work", "Voir Comment Nous Travaillons"),
+    secondaryCtaLink: "/how-we-work",
   };
 
   const servicesSection = content.services || {
-    title: t("We Fix What Others Break", "Nous Réparons Ce Que Les Autres Cassent"),
+    title: t("What We Build", "Ce Que Nous Construisons"),
     subtitle: t(
-      "Tired of agencies that overpromise and underdeliver? We're the team companies call when it actually needs to work.",
-      "Fatigué des agences qui promettent trop et livrent peu? Nous sommes l'équipe que les entreprises appellent quand ça doit vraiment fonctionner."
+      "From cloud architecture to production AI systems — we focus on what works, not what sounds impressive.",
+      "De l'architecture cloud aux systèmes IA en production — nous nous concentrons sur ce qui fonctionne."
     ),
   };
 
   const statsSection = content.stats || {
-    title: t("Numbers Don't Lie", "Les Chiffres Ne Mentent Pas"),
-    subtitle: t("Real results from real projects.", "Résultats réels de projets réels."),
+    title: t("Why Cloudrix", "Pourquoi Cloudrix"),
+    subtitle: t("An EU-based engineering partner you can verify.", "Un partenaire d'ingénierie basé en UE que vous pouvez vérifier."),
   };
 
   const processSection = content.process || {
@@ -92,26 +95,26 @@ export function HomeContent({
   };
 
   const testimonialsSection = content.testimonials || {
-    title: t("They Took the Risk. Here's What Happened.", "Ils Ont Pris le Risque. Voici Ce Qui S'est Passé."),
+    title: t("What Our Approach Looks Like in Practice", "Notre Approche en Pratique"),
     subtitle: t(
-      "These companies trusted us with their most critical projects. Now they're crushing it.",
-      "Ces entreprises nous ont confié leurs projets les plus critiques. Maintenant elles cartonnent."
+      "Representative scenarios from our project work across industries.",
+      "Scénarios représentatifs de notre travail dans différentes industries."
     ),
   };
 
   const ctaSection = content.cta || {
-    title: t("Your Competitors Are Already Moving", "Vos Concurrents Bougent Déjà"),
+    title: t("Let's Talk About Your Project", "Parlons de Votre Projet"),
     subtitle: t(
-      "Every week you wait is a week they're getting ahead. Let's fix that. Free 30-min strategy call - no pitch, just solutions.",
-      "Chaque semaine d'attente est une semaine où ils prennent de l'avance. Réglons ça. Appel stratégique gratuit de 30 min - pas de pitch, que des solutions."
+      "Free 30-minute call — no sales pitch, just an honest conversation about your technical challenges and whether we're the right fit.",
+      "Appel gratuit de 30 minutes — pas de pitch, juste une conversation honnête sur vos défis techniques."
     ),
-    buttonText: t("Claim Your Free Strategy Call", "Réservez Votre Appel Gratuit"),
+    buttonText: t("Book a Free Call", "Réservez un Appel Gratuit"),
   };
 
   const credibilityPoints = content.credibilityPoints || [
-    t("€12M+ Revenue Impact for Clients", "€12M+ d'Impact sur les Revenus Clients"),
-    t("94% Client Retention Rate", "94% de Taux de Rétention Client"),
-    t("Ships 10x Faster Than Agencies", "Livre 10x Plus Vite que les Agences"),
+    t("KVK-Registered Dutch Company", "Société Néerlandaise Enregistrée KVK"),
+    t("8+ Years Senior Engineering Experience", "8+ Ans d'Expérience Ingénierie Senior"),
+    t("EU AI Act Compliance Expertise", "Expertise Conformité EU AI Act"),
   ];
 
   return (
@@ -180,32 +183,25 @@ export function HomeContent({
         </div>
       </section>
 
-      {/* Trusted By Section - Client Logos */}
+      {/* Industries We Serve */}
       <section className="py-12 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm font-medium text-gray-500 mb-8 uppercase tracking-wider">
-            {t("Trusted by innovative companies across Europe", "Approuvé par des entreprises innovantes à travers l'Europe")}
+            {t("Industries we serve across Europe", "Industries que nous servons en Europe")}
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            {/* Company Logos - Using text placeholders styled as logos */}
-            <div className="flex items-center justify-center h-12">
-              <span className="text-2xl font-bold text-gray-400 tracking-tight">Nordic<span className="text-blue-500">Pay</span></span>
-            </div>
-            <div className="flex items-center justify-center h-12">
-              <span className="text-2xl font-bold text-gray-400 tracking-tight">Data<span className="text-green-500">Pulse</span></span>
-            </div>
-            <div className="flex items-center justify-center h-12">
-              <span className="text-2xl font-bold text-gray-400 tracking-tight">Med<span className="text-red-500">Connect</span></span>
-            </div>
-            <div className="flex items-center justify-center h-12">
-              <span className="text-2xl font-bold text-gray-400 tracking-tight">Precision<span className="text-orange-500">MFG</span></span>
-            </div>
-            <div className="flex items-center justify-center h-12">
-              <span className="text-2xl font-bold text-gray-400 tracking-tight">Fashion<span className="text-pink-500">Fwd</span></span>
-            </div>
-            <div className="flex items-center justify-center h-12">
-              <span className="text-2xl font-bold text-gray-400 tracking-tight">Logi<span className="text-purple-500">Tech</span></span>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
+            {[
+              { name: t("FinTech", "FinTech"), color: "text-blue-600" },
+              { name: t("Healthcare", "Santé"), color: "text-red-600" },
+              { name: t("SaaS", "SaaS"), color: "text-green-600" },
+              { name: t("Manufacturing", "Industrie"), color: "text-orange-600" },
+              { name: t("E-Commerce", "E-Commerce"), color: "text-pink-600" },
+              { name: t("Insurance", "Assurance"), color: "text-purple-600" },
+            ].map((industry) => (
+              <div key={industry.name} className="flex items-center justify-center h-12">
+                <span className={`text-lg font-semibold ${industry.color}`}>{industry.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -268,6 +264,66 @@ export function HomeContent({
               {t("Explore All Services", "Explorer Tous les Services")}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Services Spotlight */}
+      <section className="py-16 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Bot className="w-4 h-4" />
+                <span>{t("New: AI & Machine Learning", "Nouveau: IA & Machine Learning")}</span>
+              </div>
+              <h2 className="text-4xl font-bold text-white mb-4">
+                {t("AI That Ships to Production", "L'IA Qui Va en Production")}
+              </h2>
+              <p className="text-lg text-indigo-100 mb-8">
+                {t(
+                  "From AI agents and RAG systems to EU AI Act compliance — we build production-grade AI with proper guardrails, monitoring, and human oversight.",
+                  "Des agents IA et systèmes RAG à la conformité EU AI Act — nous construisons de l'IA en production avec des garde-fous, du monitoring et une supervision humaine."
+                )}
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-white">Claude</div>
+                  <div className="text-sm text-indigo-200">{t("& GPT, Gemini, Open Source", "& GPT, Gemini, Open Source")}</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-white">RAG</div>
+                  <div className="text-sm text-indigo-200">{t("Production Systems", "Systèmes en Production")}</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-white">EU AI Act</div>
+                  <div className="text-sm text-indigo-200">{t("Compliance Built-In", "Conformité Intégrée")}</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-white">MCP</div>
+                  <div className="text-sm text-indigo-200">{t("Server Development", "Développement de Serveurs")}</div>
+                </div>
+              </div>
+              <Link
+                href="/ai-services"
+                className="inline-flex items-center bg-white text-indigo-700 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold group"
+              >
+                {t("Explore AI Services", "Explorer les Services IA")}
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { icon: "Bot", title: t("AI Agent Development", "Développement d'Agents IA"), desc: t("Production-ready agents that automate complex workflows", "Agents prêts pour la production") },
+                { icon: "Database", title: t("RAG Systems", "Systèmes RAG"), desc: t("Connect LLMs to your proprietary data securely", "Connectez les LLMs à vos données en toute sécurité") },
+                { icon: "Shield", title: t("EU AI Act Compliance", "Conformité EU AI Act"), desc: t("Full compliance before the August 2026 deadline", "Conformité complète avant août 2026") },
+              ].map((item, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-indigo-200">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -341,14 +397,6 @@ export function HomeContent({
                     key={index}
                     className="bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-lg transition-shadow"
                   >
-                    <div className="flex mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 text-yellow-400 fill-current"
-                        />
-                      ))}
-                    </div>
                     <p className="text-gray-700 mb-6 leading-relaxed italic">
                       &quot;{caseStudy.testimonial!.quote}&quot;
                     </p>
@@ -372,12 +420,12 @@ export function HomeContent({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              {t("Why Smart Companies Choose Us Over Cheap Agencies", "Pourquoi les Entreprises Intelligentes Nous Choisissent")}
+              {t("Why Work With Us", "Pourquoi Travailler Avec Nous")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t(
-                "You've been burned before. Missed deadlines. Buggy code. Disappearing developers. We're the antidote.",
-                "Vous avez déjà été brûlé. Deadlines manquées. Code bogué. Développeurs qui disparaissent. Nous sommes l'antidote."
+                "A proper Dutch-registered company with senior engineers, EU contracts, and transparent billing. No offshore surprises.",
+                "Une vraie entreprise néerlandaise avec des ingénieurs seniors, des contrats UE et une facturation transparente."
               )}
             </p>
           </div>
@@ -440,19 +488,72 @@ export function HomeContent({
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>{t("47+ Projects Delivered", "47+ Projets Livrés")}</span>
+              <span>{t("KVK Registered (Netherlands)", "Enregistré KVK (Pays-Bas)")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>{t("94% Client Retention", "94% Rétention Client")}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>{t("99.9% Uptime SLA", "99.9% SLA Disponibilité")}</span>
+              <span>{t("GDPR-Compliant Practices", "Pratiques Conformes RGPD")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-green-500" />
               <span>{t("CET Timezone", "Fuseau Horaire CET")}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-green-500" />
+              <span>{t("EUR Invoicing", "Facturation EUR")}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SaaS Boilerplate Section */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Code className="w-4 h-4" />
+                <span>{t("Product: SaaS Boilerplate", "Produit: Boilerplate SaaS")}</span>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                {t("The Only NestJS + Angular SaaS Boilerplate", "Le Seul Boilerplate SaaS NestJS + Angular")}
+              </h2>
+              <p className="text-lg text-gray-600 mb-6">
+                {t(
+                  "Skip months of setup. Auth, billing, multi-tenancy, admin panel — production-ready from day one. Built by the same engineers who build enterprise systems.",
+                  "Évitez des mois de configuration. Auth, facturation, multi-tenancy, panneau admin — prêt pour la production dès le premier jour."
+                )}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://demo.cloudrix.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium group"
+                >
+                  {t("Try the Demo", "Essayer la Démo")}
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <Link
+                  href="/contact?type=boilerplate"
+                  className="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:border-gray-400 transition-colors font-medium"
+                >
+                  {t("Need a Custom Build?", "Besoin d'une Construction Sur Mesure?")}
+                </Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: t("Auth & RBAC", "Auth & RBAC"), desc: t("Login, roles, permissions", "Connexion, rôles, permissions") },
+                { label: t("Billing", "Facturation"), desc: t("Stripe integration ready", "Intégration Stripe prête") },
+                { label: t("Multi-Tenancy", "Multi-Tenancy"), desc: t("Team workspaces built-in", "Espaces d'équipe intégrés") },
+                { label: t("Admin Panel", "Panneau Admin"), desc: t("User & content management", "Gestion utilisateurs & contenu") },
+              ].map((feature, index) => (
+                <div key={index} className="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                  <h3 className="font-semibold text-gray-900 mb-1">{feature.label}</h3>
+                  <p className="text-sm text-gray-600">{feature.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

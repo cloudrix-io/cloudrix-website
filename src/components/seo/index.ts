@@ -3,6 +3,7 @@ export {
   LocalBusinessJsonLd,
   WebsiteJsonLd,
   ServicesJsonLd,
+  ServicePageJsonLd,
   FAQJsonLd,
   BreadcrumbJsonLd,
   CaseStudyJsonLd,
@@ -11,4 +12,5 @@ export {
   BlogPostJsonLd,
   SoftwareAppJsonLd,
   ReviewJsonLd,
+  ComparisonJsonLd,
 } from "./json-ld";

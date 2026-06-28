@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button, Input, Textarea, Select } from "@/components/ui";
-import { problemTypes, budgetRanges, timelines } from "@/data/services";
+import { problemTypes } from "@/data/services";
 import { ContactFormData } from "@/types";
 
 interface ContactFormProps {
@@ -33,10 +33,6 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
       newErrors.name = "Name is required";
     }
 
-    if (!formData.company.trim()) {
-      newErrors.company = "Company name is required";
-    }
-
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -45,10 +41,6 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
 
     if (!formData.problemType) {
       newErrors.problemType = "Please select a problem type";
-    }
-
-    if (!formData.timeline) {
-      newErrors.timeline = "Please select a timeline";
     }
 
     if (!formData.message.trim()) {
@@ -192,13 +184,12 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           required
         />
         <Input
-          label="Company"
+          label="Company (optional)"
           name="company"
           value={formData.company}
           onChange={handleChange}
           placeholder="Acme Inc."
           error={errors.company}
-          required
         />
       </div>
 
@@ -214,38 +205,14 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
         required
       />
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Select
-          label="What do you need help with?"
-          name="problemType"
-          value={formData.problemType}
-          onChange={handleChange}
-          placeholder="Select a problem type"
-          options={problemTypes.map((type) => ({ value: type, label: type }))}
-          error={errors.problemType}
-          required
-        />
-        <Select
-          label="Budget Range (EUR)"
-          name="budgetRange"
-          value={formData.budgetRange}
-          onChange={handleChange}
-          placeholder="Select budget range"
-          options={budgetRanges.map((range) => ({ value: range, label: range }))}
-        />
-      </div>
-
       <Select
-        label="Timeline"
-        name="timeline"
-        value={formData.timeline}
+        label="What do you need help with?"
+        name="problemType"
+        value={formData.problemType}
         onChange={handleChange}
-        placeholder="When do you want to start?"
-        options={timelines.map((timeline) => ({
-          value: timeline,
-          label: timeline,
-        }))}
-        error={errors.timeline}
+        placeholder="Select a problem type"
+        options={problemTypes.map((type) => ({ value: type, label: type }))}
+        error={errors.problemType}
         required
       />
 

@@ -9,6 +9,8 @@ export interface IBlogPost extends Document {
     name: string;
     role?: string;
     image?: string;
+    linkedin?: string;
+    credentials?: string;
   };
   category: string;
   tags: string[];
@@ -18,6 +20,8 @@ export interface IBlogPost extends Document {
   readingTime: number;
   isPublished: boolean;
   isFeatured: boolean;
+  relatedServiceSlugs: string[];
+  relatedPostSlugs: string[];
   publishedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
@@ -52,6 +56,8 @@ const BlogPostSchema = new Schema<IBlogPost>(
       name: { type: String, required: true, trim: true },
       role: { type: String, trim: true },
       image: { type: String, trim: true },
+      linkedin: { type: String, trim: true },
+      credentials: { type: String, trim: true },
     },
     category: {
       type: String,
@@ -62,6 +68,7 @@ const BlogPostSchema = new Schema<IBlogPost>(
         "DevOps",
         "Software Development",
         "Technical Leadership",
+        "AI & Machine Learning",
         "Case Studies",
         "Industry Insights",
         "Tutorials",
@@ -99,6 +106,14 @@ const BlogPostSchema = new Schema<IBlogPost>(
       type: Boolean,
       default: false,
     },
+    relatedServiceSlugs: [{
+      type: String,
+      trim: true,
+    }],
+    relatedPostSlugs: [{
+      type: String,
+      trim: true,
+    }],
     publishedAt: {
       type: Date,
     },

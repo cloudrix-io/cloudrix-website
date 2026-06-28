@@ -2,10 +2,11 @@ import { ProcessStep, TeamMember } from "@/types";
 
 export const companyInfo = {
   name: "Cloudrix",
-  tagline: "European-Standard Engineering, Global Expertise",
+  tagline: "AI-Powered Engineering for European Companies",
   description:
-    "We help EU companies build, scale, and optimize their software systems. From cloud architecture to full-stack development, we deliver production-grade solutions with a focus on reliability, security, and maintainability.",
+    "We help EU companies build, scale, and optimize their software systems with cutting-edge AI solutions. From AI agent deployment and RAG systems to cloud architecture and EU AI Act compliance, we deliver production-grade solutions with a focus on reliability, security, and regulatory compliance.",
   founded: 2024,
+  kvk: "94892610",
   location: "Tilburg, Netherlands",
   email: "contact@cloudrix.io",
   phone: "+31 6 43166305",
@@ -68,6 +69,18 @@ export const technologies = {
   backend: ["Node.js", "Python", "Go", "PostgreSQL", "MongoDB"],
   cloud: ["AWS", "GCP", "Azure", "Kubernetes", "Docker"],
   devops: ["Terraform", "GitHub Actions", "GitLab CI", "Datadog"],
+  ai: [
+    "Claude / Anthropic",
+    "OpenAI GPT-4/5",
+    "Google Gemini",
+    "LangChain / LangGraph",
+    "LlamaIndex",
+    "Anthropic Agent SDK",
+    "vLLM",
+    "Pinecone / Weaviate / pgvector",
+    "LangFuse",
+    "MCP Servers",
+  ],
   practices: [
     "Infrastructure as Code",
     "CI/CD",
@@ -119,8 +132,56 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "8+", label: "Years Experience" },
-  { value: "99.9%", label: "Client Satisfaction" },
-  { value: "15+", label: "EU Clients Served" },
+  { value: "8+", label: "Years Engineering Experience" },
+  { value: "NL", label: "KVK-Registered Entity" },
+  { value: "CET", label: "EU Timezone Coverage" },
+  { value: "24h", label: "Response Time" },
+];
+
+export const aiCapabilities = [
+  {
+    title: "LLM Providers",
+    items: [
+      "Anthropic Claude",
+      "OpenAI GPT-4/5",
+      "Google Gemini",
+      "Llama / Mistral / Qwen (on-premise)",
+    ],
+  },
+  {
+    title: "Agent Frameworks",
+    items: [
+      "LangChain / LangGraph",
+      "LlamaIndex",
+      "CrewAI",
+      "Anthropic Agent SDK",
+      "OpenAI Agents SDK",
+    ],
+  },
+  {
+    title: "Infrastructure",
+    items: ["vLLM", "Ollama", "NVIDIA NIM", "AWS Bedrock", "Azure OpenAI"],
+  },
+  {
+    title: "Vector Databases",
+    items: ["Pinecone", "Weaviate", "Chroma", "Qdrant", "pgvector"],
+  },
+  {
+    title: "Monitoring & Ops",
+    items: [
+      "LangFuse",
+      "Datadog AI Monitoring",
+      "Weights & Biases",
+      "MLflow",
+    ],
+  },
+  {
+    title: "Integration",
+    items: [
+      "MCP Servers",
+      "n8n Workflows",
+      "Custom API Orchestration",
+      "Data Residency Enforcement",
+    ],
+  },
 ];

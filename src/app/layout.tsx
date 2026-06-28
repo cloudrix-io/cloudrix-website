@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { Header, Footer } from "@/components/layout";
-import { ExitIntentPopup, SocialProofNotification } from "@/components/ui";
+import { ExitIntentPopup, SocialProofNotification, AiChatWidget } from "@/components/ui";
 import { LanguageProvider } from "@/contexts/language-context";
 import {
   OrganizationJsonLd,
@@ -35,12 +35,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cloudrix.io"),
   title: {
-    default: "Cloudrix | Cloud & Software Engineering for EU Companies",
+    default: "Cloudrix | AI & Cloud Engineering for EU Companies",
     template: "%s | Cloudrix",
   },
   description:
-    "Senior engineering teams for European companies. Cloud architecture, product development, and DevOps. 47 projects delivered, 94% client retention. Book a free consultation.",
+    "AI agent development, RAG systems, EU AI Act compliance, and cloud engineering for European companies. 50+ projects delivered. Book a free AI strategy call.",
   keywords: [
+    // AI keywords
+    "AI agent development",
+    "RAG system development",
+    "EU AI Act compliance",
+    "AI consulting Europe",
+    "LLM integration",
+    "conversational AI",
+    "MCP server development",
+    "AI infrastructure",
     // Primary keywords
     "cloud architecture",
     "software engineering",
@@ -48,6 +57,7 @@ export const metadata: Metadata = {
     "AWS consulting",
     "full-stack development",
     // Location-based
+    "AI consulting Netherlands",
     "software development EU",
     "cloud services Europe",
     "engineering team Netherlands",
@@ -57,8 +67,8 @@ export const metadata: Metadata = {
     "technical due diligence",
     "legacy modernization",
     // Technology
-    "React development",
-    "Node.js development",
+    "LangChain development",
+    "Claude API integration",
     "Next.js agency",
     "Python development",
     // Industry
@@ -187,6 +197,7 @@ export default function RootLayout({
           <Footer />
           <ExitIntentPopup />
           <SocialProofNotification />
+          <AiChatWidget />
         </LanguageProvider>
         <Analytics />
       </body>

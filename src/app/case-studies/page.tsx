@@ -9,10 +9,10 @@ import { caseStudies as staticCaseStudies } from "@/data/case-studies";
 
 // Static stats for fallback
 const staticStats = [
-  { value: "47", label: "Projects Delivered" },
-  { value: "€12M+", label: "Client Revenue Impact" },
-  { value: "99.9%", label: "Average Uptime Achieved" },
-  { value: "94%", label: "Client Retention Rate" },
+  { value: "8+", label: "Years Engineering Experience" },
+  { value: "NL", label: "KVK-Registered Entity" },
+  { value: "CET", label: "EU Timezone Coverage" },
+  { value: "24h", label: "Response Time" },
 ];
 
 export async function generateMetadata(): Promise<Metadata> {

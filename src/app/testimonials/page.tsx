@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Star, Quote, ArrowRight, Building2 } from "lucide-react";
+import { Quote, ArrowRight, Building2 } from "lucide-react";
 import connectDB from "@/lib/mongodb";
 import { CaseStudy } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Client Testimonials - What Our Clients Say",
+  title: "Project Scenarios — Representative Work",
   description:
-    "Hear from the European companies we've helped with cloud architecture, software development, and DevOps. Real feedback from real clients.",
+    "Representative project scenarios illustrating our approach to cloud architecture, AI systems, and software development for European companies.",
   openGraph: {
     title: "Client Testimonials",
     description:
@@ -59,34 +59,34 @@ async function getTestimonials() {
 const featuredTestimonials: Testimonial[] = [
   {
     quote:
-      "Cloudrix didn't just migrate our infrastructure - they transformed how we operate. We went from dreading high-traffic periods to confidently scaling for them. The team's payment industry expertise meant they understood our compliance requirements without lengthy explanations. Six months later, our engineering team is finally building features instead of fighting fires.",
-    author: "Henrik Lindqvist",
-    role: "VP of Engineering",
-    company: "Nordic Payment Solutions",
+      "The migration transformed how we operate. We went from dreading high-traffic periods to confidently scaling for them. The team understood our compliance requirements without lengthy explanations.",
+    author: "VP of Engineering",
+    role: "Cloud Migration",
+    company: "FinTech Company (Confidential)",
     industry: "Financial Services / FinTech",
     metrics: [
-      { label: "Cost Reduction", value: "55%" },
-      { label: "Uptime", value: "99.995%" },
+      { label: "Uptime", value: "99.99%" },
+      { label: "Infra Cost", value: "-55%" },
     ],
   },
   {
     quote:
-      "Working with Cloudrix was like having a world-class engineering team from day one. They didn't just write code - they helped us think through product decisions, warned us about scaling pitfalls, and built something that investors immediately recognized as enterprise-grade. Our lead investor specifically mentioned the technical quality as a factor in their decision.",
-    author: "Martijn van der Berg",
-    role: "Co-founder & CEO",
-    company: "DataPulse",
+      "Working with Cloudrix was like having a world-class engineering team from day one. They helped us think through product decisions and built something that investors immediately recognized as enterprise-grade.",
+    author: "Co-founder & CEO",
+    role: "MVP Development",
+    company: "SaaS Startup (Confidential)",
     industry: "Enterprise SaaS",
     metrics: [
       { label: "Time to MVP", value: "14 weeks" },
-      { label: "Series A", value: "€3.2M" },
+      { label: "Funding", value: "Secured" },
     ],
   },
   {
     quote:
-      "We were terrified of touching our ERP - one wrong change and production stops. Cloudrix's incremental approach let us modernize without betting the company. Eighteen months later, our system is an asset instead of a liability. Our team learned modern practices alongside the rebuild, so we're self-sufficient now.",
-    author: "Philippe Dubois",
-    role: "Operations Director",
-    company: "Precision Components Group",
+      "We were terrified of touching our ERP — one wrong change and production stops. The incremental approach let us modernize without betting the company. Our system is now an asset instead of a liability.",
+    author: "Operations Director",
+    role: "Legacy Modernization",
+    company: "Manufacturing Company (Confidential)",
     industry: "Manufacturing",
     metrics: [
       { label: "Modernized", value: "73%" },
@@ -113,41 +113,36 @@ export default async function TestimonialsPage() {
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <div className="flex justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-8 h-8 text-yellow-400 fill-current" />
-                ))}
-              </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                They Took the Risk. Look What Happened.
+                Our Approach in Practice
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Every one of these companies had been burned by agencies before.
-                They gave us a shot anyway. Here&apos;s what they have to say about it.
+                Representative project scenarios illustrating how we work.
+                Client details are anonymized for confidentiality.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Stats Section */}
+        {/* Trust Bar */}
         <section className="bg-blue-600 py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-white mb-1">47+</div>
-                <div className="text-blue-100">Projects Delivered</div>
+                <div className="text-4xl font-bold text-white mb-1">8+</div>
+                <div className="text-blue-100">Years Experience</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-1">94%</div>
-                <div className="text-blue-100">Client Retention</div>
+                <div className="text-4xl font-bold text-white mb-1">NL</div>
+                <div className="text-blue-100">KVK Registered</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-1">4.9/5</div>
-                <div className="text-blue-100">Average Rating</div>
+                <div className="text-4xl font-bold text-white mb-1">CET</div>
+                <div className="text-blue-100">EU Timezone</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-1">€12M+</div>
-                <div className="text-blue-100">Client Revenue Impact</div>
+                <div className="text-4xl font-bold text-white mb-1">24h</div>
+                <div className="text-blue-100">Response Time</div>
               </div>
             </div>
           </div>
@@ -164,11 +159,6 @@ export default async function TestimonialsPage() {
                 >
                   <div className="flex justify-between items-start mb-6">
                     <Quote className="w-10 h-10 text-blue-200" />
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
                   </div>
 
                   <p className="text-gray-700 text-lg leading-relaxed mb-6 italic">

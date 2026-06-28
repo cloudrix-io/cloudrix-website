@@ -135,21 +135,21 @@ export async function GET(request: NextRequest) {
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: "36px", fontWeight: "bold", color: colors.accent }}>
-              47+
+              8+
             </span>
-            <span style={{ fontSize: "16px", color: `${colors.text}99` }}>Projects Delivered</span>
+            <span style={{ fontSize: "16px", color: `${colors.text}99` }}>Years Experience</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: "36px", fontWeight: "bold", color: colors.accent }}>
-              94%
+              NL
             </span>
-            <span style={{ fontSize: "16px", color: `${colors.text}99` }}>Client Retention</span>
+            <span style={{ fontSize: "16px", color: `${colors.text}99` }}>KVK Registered</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: "36px", fontWeight: "bold", color: colors.accent }}>
-              99.9%
+              CET
             </span>
-            <span style={{ fontSize: "16px", color: `${colors.text}99` }}>Uptime Achieved</span>
+            <span style={{ fontSize: "16px", color: `${colors.text}99` }}>EU Timezone</span>
           </div>
         </div>
       </div>

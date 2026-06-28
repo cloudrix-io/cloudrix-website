@@ -81,9 +81,9 @@ const industries: Record<
     ],
     compliance: ["PCI-DSS Level 1", "GDPR", "PSD2", "SOC 2 Type II", "ISO 27001"],
     caseStudy: {
-      title: "Nordic Payment Processor Migration",
-      result: "55% cost reduction, 99.995% uptime, 10x peak capacity",
-      link: "/case-studies/nordic-payment-processor-migration",
+      title: "Cloud Migration for FinTech Payment Processor",
+      result: "55% cost reduction, 99.99% uptime, 10x peak capacity",
+      link: "/case-studies/cloud-migration-fintech",
     },
     technologies: ["AWS", "Kubernetes", "PostgreSQL", "Redis", "Kafka", "Terraform"],
     stats: [
@@ -131,9 +131,9 @@ const industries: Record<
     ],
     compliance: ["GDPR", "HIPAA", "ISO 27001", "MDR", "CE Marking"],
     caseStudy: {
-      title: "MedConnect Europe Platform Scale-Up",
-      result: "15K+ daily consultations, 99.8% reliability, 4 new markets",
-      link: "/case-studies/healthcare-platform-scaleup",
+      title: "Healthcare Platform Scale-Up",
+      result: "High reliability, expanded across EU markets",
+      link: "/case-studies",
     },
     technologies: ["GCP", "Kubernetes", "FastAPI", "PostgreSQL", "WebRTC", "Terraform"],
     stats: [
@@ -181,9 +181,9 @@ const industries: Record<
     ],
     compliance: ["PCI-DSS", "GDPR", "Strong Customer Authentication"],
     caseStudy: {
-      title: "Fashion Forward Performance Rescue",
-      result: "83% faster load times, +89% conversion rate, €180K/yr revenue impact",
-      link: "/case-studies/ecommerce-performance-rescue",
+      title: "E-Commerce Performance Optimization",
+      result: "83% faster load times, significant conversion improvement",
+      link: "/case-studies",
     },
     technologies: ["Next.js", "Vercel", "Shopify", "Algolia", "Cloudflare", "Stripe"],
     stats: [
@@ -231,9 +231,9 @@ const industries: Record<
     ],
     compliance: ["SOC 2", "GDPR", "ISO 27001"],
     caseStudy: {
-      title: "DataPulse: Zero to Series A",
-      result: "14-week MVP, €3.2M raised, 2.1M events/day",
-      link: "/case-studies/analytics-platform-series-a",
+      title: "B2B SaaS: MVP to Funding",
+      result: "14-week MVP, funding secured, millions of events/day",
+      link: "/case-studies/saas-mvp-to-funding",
     },
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS", "Terraform"],
     stats: [
@@ -281,9 +281,9 @@ const industries: Record<
     ],
     compliance: ["ISO 9001", "GDPR", "Industry 4.0"],
     caseStudy: {
-      title: "Precision Components ERP Modernization",
-      result: "73% modernized, 99.2% inventory accuracy, zero downtime",
-      link: "/case-studies/manufacturing-erp-modernization",
+      title: "Legacy ERP Modernization",
+      result: "73% modernized, significantly improved accuracy, zero downtime",
+      link: "/case-studies/legacy-erp-modernization",
     },
     technologies: ["Node.js", "React", "PostgreSQL", "RabbitMQ", "Azure", "Power BI"],
     stats: [

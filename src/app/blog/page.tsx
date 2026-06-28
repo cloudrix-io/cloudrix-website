@@ -5,6 +5,7 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import connectDB from "@/lib/mongodb";
 import { BlogPost } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
+import { Breadcrumbs } from "@/components/ui";
 
 // Static blog posts data for fallback
 const staticBlogPosts = [
@@ -213,6 +214,10 @@ export default async function BlogPage() {
       />
 
       <div className="bg-white">
+        {/* Breadcrumbs */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }]} />
+        </div>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

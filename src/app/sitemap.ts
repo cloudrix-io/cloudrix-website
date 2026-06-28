@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { caseStudies } from "@/data/case-studies";
 import dbConnect from "@/lib/mongodb";
-import { BlogPost } from "@/lib/models";
+import { BlogPost, Service } from "@/lib/models";
 
 // Industry slugs for sitemap
 const industries = [
@@ -34,13 +34,17 @@ const staticBlogSlugs = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cloudrix.io";
 
-  // Fetch blog posts from database, fallback to static slugs
+  // Fetch blog posts and services from database
   let blogPosts: { slug: string; updatedAt: Date }[] = [];
+  let serviceSlugs: string[] = [];
   try {
     await dbConnect();
-    blogPosts = await BlogPost.find({ status: "published" })
-      .select("slug updatedAt")
-      .lean();
+    const [posts, services] = await Promise.all([
+      BlogPost.find({ status: "published" }).select("slug updatedAt").lean(),
+      Service.find({ isActive: true }).select("slug").lean(),
+    ]);
+    blogPosts = posts;
+    serviceSlugs = services.map((s) => s.slug);
   } catch {
     // DB connection failed
   }
@@ -135,6 +139,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/ai-services`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/eu-ai-act`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/ai-tools`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/ai-tools/compliance-scanner`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/ai-tools/scope-generator`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/ai-tools/readiness-assessment`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -173,5 +213,56 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...caseStudyPages, ...blogPages, ...industryPages];
+  // Static service slug fallback
+  if (serviceSlugs.length === 0) {
+    serviceSlugs = [
+      "cloud-migration", "devops-consulting", "ai-consulting",
+      "full-stack-development", "technical-due-diligence", "dedicated-teams",
+      "api-development", "llm-integration", "legacy-modernization",
+    ];
+  }
+
+  // Dynamic service pages
+  const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
+    url: `${baseUrl}/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  // Comparison pages
+  const comparisonPages: MetadataRoute.Sitemap = [
+    "toptal-alternative",
+    "thoughtworks-alternative",
+    "epam-alternative",
+  ].map((slug) => ({
+    url: `${baseUrl}/compare/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // City + Service pages
+  const cityServiceCombos = ["cloud-migration", "devops-consulting", "ai-consulting", "full-stack-development", "dedicated-teams", "llm-integration", "legacy-modernization", "technical-due-diligence", "api-development"];
+  const dutchCities = ["amsterdam", "rotterdam", "the-hague", "utrecht", "eindhoven"];
+  const cityServicePages: MetadataRoute.Sitemap = cityServiceCombos.flatMap((service) =>
+    dutchCities.map((city) => ({
+      url: `${baseUrl}/services/${service}/${city}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
+
+  // Blog category pages
+  const blogCategoryPages: MetadataRoute.Sitemap = [
+    "cloud-architecture", "devops", "ai-ml", "software-development", "technical-leadership",
+  ].map((slug) => ({
+    url: `${baseUrl}/blog/category/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages];
 }

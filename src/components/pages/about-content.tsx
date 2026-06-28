@@ -13,8 +13,10 @@ import {
   Shield,
   Zap,
   Star,
+  Linkedin,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
+import { Breadcrumbs } from "@/components/ui";
 import type { IAboutPageContent, ILocalizedContent } from "@/lib/models/page";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -39,6 +41,7 @@ interface AboutContentProps {
     name: string;
     role: string;
     bio?: string;
+    linkedin?: string;
   }[];
   stats: { value: string; label: string }[];
   trustPoints: { icon?: string; title: string; description: string }[];
@@ -58,18 +61,18 @@ export function AboutContent({
 
   // Default values with translations - POWERFUL CONVERSION-FOCUSED COPY
   const hero = content.hero || {
-    title: t("We're the Engineers Companies Call When It Actually Needs to Work", "Nous Sommes les Ingenieurs Qu'On Appelle Quand Ca Doit Vraiment Fonctionner"),
+    title: t("Senior Engineering, Direct — No Middlemen", "Ingénierie Senior, Directe — Sans Intermédiaires"),
     subtitle: t(
-      "While others hide behind project managers and deliver junior code, we put senior engineers directly on your problem. 47+ projects. €12M+ client impact. Zero excuses.",
-      "Alors que d'autres se cachent derriere des chefs de projet, nous mettons des ingenieurs seniors directement sur votre probleme. 47+ projets. €12M+ d'impact client. Zero excuses."
+      "Cloudrix is a Dutch-registered consultancy founded by a senior engineer with 8+ years of production experience. You work directly with the people who build your system — no layers of project managers, no juniors learning on your project.",
+      "Cloudrix est un cabinet néerlandais fondé par un ingénieur senior avec 8+ ans d'expérience en production. Vous travaillez directement avec les personnes qui construisent votre système."
     ),
   };
 
   const mission = content.mission || {
-    title: t("Why We Exist", "Pourquoi Nous Existons"),
+    title: t("Why Cloudrix Exists", "Pourquoi Cloudrix Existe"),
     content: t(
-      "Too many companies get burned by agencies that overpromise and underdeliver. We started Cloudrix because European businesses deserve engineering partners who actually give a damn about their success.",
-      "Trop d'entreprises se font avoir par des agences qui promettent trop et livrent peu. Nous avons cree Cloudrix parce que les entreprises europeennes meritent des partenaires d'ingenierie qui se soucient vraiment de leur succes."
+      "European businesses deserve engineering partners who deliver real results without the overhead of large agencies or the risk of unreliable freelancers. Cloudrix bridges that gap — offering senior-level cloud architecture, DevOps, and AI expertise with the accountability of a proper Dutch company.",
+      "Les entreprises européennes méritent des partenaires d'ingénierie qui livrent des résultats réels. Cloudrix comble ce fossé — offrant une expertise senior en architecture cloud, DevOps et IA avec la responsabilité d'une vraie entreprise néerlandaise."
     ),
   };
 
@@ -82,10 +85,10 @@ export function AboutContent({
   };
 
   const team = content.team || {
-    title: t("Leadership Team", "Equipe de Direction"),
+    title: t("Founder", "Fondateur"),
     subtitle: t(
-      "Experienced leaders with a passion for technology and client success.",
-      "Des leaders experimentes passionnes par la technologie et le succes des clients."
+      "Cloudrix is a solo consultancy backed by a network of trusted specialists when projects require it.",
+      "Cloudrix est un cabinet individuel soutenu par un réseau de spécialistes de confiance."
     ),
   };
 
@@ -96,32 +99,32 @@ export function AboutContent({
       "Grandir avec nos clients, livrer l'excellence a chaque etape."
     ),
     items: [
-      { year: "2020", title: t("Cloudrix founded in Netherlands", "Cloudrix fondee aux Pays-Bas"), description: "" },
-      { year: "2021", title: t("First EU enterprise clients onboarded", "Premiers clients entreprises UE"), description: "" },
-      { year: "2022", title: t("Expanded cloud services portfolio", "Expansion du portfolio cloud"), description: "" },
-      { year: "2023", title: t("Achieved 50+ successful projects", "50+ projets reussis"), description: "" },
-      { year: "2024", title: t("Strengthened European partnerships", "Partenariats europeens renforces"), description: "" },
-      { year: "2025", title: t("Growing team and capabilities", "Croissance de l'equipe et des capacites"), description: "" },
+      { year: "2016", title: t("Started professional software engineering career", "Début de carrière en ingénierie logicielle"), description: t("Full-stack development across Angular, PHP, NestJS, and cloud platforms", "Développement full-stack: Angular, PHP, NestJS, plateformes cloud") },
+      { year: "2024", title: t("Cloudrix founded in Tilburg, Netherlands", "Cloudrix fondée à Tilburg, Pays-Bas"), description: t("Registered as a Dutch KVK entity to serve European companies directly", "Enregistrée comme entité KVK néerlandaise") },
+      { year: "2025", title: t("Launched AI & EU AI Act consulting services", "Lancement des services IA et conseil EU AI Act"), description: t("Expanded into AI agent development, RAG systems, and regulatory compliance", "Expansion vers les agents IA, systèmes RAG et conformité réglementaire") },
+      { year: "2026", title: t("SaaS boilerplate product launch", "Lancement du produit SaaS boilerplate"), description: t("NestJS + Angular boilerplate — the only one of its kind on the market", "Boilerplate NestJS + Angular — le seul de son genre sur le marché") },
     ],
   };
 
   const certifications = content.certifications || {
-    title: t("Certifications & Expertise", "Certifications & Expertise"),
+    title: t("Expertise & Compliance", "Expertise & Conformité"),
     subtitle: t(
-      "Recognized for our expertise and commitment to excellence.",
-      "Reconnus pour notre expertise et notre engagement envers l'excellence."
+      "Core areas of expertise and compliance standards we adhere to.",
+      "Domaines d'expertise et normes de conformité que nous respectons."
     ),
     items: [
-      { name: t("AWS Certified Solutions Architect", "AWS Certified Solutions Architect"), description: "", icon: "Award" },
-      { name: t("Google Cloud Partner", "Partenaire Google Cloud"), description: "", icon: "Award" },
-      { name: t("GDPR Compliant", "Conforme RGPD"), description: "", icon: "Shield" },
-      { name: t("Secure Development Practices", "Pratiques de Developpement Securise"), description: "", icon: "Shield" },
+      { name: t("GDPR-Compliant Practices", "Pratiques Conformes RGPD"), description: "", icon: "Shield" },
+      { name: t("EU AI Act Expertise", "Expertise EU AI Act"), description: "", icon: "Shield" },
+      { name: t("Secure Development Practices", "Pratiques de Développement Sécurisé"), description: "", icon: "Shield" },
+      { name: t("AWS / GCP / Azure", "AWS / GCP / Azure"), description: "", icon: "Zap" },
+      { name: t("AI & Machine Learning", "IA & Machine Learning"), description: "", icon: "Zap" },
+      { name: t("KVK-Registered Entity", "Entité Enregistrée KVK"), description: "", icon: "Award" },
     ],
   };
 
   const statsSection = content.stats || {
-    title: t("By the Numbers", "En Chiffres"),
-    subtitle: t("Our track record of delivering results.", "Notre historique de livraison de resultats."),
+    title: t("At a Glance", "En Bref"),
+    subtitle: t("Verifiable facts about Cloudrix.", "Faits vérifiables sur Cloudrix."),
   };
 
   const companyName = companyInfo?.name || "Cloudrix";
@@ -166,6 +169,10 @@ export function AboutContent({
 
   return (
     <div className="bg-white">
+      {/* Breadcrumbs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "About", url: "/about" }]} />
+      </div>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,8 +212,8 @@ export function AboutContent({
                   </h3>
                   <p className="text-gray-700">
                     {t(
-                      "We understand the unique regulatory, compliance, and business requirements of European markets, including GDPR and other regional standards.",
-                      "Nous comprenons les exigences reglementaires et commerciales uniques des marches europeens, y compris le RGPD et autres normes regionales."
+                      "We understand the unique regulatory, compliance, and business requirements of European markets, including GDPR, the EU AI Act, and other regional standards.",
+                      "Nous comprenons les exigences reglementaires et commerciales uniques des marches europeens, y compris le RGPD, le EU AI Act, et autres normes regionales."
                     )}
                   </p>
                 </div>
@@ -331,9 +338,22 @@ export function AboutContent({
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                      {member.name}
-                    </h3>
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {member.name}
+                      </h3>
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-blue-600 transition-colors"
+                          aria-label={`${member.name} on LinkedIn`}
+                        >
+                          <Linkedin className="w-5 h-5" />
+                        </a>
+                      )}
+                    </div>
                     <p className="text-blue-600 font-medium mb-3">
                       {member.role}
                     </p>

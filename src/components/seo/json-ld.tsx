@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 const BASE_URL = "https://www.cloudrix.io";
 
 // Organization Schema
@@ -18,9 +16,9 @@ export function OrganizationJsonLd() {
     },
     image: `${BASE_URL}/og-image.png`,
     description:
-      "Senior engineering teams for European companies. Cloud architecture, product development, and DevOps.",
+      "Senior engineering teams for European companies. Cloud architecture, product development, DevOps, and AI/ML consulting.",
     email: "contact@cloudrix.io",
-    foundingDate: "2020",
+    foundingDate: "2024",
     founders: [
       {
         "@type": "Person",
@@ -61,15 +59,19 @@ export function OrganizationJsonLd() {
       "Full-Stack Development",
       "Cloud Migration",
       "Technical Consulting",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "LLM Integration",
+      "RAG Systems",
+      "AI Consulting",
+      "Generative AI",
     ],
   };
 
   return (
-    <Script
-      id="organization-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -84,7 +86,7 @@ export function LocalBusinessJsonLd() {
     url: BASE_URL,
     image: `${BASE_URL}/og-image.png`,
     description:
-      "Cloud & Software Engineering services for European companies. AWS, DevOps, Full-Stack Development.",
+      "Cloud, Software Engineering & AI services for European companies. AWS, DevOps, Full-Stack Development, LLM Integration.",
     priceRange: "€€€",
     telephone: "+31-6-43166305",
     email: "contact@cloudrix.io",
@@ -107,21 +109,12 @@ export function LocalBusinessJsonLd() {
         closes: "18:00",
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "47",
-      bestRating: "5",
-      worstRating: "1",
-    },
   };
 
   return (
-    <Script
-      id="localbusiness-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -134,7 +127,7 @@ export function WebsiteJsonLd() {
     "@id": `${BASE_URL}/#website`,
     url: BASE_URL,
     name: "Cloudrix",
-    description: "Cloud & Software Engineering for EU Companies",
+    description: "Cloud, Software Engineering & AI Consulting for EU Companies",
     publisher: {
       "@id": `${BASE_URL}/#organization`,
     },
@@ -142,11 +135,9 @@ export function WebsiteJsonLd() {
   };
 
   return (
-    <Script
-      id="website-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -165,8 +156,8 @@ export function ServicesJsonLd({ services }: ServiceJsonLdProps) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": `${BASE_URL}/services#servicelist`,
-    name: "Cloud & Software Engineering Services",
-    description: "Professional engineering services for European companies",
+    name: "Cloud, Software Engineering & AI Services",
+    description: "Professional engineering and AI services for European companies",
     numberOfItems: services.length,
     itemListElement: services.map((service, index) => ({
       "@type": "ListItem",
@@ -187,11 +178,55 @@ export function ServicesJsonLd({ services }: ServiceJsonLdProps) {
   };
 
   return (
-    <Script
-      id="services-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
+    />
+  );
+}
+
+// Individual Service Schema
+interface ServicePageJsonLdProps {
+  title: string;
+  description: string;
+  slug: string;
+  features?: string[];
+}
+
+export function ServicePageJsonLd({ title, description, slug, features }: ServicePageJsonLdProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${BASE_URL}/services/${slug}#service`,
+    name: title,
+    description,
+    provider: {
+      "@id": `${BASE_URL}/#organization`,
+    },
+    areaServed: {
+      "@type": "Continent",
+      name: "Europe",
+    },
+    ...(features && features.length > 0 && {
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `${title} Features`,
+        itemListElement: features.map((feature, index) => ({
+          "@type": "Offer",
+          position: index + 1,
+          itemOffered: {
+            "@type": "Service",
+            name: feature,
+          },
+        })),
+      },
+    }),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
 }
@@ -202,13 +237,14 @@ interface FAQJsonLdProps {
     question: string;
     answer: string;
   }>;
+  pageUrl?: string;
 }
 
-export function FAQJsonLd({ faqs }: FAQJsonLdProps) {
+export function FAQJsonLd({ faqs, pageUrl }: FAQJsonLdProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": `${BASE_URL}/contact#faq`,
+    "@id": `${BASE_URL}${pageUrl || "/contact"}#faq`,
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -220,11 +256,9 @@ export function FAQJsonLd({ faqs }: FAQJsonLdProps) {
   };
 
   return (
-    <Script
-      id="faq-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -250,11 +284,9 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
   };
 
   return (
-    <Script
-      id="breadcrumb-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -307,11 +339,9 @@ export function CaseStudyJsonLd({
   };
 
   return (
-    <Script
-      id="casestudy-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -353,11 +383,9 @@ export function TeamJsonLd({ members }: TeamMemberJsonLdProps) {
   };
 
   return (
-    <Script
-      id="team-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -394,11 +422,9 @@ export function ProcessJsonLd({ steps }: ProcessJsonLdProps) {
   };
 
   return (
-    <Script
-      id="process-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -462,11 +488,9 @@ export function BlogPostJsonLd({
   };
 
   return (
-    <Script
-      id="blogpost-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -502,21 +526,12 @@ export function SoftwareAppJsonLd({
     author: {
       "@id": `${BASE_URL}/#organization`,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "124",
-      bestRating: "5",
-      worstRating: "1",
-    },
   };
 
   return (
-    <Script
-      id="softwareapp-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
     />
   );
 }
@@ -560,11 +575,42 @@ export function ReviewJsonLd({ reviews }: ReviewJsonLdProps) {
   };
 
   return (
-    <Script
-      id="review-jsonld"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      strategy="afterInteractive"
+    />
+  );
+}
+
+// Comparison Page Schema
+interface ComparisonJsonLdProps {
+  title: string;
+  description: string;
+  slug: string;
+  competitors: string[];
+}
+
+export function ComparisonJsonLd({ title, description, slug, competitors }: ComparisonJsonLdProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${BASE_URL}/compare/${slug}#page`,
+    name: title,
+    description,
+    url: `${BASE_URL}/compare/${slug}`,
+    about: competitors.map((c) => ({
+      "@type": "Organization",
+      name: c,
+    })),
+    publisher: {
+      "@id": `${BASE_URL}/#organization`,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
 }

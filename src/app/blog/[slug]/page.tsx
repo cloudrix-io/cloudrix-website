@@ -7,7 +7,9 @@ import sanitizeHtml from "sanitize-html";
 import connectDB from "@/lib/mongodb";
 import { BlogPost } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
-import Script from "next/script";
+import { Breadcrumbs } from "@/components/ui";
+import { TableOfContents } from "@/components/blog/table-of-contents";
+import { RelatedServices } from "@/components/blog/related-services";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -145,13 +147,16 @@ export default async function BlogPostPage({ params }: Props) {
           { name: post.title, url: `/blog/${post.slug}` },
         ]}
       />
-      <Script
-        id="article-jsonld"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
       <div className="bg-white">
+        {/* Breadcrumbs */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }, { name: post.title, url: `/blog/${post.slug}` }]} />
+        </div>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -243,63 +248,95 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         )}
 
-        {/* Article Content */}
+        {/* Article Content with TOC */}
         <section className="py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <article className="prose prose-lg prose-blue max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100">
-              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content, {
-                allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2", "h3", "h4", "h5", "h6", "figure", "figcaption", "video", "source", "iframe", "pre", "code", "span"]),
-                allowedAttributes: {
-                  ...sanitizeHtml.defaults.allowedAttributes,
-                  img: ["src", "alt", "title", "width", "height", "loading"],
-                  a: ["href", "target", "rel", "title"],
-                  code: ["class"],
-                  span: ["class"],
-                  pre: ["class"],
-                  iframe: ["src", "width", "height", "frameborder", "allowfullscreen", "title"],
-                },
-                allowedIframeHostnames: ["www.youtube.com", "www.youtube-nocookie.com", "player.vimeo.com"],
-              }) }} />
-            </article>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
+              <div className="max-w-4xl">
+                {/* Mobile TOC */}
+                <TableOfContents content={post.content} />
 
-            {/* Tags */}
-            {post.tags && post.tags.length > 0 && (
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <Tag className="w-5 h-5 text-gray-400" />
-                  {post.tags.map((tag: string) => (
-                    <span
-                      key={tag}
-                      className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <article className="prose prose-lg prose-blue max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100">
+                  <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content, {
+                    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2", "h3", "h4", "h5", "h6", "figure", "figcaption", "video", "source", "iframe", "pre", "code", "span"]),
+                    allowedAttributes: {
+                      ...sanitizeHtml.defaults.allowedAttributes,
+                      img: ["src", "alt", "title", "width", "height", "loading"],
+                      a: ["href", "target", "rel", "title"],
+                      code: ["class"],
+                      span: ["class"],
+                      pre: ["class"],
+                      iframe: ["src", "width", "height", "frameborder", "allowfullscreen", "title"],
+                      h2: ["id"],
+                      h3: ["id"],
+                    },
+                    allowedIframeHostnames: ["www.youtube.com", "www.youtube-nocookie.com", "player.vimeo.com"],
+                  }) }} />
+                </article>
+
+                {/* Related Services */}
+                {post.relatedServiceSlugs && post.relatedServiceSlugs.length > 0 && (
+                  <RelatedServices serviceSlugs={post.relatedServiceSlugs} />
+                )}
+
+                {/* Tags */}
+                {post.tags && post.tags.length > 0 && (
+                  <div className="mt-12 pt-8 border-t border-gray-200">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <Tag className="w-5 h-5 text-gray-400" />
+                      {post.tags.map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Author Box */}
+                <div className="mt-12 p-8 bg-gray-50 rounded-2xl">
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-blue-600 font-bold text-2xl">
+                        {post.author.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {post.author.name}
+                        </h3>
+                        {post.author.linkedin && (
+                          <a
+                            href={post.author.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-700 transition-colors"
+                            aria-label={`${post.author.name} on LinkedIn`}
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                      {post.author.role && (
+                        <p className="text-gray-600 mb-2">{post.author.role}</p>
+                      )}
+                      {post.author.credentials && (
+                        <p className="text-gray-500 text-sm mb-2">{post.author.credentials}</p>
+                      )}
+                      <Link href="/about" className="text-blue-600 text-sm hover:underline">
+                        Learn more about our team →
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-            )}
 
-            {/* Author Box */}
-            <div className="mt-12 p-8 bg-gray-50 rounded-2xl">
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 font-bold text-2xl">
-                    {post.author.name.charAt(0)}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                    {post.author.name}
-                  </h3>
-                  {post.author.role && (
-                    <p className="text-gray-600 mb-3">{post.author.role}</p>
-                  )}
-                  <p className="text-gray-600 text-sm">
-                    Senior engineer at Cloudrix with expertise in cloud architecture and software development.
-                    Passionate about building scalable systems and sharing knowledge.
-                  </p>
-                </div>
-              </div>
+              {/* Desktop TOC Sidebar */}
+              <TableOfContents content={post.content} />
             </div>
           </div>
         </section>

@@ -169,11 +169,11 @@ export default function CalculatorPage() {
         <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Stop the Bleeding?
+              Ready to Fix This?
             </h2>
             <p className="text-xl text-blue-100 mb-10">
-              We&apos;ve helped 47+ companies recover millions in lost productivity.
-              Book a free strategy call and get a custom recovery plan.
+              Book a free 30-minute call and get an honest assessment of your situation
+              with a custom recovery plan.
             </p>
             <Link
               href="/contact"
