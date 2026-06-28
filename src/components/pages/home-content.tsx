@@ -62,10 +62,10 @@ export function HomeContent({
   // Default values - POWERFUL CONVERSION-FOCUSED COPY
   const hero = content.hero || {
     badge: t("EU AI Act Deadline: August 2, 2026 — Are You Ready?", "Délai EU AI Act: 2 Août 2026 — Êtes-vous Prêt?"),
-    title: t("Senior Engineering & AI for European Companies", "Ingénierie Senior & IA pour les Entreprises Européennes"),
+    title: t("Senior Engineering & AI for Companies Worldwide", "Ingénierie Senior & IA pour les Entreprises du Monde Entier"),
     subtitle: t(
-      "We build AI agents, RAG systems, and cloud infrastructure that works in production. A Dutch-registered consultancy with 8+ years of hands-on engineering experience. EU AI Act compliant.",
-      "Nous construisons des agents IA, des systèmes RAG et des infrastructures cloud qui fonctionnent en production. Un cabinet néerlandais avec 8+ ans d'expérience. Conforme EU AI Act."
+      "We build AI agents, RAG systems, and cloud infrastructure that works in production. A Dutch-registered consultancy serving clients globally with 8+ years of hands-on engineering experience. EU AI Act compliant.",
+      "Nous construisons des agents IA, des systèmes RAG et des infrastructures cloud qui fonctionnent en production. Un cabinet néerlandais au service de clients dans le monde entier avec 8+ ans d'expérience. Conforme EU AI Act."
     ),
     ctaText: t("Book a Free 30-Min Call", "Réservez un Appel Gratuit de 30 Min"),
     ctaLink: "/contact",
@@ -83,7 +83,7 @@ export function HomeContent({
 
   const statsSection = content.stats || {
     title: t("Why Cloudrix", "Pourquoi Cloudrix"),
-    subtitle: t("An EU-based engineering partner you can verify.", "Un partenaire d'ingénierie basé en UE que vous pouvez vérifier."),
+    subtitle: t("A trusted engineering partner you can verify.", "Un partenaire d'ingénierie de confiance que vous pouvez vérifier."),
   };
 
   const processSection = content.process || {
@@ -187,7 +187,7 @@ export function HomeContent({
       <section className="py-12 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm font-medium text-gray-500 mb-8 uppercase tracking-wider">
-            {t("Industries we serve across Europe", "Industries que nous servons en Europe")}
+            {t("Industries we serve worldwide", "Industries que nous servons dans le monde")}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
             {[
@@ -424,8 +424,8 @@ export function HomeContent({
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t(
-                "A proper Dutch-registered company with senior engineers, EU contracts, and transparent billing. No offshore surprises.",
-                "Une vraie entreprise néerlandaise avec des ingénieurs seniors, des contrats UE et une facturation transparente."
+                "A proper Dutch-registered company with senior engineers, global reach, and transparent billing. Multi-currency invoicing available.",
+                "Une vraie entreprise néerlandaise avec des ingénieurs seniors, une portée mondiale et une facturation transparente. Facturation multi-devises disponible."
               )}
             </p>
           </div>
@@ -464,9 +464,9 @@ export function HomeContent({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">{t("EUR Invoicing", "Facturation EUR")}</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">{t("Multi-Currency Invoicing", "Facturation Multi-Devises")}</h3>
               <p className="text-sm text-gray-600">
-                {t("No currency hassle. Simple, transparent EUR billing.", "Pas de tracas de devise. Facturation EUR simple.")}
+                {t("Invoice in EUR, USD, GBP, or AED. Simple, transparent billing.", "Facturez en EUR, USD, GBP ou AED. Facturation simple et transparente.")}
               </p>
             </div>
 
@@ -496,11 +496,11 @@ export function HomeContent({
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>{t("CET Timezone", "Fuseau Horaire CET")}</span>
+              <span>{t("Global Timezone Coverage", "Couverture Fuseau Horaire Mondiale")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-green-500" />
-              <span>{t("EUR Invoicing", "Facturation EUR")}</span>
+              <span>{t("Multi-Currency Invoicing", "Facturation Multi-Devises")}</span>
             </div>
           </div>
         </div>

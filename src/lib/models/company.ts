@@ -78,7 +78,7 @@ const CompanyInfoSchema = new Schema<ICompanyInfo>(
     },
     heroSubtitle: {
       type: String,
-      default: "Cloud architecture, full-stack development, and DevOps for European companies.",
+      default: "Cloud architecture, full-stack development, and DevOps for companies worldwide.",
       trim: true,
     },
     ctaTitle: {

@@ -60,8 +60,8 @@ const staticServices = [
       { question: "How do you ensure GDPR compliance?", answer: "We implement privacy by design: data minimization, purpose limitation, right to explanation, and proper consent management." },
     ],
     relatedServiceSlugs: ["llm-integration", "full-stack-development", "technical-due-diligence"],
-    seoTitle: "AI & ML Consulting — GDPR-Compliant AI for EU Companies",
-    seoDescription: "AI consulting for European companies: strategy, LLM integration, RAG systems, AI agents. GDPR & EU AI Act compliant.",
+    seoTitle: "AI & ML Consulting — GDPR-Compliant AI for Global Companies",
+    seoDescription: "AI consulting for companies worldwide: strategy, LLM integration, RAG systems, AI agents. GDPR & EU AI Act compliant.",
   },
   {
     title: "Full-Stack Development",
@@ -117,8 +117,8 @@ const staticServices = [
       { question: "How quickly can engineers start?", answer: "Within 1-2 weeks. We propose candidates within 48 hours." },
     ],
     relatedServiceSlugs: ["full-stack-development", "devops-consulting", "ai-consulting"],
-    seoTitle: "Dedicated Development Teams — Senior Engineers, EU Timezone",
-    seoDescription: "Dedicated senior development teams for European companies. 1-2 week onboarding, EU timezone, no lock-in.",
+    seoTitle: "Dedicated Development Teams — Senior Engineers, Global Coverage",
+    seoDescription: "Dedicated senior development teams for companies worldwide. 1-2 week onboarding, global timezone flexibility, no lock-in.",
   },
   {
     title: "API Development & Integration",

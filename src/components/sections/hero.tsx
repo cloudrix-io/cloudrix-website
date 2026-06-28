@@ -3,9 +3,9 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui";
 
 const credibilityPoints = [
-  "Production-grade solutions for EU companies",
+  "Production-grade solutions for global companies",
   "8+ years building scalable systems",
-  "Transparent pricing, EUR invoicing",
+  "Transparent pricing, multi-currency invoicing",
 ];
 
 export function Hero() {
@@ -33,8 +33,8 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300 md:text-xl">
-            Cloud architecture, full-stack development, and DevOps for European
-            companies. From startups to enterprises we deliver production-grade
+            Cloud architecture, full-stack development, and DevOps for companies
+            worldwide. From startups to enterprises we deliver production-grade
             solutions that work.
           </p>
 

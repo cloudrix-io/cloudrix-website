@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
@@ -17,7 +17,7 @@ export function Footer() {
               <span className="text-xl font-semibold text-white">Cloudrix</span>
             </div>
             <p className="text-sm text-gray-400 mb-4">
-              AI-powered software and cloud engineering for European businesses. EU AI Act compliance experts.
+              AI-powered software and cloud engineering for businesses worldwide. EU AI Act compliance experts. Serving Europe, US, Middle East, Asia-Pacific, and Africa.
             </p>
             <div className="flex space-x-4">
               <a
@@ -141,6 +141,36 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Global Regions */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Markets</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/markets/us" className="text-sm hover:text-white transition-colors">
+                  United States
+                </Link>
+              </li>
+              <li>
+                <Link href="/markets/middle-east" className="text-sm hover:text-white transition-colors">
+                  Middle East
+                </Link>
+              </li>
+              <li>
+                <Link href="/markets/asia-pacific" className="text-sm hover:text-white transition-colors">
+                  Asia-Pacific
+                </Link>
+              </li>
+              <li>
+                <Link href="/markets/africa" className="text-sm hover:text-white transition-colors">
+                  Africa
+                </Link>
+              </li>
+            </ul>
+            <p className="text-xs text-gray-500 mt-4">
+              Invoicing in EUR, USD, GBP, and AED
+            </p>
           </div>
 
           {/* Contact Info */}

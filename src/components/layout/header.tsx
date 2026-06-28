@@ -19,18 +19,29 @@ const serviceLinks = [
   { name: "Legacy Modernization", href: "/services/legacy-modernization" },
 ];
 
+const marketLinks = [
+  { name: "United States", href: "/markets/us" },
+  { name: "Middle East", href: "/markets/middle-east" },
+  { name: "Asia-Pacific", href: "/markets/asia-pacific" },
+  { name: "Africa", href: "/markets/africa" },
+];
+
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMarketsOpen, setIsMarketsOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileMarketsOpen, setIsMobileMarketsOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const marketsRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { t } = useLanguage();
 
   const navigation = [
     { name: t("Home", "Accueil"), href: "/" },
-    { name: t("Services", "Services"), href: "/services", hasDropdown: true },
+    { name: t("Services", "Services"), href: "/services", hasDropdown: true, dropdownType: "services" as const },
     { name: t("AI Services", "Services IA"), href: "/ai-services" },
+    { name: t("Markets", "Marchés"), href: "/markets", hasDropdown: true, dropdownType: "markets" as const },
     { name: t("EU AI Act", "EU AI Act"), href: "/eu-ai-act" },
     { name: t("Pricing", "Tarifs"), href: "/pricing" },
     { name: t("Case Studies", "Etudes de Cas"), href: "/case-studies" },
@@ -41,12 +52,16 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
+    setIsMarketsOpen(false);
   }, [pathname]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
         setIsServicesOpen(false);
+      }
+      if (marketsRef.current && !marketsRef.current.contains(event.target as Node)) {
+        setIsMarketsOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -73,10 +88,10 @@ export function Header() {
               item.hasDropdown ? (
                 <div
                   key={item.href}
-                  ref={servicesRef}
+                  ref={item.dropdownType === "markets" ? marketsRef : servicesRef}
                   className="relative"
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onMouseLeave={() => setIsServicesOpen(false)}
+                  onMouseEnter={() => item.dropdownType === "markets" ? setIsMarketsOpen(true) : setIsServicesOpen(true)}
+                  onMouseLeave={() => item.dropdownType === "markets" ? setIsMarketsOpen(false) : setIsServicesOpen(false)}
                 >
                   <Link
                     href={item.href}
@@ -87,10 +102,12 @@ export function Header() {
                     }`}
                   >
                     {item.name}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${
+                      (item.dropdownType === "markets" ? isMarketsOpen : isServicesOpen) ? "rotate-180" : ""
+                    }`} />
                   </Link>
 
-                  {isServicesOpen && (
+                  {item.dropdownType === "services" && isServicesOpen && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
                       <div className="bg-white border border-gray-200 rounded-xl shadow-xl p-4 w-[280px]">
                         <div className="space-y-1">
@@ -112,6 +129,28 @@ export function Header() {
                               }`}
                             >
                               {service.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {item.dropdownType === "markets" && isMarketsOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
+                      <div className="bg-white border border-gray-200 rounded-xl shadow-xl p-4 w-[220px]">
+                        <div className="space-y-1">
+                          {marketLinks.map((market) => (
+                            <Link
+                              key={market.href}
+                              href={market.href}
+                              className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                                pathname === market.href
+                                  ? "text-blue-600 bg-blue-50 font-medium"
+                                  : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                              }`}
+                            >
+                              {market.name}
                             </Link>
                           ))}
                         </div>
@@ -173,7 +212,13 @@ export function Header() {
               item.hasDropdown ? (
                 <div key={item.href}>
                   <button
-                    onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                    onClick={() => {
+                      if (item.dropdownType === "markets") {
+                        setIsMobileMarketsOpen(!isMobileMarketsOpen);
+                      } else {
+                        setIsMobileServicesOpen(!isMobileServicesOpen);
+                      }
+                    }}
                     className={`flex items-center justify-between w-full py-2 text-base ${
                       isActive(item.href)
                         ? "text-blue-600 font-medium"
@@ -181,9 +226,11 @@ export function Header() {
                     }`}
                   >
                     {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${isMobileServicesOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform ${
+                      (item.dropdownType === "markets" ? isMobileMarketsOpen : isMobileServicesOpen) ? "rotate-180" : ""
+                    }`} />
                   </button>
-                  {isMobileServicesOpen && (
+                  {item.dropdownType === "services" && isMobileServicesOpen && (
                     <div className="pl-4 space-y-1 pb-2">
                       <Link
                         href="/services"
@@ -200,6 +247,20 @@ export function Header() {
                           className="block py-1.5 text-sm text-gray-600"
                         >
                           {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  {item.dropdownType === "markets" && isMobileMarketsOpen && (
+                    <div className="pl-4 space-y-1 pb-2">
+                      {marketLinks.map((market) => (
+                        <Link
+                          key={market.href}
+                          href={market.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1.5 text-sm text-gray-600"
+                        >
+                          {market.name}
                         </Link>
                       ))}
                     </div>

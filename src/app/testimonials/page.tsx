@@ -8,11 +8,11 @@ import { BreadcrumbJsonLd } from "@/components/seo";
 export const metadata: Metadata = {
   title: "Project Scenarios — Representative Work",
   description:
-    "Representative project scenarios illustrating our approach to cloud architecture, AI systems, and software development for European companies.",
+    "Representative project scenarios illustrating our approach to cloud architecture, AI systems, and software development for companies worldwide.",
   openGraph: {
     title: "Client Testimonials",
     description:
-      "Hear from the European companies we've helped with cloud architecture, software development, and DevOps.",
+      "Hear from the companies we've helped worldwide with cloud architecture, software development, and DevOps.",
     url: "https://www.cloudrix.io/testimonials",
   },
   alternates: {

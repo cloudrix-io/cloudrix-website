@@ -101,7 +101,7 @@ const leadMagnets = [
     icon: BookOpen,
     title: "European CTO\u2019s Guide to AI in 2026",
     description:
-      "A comprehensive guide covering the AI landscape, EU regulations, build vs buy decisions, and practical implementation strategies for European companies.",
+      "A comprehensive guide covering the AI landscape, EU regulations, build vs buy decisions, and practical implementation strategies for companies worldwide.",
     pages: "42 pages",
     format: "PDF",
   },

@@ -35,11 +35,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cloudrix.io"),
   title: {
-    default: "Cloudrix | AI & Cloud Engineering for EU Companies",
+    default: "Cloudrix | AI & Cloud Engineering for Global Companies",
     template: "%s | Cloudrix",
   },
   description:
-    "AI agent development, RAG systems, EU AI Act compliance, and cloud engineering for European companies. 50+ projects delivered. Book a free AI strategy call.",
+    "AI agent development, RAG systems, EU AI Act compliance, and cloud engineering for companies worldwide. Serving Europe, US, Middle East, Asia-Pacific, and Africa. Book a free AI strategy call.",
   keywords: [
     // AI keywords
     "AI agent development",
@@ -61,6 +61,10 @@ export const metadata: Metadata = {
     "software development EU",
     "cloud services Europe",
     "engineering team Netherlands",
+    "cloud consulting US",
+    "AI consulting Middle East",
+    "software development Asia Pacific",
+    "cloud services Africa",
     // Service-specific
     "Kubernetes consulting",
     "cloud migration services",
@@ -94,15 +98,15 @@ export const metadata: Metadata = {
     alternateLocale: [],
     url: "https://www.cloudrix.io",
     siteName: "Cloudrix",
-    title: "Cloudrix | Cloud & Software Engineering for EU Companies",
+    title: "Cloudrix | Cloud & Software Engineering for Global Companies",
     description:
-      "Senior engineering teams for European companies. Cloud architecture, product development, and DevOps. 47 projects delivered. Book a free consultation.",
+      "Senior engineering teams for companies worldwide. Cloud architecture, product development, and DevOps. Serving Europe, US, Middle East, and Asia-Pacific. Book a free consultation.",
     images: [
       {
-        url: "/og?title=Cloud%20%26%20Software%20Engineering&subtitle=Senior%20engineering%20teams%20for%20European%20companies",
+        url: "/og?title=Cloud%20%26%20Software%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
         width: 1200,
         height: 630,
-        alt: "Cloudrix - Cloud & Software Engineering for EU Companies",
+        alt: "Cloudrix - Cloud & Software Engineering for Global Companies",
       },
     ],
     countryName: "Netherlands",
@@ -111,11 +115,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@cloudrix",
     creator: "@cloudrix",
-    title: "Cloudrix | Cloud & Software Engineering for EU Companies",
+    title: "Cloudrix | Cloud & Software Engineering for Global Companies",
     description:
-      "Senior engineering teams for European companies. Cloud architecture, product development, and DevOps. 47 projects delivered.",
+      "Senior engineering teams for companies worldwide. Cloud architecture, product development, and DevOps. Serving Europe, US, Middle East, and Asia-Pacific.",
     images: {
-      url: "/og?title=Cloud%20%26%20Software%20Engineering&subtitle=Senior%20engineering%20teams%20for%20European%20companies",
+      url: "/og?title=Cloud%20%26%20Software%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
       alt: "Cloudrix - Cloud & Software Engineering",
     },
   },
