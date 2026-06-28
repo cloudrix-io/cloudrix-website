@@ -11,6 +11,14 @@ const industries = [
   "ecommerce",
   "manufacturing",
   "logistics",
+  "energy",
+  "government",
+  "telecom",
+  "automotive",
+  "gaming",
+  "real-estate",
+  "education",
+  "insurance",
 ];
 
 // Static blog post slugs as fallback when MongoDB is unavailable
@@ -235,6 +243,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "toptal-alternative",
     "thoughtworks-alternative",
     "epam-alternative",
+    "accenture-alternative",
+    "cognizant-alternative",
+    "wipro-alternative",
+    "turing-alternative",
+    "andela-alternative",
+    "lemon-io-alternative",
+    "infosys-alternative",
+    "tcs-alternative",
+    "sciencesoft-alternative",
+    "n-ix-alternative",
   ].map((slug) => ({
     url: `${baseUrl}/compare/${slug}`,
     lastModified: new Date(),

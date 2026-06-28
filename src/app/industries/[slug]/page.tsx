@@ -13,6 +13,14 @@ import {
   Cpu,
   Factory,
   Truck,
+  Flame,
+  Landmark,
+  Radio,
+  Car,
+  Gamepad2,
+  Home,
+  GraduationCap,
+  ShieldCheck,
 } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/seo";
 
@@ -341,6 +349,406 @@ const industries: Record<
       { value: "99.7%", label: "Uptime" },
       { value: "€1.8M", label: "Cost Saved" },
       { value: "85%", label: "Team Retention" },
+    ],
+  },
+  energy: {
+    name: "Energy & Utilities",
+    title: "Digital Solutions for Energy & Utilities",
+    description:
+      "Smart grid management, renewable energy optimization, and IoT-driven monitoring for oil & gas, renewables, and utility companies. Modernize critical infrastructure with confidence.",
+    icon: Flame,
+    heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+    challenges: [
+      "Legacy SCADA systems with limited digital integration",
+      "Real-time monitoring across distributed energy assets",
+      "Regulatory compliance across multiple jurisdictions",
+      "Optimizing renewable energy output with variable conditions",
+      "Securing critical infrastructure against cyber threats",
+    ],
+    solutions: [
+      {
+        title: "Smart Grid Architecture",
+        description:
+          "IoT-enabled grid management systems that balance load, predict demand, and optimize energy distribution in real-time across your network.",
+      },
+      {
+        title: "Renewable Energy Optimization",
+        description:
+          "ML-powered forecasting for solar and wind output, battery storage management, and grid balancing to maximize renewable utilization.",
+      },
+      {
+        title: "Asset Monitoring & Predictive Maintenance",
+        description:
+          "Sensor data pipelines, anomaly detection, and predictive maintenance models that prevent equipment failures before they happen.",
+      },
+      {
+        title: "SCADA Modernization",
+        description:
+          "Incremental modernization of legacy SCADA systems with modern APIs, dashboards, and cloud integration — without disrupting operations.",
+      },
+    ],
+    compliance: ["GDPR", "NIS2 Directive", "ISO 27001", "IEC 62351", "NERC CIP"],
+    caseStudy: {
+      title: "Smart Grid Platform for Energy Provider",
+      result: "30% improved grid efficiency, real-time monitoring of 10K+ assets",
+      link: "/case-studies",
+    },
+    technologies: ["AWS IoT", "Kubernetes", "TimescaleDB", "Kafka", "Python", "Terraform"],
+    stats: [
+      { value: "30%", label: "Grid Efficiency Gain" },
+      { value: "10K+", label: "Assets Monitored" },
+      { value: "99.95%", label: "System Uptime" },
+      { value: "40%", label: "Maintenance Cost Reduction" },
+    ],
+  },
+  government: {
+    name: "Government & Public Sector",
+    title: "Secure Digital Services for Government",
+    description:
+      "GovTech platforms, citizen-facing digital services, and compliance-first architecture. We help government organizations modernize while meeting the strictest security and accessibility standards.",
+    icon: Landmark,
+    heroImage: "https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=800&q=80",
+    challenges: [
+      "Strict security and data sovereignty requirements",
+      "Legacy systems that cannot be easily replaced",
+      "Accessibility compliance (WCAG 2.1 AA/AAA)",
+      "Citizen-facing services with high availability demands",
+      "Complex procurement and multi-vendor integration",
+    ],
+    solutions: [
+      {
+        title: "Citizen Digital Services",
+        description:
+          "User-friendly web portals and mobile apps for permits, applications, and public information — accessible to all citizens and meeting WCAG standards.",
+      },
+      {
+        title: "Secure Cloud Architecture",
+        description:
+          "Government-grade cloud deployments with data sovereignty guarantees, encryption, and comprehensive audit logging on EU-based infrastructure.",
+      },
+      {
+        title: "Legacy System Integration",
+        description:
+          "API layers and middleware that connect modern digital services with existing government databases and mainframe systems without replacing them.",
+      },
+      {
+        title: "Identity & Access Management",
+        description:
+          "Integration with national identity systems (eIDAS, DigiD), role-based access control, and secure authentication for government employees and citizens.",
+      },
+    ],
+    compliance: ["GDPR", "NIS2 Directive", "eIDAS", "WCAG 2.1 AA", "ISO 27001", "BIO (NL)"],
+    caseStudy: {
+      title: "Digital Permit Platform for Municipality",
+      result: "60% faster permit processing, 95% citizen satisfaction",
+      link: "/case-studies",
+    },
+    technologies: ["Azure Gov", "Next.js", "PostgreSQL", ".NET", "Keycloak", "Terraform"],
+    stats: [
+      { value: "60%", label: "Faster Processing" },
+      { value: "95%", label: "Citizen Satisfaction" },
+      { value: "WCAG AA", label: "Accessibility" },
+      { value: "0", label: "Security Incidents" },
+    ],
+  },
+  telecom: {
+    name: "Telecommunications",
+    title: "Engineering for Telecommunications & Connectivity",
+    description:
+      "Network management platforms, IoT connectivity solutions, and 5G-ready infrastructure. We help telecom companies build scalable systems that handle millions of connections.",
+    icon: Radio,
+    heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    challenges: [
+      "Managing millions of concurrent device connections",
+      "Real-time network monitoring and fault detection",
+      "5G network slicing and edge computing requirements",
+      "Legacy BSS/OSS system modernization",
+      "IoT device management at scale",
+    ],
+    solutions: [
+      {
+        title: "Network Management Platform",
+        description:
+          "Real-time monitoring, fault detection, and automated remediation for complex network infrastructure with sub-second alerting.",
+      },
+      {
+        title: "IoT Connectivity Platform",
+        description:
+          "Scalable device management, data ingestion, and analytics for millions of IoT devices with reliable message delivery and OTA updates.",
+      },
+      {
+        title: "5G-Ready Architecture",
+        description:
+          "Edge computing solutions, network function virtualization, and API gateways designed for 5G network slicing and ultra-low latency applications.",
+      },
+      {
+        title: "BSS/OSS Modernization",
+        description:
+          "Incremental modernization of billing, provisioning, and operations support systems with microservices and event-driven architecture.",
+      },
+    ],
+    compliance: ["GDPR", "ePrivacy Directive", "NIS2", "ETSI Standards", "3GPP"],
+    caseStudy: {
+      title: "IoT Platform for Telecom Provider",
+      result: "2M+ devices managed, 99.99% message delivery, 50% cost reduction",
+      link: "/case-studies",
+    },
+    technologies: ["AWS", "Kubernetes", "Kafka", "Redis", "Go", "Terraform"],
+    stats: [
+      { value: "2M+", label: "Devices Managed" },
+      { value: "99.99%", label: "Message Delivery" },
+      { value: "<50ms", label: "P99 Latency" },
+      { value: "50%", label: "Cost Reduction" },
+    ],
+  },
+  automotive: {
+    name: "Automotive & Mobility",
+    title: "Software Solutions for Automotive & Mobility",
+    description:
+      "Connected vehicle platforms, autonomous driving data pipelines, and EV charging infrastructure. We help automotive companies navigate the software-defined vehicle transition.",
+    icon: Car,
+    heroImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80",
+    challenges: [
+      "Processing massive sensor and telemetry data streams",
+      "Over-the-air (OTA) update infrastructure at scale",
+      "EV charging network management and optimization",
+      "Vehicle-to-cloud connectivity with low latency",
+      "Cybersecurity for connected vehicle systems",
+    ],
+    solutions: [
+      {
+        title: "Connected Vehicle Platform",
+        description:
+          "Cloud-native platforms for real-time vehicle telemetry, remote diagnostics, fleet management, and driver-facing applications.",
+      },
+      {
+        title: "Autonomous Driving Data Pipeline",
+        description:
+          "High-throughput data ingestion, storage, and processing for LiDAR, camera, and sensor data. ML training pipelines for perception models.",
+      },
+      {
+        title: "EV Charging Infrastructure",
+        description:
+          "Charging network management, dynamic pricing, load balancing, and driver-facing apps for seamless EV charging experiences.",
+      },
+      {
+        title: "OTA Update System",
+        description:
+          "Secure, reliable over-the-air software updates for vehicle fleets with rollback capabilities, A/B testing, and staged rollouts.",
+      },
+    ],
+    compliance: ["GDPR", "UNECE WP.29", "ISO 21434", "ISO 26262", "TISAX"],
+    caseStudy: {
+      title: "Connected Vehicle Cloud Platform",
+      result: "500K+ vehicles connected, real-time telemetry, 99.9% uptime",
+      link: "/case-studies",
+    },
+    technologies: ["AWS", "Kubernetes", "Kafka", "TimescaleDB", "Python", "Rust"],
+    stats: [
+      { value: "500K+", label: "Vehicles Connected" },
+      { value: "1TB+", label: "Daily Data Processed" },
+      { value: "99.9%", label: "Platform Uptime" },
+      { value: "<100ms", label: "Telemetry Latency" },
+    ],
+  },
+  gaming: {
+    name: "Gaming & Interactive Entertainment",
+    title: "Backend Engineering for Gaming Companies",
+    description:
+      "High-performance game backends, real-time multiplayer systems, and matchmaking engines. We build the server infrastructure that makes great games possible.",
+    icon: Gamepad2,
+    heroImage: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80",
+    challenges: [
+      "Handling unpredictable player load spikes at launch",
+      "Sub-50ms latency for real-time multiplayer",
+      "Fair and fast matchmaking across skill levels",
+      "Anti-cheat and fraud detection systems",
+      "Live operations and event management at scale",
+    ],
+    solutions: [
+      {
+        title: "Scalable Game Backend",
+        description:
+          "Auto-scaling server infrastructure that handles launch-day spikes without downtime. Event-driven architecture for millions of concurrent players.",
+      },
+      {
+        title: "Real-Time Multiplayer Systems",
+        description:
+          "Low-latency WebSocket and UDP-based networking, state synchronization, and conflict resolution for competitive and cooperative gameplay.",
+      },
+      {
+        title: "Matchmaking & Ranking Engine",
+        description:
+          "ML-enhanced matchmaking that balances skill, latency, and queue times. ELO/Glicko rating systems with anti-smurf detection.",
+      },
+      {
+        title: "Live Operations Platform",
+        description:
+          "A/B testing, feature flags, event scheduling, and content management for live service games. Real-time analytics for player behavior.",
+      },
+    ],
+    compliance: ["GDPR", "Age Verification (EU)", "PCI-DSS", "USK/PEGI"],
+    caseStudy: {
+      title: "Multiplayer Backend for Online Game",
+      result: "100K concurrent players, <30ms latency, 99.9% uptime",
+      link: "/case-studies",
+    },
+    technologies: ["Go", "Redis", "Kubernetes", "WebSocket", "PostgreSQL", "AWS"],
+    stats: [
+      { value: "100K+", label: "Concurrent Players" },
+      { value: "<30ms", label: "Server Latency" },
+      { value: "99.9%", label: "Uptime" },
+      { value: "5M+", label: "Events/Second" },
+    ],
+  },
+  "real-estate": {
+    name: "Real Estate & PropTech",
+    title: "Technology for Real Estate & PropTech",
+    description:
+      "Smart building platforms, property management systems, and real estate marketplaces. We help PropTech companies and real estate firms digitize their operations.",
+    icon: Home,
+    heroImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    challenges: [
+      "Fragmented property data across multiple systems",
+      "Smart building IoT integration and management",
+      "Tenant experience and engagement platforms",
+      "Complex lease management and financial workflows",
+      "Real-time property valuation and market analysis",
+    ],
+    solutions: [
+      {
+        title: "Property Management Platform",
+        description:
+          "Unified platforms for lease management, maintenance requests, financial reporting, and tenant communication across entire property portfolios.",
+      },
+      {
+        title: "Smart Building Integration",
+        description:
+          "IoT sensor integration for HVAC, lighting, occupancy, and energy management. Real-time dashboards and automated building optimization.",
+      },
+      {
+        title: "Real Estate Marketplace",
+        description:
+          "High-performance listing platforms with advanced search, virtual tours, AI-powered valuation, and seamless buyer/seller/agent workflows.",
+      },
+      {
+        title: "PropTech Data Analytics",
+        description:
+          "Market analysis, portfolio optimization, and predictive models for property valuation, rental yield forecasting, and investment decisions.",
+      },
+    ],
+    compliance: ["GDPR", "AML/KYC", "EPC Regulations", "BRK (NL Kadaster)"],
+    caseStudy: {
+      title: "PropTech Platform for Property Manager",
+      result: "3,000 units managed, 40% operational cost reduction",
+      link: "/case-studies",
+    },
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Elasticsearch", "AWS", "Mapbox"],
+    stats: [
+      { value: "3,000+", label: "Units Managed" },
+      { value: "40%", label: "Cost Reduction" },
+      { value: "92%", label: "Tenant Satisfaction" },
+      { value: "<2s", label: "Search Response" },
+    ],
+  },
+  education: {
+    name: "Education & EdTech",
+    title: "Scalable Solutions for Education & EdTech",
+    description:
+      "Learning management systems, AI-powered tutoring platforms, and educational content delivery. We help EdTech companies build products that transform how people learn.",
+    icon: GraduationCap,
+    heroImage: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
+    challenges: [
+      "Scaling for unpredictable enrollment spikes",
+      "Building engaging, interactive learning experiences",
+      "AI-powered personalized learning paths",
+      "Accessibility for diverse learner needs (WCAG)",
+      "Secure handling of student data and records",
+    ],
+    solutions: [
+      {
+        title: "Learning Management System",
+        description:
+          "Modern LMS platforms with course authoring, progress tracking, assessment tools, and analytics. Supports live, async, and blended learning formats.",
+      },
+      {
+        title: "AI Tutoring & Personalization",
+        description:
+          "LLM-powered tutoring assistants, adaptive learning paths, and intelligent content recommendations based on individual student performance and goals.",
+      },
+      {
+        title: "Interactive Content Platform",
+        description:
+          "Rich media delivery, interactive exercises, collaborative workspaces, and real-time collaboration tools for engaging educational experiences.",
+      },
+      {
+        title: "Student Data & Analytics",
+        description:
+          "Secure student information systems, learning analytics dashboards, and outcome tracking — all GDPR-compliant with proper consent management.",
+      },
+    ],
+    compliance: ["GDPR", "WCAG 2.1 AA", "FERPA (US clients)", "ISO 27001"],
+    caseStudy: {
+      title: "EdTech Platform Scale-Up",
+      result: "50K+ students, AI-powered personalization, 35% completion improvement",
+      link: "/case-studies",
+    },
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Redis", "OpenAI", "AWS"],
+    stats: [
+      { value: "50K+", label: "Active Students" },
+      { value: "35%", label: "Completion Improvement" },
+      { value: "99.8%", label: "Platform Uptime" },
+      { value: "4.7/5", label: "Student Rating" },
+    ],
+  },
+  insurance: {
+    name: "Insurance & InsurTech",
+    title: "Digital Solutions for Insurance & InsurTech",
+    description:
+      "Claims automation, risk assessment AI, and policy management platforms. We help insurance companies and InsurTech startups modernize underwriting, claims, and customer experiences.",
+    icon: ShieldCheck,
+    heroImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    challenges: [
+      "Slow claims processing with manual workflows",
+      "Legacy policy administration systems",
+      "Fraud detection across complex claim patterns",
+      "Regulatory compliance (Solvency II, IDD, GDPR)",
+      "Customer experience gaps in digital channels",
+    ],
+    solutions: [
+      {
+        title: "Claims Automation Platform",
+        description:
+          "AI-powered claims processing with document extraction, damage assessment, and automated payouts for straightforward claims — reducing processing from weeks to hours.",
+      },
+      {
+        title: "Risk Assessment AI",
+        description:
+          "ML models for underwriting risk scoring, pricing optimization, and portfolio risk analysis. Explainable AI that meets regulatory requirements.",
+      },
+      {
+        title: "Policy Administration Modernization",
+        description:
+          "Incremental modernization of legacy policy systems with microservices, enabling new product launches in weeks instead of months.",
+      },
+      {
+        title: "Digital Customer Portal",
+        description:
+          "Self-service portals for policy management, claims filing, and real-time status tracking. Omnichannel experiences across web, mobile, and chat.",
+      },
+    ],
+    compliance: ["GDPR", "Solvency II", "IDD", "PSD2", "ISO 27001", "DORA"],
+    caseStudy: {
+      title: "Claims Automation for Insurance Provider",
+      result: "70% faster claims, 25% fraud reduction, improved customer NPS",
+      link: "/case-studies",
+    },
+    technologies: ["AWS", "Python", "PostgreSQL", "Kafka", "TensorFlow", "Terraform"],
+    stats: [
+      { value: "70%", label: "Faster Claims" },
+      { value: "25%", label: "Fraud Reduction" },
+      { value: "€2.1M", label: "Annual Savings" },
+      { value: "+32", label: "NPS Improvement" },
     ],
   },
 };
