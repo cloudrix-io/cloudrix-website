@@ -92,14 +92,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export const dynamicParams = true;
 
+const STATIC_BLOG_SLUGS = [
+  "cloud-migration-checklist-aws",
+  "scaling-nodejs-applications-guide",
+  "terraform-vs-pulumi-vs-cloudformation-comparison",
+  "build-mvp-12-weeks-technical-guide",
+  "api-security-best-practices-2025",
+  "aws-cost-optimization-reduce-cloud-bill",
+  "microservices-vs-monolith-when-to-switch",
+  "technical-debt-quantify-convince-leadership",
+  "react-vs-vue-vs-angular-enterprise-comparison",
+  "gdpr-compliant-cloud-architecture-guide",
+  "devops-engineer-cost-europe-salary-guide",
+  "postgresql-performance-optimization-tips",
+  "cicd-best-practices-pipelines",
+  "kubernetes-vs-serverless-architecture",
+  "cloud-migration-cost-calculator-guide",
+  "hire-cloud-architect-europe",
+  "devops-consulting-guide",
+  "technical-due-diligence-checklist-ma",
+  "aws-vs-azure-vs-gcp-europe",
+  "how-to-reduce-aws-bill-40-percent",
+  "signs-legacy-system-needs-modernization",
+  "why-cloud-migration-failed-7-mistakes",
+  "toptal-vs-boutique-agencies-comparison",
+  "in-house-vs-outsourced-development-eu-cost",
+  "nearshore-vs-offshore-netherlands-teams",
+  "true-cost-technical-debt",
+  "llm-integration-enterprise-architecture-guide",
+  "how-to-build-rag-system-guide",
+  "ai-strategy-european-companies-gdpr",
+  "ai-automation-real-use-cases-roi",
+];
+
 export async function generateStaticParams() {
   try {
     await connectDB();
     const posts = await BlogPost.find({ isPublished: true }).select("slug").lean();
-    return posts.map((post) => ({ slug: post.slug }));
+    if (posts.length > 0) {
+      return posts.map((post) => ({ slug: post.slug }));
+    }
   } catch {
-    return [];
+    // Fall through to static fallback
   }
+  return STATIC_BLOG_SLUGS.map((slug) => ({ slug }));
 }
 
 export default async function BlogPostPage({ params }: Props) {
