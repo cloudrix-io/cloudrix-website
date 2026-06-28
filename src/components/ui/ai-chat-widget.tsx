@@ -120,9 +120,12 @@ export function AiChatWidget() {
           }
         }
       } else {
-        // JSON response (demo mode)
+        // JSON response (demo mode or rate limit)
         const data = await response.json();
-        if (data.demo || data.error) {
+        if (data.rateLimited) {
+          // Rate limit reached — show contact details
+          setMessages((prev) => [...prev, { role: "assistant", content: data.message }]);
+        } else if (data.demo || data.error) {
           // Fallback responses
           const fallback = getFallbackResponse(content);
           setMessages((prev) => [...prev, { role: "assistant", content: fallback }]);

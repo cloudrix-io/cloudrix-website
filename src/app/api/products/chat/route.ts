@@ -87,8 +87,11 @@ export async function POST(request: NextRequest) {
     const { allowed, remaining } = checkProductRateLimit(ip); // 10 messages per 24h
     if (!allowed) {
       return new Response(
-        JSON.stringify({ error: "You've reached the message limit. Please email us at contact@cloudrix.io or try again in an hour." }),
-        { status: 429, headers: { "Content-Type": "application/json", "X-RateLimit-Remaining": remaining.toString() } }
+        JSON.stringify({
+          rateLimited: true,
+          message: "You've used all 10 free messages for today! We'd love to continue the conversation:\n\n📧 **Email:** contact@cloudrix.io\n📞 **Phone:** +31 6 43166305\n📅 **Book a call:** cloudrix.io/contact\n\nOur founder Firas responds within 24 hours. Looking forward to hearing from you!"
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", "X-RateLimit-Remaining": "0" } }
       );
     }
 
