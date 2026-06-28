@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Check, ArrowRight, HelpCircle, Zap, Users, Building2, Scale, Bot, Wrench, Search, Shield, Gift, Clock, FileCode, Brain, Server, Sparkles } from "lucide-react";
 import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
 import { Breadcrumbs } from "@/components/ui";
@@ -339,8 +340,18 @@ export default function PricingPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20 overflow-hidden">
+          {/* Subtle background image */}
+          <div className="absolute inset-0 opacity-[0.04]">
+            <Image
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=60"
+              alt="Abstract financial and pricing visualization background"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 Transparent Pricing, No Surprises

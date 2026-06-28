@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 import { ContactForm } from "@/components/forms";
 import { BookingCalendar, TrustBadgeStrip } from "@/components/ui";
@@ -226,6 +227,17 @@ export default async function ContactPage() {
 
             {/* Contact Info */}
             <div className="space-y-6">
+              {/* Team Image */}
+              <div className="rounded-xl overflow-hidden shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+                  alt="Cloudrix engineering team collaborating on enterprise cloud and AI solutions"
+                  width={600}
+                  height={400}
+                  className="w-full h-48 object-cover"
+                />
+              </div>
+
               {/* Quick Contact */}
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">

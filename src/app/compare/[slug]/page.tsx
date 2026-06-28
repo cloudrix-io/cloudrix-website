@@ -8,8 +8,8 @@ import { Breadcrumbs } from "@/components/ui";
 
 const comparisonImages: Record<string, { url: string; alt: string }> = {
   "toptal-alternative": {
-    url: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
-    alt: "Professional team reviewing engineering talent and collaboration options",
+    url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+    alt: "Engineering leaders comparing software development partnership options",
   },
   "thoughtworks-alternative": {
     url: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
@@ -44,12 +44,12 @@ const comparisonImages: Record<string, { url: string; alt: string }> = {
     alt: "Enterprise technology consulting and digital transformation",
   },
   "tcs-alternative": {
-    url: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&q=80",
-    alt: "Modern office environment for technology services",
+    url: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80",
+    alt: "Global technology services office environment",
   },
   "sciencesoft-alternative": {
-    url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    alt: "Technology research and software engineering laboratory",
+    url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    alt: "Technology research and engineering innovation laboratory",
   },
 };
 

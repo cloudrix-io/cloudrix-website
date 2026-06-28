@@ -165,41 +165,63 @@ export function HomeContent({
               )}
             </div>
 
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative lg:-mr-8">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                  alt="Team collaboration"
-                  width={800}
-                  height={600}
+                  src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&q=85"
+                  alt="AI-powered cloud infrastructure and neural network visualization representing enterprise digital transformation"
+                  width={1200}
+                  height={900}
                   className="w-full h-full object-cover"
                   priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-blue-600/10"></div>
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-600 rounded-full opacity-10 blur-2xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400 rounded-full opacity-10 blur-2xl"></div>
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-600 rounded-full opacity-15 blur-3xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-blue-400 rounded-full opacity-15 blur-3xl"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500 rounded-full opacity-10 blur-3xl"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Industries We Serve */}
-      <section className="py-12 bg-white border-b border-gray-100">
+      {/* Trust Indicators Strip */}
+      <section className="py-10 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-medium text-gray-500 mb-8 uppercase tracking-wider">
-            {t("Industries we serve worldwide", "Industries que nous servons dans le monde")}
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center">
             {[
-              { name: t("FinTech", "FinTech"), color: "text-blue-600" },
-              { name: t("Healthcare", "Santé"), color: "text-red-600" },
-              { name: t("SaaS", "SaaS"), color: "text-green-600" },
-              { name: t("Manufacturing", "Industrie"), color: "text-orange-600" },
-              { name: t("E-Commerce", "E-Commerce"), color: "text-pink-600" },
-              { name: t("Insurance", "Assurance"), color: "text-purple-600" },
-            ].map((industry) => (
-              <div key={industry.name} className="flex items-center justify-center h-12">
-                <span className={`text-lg font-semibold ${industry.color}`}>{industry.name}</span>
+              {
+                label: t("GDPR Compliant", "Conforme RGPD"),
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                ),
+              },
+              {
+                label: t("KVK Registered", "Enregistré KVK"),
+                icon: (
+                  <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                ),
+              },
+              {
+                label: t("AWS Partner", "Partenaire AWS"),
+                icon: (
+                  <Cloud className="w-6 h-6 text-yellow-600" />
+                ),
+              },
+              {
+                label: t("EU AI Act Ready", "Prêt EU AI Act"),
+                icon: (
+                  <Shield className="w-6 h-6 text-green-600" />
+                ),
+              },
+            ].map((badge) => (
+              <div key={badge.label} className="flex items-center gap-3 px-4 py-3 bg-gray-50 rounded-lg w-full max-w-[220px]">
+                {badge.icon}
+                <span className="text-sm font-medium text-gray-700">{badge.label}</span>
               </div>
             ))}
           </div>

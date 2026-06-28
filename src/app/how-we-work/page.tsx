@@ -334,8 +334,8 @@ export default async function HowWeWorkPage() {
                       {index === 0 && (
                         <div className="rounded-xl overflow-hidden shadow-lg">
                           <Image
-                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                            alt="Team meeting"
+                            src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80"
+                            alt="Agile sprint planning and engineering process workflow"
                             width={800}
                             height={600}
                             className="w-full h-80 object-cover"
@@ -346,7 +346,7 @@ export default async function HowWeWorkPage() {
                         <div className="rounded-xl overflow-hidden shadow-lg">
                           <Image
                             src="https://images.unsplash.com/photo-1617042375876-a13e36732a04?w=800&q=80"
-                            alt="Developer coding"
+                            alt="Senior developer writing production code during agile development sprint"
                             width={800}
                             height={600}
                             className="w-full h-80 object-cover"

@@ -221,8 +221,8 @@ export function AboutContent({
             </div>
             <div className="rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                alt="Team collaboration"
+                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
+                alt="Cloudrix engineering team collaborating on enterprise solutions in a modern workspace"
                 width={800}
                 height={600}
                 className="w-full h-full object-cover"

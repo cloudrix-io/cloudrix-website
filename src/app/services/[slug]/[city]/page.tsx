@@ -28,8 +28,8 @@ const cityServiceImages: Record<string, { url: string; alt: string }> = {
     alt: "Technical audit and code review process",
   },
   "dedicated-teams": {
-    url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    alt: "Engineering team collaboration",
+    url: "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=800&q=80",
+    alt: "Remote engineering team collaborating across European time zones",
   },
   "api-development": {
     url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",

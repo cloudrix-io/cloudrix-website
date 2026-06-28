@@ -48,8 +48,8 @@ const serviceImages: Record<string, { url: string; alt: string }> = {
     alt: "Business professional reviewing technical audit documents",
   },
   "dedicated-teams": {
-    url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    alt: "Diverse team of engineers collaborating in a modern office",
+    url: "https://images.unsplash.com/photo-1600880292089-7a95e44bdb6e?w=800&q=80",
+    alt: "Dedicated senior engineering team collaborating on client project",
   },
   "api-development": {
     url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
