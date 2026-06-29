@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Describe your system requirements and get an AI-generated cloud architecture with components, cost estimates, scaling strategies, and security recommendations. Free tool by Cloudrix.",
   openGraph: {
-    title: "AI Architecture Generator | Cloudrix",
+    title: "AI Architecture Generator",
     description:
       "Generate cloud architecture recommendations with cost estimates and scaling strategies. Supports AWS, GCP, and Azure. Free AI tool.",
     url: "https://www.cloudrix.io/products/ai-architecture-generator/demo",

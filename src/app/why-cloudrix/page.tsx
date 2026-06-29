@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     "Not another outsourcing agency. Cloudrix delivers senior-only engineers, transparent pricing, EU data residency, and full source code ownership. See how we compare to Big 4, freelancers, and offshore teams.",
   openGraph: {
-    title: "Why Choose Cloudrix | Cloudrix",
+    title: "Why Choose Cloudrix",
     description:
       "Senior-only engineers, transparent pricing, EU data residency, and full source code ownership. See why companies worldwide choose Cloudrix.",
     url: "https://www.cloudrix.io/why-cloudrix",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Why Choose Cloudrix | Cloudrix",
+    title: "Why Choose Cloudrix",
     description:
       "Senior-only engineers, transparent pricing, EU data residency, and full source code ownership.",
   },

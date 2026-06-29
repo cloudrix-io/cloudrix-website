@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: framework.metaTitle,
     description: framework.metaDescription,
     openGraph: {
-      title: `${framework.metaTitle} | Cloudrix`,
+      title: `${framework.metaTitle}`,
       description: framework.metaDescription,
       url: `https://www.cloudrix.io/compliance/${slug}`,
     },

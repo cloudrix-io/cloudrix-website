@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description:
     "Download free guides, whitepapers, templates, and AI use case libraries for cloud migration, DevOps, and software development. Practical resources from senior engineers.",
   openGraph: {
-    title: "Free Resources - Guides, Whitepapers & Templates | Cloudrix",
+    title: "Free Resources - Guides, Whitepapers & Templates",
     description:
       "Download free guides, whitepapers, and templates for cloud migration, DevOps, and AI integration.",
     url: "https://www.cloudrix.io/resources",

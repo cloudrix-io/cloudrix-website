@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Instantly assess your AI system's EU AI Act compliance. Get risk classification, requirements, action items, and a compliance timeline. Free tool by Cloudrix.",
   openGraph: {
-    title: "EU AI Act Compliance Scanner | Cloudrix",
+    title: "EU AI Act Compliance Scanner",
     description:
       "Free AI-powered tool to assess EU AI Act compliance. Get instant risk classification and a detailed compliance roadmap.",
     url: "https://www.cloudrix.io/products/eu-ai-act-scanner/demo",

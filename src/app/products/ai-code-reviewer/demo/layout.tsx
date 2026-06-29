@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Paste your code and get an instant AI-powered review covering security, performance, architecture, and code quality. Free tool by Cloudrix.",
   openGraph: {
-    title: "AI Code Reviewer | Cloudrix",
+    title: "AI Code Reviewer",
     description:
       "Free AI-powered code review tool. Get security analysis, performance insights, and architecture recommendations instantly.",
     url: "https://www.cloudrix.io/products/ai-code-reviewer/demo",

@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       openGraph: {
-        title: `${title} | Cloudrix`,
+        title: `${title}`,
         description,
         url: "https://www.cloudrix.io/case-studies",
         type: "website",
@@ -71,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
       twitter: {
         card: "summary_large_image",
-        title: `${title} | Cloudrix`,
+        title: `${title}`,
         description,
         images: [`/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how we've helped companies succeed")}&type=case-studies`],
       },

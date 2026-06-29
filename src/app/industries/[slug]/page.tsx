@@ -762,10 +762,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${industry.title} | Cloudrix`,
+    title: `${industry.title}`,
     description: industry.description,
     openGraph: {
-      title: `${industry.title} | Cloudrix`,
+      title: `${industry.title}`,
       description: industry.description,
       url: `https://www.cloudrix.io/industries/${slug}`,
     },

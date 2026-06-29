@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   description:
     "24 free tools and AI-powered products: code reviewer, compliance scanner, cost calculator, tech advisor, CRM, and more. Try them free.",
   openGraph: {
-    title: "Products & Tools — Built to Solve Real Problems | Cloudrix",
+    title: "Products & Tools — Built to Solve Real Problems",
     description:
       "Explore 24 AI-powered products, intelligent business solutions, and engineering tools built by Cloudrix.",
     url: "https://www.cloudrix.io/products",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Products & Tools | Cloudrix",
+    title: "Products & Tools",
     description:
       "Explore 24 AI-powered products, intelligent business solutions, and engineering tools built by Cloudrix.",
   },

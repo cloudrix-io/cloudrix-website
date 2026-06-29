@@ -98,7 +98,7 @@ export async function generateMetadata({
     title,
     description,
     openGraph: {
-      title: `${title} | Cloudrix`,
+      title: `${title}`,
       description,
       url: `https://www.cloudrix.io/products/${slug}`,
       type: "website",
@@ -113,7 +113,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} | Cloudrix`,
+      title: `${product.name}`,
       description: product.tagline,
     },
     alternates: {

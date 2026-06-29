@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Describe your project idea and get an AI-generated scope with tech stack, timeline, cost estimates, and team composition. Free tool by Cloudrix.",
   openGraph: {
-    title: "AI Project Scope Generator | Cloudrix",
+    title: "AI Project Scope Generator",
     description:
       "Turn any project idea into a detailed scope document with tech stack, phases, cost estimates, and risk analysis. Free AI tool.",
     url: "https://www.cloudrix.io/products/ai-scope-generator/demo",
