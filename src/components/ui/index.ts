@@ -21,3 +21,4 @@ export { Breadcrumbs } from "./breadcrumbs";
 export { AiChatWidget } from "./ai-chat-widget";
 export { EuAiActScanner } from "./eu-ai-act-scanner";
 export { AiScopeGenerator } from "./ai-scope-generator";
+export { ToolsBanner } from "./tools-banner";

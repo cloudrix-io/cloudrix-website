@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Pricing — Engineering & AI Services",
   description:
-    "Transparent pricing for cloud, AI, and software engineering. Quick Wins from EUR 1,500, dedicated teams from EUR 8,500/month. No hidden fees.",
+    "Transparent pricing, no surprises. Quick Wins from EUR 1,500, dedicated senior teams from EUR 8,500/month, AI projects from EUR 2,500. No-risk first sprint guarantee. Try free tools or book a call.",
   openGraph: {
     title: "Pricing — Engineering & AI Services",
     description:

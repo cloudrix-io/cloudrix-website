@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -12,6 +13,10 @@ import {
   Award,
   Brain,
   Bot,
+  ScanSearch,
+  Calculator,
+  Compass,
+  MessageSquareText,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import type { IHomePageContent, ILocalizedContent } from "@/lib/models/page";
@@ -25,6 +30,103 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Brain,
   Bot,
 };
+
+// Counter animation hook
+function useCountUp(target: number, isVisible: boolean, duration = 1500) {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!isVisible || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const startTime = performance.now();
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+    requestAnimationFrame(step);
+  }, [isVisible, target, duration]);
+
+  return count;
+}
+
+function AnimatedStat({ value, label }: { value: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Parse the numeric part from value like "50+" or "99.9%"
+  const numericMatch = value.match(/^([\d.]+)/);
+  const numericValue = numericMatch ? parseFloat(numericMatch[1]) : 0;
+  const suffix = value.replace(/^[\d.]+/, "");
+  const isDecimal = value.includes(".");
+
+  const animatedCount = useCountUp(
+    isDecimal ? Math.floor(numericValue * 10) : numericValue,
+    isVisible
+  );
+
+  const displayValue = isDecimal
+    ? (animatedCount / 10).toFixed(1)
+    : animatedCount;
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
+        {displayValue}{suffix}
+      </div>
+      <div className="text-blue-100">{label}</div>
+    </div>
+  );
+}
+
+const popularTools = [
+  {
+    icon: MessageSquareText,
+    title: "AI Code Reviewer",
+    description: "Paste code, get instant review",
+    href: "/products/ai-code-reviewer/demo",
+  },
+  {
+    icon: Calculator,
+    title: "Cloud Cost Calculator",
+    description: "Compare AWS vs Azure vs GCP",
+    href: "/products/cloud-cost-calculator/demo",
+  },
+  {
+    icon: ScanSearch,
+    title: "EU AI Act Scanner",
+    description: "Check your AI compliance",
+    href: "/products/eu-ai-act-scanner/demo",
+  },
+  {
+    icon: Compass,
+    title: "Tech Stack Advisor",
+    description: "Get personalized recommendations",
+    href: "/products/tech-stack-advisor/demo",
+  },
+];
 
 interface HomeContentProps {
   pageContent: ILocalizedContent;
@@ -228,18 +330,13 @@ export function HomeContent({
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section with Counter Animation */}
       {stats.length > 0 && (
         <section className="bg-blue-600 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-blue-100">{stat.label}</div>
-                </div>
+                <AnimatedStat key={index} value={stat.value} label={stat.label} />
               ))}
             </div>
           </div>
@@ -577,6 +674,62 @@ export function HomeContent({
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Tools Section */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {t("Try Our Free AI Tools", "Essayez Nos Outils IA Gratuits")}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t(
+                "24 free tools, no signup required. Built by senior engineers to solve real problems.",
+                "24 outils gratuits, sans inscription. Construits par des ingenieurs seniors pour resoudre de vrais problemes."
+              )}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularTools.map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-200 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
+                    <Icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {tool.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    {tool.description}
+                  </p>
+                  <Link
+                    href={tool.href}
+                    className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700 group/link"
+                  >
+                    {t("Try Free", "Essayer Gratuitement")}
+                    <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/products"
+              className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium group"
+            >
+              {t("View All 24 Tools", "Voir les 24 Outils")}
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>

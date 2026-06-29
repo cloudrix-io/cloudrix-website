@@ -20,7 +20,7 @@ import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
 export const metadata: Metadata = {
   title: "EU AI Act Compliance Consulting — Get Compliant Before the Deadline",
   description:
-    "EU AI Act compliance consulting for European companies. Risk classification, conformity assessments, and implementation programs. Fines up to \u20AC35M. Deadline: August 2, 2026.",
+    "EU AI Act deadline: August 2, 2026. Fines up to EUR 35M. Get compliant fast — Quick Scan from EUR 2,500, full programs from EUR 25K. Netherlands-based, technical + legal expertise. Book now.",
   openGraph: {
     title: "EU AI Act Compliance Consulting | Cloudrix",
     description:

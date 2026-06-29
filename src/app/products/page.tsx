@@ -31,7 +31,35 @@ import {
   Wrench,
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui";
-import { BreadcrumbJsonLd } from "@/components/seo";
+import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
+
+const productsFaqs = [
+  {
+    question: "Are Cloudrix tools free to use?",
+    answer:
+      "Yes, most of our 24 tools are completely free to use with no signup required. This includes the AI Code Reviewer, EU AI Act Compliance Scanner, Cloud Cost Calculator, and Tech Stack Advisor. Some advanced features are available in freemium or paid tiers.",
+  },
+  {
+    question: "What types of tools does Cloudrix offer?",
+    answer:
+      "Cloudrix offers three categories of tools: AI-Powered tools (like the AI Code Reviewer and EU AI Act Scanner that use large language models), AI-Enhanced business tools (like CRM and analytics dashboards), and Engineering Tools (like deployment pipelines and monitoring utilities).",
+  },
+  {
+    question: "Do I need to create an account to use the tools?",
+    answer:
+      "No, you can try all live tool demos without creating an account or signing up. Simply visit the product page and click Try Demo Free to get started immediately.",
+  },
+  {
+    question: "Can Cloudrix build a custom tool for my company?",
+    answer:
+      "Absolutely. Every product in our portfolio was born from solving a real client challenge. If you need a tailored solution, we offer custom development starting from EUR 15,000 for project-based work or EUR 8,500 per month for a dedicated engineering team.",
+  },
+  {
+    question: "What technology powers Cloudrix tools?",
+    answer:
+      "Our tools are built with production-grade technology including Next.js, React, TypeScript, Python, and Node.js on the frontend and backend; Claude, GPT-4o, and open-source LLMs for AI features; and AWS, Kubernetes, and Docker for infrastructure.",
+  },
+];
 import {
   products,
   categoryInfo,
@@ -43,7 +71,7 @@ import {
 export const metadata: Metadata = {
   title: "Products & Tools — Built to Solve Real Problems",
   description:
-    "24 free tools and AI-powered products: code reviewer, compliance scanner, cost calculator, tech advisor, CRM, and more. Try them free.",
+    "Try 24 free AI tools — no signup required. AI Code Reviewer, EU AI Act Scanner, Cloud Cost Calculator, and more. Built by senior engineers serving 50+ countries.",
   openGraph: {
     title: "Products & Tools — Built to Solve Real Problems",
     description:
@@ -258,6 +286,7 @@ export default function ProductsPage() {
       <BreadcrumbJsonLd
         items={[{ name: "Products", url: "https://www.cloudrix.io/products" }]}
       />
+      <FAQJsonLd faqs={productsFaqs} pageUrl="/products" />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-950 pt-32 pb-20">

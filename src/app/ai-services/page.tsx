@@ -18,12 +18,40 @@ import {
   ChevronRight,
   AlertTriangle,
 } from "lucide-react";
-import { BreadcrumbJsonLd } from "@/components/seo";
+import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
+
+const aiServicesFaqs = [
+  {
+    question: "What AI services does Cloudrix provide?",
+    answer:
+      "Cloudrix provides AI agent development, RAG (Retrieval-Augmented Generation) system implementation, EU AI Act compliance consulting, conversational AI and voice agents, MCP server development, LLM integration and API orchestration, and AI infrastructure setup with MLOps.",
+  },
+  {
+    question: "How much does AI development cost at Cloudrix?",
+    answer:
+      "AI projects range from EUR 2,500 for an EU AI Act Quick Scan to EUR 200K+ for full enterprise AI agent deployments. RAG system PoCs start at EUR 20K, production RAG systems from EUR 60K, and AI agent development from EUR 30K to EUR 200K. Most mid-market projects fall in the EUR 15K-80K range.",
+  },
+  {
+    question: "What is the EU AI Act deadline and how can Cloudrix help?",
+    answer:
+      "The key EU AI Act deadline is August 2, 2026 for most obligations including high-risk AI systems. Non-compliance can result in fines up to EUR 35M or 7% of global turnover. Cloudrix offers compliance packages from a EUR 2,500 Quick Scan to full EUR 60K implementation programs.",
+  },
+  {
+    question: "What AI tech stack does Cloudrix use?",
+    answer:
+      "Cloudrix works with leading AI tools including Claude (Anthropic), GPT-4o (OpenAI), Gemini, and Mistral for LLMs; LangChain, LlamaIndex, and CrewAI for agent frameworks; Pinecone, Weaviate, and pgvector for vector databases; and AWS Bedrock, Azure OpenAI, and Kubernetes for infrastructure.",
+  },
+  {
+    question: "Why choose Cloudrix over Big Four consulting for AI projects?",
+    answer:
+      "Cloudrix offers 50-70% lower cost compared to Big Four rates because you work directly with senior engineers, not layers of consultants. We are EU-native with built-in GDPR and AI Act expertise, we ship to production (not just PoCs), and we handle full-stack AI from infrastructure to UI with one team.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "AI Services — Agent Development, RAG Systems & EU AI Act Compliance",
   description:
-    "AI agent development, RAG systems, EU AI Act compliance, and conversational AI for companies worldwide. Production-first approach, 50-70% lower cost than Big Four rates.",
+    "Ship AI to production, not just PoCs. AI agents, RAG systems, and EU AI Act compliance from EUR 2,500. Senior engineers, 50-70% less than Big Four. Book a free strategy call.",
   openGraph: {
     title: "AI Services — Agent Development, RAG Systems & EU AI Act Compliance | Cloudrix",
     description:
@@ -230,6 +258,7 @@ export default function AIServicesPage() {
           { name: "AI Services", url: "/ai-services" },
         ]}
       />
+      <FAQJsonLd faqs={aiServicesFaqs} pageUrl="/ai-services" />
 
       <div className="bg-white">
         {/* Hero Section */}
