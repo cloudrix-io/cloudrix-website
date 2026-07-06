@@ -499,7 +499,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: data.seoTitle,
+    title: data.seoTitle.replace(/ \| Cloudrix$/, ""),
     description: data.seoDescription,
     openGraph: {
       title: `${data.seoTitle} | Cloudrix`,

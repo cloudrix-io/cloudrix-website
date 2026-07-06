@@ -1,0 +1,43 @@
+================================================================================
+DESIGNRUSH.COM — Agency Profile Submission
+================================================================================
+
+Agency Name: Cloudrix
+Website: https://www.cloudrix.io
+Logo: https://www.cloudrix.io/logo.png
+
+Tagline: AI & Cloud Engineering for Global Companies
+
+About (150 chars):
+Senior cloud & AI engineering teams. Cloud migration, DevOps, AI agents, RAG systems, LLM integration. 50+ global markets. From €1,500.
+
+Full Description (500 chars):
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only. Multi-currency invoicing (EUR, USD, GBP, AED). Founded by Firas Sayah.
+
+Location: Tilburg, Netherlands
+Year Founded: 2024
+Team Size: 2-9
+Hourly Rate: $85–160/hr
+Min Budget: $1,500
+
+Categories:
+- Cloud Consulting Companies
+- DevOps Companies
+- AI Development Companies
+- Software Development Companies
+- IT Staff Augmentation Companies
+
+Services:
+Cloud Migration, DevOps Consulting, AI & ML Consulting, Full-Stack Development, Dedicated Teams, Technical Due Diligence, API Development, LLM Integration, Legacy Modernization, EU AI Act Compliance
+
+Industries:
+FinTech, Healthcare, SaaS, E-commerce, Manufacturing, Energy, Government, Insurance
+
+Portfolio Highlights:
+1. FinTech Cloud Migration — 99.99% uptime, 55% cost reduction
+2. B2B SaaS MVP — From concept to funded product in 14 weeks
+3. Manufacturing ERP Modernization — Zero downtime, 73% modernized
+
+Contact: contact@cloudrix.io
+Phone: +31 6 43166305
+LinkedIn: https://linkedin.com/company/cloudrix

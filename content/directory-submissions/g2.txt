@@ -1,0 +1,33 @@
+================================================================================
+G2.COM — Company / Product Profile Submission
+================================================================================
+
+Company Name: Cloudrix
+Website: https://www.cloudrix.io
+
+Category: IT Services & Consulting / Cloud Consulting / AI Consulting
+
+Tagline: AI & Cloud Engineering for Global Companies
+
+Short Description (150 chars):
+Senior cloud & AI engineering teams. Cloud migration, DevOps, AI agents, RAG systems, LLM integration. 50+ global markets. From €1,500.
+
+Long Description (500 chars):
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only. Multi-currency invoicing (EUR, USD, GBP, AED). Founded by Firas Sayah.
+
+Headquarters: Tilburg, Netherlands
+Founded: 2024
+Company Size: 1-10
+
+Products to List:
+1. CodeScan AI — AI-powered code review tool (Free)
+2. AI Act Compliance Scanner — EU AI Act risk assessment (Free)
+3. CloudArchitect AI — Cloud architecture diagram generator (Free)
+4. CloudCost AI — Cloud spending analyzer (Free)
+5. ScopeAI — Project scope document generator (Free)
+6. DocSmith AI — API documentation generator (Free)
+
+Contact: contact@cloudrix.io
+Phone: +31 6 43166305
+LinkedIn: https://linkedin.com/company/cloudrix
+GitHub: https://github.com/cloudrix

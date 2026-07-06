@@ -1,0 +1,65 @@
+================================================================================
+PRODUCT HUNT — Product Launch Submissions
+================================================================================
+
+NOTE: Launch each free tool as a separate Product Hunt post for maximum exposure.
+
+--- LAUNCH 1: CodeScan AI ---
+
+Product Name: CodeScan AI by Cloudrix
+Tagline: Free AI code reviewer that catches security flaws before your users do
+Website: https://www.cloudrix.io/products/ai-code-reviewer/demo
+
+Description:
+CodeScan AI is a free AI-powered code review tool that analyzes your code for security vulnerabilities, performance bottlenecks, and architectural anti-patterns. Paste any snippet or connect your repo — get a detailed report in seconds. Supports JavaScript, TypeScript, Python, Go, Java, PHP, and Rust. Built with Claude API. No signup required.
+
+Topics: Developer Tools, Artificial Intelligence, Code Review, Security
+Makers: Firas Sayah
+
+--- LAUNCH 2: AI Act Compliance Scanner ---
+
+Product Name: AI Act Compliance Scanner
+Tagline: Check if your AI system complies with the EU AI Act — free, instant
+Website: https://www.cloudrix.io/products/ai-act-scanner/demo
+
+Description:
+The EU AI Act deadline is August 2026. Fines go up to €35M or 7% of global revenue. Our free scanner classifies your AI system's risk level, identifies compliance gaps, and generates a prioritized action plan. Answer a few questions about your system and get an instant compliance report. Built by Cloudrix, a Netherlands-based cloud & AI consultancy.
+
+Topics: Artificial Intelligence, Legal Tech, Compliance, SaaS
+Makers: Firas Sayah
+
+--- LAUNCH 3: CloudCost AI ---
+
+Product Name: CloudCost AI
+Tagline: Compare AWS vs Azure vs GCP costs side-by-side in 30 seconds
+Website: https://www.cloudrix.io/products/cloud-cost-calculator/demo
+
+Description:
+Stop overpaying for cloud. CloudCost AI lets you configure compute, storage, databases, CDN, and serverless across AWS, Azure, and GCP — then shows real pricing side by side. Most teams find 25-40% savings opportunities. Free, no signup, instant results.
+
+Topics: Cloud Computing, Developer Tools, SaaS, Cost Optimization
+Makers: Firas Sayah
+
+--- LAUNCH 4: ScopeAI ---
+
+Product Name: ScopeAI by Cloudrix
+Tagline: Turn a project idea into a professional scope document with AI
+Website: https://www.cloudrix.io/products/project-scope-ai/demo
+
+Description:
+Describe your project in plain English and ScopeAI generates a professional scope document complete with tech stack recommendations, timeline estimates, cost projections, and deliverables. Perfect for freelancers, agencies, and CTOs writing proposals. Export to PDF. Free to use.
+
+Topics: Artificial Intelligence, Productivity, Project Management, Developer Tools
+Makers: Firas Sayah
+
+--- LAUNCH 5: CloudArchitect AI ---
+
+Product Name: CloudArchitect AI
+Tagline: Describe your system, get a production-ready cloud architecture diagram
+Website: https://www.cloudrix.io/products/cloud-architect-ai/demo
+
+Description:
+Tell CloudArchitect AI what you're building and it generates a production-ready cloud architecture diagram with service recommendations across AWS, Azure, and GCP. Includes cost estimates, scaling recommendations, and security best practices. Free for all engineers.
+
+Topics: Cloud Computing, Developer Tools, Artificial Intelligence, Infrastructure
+Makers: Firas Sayah

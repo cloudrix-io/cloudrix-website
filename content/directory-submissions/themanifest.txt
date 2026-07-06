@@ -1,0 +1,47 @@
+================================================================================
+THEMANIFEST.COM — Company Profile Submission
+================================================================================
+
+Company Name: Cloudrix
+Website: https://www.cloudrix.io
+
+Tagline: AI & Cloud Engineering for Global Companies
+
+Short Description (150 chars):
+Senior cloud & AI engineering teams. Cloud migration, DevOps, AI agents, RAG systems, LLM integration. 50+ global markets. From €1,500.
+
+Long Description (500 chars):
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only. Multi-currency invoicing (EUR, USD, GBP, AED). Founded by Firas Sayah.
+
+Location: Tilburg, Netherlands
+Founded: 2024
+Employees: 2-9
+Average Hourly Rate: €80–150/hr ($85-160/hr)
+Minimum Project Size: €1,500 ($1,500)
+
+Service Focus:
+1. Cloud Consulting Services — 25%
+2. DevOps Services — 20%
+3. Artificial Intelligence — 20%
+4. Custom Software Development — 15%
+5. IT Staff Augmentation — 10%
+6. Technical Consulting — 10%
+
+Key Clients (Industries):
+- Financial Services / FinTech
+- Healthcare
+- SaaS / Technology
+- E-commerce / Retail
+- Manufacturing
+- Energy & Utilities
+- Government / Public Sector
+- Insurance
+
+Notable Projects:
+- FinTech platform migration to AWS: 55% cost reduction, 99.99% uptime
+- SaaS MVP development: investor-funded in 14 weeks
+- Legacy ERP modernization: zero-downtime strangler fig migration
+
+Contact: contact@cloudrix.io | +31 6 43166305
+LinkedIn: https://linkedin.com/company/cloudrix
+GitHub: https://github.com/cloudrix

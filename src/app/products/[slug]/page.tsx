@@ -91,7 +91,7 @@ export async function generateMetadata({
     return { title: "Product Not Found" };
   }
 
-  const title = `${product.name} — ${product.tagline}`;
+  const title = product.name;
   const description = product.description;
 
   return {

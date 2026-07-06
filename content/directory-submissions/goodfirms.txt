@@ -1,0 +1,58 @@
+================================================================================
+GOODFIRMS.CO — Company Profile Submission
+================================================================================
+
+Company Name: Cloudrix
+Website: https://www.cloudrix.io
+Logo URL: https://www.cloudrix.io/logo.png
+
+Tagline: AI & Cloud Engineering for Global Companies
+
+Short Description (150 chars):
+Senior cloud & AI engineering teams. Cloud migration, DevOps, AI agents, RAG systems, LLM integration. 50+ global markets. From €1,500.
+
+Long Description (500 chars):
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only. Multi-currency invoicing (EUR, USD, GBP, AED). Founded by Firas Sayah.
+
+Headquarters: Tilburg, Netherlands
+Year Founded: 2024
+Employees: 2-9
+Hourly Rate: $85–160/hr (USD equivalent)
+Min Project Size: $1,500+
+
+Service Lines (select all that apply):
+[x] Cloud Consulting
+[x] DevOps Services
+[x] AI Development
+[x] Machine Learning
+[x] Custom Software Development
+[x] Web Development
+[x] IT Staff Augmentation
+[x] Technical Consulting
+[x] API Development
+
+Industries:
+[x] Financial Services
+[x] Healthcare & Life Sciences
+[x] Information Technology
+[x] Retail & E-commerce
+[x] Manufacturing
+[x] Energy & Utilities
+[x] Government
+[x] Insurance
+
+Technologies & Tools:
+Cloud: AWS, Azure, GCP
+Containers: Kubernetes, Docker
+IaC: Terraform, Pulumi, CloudFormation
+CI/CD: GitHub Actions, GitLab CI, ArgoCD
+Monitoring: Datadog, Grafana, Prometheus
+Databases: PostgreSQL, Redis, TimescaleDB
+Frontend: React, Next.js, Angular
+Backend: Node.js, NestJS, Python
+AI/ML: LangChain, Claude API, OpenAI GPT, Google Gemini
+
+Contact Email: contact@cloudrix.io
+Phone: +31 6 43166305
+LinkedIn: https://linkedin.com/company/cloudrix
+GitHub: https://github.com/cloudrix

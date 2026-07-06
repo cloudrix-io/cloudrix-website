@@ -1,0 +1,26 @@
+================================================================================
+WELLFOUND (AngelList) — Company Profile
+================================================================================
+
+Company Name: Cloudrix
+Website: https://www.cloudrix.io
+One-liner: AI & Cloud Engineering for Global Companies
+
+Overview:
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only.
+
+Location: Tilburg, Netherlands
+Company Size: 1-10
+Company Type: Service Provider / Consultancy
+Markets: Cloud Infrastructure, AI/ML, DevOps, Enterprise Software, FinTech
+
+Founded: 2024
+Founder: Firas Sayah — CEO & Founder
+
+Tech Stack: AWS, Azure, GCP, Kubernetes, Docker, Terraform, React, Next.js, Node.js, NestJS, Python, TypeScript, LangChain, Claude API
+
+Social:
+- LinkedIn: https://linkedin.com/company/cloudrix
+- GitHub: https://github.com/cloudrix
+
+Contact: contact@cloudrix.io

@@ -1,0 +1,36 @@
+================================================================================
+CRUNCHBASE — Company Profile Submission
+================================================================================
+
+Organization Name: Cloudrix
+Legal Name: Cloudrix
+Website: https://www.cloudrix.io
+
+Short Description:
+Senior cloud & AI engineering teams. Cloud migration, DevOps, AI agents, RAG systems, LLM integration. 50+ global markets. From €1,500.
+
+Full Description:
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only. Multi-currency invoicing (EUR, USD, GBP, AED). Founded by Firas Sayah.
+
+Categories:
+- Cloud Computing
+- Artificial Intelligence
+- Information Technology
+- Consulting
+- Software
+
+Headquarters: Tilburg, North Brabant, Netherlands
+Founded Date: 2024
+Number of Employees: 1-10
+Operating Status: Active
+
+Founder: Firas Sayah (CEO & Founder)
+
+Contact Email: contact@cloudrix.io
+Phone: +31 6 43166305
+
+Social Links:
+- LinkedIn: https://linkedin.com/company/cloudrix
+- GitHub: https://github.com/cloudrix
+
+Revenue Range: Less than $1M (2024-2025)

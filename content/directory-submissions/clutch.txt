@@ -1,0 +1,56 @@
+================================================================================
+CLUTCH.CO — Company Profile Submission
+================================================================================
+
+Company Name: Cloudrix
+Website: https://www.cloudrix.io
+Tagline: AI & Cloud Engineering for Global Companies
+
+Short Description (150 chars):
+Senior cloud & AI engineering teams. Cloud migration, DevOps, AI agents, RAG systems, LLM integration. 50+ global markets. From €1,500.
+
+Long Description (500 chars):
+Cloudrix is a cloud & AI engineering consultancy based in the Netherlands, serving companies worldwide. We build production-grade cloud infrastructure, AI agents, RAG systems, and full-stack applications. Services include cloud migration (AWS/GCP/Azure), DevOps consulting, AI & ML consulting, dedicated development teams, technical due diligence, and EU AI Act compliance. 24 free AI-powered tools available. Senior engineers only. Multi-currency invoicing (EUR, USD, GBP, AED). Founded by Firas Sayah.
+
+Location: Tilburg, Netherlands
+Founded: 2024
+Team Size: 1-10
+Hourly Rate: €80–150/hr
+Min Project Size: €1,500
+
+Service Focus Areas:
+- Cloud Migration & Architecture (25%)
+- DevOps & Platform Engineering (20%)
+- AI & ML Consulting (20%)
+- Full-Stack Development (15%)
+- Dedicated Development Teams (10%)
+- Technical Due Diligence (10%)
+
+Industries Served:
+- FinTech
+- Healthcare
+- SaaS
+- E-commerce
+- Manufacturing
+- Energy
+- Government
+- Insurance
+
+Technologies:
+AWS, Azure, GCP, Kubernetes, Docker, Terraform, React, Next.js, Node.js, Python, TypeScript, LangChain, Claude API, OpenAI
+
+Contact Email: contact@cloudrix.io
+Phone: +31 6 43166305
+LinkedIn: https://linkedin.com/company/cloudrix
+GitHub: https://github.com/cloudrix
+
+Client Results (for case studies):
+- FinTech Migration: 99.99% uptime, 55% cost reduction, 12x/day deployments
+- B2B SaaS MVP: Funded within 14 weeks, passed investor due diligence
+- Legacy ERP Modernization: 73% modernized incrementally, zero production downtime
+
+Key Metrics:
+- 47 projects delivered for EU companies
+- 94% client retention rate
+- 8+ years average engineer experience
+- 24-hour response time
