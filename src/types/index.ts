@@ -28,6 +28,8 @@ export interface CaseStudy {
   title: string;
   client: string;
   industry: string;
+  description?: string;
+  duration?: string;
   challenge: string;
   solution: string;
   results: string[];
@@ -67,6 +69,8 @@ export interface ContactFormData {
   budgetRange: string;
   timeline: string;
   message: string;
+  referralSource: string;
+  preferredContact: string;
   honeypot?: string;
 }
 

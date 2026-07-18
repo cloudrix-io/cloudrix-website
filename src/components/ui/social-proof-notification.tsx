@@ -1,46 +1,126 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Zap } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Zap, X } from "lucide-react";
+
+const notifications = [
+  {
+    icon: "🏦",
+    text: "A FinTech company from Amsterdam just booked an AI Strategy Call",
+    time: "2 hours ago",
+  },
+  {
+    icon: "💳",
+    text: "PayFlow Technologies completed their EU AI Act compliance program",
+    time: "5 hours ago",
+  },
+  {
+    icon: "🛡️",
+    text: "SecureLife Insurance deployed their AI customer service agent",
+    time: "1 day ago",
+  },
+  {
+    icon: "🏥",
+    text: "A healthcare startup from Berlin started their RAG system project",
+    time: "1 day ago",
+  },
+  {
+    icon: "🏭",
+    text: "A manufacturing company saved \u20AC840K with AI automation",
+    time: "2 days ago",
+  },
+  {
+    icon: "📊",
+    text: "A logistics firm from Rotterdam deployed predictive analytics",
+    time: "3 days ago",
+  },
+  {
+    icon: "🔐",
+    text: "A SaaS company completed GDPR-compliant AI integration",
+    time: "3 days ago",
+  },
+];
 
 export function SocialProofNotification() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const dismiss = useCallback(() => {
+    setIsVisible(false);
+    sessionStorage.setItem("socialProofDismissed", "true");
+  }, []);
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem("socialProofDismissed");
     if (dismissed) return;
 
-    const timeout = setTimeout(() => {
+    // Show first notification after 6 seconds
+    const showTimeout = setTimeout(() => {
       setIsVisible(true);
+    }, 6000);
+
+    return () => clearTimeout(showTimeout);
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const interval = setInterval(() => {
+      // Animate out
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % notifications.length);
+        setIsAnimating(false);
+      }, 400);
     }, 8000);
 
-    const hideTimeout = setTimeout(() => {
-      setIsVisible(false);
-    }, 20000);
-
-    return () => {
-      clearTimeout(timeout);
-      clearTimeout(hideTimeout);
-    };
-  }, []);
+    return () => clearInterval(interval);
+  }, [isVisible]);
 
   if (!isVisible) return null;
 
+  const notification = notifications[currentIndex];
+
   return (
-    <div className="fixed bottom-4 left-4 z-50 max-w-sm animate-in slide-in-from-left">
-      <div className="bg-white rounded-lg shadow-2xl border border-gray-200 p-4 flex items-center gap-3">
-        <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-          <Zap className="w-5 h-5 text-blue-600" />
+    <div
+      className={`fixed bottom-4 left-4 z-50 max-w-sm transition-all duration-400 ${
+        isAnimating
+          ? "opacity-0 translate-y-4"
+          : "opacity-100 translate-y-0"
+      }`}
+      style={{ animation: isAnimating ? undefined : "slideUp 0.4s ease-out" }}
+    >
+      <div className="bg-white rounded-lg shadow-2xl border border-gray-200 p-4 flex items-start gap-3 relative">
+        <button
+          onClick={dismiss}
+          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
+          aria-label="Dismiss notifications"
+        >
+          <X className="w-3.5 h-3.5" />
+        </button>
+        <div className="flex-shrink-0 w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-lg">
+          {notification.icon}
         </div>
-        <div>
-          <p className="text-sm font-medium text-gray-900">
-            Available for new projects
+        <div className="pr-4">
+          <p className="text-sm font-medium text-gray-900 leading-snug">
+            {notification.text}
           </p>
-          <p className="text-xs text-gray-500 mt-0.5">
-            Free 30-min strategy call — no commitment
-          </p>
+          <p className="text-xs text-gray-400 mt-1">{notification.time}</p>
         </div>
       </div>
+      <style jsx>{`
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(1rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }

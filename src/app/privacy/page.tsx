@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  const lastUpdated = "January 2024";
+  const lastUpdated = "July 2026";
 
   return (
     <Section variant="default" className="pt-32">
@@ -157,14 +157,131 @@ export default function PrivacyPolicyPage() {
             <a href={`mailto:${companyInfo.email}`}>{companyInfo.email}</a>.
           </p>
 
-          <h2>8. Cookies</h2>
+          <h2>8. Cookies and Analytics</h2>
+          <h3>8.1 Google Analytics (GA4)</h3>
           <p>
-            We use privacy-friendly analytics (Plausible) that do not use cookies
-            and do not collect personal data. We do not use tracking cookies or
-            third-party advertising cookies.
+            We use Google Analytics 4 (measurement ID: G-3WL9275XNR) to
+            understand how visitors interact with our website. Google Analytics
+            uses cookies to collect information such as:
+          </p>
+          <ul>
+            <li>Pages visited and time spent on each page</li>
+            <li>Traffic sources and referral information</li>
+            <li>Device type, browser, and operating system</li>
+            <li>Approximate geographic location (country/city level)</li>
+            <li>User interactions and engagement events</li>
+          </ul>
+          <p>
+            Google Analytics data is processed by Google LLC. For more
+            information, see{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google&apos;s Privacy Policy
+            </a>
+            . You can opt out of Google Analytics by installing the{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Analytics Opt-out Browser Add-on
+            </a>
+            .
           </p>
 
-          <h2>9. Data Security</h2>
+          <h3>8.2 Vercel Analytics</h3>
+          <p>
+            We use Vercel Analytics to monitor website performance and
+            understand usage patterns. Vercel Analytics collects anonymized
+            data about page views and web vitals (such as page load speed and
+            interactivity metrics). This data is processed by Vercel Inc. and
+            is used solely to improve the performance and reliability of our
+            website.
+          </p>
+
+          <h3>8.3 Cookies We Use</h3>
+          <p>Our website uses the following types of cookies:</p>
+          <ul>
+            <li>
+              <strong>Essential Cookies:</strong> Required for basic website
+              functionality (e.g., session management). These cannot be
+              disabled.
+            </li>
+            <li>
+              <strong>Analytics Cookies:</strong> Set by Google Analytics
+              (e.g., <code>_ga</code>, <code>_ga_*</code>) to distinguish
+              unique users and track sessions. These cookies expire after up
+              to 2 years.
+            </li>
+          </ul>
+          <p>
+            We do not use third-party advertising or tracking cookies. You can
+            manage or delete cookies through your browser settings at any
+            time.
+          </p>
+
+          <h2>9. AI Services and Data Handling</h2>
+          <h3>9.1 AI-Powered Services</h3>
+          <p>
+            {companyInfo.name} offers AI-powered services and tools. When you
+            use our AI services, we may process data you provide as input
+            (such as text, code, or documents) to generate outputs. We handle
+            this data as follows:
+          </p>
+          <ul>
+            <li>
+              Input data is processed solely to provide the requested AI
+              service output.
+            </li>
+            <li>
+              We do not use your input data to train or improve our AI models
+              unless you explicitly consent to this.
+            </li>
+            <li>
+              AI outputs are generated automatically and may be stored
+              temporarily for delivery purposes.
+            </li>
+            <li>
+              We may use third-party AI providers (such as OpenAI or
+              Anthropic) to process data. These providers are bound by data
+              processing agreements that ensure your data is protected.
+            </li>
+          </ul>
+
+          <h3>9.2 EU AI Act Compliance</h3>
+          <p>
+            {companyInfo.name} is committed to compliance with the European
+            Union Artificial Intelligence Act (EU AI Act, Regulation (EU)
+            2024/1689). We take the following measures:
+          </p>
+          <ul>
+            <li>
+              We classify our AI systems according to the risk categories
+              defined by the EU AI Act and apply appropriate safeguards.
+            </li>
+            <li>
+              We maintain transparency about the use of AI in our services
+              and clearly disclose when content or outputs are AI-generated.
+            </li>
+            <li>
+              We conduct regular assessments of our AI systems to identify
+              and mitigate potential risks, including bias and
+              discrimination.
+            </li>
+            <li>
+              We ensure human oversight is maintained for AI systems where
+              required by the regulation.
+            </li>
+            <li>
+              We keep records of our AI systems and their usage as required
+              by the Act.
+            </li>
+          </ul>
+
+          <h2>10. Data Security</h2>
           <p>
             We implement appropriate technical and organizational security measures
             to protect your personal information against unauthorized access,
@@ -172,7 +289,7 @@ export default function PrivacyPolicyPage() {
             transmission over the Internet is 100% secure.
           </p>
 
-          <h2>10. International Data Transfers</h2>
+          <h2>11. International Data Transfers</h2>
           <p>
             Your information may be transferred to and processed in countries other
             than your country of residence. We ensure appropriate safeguards are in
@@ -180,20 +297,20 @@ export default function PrivacyPolicyPage() {
             laws.
           </p>
 
-          <h2>11. Children&apos;s Privacy</h2>
+          <h2>12. Children&apos;s Privacy</h2>
           <p>
             Our services are not directed to individuals under the age of 16. We do
             not knowingly collect personal information from children.
           </p>
 
-          <h2>12. Changes to This Policy</h2>
+          <h2>13. Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. We will notify you
             of any changes by posting the new Privacy Policy on this page and
             updating the &quot;Last updated&quot; date.
           </p>
 
-          <h2>13. Contact Us</h2>
+          <h2>14. Contact Us</h2>
           <p>
             If you have any questions about this Privacy Policy or our data
             practices, please contact us at:

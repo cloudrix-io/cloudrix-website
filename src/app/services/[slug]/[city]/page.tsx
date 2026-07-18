@@ -174,7 +174,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Not Found | Cloudrix" };
   }
 
-  const title = `${serviceData.shortTitle} in ${cityData.name} — Cloudrix`;
+  const title = `${serviceData.shortTitle} in ${cityData.name}`;
   const description = cityData.isDutch
     ? `${serviceData.title} for companies in ${cityData.name}, Netherlands. Senior EU-based engineers, GDPR-compliant, EUR invoicing. Free consultation.`
     : `${serviceData.title} for companies in ${cityData.name}, ${cityData.country}. Senior EU-based engineers, GDPR-compliant. Free consultation.`;

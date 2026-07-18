@@ -284,6 +284,80 @@ export default function ResourcesPage() {
           </div>
         </section>
 
+        {/* AI Guides - Lead Magnets */}
+        <section className="py-16 bg-gradient-to-br from-indigo-50 via-white to-blue-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                <Brain className="w-5 h-5 text-indigo-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">AI Guides</h2>
+                <p className="text-gray-500 text-sm">In-depth guides for AI strategy, compliance, and implementation</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <Link href="/resources/eu-ai-act-playbook" className="group bg-white border border-indigo-200 rounded-xl overflow-hidden hover:shadow-xl transition-all">
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6">
+                  <Shield className="w-8 h-8 text-white mb-3" />
+                  <h3 className="text-lg font-bold text-white">EU AI Act Compliance Playbook</h3>
+                  <p className="text-blue-100 text-sm mt-2">Risk classification, 20-item checklist, governance templates, and cost estimates</p>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded font-medium">Guide</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">25 min read</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">10 sections</span>
+                  </div>
+                  <span className="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform">
+                    Read the Playbook
+                    <ArrowRight className="ml-1 w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+
+              <Link href="/resources/ai-cost-guide" className="group bg-white border border-green-200 rounded-xl overflow-hidden hover:shadow-xl transition-all">
+                <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-6">
+                  <BookMarked className="w-8 h-8 text-white mb-3" />
+                  <h3 className="text-lg font-bold text-white">How Much Does AI Cost? 2026 Guide</h3>
+                  <p className="text-green-100 text-sm mt-2">Real pricing data: PoC, production, retainers, hidden costs, and build vs buy</p>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-medium">Guide</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">20 min read</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">9 sections</span>
+                  </div>
+                  <span className="text-green-600 font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform">
+                    Read the Cost Guide
+                    <ArrowRight className="ml-1 w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+
+              <Link href="/resources/ai-agent-framework" className="group bg-white border border-purple-200 rounded-xl overflow-hidden hover:shadow-xl transition-all">
+                <div className="bg-gradient-to-r from-purple-600 to-violet-600 p-6">
+                  <Cpu className="w-8 h-8 text-white mb-3" />
+                  <h3 className="text-lg font-bold text-white">Build vs Buy: AI Agent Framework</h3>
+                  <p className="text-purple-100 text-sm mt-2">Decision matrix, framework comparison, TCO analysis, and implementation roadmap</p>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded font-medium">Guide</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">22 min read</span>
+                    <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">8 sections</span>
+                  </div>
+                  <span className="text-purple-600 font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform">
+                    Read the Framework
+                    <ArrowRight className="ml-1 w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Resources Grid */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

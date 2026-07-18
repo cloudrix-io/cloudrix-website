@@ -154,6 +154,7 @@ const categories = [
   "Cloud Architecture",
   "DevOps",
   "Software Development",
+  "AI & Machine Learning",
   "Technical Leadership",
   "Tutorials",
 ];

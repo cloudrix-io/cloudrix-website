@@ -98,15 +98,15 @@ export const metadata: Metadata = {
     alternateLocale: [],
     url: "https://www.cloudrix.io",
     siteName: "Cloudrix",
-    title: "Cloudrix | Cloud & Software Engineering for Global Companies",
+    title: "Cloudrix | AI & Cloud Engineering for Global Companies",
     description:
-      "Senior engineering teams for companies worldwide. Cloud architecture, product development, and DevOps. Serving Europe, US, Middle East, and Asia-Pacific. Book a free consultation.",
+      "AI agent development, RAG systems, cloud architecture, and DevOps for companies worldwide. Serving Europe, US, Middle East, and Asia-Pacific. Book a free consultation.",
     images: [
       {
-        url: "/og?title=Cloud%20%26%20Software%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
+        url: "/og?title=AI%20%26%20Cloud%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
         width: 1200,
         height: 630,
-        alt: "Cloudrix - Cloud & Software Engineering for Global Companies",
+        alt: "Cloudrix - AI & Cloud Engineering for Global Companies",
       },
     ],
     countryName: "Netherlands",
@@ -115,12 +115,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@cloudrix",
     creator: "@cloudrix",
-    title: "Cloudrix | Cloud & Software Engineering for Global Companies",
+    title: "Cloudrix | AI & Cloud Engineering for Global Companies",
     description:
-      "Senior engineering teams for companies worldwide. Cloud architecture, product development, and DevOps. Serving Europe, US, Middle East, and Asia-Pacific.",
+      "AI agent development, RAG systems, cloud architecture, and DevOps for companies worldwide. Serving Europe, US, Middle East, and Asia-Pacific.",
     images: {
-      url: "/og?title=Cloud%20%26%20Software%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
-      alt: "Cloudrix - Cloud & Software Engineering",
+      url: "/og?title=AI%20%26%20Cloud%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
+      alt: "Cloudrix - AI & Cloud Engineering",
     },
   },
   robots: {
@@ -140,11 +140,13 @@ export const metadata: Metadata = {
     canonical: "https://www.cloudrix.io",
     languages: {
       "en-US": "https://www.cloudrix.io",
+      "fr-FR": "https://www.cloudrix.io",
     },
   },
   verification: {
     google: "yLFs8c8ih-DGSoMVIyIIQqRzopdgH2GbTZM9OF1V1wg",
     // yandex: "your-yandex-verification-code",
+    // TODO: Configure Bing Webmaster Tools verification at https://www.bing.com/webmasters
     // bing: "your-bing-verification-code",
   },
   appleWebApp: {

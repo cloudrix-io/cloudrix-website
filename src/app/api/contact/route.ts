@@ -32,6 +32,19 @@ export async function POST(request: NextRequest) {
 
     // Parse and validate request body
     const body = await request.json();
+
+    // Honeypot check - reject submissions where the honeypot field is filled
+    if (body.honeypot) {
+      // Silently accept to not tip off bots, but don't process
+      return NextResponse.json(
+        {
+          success: true,
+          message: "Your message has been sent successfully!",
+        },
+        { status: 201 }
+      );
+    }
+
     const validationResult = contactFormSchema.safeParse(body);
 
     if (!validationResult.success) {

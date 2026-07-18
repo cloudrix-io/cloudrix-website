@@ -123,6 +123,11 @@ const STATIC_BLOG_SLUGS = [
   "how-to-build-rag-system-guide",
   "ai-strategy-european-companies-gdpr",
   "ai-automation-real-use-cases-roi",
+  "eu-ai-act-compliance-checklist",
+  "ai-integration-cost-europe",
+  "rag-vs-fine-tuning-comparison",
+  "building-first-ai-agent-guide",
+  "why-ai-agent-projects-fail",
 ];
 
 export async function generateStaticParams() {

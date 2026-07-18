@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function TermsOfServicePage() {
-  const lastUpdated = "January 2024";
+  const lastUpdated = "July 2026";
 
   return (
     <Section variant="default" className="pt-32">
@@ -116,23 +116,84 @@ export default function TermsOfServicePage() {
             third-party sites. Accessing third-party links is at your own risk.
           </p>
 
-          <h2>10. Governing Law</h2>
+          <h2>10. AI Services</h2>
+          <h3>10.1 AI-Generated Outputs</h3>
           <p>
-            These Terms shall be governed by and construed in accordance with the
-            laws of Tunisia, without regard to its conflict of law provisions. For
-            EU clients, consumer protection laws of your country of residence may
-            also apply.
+            {companyInfo.name} may provide services that incorporate artificial
+            intelligence and machine learning technologies. You acknowledge and
+            agree that:
+          </p>
+          <ul>
+            <li>
+              AI-generated outputs are provided &quot;as is&quot; and may contain
+              errors, inaccuracies, or biases. We do not guarantee the
+              accuracy, completeness, or reliability of any AI-generated
+              content.
+            </li>
+            <li>
+              You are responsible for reviewing, validating, and testing all
+              AI-generated outputs before using them in production
+              environments or relying on them for business decisions.
+            </li>
+            <li>
+              AI models may produce different results for the same input at
+              different times. We do not guarantee consistency or
+              reproducibility of AI outputs.
+            </li>
+            <li>
+              We are not liable for any damages, losses, or consequences
+              arising from your reliance on AI-generated outputs, including
+              but not limited to incorrect code, inaccurate analysis, or
+              flawed recommendations.
+            </li>
+          </ul>
+
+          <h3>10.2 AI Model Limitations</h3>
+          <p>
+            The AI models used in our services are provided by third-party
+            providers and are subject to their own limitations and terms. We
+            do not make any representations or warranties regarding the
+            underlying AI models, including their training data, biases, or
+            capabilities. Model availability and performance may change
+            without notice.
           </p>
 
-          <h2>11. Dispute Resolution</h2>
+          <h3>10.3 Your Data and AI</h3>
+          <p>
+            When you use our AI-powered services, any data you provide as
+            input may be processed by third-party AI providers. We ensure
+            that appropriate data processing agreements are in place with
+            these providers. Please refer to our Privacy Policy for details
+            on how your data is handled.
+          </p>
+
+          <h2>11. Governing Law</h2>
+          <p>
+            These Terms shall be governed by and construed in accordance with the
+            laws of the Netherlands, without regard to its conflict of law
+            provisions. For EU clients, mandatory consumer protection laws of
+            your country of residence shall also apply where applicable.
+          </p>
+
+          <h2>12. Dispute Resolution</h2>
           <p>
             Any disputes arising from these Terms or our services will first be
             attempted to be resolved through good-faith negotiation. If negotiation
-            fails, disputes may be submitted to binding arbitration or resolved in
-            the courts of Tunisia, unless otherwise agreed in writing.
+            fails, disputes shall be submitted to the competent courts in the
+            Netherlands, unless otherwise agreed in writing. EU consumers may
+            also use the European Commission&apos;s Online Dispute Resolution
+            platform at{" "}
+            <a
+              href="https://ec.europa.eu/consumers/odr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://ec.europa.eu/consumers/odr
+            </a>
+            .
           </p>
 
-          <h2>12. Changes to Terms</h2>
+          <h2>13. Changes to Terms</h2>
           <p>
             We reserve the right to modify these Terms at any time. We will provide
             notice of significant changes by posting the updated Terms on our
@@ -140,7 +201,7 @@ export default function TermsOfServicePage() {
             website after changes constitutes acceptance of the modified Terms.
           </p>
 
-          <h2>13. Severability</h2>
+          <h2>14. Severability</h2>
           <p>
             If any provision of these Terms is found to be unenforceable or invalid,
             that provision will be limited or eliminated to the minimum extent
@@ -148,14 +209,14 @@ export default function TermsOfServicePage() {
             effect.
           </p>
 
-          <h2>14. Entire Agreement</h2>
+          <h2>15. Entire Agreement</h2>
           <p>
             These Terms, together with our Privacy Policy and any project-specific
             agreements, constitute the entire agreement between you and{" "}
             {companyInfo.name} regarding your use of our website.
           </p>
 
-          <h2>15. Contact Us</h2>
+          <h2>16. Contact Us</h2>
           <p>
             If you have any questions about these Terms, please contact us at:
           </p>

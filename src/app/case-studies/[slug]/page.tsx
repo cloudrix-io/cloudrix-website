@@ -52,8 +52,9 @@ async function getAllCaseStudies() {
 }
 
 export async function generateStaticParams() {
-  const caseStudies = await getAllCaseStudies();
-  return caseStudies.map((study: { slug: string }) => ({
+  // Always use static data for generateStaticParams to avoid MongoDB dependency at build time.
+  // DB-only case studies are still accessible at runtime via dynamicParams (true by default).
+  return staticCaseStudies.map((study) => ({
     slug: study.slug,
   }));
 }
