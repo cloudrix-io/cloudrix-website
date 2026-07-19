@@ -16,6 +16,22 @@ const serviceLinks = [
   { name: "Legacy Modernization", href: "/services/legacy-modernization" },
 ];
 
+const productLinks = [
+  { name: "All Products", href: "/products", highlight: true },
+  { name: "Free Tools", href: "/products/free" },
+  { name: "Pricing", href: "/products/pricing" },
+  { name: "For Startups", href: "/products/startups" },
+  { name: "For Enterprise", href: "/products/enterprise" },
+];
+
+const topProducts = [
+  { name: "CloudrixAI Chat", href: "/products/cloudrix-ai-chat" },
+  { name: "CodeScan AI", href: "/products/ai-code-reviewer" },
+  { name: "AI Act Scanner", href: "/products/eu-ai-act-scanner" },
+  { name: "SmartCRM", href: "/products/smart-crm" },
+  { name: "API Monitor", href: "/products/api-monitor" },
+];
+
 const marketLinks = [
   { name: "United States", href: "/markets/us" },
   { name: "Middle East", href: "/markets/middle-east" },
@@ -26,10 +42,13 @@ const marketLinks = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isMarketsOpen, setIsMarketsOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const [isMobileMarketsOpen, setIsMobileMarketsOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const productsRef = useRef<HTMLDivElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -37,7 +56,7 @@ export function Header() {
     { name: "Home", href: "/" },
     { name: "Services", href: "/services", hasDropdown: true, dropdownType: "services" as const },
     { name: "AI Services", href: "/ai-services" },
-    { name: "Products", href: "/products" },
+    { name: "Products", href: "/products", hasDropdown: true, dropdownType: "products" as const },
     { name: "Markets", href: "/markets", hasDropdown: true, dropdownType: "markets" as const },
     { name: "Pricing", href: "/pricing" },
     { name: "Case Studies", href: "/case-studies" },
@@ -48,6 +67,7 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
+    setIsProductsOpen(false);
     setIsMarketsOpen(false);
   }, [pathname]);
 
@@ -55,6 +75,9 @@ export function Header() {
     function handleClickOutside(event: MouseEvent) {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
         setIsServicesOpen(false);
+      }
+      if (productsRef.current && !productsRef.current.contains(event.target as Node)) {
+        setIsProductsOpen(false);
       }
       if (marketsRef.current && !marketsRef.current.contains(event.target as Node)) {
         setIsMarketsOpen(false);
@@ -84,10 +107,10 @@ export function Header() {
               item.hasDropdown ? (
                 <div
                   key={item.href}
-                  ref={item.dropdownType === "markets" ? marketsRef : servicesRef}
+                  ref={item.dropdownType === "markets" ? marketsRef : item.dropdownType === "products" ? productsRef : servicesRef}
                   className="relative"
-                  onMouseEnter={() => item.dropdownType === "markets" ? setIsMarketsOpen(true) : setIsServicesOpen(true)}
-                  onMouseLeave={() => item.dropdownType === "markets" ? setIsMarketsOpen(false) : setIsServicesOpen(false)}
+                  onMouseEnter={() => item.dropdownType === "markets" ? setIsMarketsOpen(true) : item.dropdownType === "products" ? setIsProductsOpen(true) : setIsServicesOpen(true)}
+                  onMouseLeave={() => item.dropdownType === "markets" ? setIsMarketsOpen(false) : item.dropdownType === "products" ? setIsProductsOpen(false) : setIsServicesOpen(false)}
                 >
                   <Link
                     href={item.href}
@@ -99,7 +122,7 @@ export function Header() {
                   >
                     {item.name}
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform ${
-                      (item.dropdownType === "markets" ? isMarketsOpen : isServicesOpen) ? "rotate-180" : ""
+                      (item.dropdownType === "markets" ? isMarketsOpen : item.dropdownType === "products" ? isProductsOpen : isServicesOpen) ? "rotate-180" : ""
                     }`} />
                   </Link>
 
@@ -125,6 +148,47 @@ export function Header() {
                               }`}
                             >
                               {service.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {item.dropdownType === "products" && isProductsOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
+                      <div className="bg-white border border-gray-200 rounded-xl shadow-xl p-4 w-[300px]">
+                        <div className="space-y-1">
+                          {productLinks.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                                link.highlight
+                                  ? "font-medium text-blue-600 hover:bg-blue-50"
+                                  : pathname === link.href
+                                    ? "text-blue-600 bg-blue-50 font-medium"
+                                    : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                              }`}
+                            >
+                              {link.name} {link.highlight ? "→" : ""}
+                            </Link>
+                          ))}
+                          <div className="border-t border-gray-100 my-2" />
+                          <p className="px-3 py-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                            Top Products
+                          </p>
+                          {topProducts.map((product) => (
+                            <Link
+                              key={product.href}
+                              href={product.href}
+                              className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                                pathname === product.href
+                                  ? "text-blue-600 bg-blue-50 font-medium"
+                                  : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                              }`}
+                            >
+                              {product.name}
                             </Link>
                           ))}
                         </div>
@@ -207,6 +271,8 @@ export function Header() {
                     onClick={() => {
                       if (item.dropdownType === "markets") {
                         setIsMobileMarketsOpen(!isMobileMarketsOpen);
+                      } else if (item.dropdownType === "products") {
+                        setIsMobileProductsOpen(!isMobileProductsOpen);
                       } else {
                         setIsMobileServicesOpen(!isMobileServicesOpen);
                       }
@@ -219,9 +285,34 @@ export function Header() {
                   >
                     {item.name}
                     <ChevronDown className={`w-4 h-4 transition-transform ${
-                      (item.dropdownType === "markets" ? isMobileMarketsOpen : isMobileServicesOpen) ? "rotate-180" : ""
+                      (item.dropdownType === "markets" ? isMobileMarketsOpen : item.dropdownType === "products" ? isMobileProductsOpen : isMobileServicesOpen) ? "rotate-180" : ""
                     }`} />
                   </button>
+                  {item.dropdownType === "products" && isMobileProductsOpen && (
+                    <div className="pl-4 space-y-1 pb-2">
+                      {productLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`block py-1.5 text-sm ${link.highlight ? "text-blue-600 font-medium" : "text-gray-600"}`}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                      <div className="border-t border-gray-100 my-2" />
+                      {topProducts.map((product) => (
+                        <Link
+                          key={product.href}
+                          href={product.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1.5 text-sm text-gray-600"
+                        >
+                          {product.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                   {item.dropdownType === "services" && isMobileServicesOpen && (
                     <div className="pl-4 space-y-1 pb-2">
                       <Link

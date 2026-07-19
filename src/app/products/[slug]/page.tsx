@@ -151,46 +151,105 @@ function StatusBadge({ status }: { status: Product["status"] }) {
   );
 }
 
-function PricingSection({ pricing }: { pricing: Product["pricing"] }) {
-  const config = {
-    free: {
-      label: "Free",
-      description: "No credit card required. Use it as much as you need.",
-      color: "text-emerald-400",
-      gradient: "from-emerald-600 to-teal-600",
-    },
-    freemium: {
-      label: "Free to Start",
-      description:
-        "Start free with generous limits. Upgrade for higher volume and premium features.",
-      color: "text-blue-400",
-      gradient: "from-blue-600 to-cyan-600",
-    },
-    paid: {
-      label: "Paid Plans",
-      description:
-        "Flexible pricing tiers based on your team size and usage. Contact us for enterprise quotes.",
-      color: "text-purple-400",
-      gradient: "from-purple-600 to-violet-600",
-    },
-    "open-source": {
-      label: "Open Source",
-      description:
-        "Free and open source. Self-host it or use our managed cloud version.",
-      color: "text-orange-400",
-      gradient: "from-orange-600 to-amber-600",
-    },
-  };
-  const { label, description, gradient } = config[pricing];
-  return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 text-center">
-      <h3 className="text-xl font-semibold text-white mb-2">Pricing</h3>
-      <div
-        className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${gradient} mb-3`}
-      >
-        {label}
+function PricingTiersSection({ product }: { product: Product }) {
+  const info = categoryInfo[product.category];
+
+  if (!product.pricingTiers || product.pricingTiers.length === 0) {
+    const fallbackConfig = {
+      free: { label: "Free", gradient: "from-emerald-600 to-teal-600" },
+      freemium: { label: "Free to Start", gradient: "from-blue-600 to-cyan-600" },
+      paid: { label: "Paid Plans", gradient: "from-purple-600 to-violet-600" },
+      "open-source": { label: "Open Source", gradient: "from-orange-600 to-amber-600" },
+    };
+    const fb = fallbackConfig[product.pricing];
+    return (
+      <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 text-center">
+        <h3 className="text-xl font-semibold text-white mb-2">Pricing</h3>
+        <div className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${fb.gradient} mb-3`}>
+          {fb.label}
+        </div>
+        <p className="text-slate-400 max-w-md mx-auto mb-6">
+          Interested in this product? Contact us for pricing details and a personalized demo.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-all hover:shadow-violet-500/40 hover:brightness-110"
+        >
+          Contact for Pricing
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
-      <p className="text-slate-400 max-w-md mx-auto">{description}</p>
+    );
+  }
+
+  return (
+    <div className={`grid gap-6 ${product.pricingTiers.length <= 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
+      {product.pricingTiers.map((tier) => (
+        <div
+          key={tier.name}
+          className={`relative flex flex-col rounded-2xl border p-6 transition-all ${
+            tier.popular
+              ? "border-violet-500/50 bg-slate-900/80 shadow-lg shadow-violet-500/10 scale-[1.02]"
+              : "border-slate-800 bg-slate-900/50"
+          }`}
+        >
+          {tier.popular && (
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className={`inline-flex items-center gap-1 rounded-full bg-gradient-to-r ${info.gradient} px-3 py-1 text-xs font-semibold text-white`}>
+                <Sparkles className="h-3 w-3" />
+                Most Popular
+              </span>
+            </div>
+          )}
+          <h4 className="text-lg font-semibold text-white mb-2">{tier.name}</h4>
+          <div className="mb-4">
+            {tier.priceMonthly !== undefined && tier.priceMonthly > 0 ? (
+              <>
+                <span className="text-3xl font-bold text-white">${tier.priceMonthly}</span>
+                <span className="text-slate-400 text-sm">/mo</span>
+                {tier.priceYearly !== undefined && tier.priceYearly > 0 && (
+                  <p className="text-xs text-slate-500 mt-1">
+                    ${tier.priceYearly}/yr (save ${tier.priceMonthly * 12 - tier.priceYearly})
+                  </p>
+                )}
+              </>
+            ) : tier.priceMonthly === 0 ? (
+              <span className="text-3xl font-bold text-emerald-400">Free</span>
+            ) : (
+              <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
+                Custom
+              </span>
+            )}
+          </div>
+          <ul className="space-y-2.5 mb-6 flex-1">
+            {tier.features.map((feature, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+          {tier.ctaLink.startsWith("/contact") ? (
+            <Link
+              href={tier.ctaLink}
+              className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-300 transition-all hover:border-slate-600 hover:text-white hover:bg-slate-900"
+            >
+              {tier.cta}
+            </Link>
+          ) : (
+            <Link
+              href={tier.ctaLink}
+              className={`inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition-all ${
+                tier.popular
+                  ? `bg-gradient-to-r ${info.gradient} shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:brightness-110`
+                  : "bg-slate-800 hover:bg-slate-700"
+              }`}
+            >
+              {tier.cta}
+            </Link>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
@@ -458,8 +517,54 @@ export default async function ProductPage({
 
       {/* Pricing */}
       <section className="bg-slate-950 py-20 border-t border-slate-900">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <PricingSection pricing={product.pricing} />
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-10">
+            <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${info.gradient}`}>
+              <Layers className="h-5 w-5 text-white" />
+            </div>
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">Pricing</h2>
+          </div>
+          <PricingTiersSection product={product} />
+          <div className="mt-8 text-center">
+            <Link
+              href="/products/pricing"
+              className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 hover:text-white transition-colors"
+            >
+              Compare all product pricing
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Compare */}
+      <section className="bg-slate-950 py-12 border-t border-slate-900">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/30 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-1">How we compare</h3>
+              <p className="text-sm text-slate-400">See how {product.name} stacks up against alternatives.</p>
+            </div>
+            <Link
+              href="/products/compare"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-300 transition-all hover:border-slate-600 hover:text-white hover:bg-slate-900 shrink-0"
+            >
+              Compare Products
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section className="bg-slate-950 py-12 border-t border-slate-900">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
+          <p className="text-lg text-slate-300 font-medium">
+            Trusted by 50+ companies in 15 countries.
+          </p>
+          <p className="mt-2 text-sm text-slate-400">
+            14-day money-back guarantee. Cancel anytime. No questions asked.
+          </p>
         </div>
       </section>
 

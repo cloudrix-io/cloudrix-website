@@ -28,3 +28,5 @@ export { TestimonialCarousel, type Testimonial } from "./testimonial-carousel";
 export { AiHeroIllustration } from "./ai-hero-illustration";
 export { GridPattern } from "./grid-pattern";
 export { ServiceIcon } from "./service-icon";
+export { PricingCard, type PricingCardProps } from "./pricing-card";
+export { BillingToggle } from "./billing-toggle";

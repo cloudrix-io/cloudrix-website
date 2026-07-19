@@ -145,14 +145,40 @@ function StatusBadge({ status }: { status: Product["status"] }) {
   );
 }
 
-function PricingBadge({ pricing }: { pricing: Product["pricing"] }) {
-  const config = {
-    free: { label: "Free", className: "bg-emerald-500/10 text-emerald-400" },
-    freemium: { label: "Freemium", className: "bg-blue-500/10 text-blue-400" },
-    paid: { label: "Paid", className: "bg-purple-500/10 text-purple-400" },
-    "open-source": { label: "Open Source", className: "bg-orange-500/10 text-orange-400" },
-  };
-  const { label, className } = config[pricing];
+function PricingBadge({ product }: { product: Product }) {
+  const { pricing, pricingTiers } = product;
+
+  // Determine the starting price label
+  let label: string;
+  let className: string;
+
+  if (pricing === "free") {
+    label = "Free";
+    className = "bg-emerald-500/10 text-emerald-400";
+  } else if (pricing === "open-source") {
+    label = "Open Source";
+    className = "bg-orange-500/10 text-orange-400";
+  } else if (pricingTiers && pricingTiers.length > 0) {
+    const paidTiers = pricingTiers.filter(
+      (t) => t.priceMonthly !== undefined && t.priceMonthly > 0
+    );
+    if (paidTiers.length > 0) {
+      const cheapest = Math.min(...paidTiers.map((t) => t.priceMonthly!));
+      const hasFree = pricingTiers.some((t) => t.priceMonthly === 0);
+      label = hasFree ? `Free / From $${cheapest}/mo` : `From $${cheapest}/mo`;
+      className = "bg-blue-500/10 text-blue-400";
+    } else {
+      label = "Free";
+      className = "bg-emerald-500/10 text-emerald-400";
+    }
+  } else if (pricing === "freemium") {
+    label = "Freemium";
+    className = "bg-blue-500/10 text-blue-400";
+  } else {
+    label = "Paid";
+    className = "bg-purple-500/10 text-purple-400";
+  }
+
   return (
     <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full ${className}`}>
       {label}
@@ -178,7 +204,7 @@ function ProductCard({ product }: { product: Product }) {
           </div>
           <div className="flex items-center gap-2">
             <StatusBadge status={product.status} />
-            <PricingBadge pricing={product.pricing} />
+            <PricingBadge product={product} />
           </div>
         </div>
 
@@ -341,6 +367,27 @@ export default function ProductsPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Pricing Banner */}
+      <section className="bg-slate-950 py-0">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Link
+            href="/products/pricing"
+            className="group flex items-center justify-between rounded-2xl border border-violet-500/30 bg-gradient-to-r from-violet-600/10 to-purple-600/10 px-6 py-4 transition-all hover:border-violet-500/50 hover:from-violet-600/15 hover:to-purple-600/15"
+          >
+            <div className="flex items-center gap-3">
+              <Sparkles className="h-5 w-5 text-violet-400" />
+              <div>
+                <span className="text-white font-semibold">View All Product Pricing</span>
+                <span className="hidden sm:inline text-slate-400 ml-2">
+                  -- Compare plans, see free tiers, and find the right fit for your team
+                </span>
+              </div>
+            </div>
+            <ArrowRight className="h-5 w-5 text-violet-400 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </section>
 

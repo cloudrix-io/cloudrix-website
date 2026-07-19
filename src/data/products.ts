@@ -2,6 +2,17 @@ export type ProductCategory = "ai-powered" | "ai-enhanced" | "engineering-tools"
 export type ProductStatus = "live" | "beta" | "coming-soon";
 export type ProductPricing = "free" | "freemium" | "paid" | "open-source";
 
+export interface PricingTier {
+  name: string;
+  price: string;
+  priceMonthly?: number;
+  priceYearly?: number;
+  features: string[];
+  cta: string;
+  ctaLink: string;
+  popular?: boolean;
+}
+
 export interface Product {
   slug: string;
   name: string;
@@ -15,6 +26,8 @@ export interface Product {
   status: ProductStatus;
   productUrl: string;
   pricing: ProductPricing;
+  pricingTiers?: PricingTier[];
+  currency?: string;
   howItWorks: { step: string; title: string; description: string }[];
   useCases: string[];
 }
@@ -67,6 +80,12 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://chat.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["100 messages/month", "1 knowledge base", "Basic widget styling", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=cloudrix-ai-chat&tier=free" },
+      { name: "Starter", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["1,000 messages/month", "5 knowledge bases", "Custom branding", "Email support", "Analytics dashboard"], cta: "Get Started", ctaLink: "/checkout?product=cloudrix-ai-chat&tier=starter" },
+      { name: "Pro", price: "$149/mo", priceMonthly: 149, priceYearly: 1430, features: ["10,000 messages/month", "Unlimited knowledge bases", "Multi-language support", "Priority support", "Advanced analytics", "Human escalation"], cta: "Go Pro", ctaLink: "/checkout?product=cloudrix-ai-chat&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited messages", "Custom AI model tuning", "SSO & SAML", "Dedicated account manager", "SLA guarantee", "On-premise deployment"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=cloudrix-ai-chat" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect Your Docs", description: "Upload PDFs, paste URLs, or connect your knowledge base. Our pipeline indexes everything in minutes." },
       { step: "2", title: "Customize the Agent", description: "Set the tone, define guardrails, and configure escalation rules to match your brand." },
@@ -102,6 +121,12 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://codescan.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["5 scans/day", "Basic vulnerability detection", "1 language", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-code-reviewer&tier=free" },
+      { name: "Pro", price: "$29/mo", priceMonthly: 29, priceYearly: 278, features: ["Unlimited scans", "20+ languages", "GitHub/GitLab integration", "Priority support", "PDF reports"], cta: "Go Pro", ctaLink: "/checkout?product=ai-code-reviewer&tier=pro", popular: true },
+      { name: "Team", price: "$79/mo", priceMonthly: 79, priceYearly: 758, features: ["Everything in Pro", "5 team seats", "PR review automation", "Team dashboard", "Custom rules"], cta: "Start Team", ctaLink: "/checkout?product=ai-code-reviewer&tier=team" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited seats", "Self-hosted option", "SSO & SAML", "Custom integrations", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-code-reviewer" },
+    ],
     howItWorks: [
       { step: "1", title: "Paste or Connect", description: "Paste a code snippet directly or connect your GitHub/GitLab repository." },
       { step: "2", title: "AI Analysis", description: "Our LLM-powered engine analyzes security, performance, and architecture in seconds." },
@@ -136,6 +161,12 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://scope.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["3 scopes/month", "Basic scope documents", "PDF export", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-scope-generator&tier=free" },
+      { name: "Pro", price: "$39/mo", priceMonthly: 39, priceYearly: 374, features: ["Unlimited scopes", "Tech stack recommendations", "Cost projections", "Version history", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=ai-scope-generator&tier=pro", popular: true },
+      { name: "Team", price: "$99/mo", priceMonthly: 99, priceYearly: 950, features: ["Everything in Pro", "5 team seats", "Collaborative editing", "Template library", "Custom branding"], cta: "Start Team", ctaLink: "/checkout?product=ai-scope-generator&tier=team" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited seats", "SSO & SAML", "API access", "Custom templates", "Dedicated support"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-scope-generator" },
+    ],
     howItWorks: [
       { step: "1", title: "Describe Your Idea", description: "Write a few sentences about what you want to build. No technical jargon needed." },
       { step: "2", title: "AI Generates Scope", description: "Our engine produces a complete scope with features, tech stack, timeline, and cost estimate." },
@@ -170,6 +201,11 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://www.cloudrix.io/ai-tools/compliance-scanner",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 scan", "Basic risk classification", "Summary report"], cta: "Start Free", ctaLink: "/checkout?product=eu-ai-act-scanner&tier=free" },
+      { name: "Pro", price: "$79/mo", priceMonthly: 79, priceYearly: 758, features: ["Unlimited scans", "Detailed PDF reports", "Gap analysis", "Remediation steps", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=eu-ai-act-scanner&tier=pro", popular: true },
+      { name: "Enterprise", price: "$299/mo", priceMonthly: 299, priceYearly: 2870, features: ["Portfolio scanning", "Ongoing monitoring", "Regulatory update alerts", "Custom compliance frameworks", "Dedicated compliance advisor", "SSO & audit logs"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=eu-ai-act-scanner" },
+    ],
     howItWorks: [
       { step: "1", title: "Describe Your AI System", description: "Answer questions about your AI system's purpose, data, and deployment context." },
       { step: "2", title: "Risk Classification", description: "The scanner classifies your system into EU AI Act risk categories." },
@@ -204,6 +240,12 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://architect.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["3 designs/month", "Basic diagrams", "PNG export", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-architecture-generator&tier=free" },
+      { name: "Pro", price: "$59/mo", priceMonthly: 59, priceYearly: 566, features: ["Unlimited designs", "Multi-cloud support", "Cost estimates", "SVG/PDF export", "Terraform code gen", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=ai-architecture-generator&tier=pro", popular: true },
+      { name: "Team", price: "$149/mo", priceMonthly: 149, priceYearly: 1430, features: ["Everything in Pro", "5 team seats", "Shared design library", "Version history", "Collaboration tools"], cta: "Start Team", ctaLink: "/checkout?product=ai-architecture-generator&tier=team" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited seats", "Custom cloud providers", "SSO & SAML", "API access", "Dedicated support", "On-premise option"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-architecture-generator" },
+    ],
     howItWorks: [
       { step: "1", title: "Describe Requirements", description: "Tell us about your app, expected traffic, compliance needs, and budget." },
       { step: "2", title: "AI Designs Architecture", description: "Our engine generates an optimized architecture with service selection and scaling strategy." },
@@ -238,6 +280,12 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://docsmith.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 repository", "Basic API docs", "Hosted page", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-doc-generator&tier=free" },
+      { name: "Pro", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["5 repositories", "REST + GraphQL support", "Custom themes", "Version tracking", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=ai-doc-generator&tier=pro", popular: true },
+      { name: "Team", price: "$129/mo", priceMonthly: 129, priceYearly: 1238, features: ["Unlimited repositories", "gRPC support", "API playground", "Custom domain", "Team collaboration", "CI/CD integration"], cta: "Start Team", ctaLink: "/checkout?product=ai-doc-generator&tier=team" },
+      { name: "Enterprise", price: "Custom", features: ["Everything in Team", "SSO & SAML", "Self-hosted option", "Custom integrations", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-doc-generator" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect Repository", description: "Link your GitHub, GitLab, or Bitbucket repo with read-only access." },
       { step: "2", title: "AI Scans Code", description: "Our engine parses your codebase and understands the API structure and intent." },
@@ -272,6 +320,11 @@ export const products: Product[] = [
     status: "coming-soon",
     productUrl: "https://cloudcost.cloudrix.io",
     pricing: "paid",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 cloud account", "Basic cost overview", "Monthly summary", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-cost-optimizer&tier=free" },
+      { name: "Pro", price: "$99/mo", priceMonthly: 99, priceYearly: 950, features: ["3 cloud accounts", "Right-sizing recommendations", "Savings plan optimization", "Cost anomaly alerts", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=ai-cost-optimizer&tier=pro", popular: true },
+      { name: "Enterprise", price: "$299/mo", priceMonthly: 299, priceYearly: 2870, features: ["Unlimited accounts", "FinOps dashboard", "Team cost allocation", "Custom reports", "Dedicated FinOps advisor", "SSO & audit logs"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-cost-optimizer" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect Cloud Account", description: "Grant read-only billing access via IAM role. No resource access needed." },
       { step: "2", title: "AI Analyzes Spending", description: "Our engine analyzes months of billing data to identify patterns and waste." },
@@ -308,6 +361,11 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://crm.cloudrix.io",
     pricing: "paid",
+    pricingTiers: [
+      { name: "Starter", price: "$29/mo", priceMonthly: 29, priceYearly: 278, features: ["Per seat pricing", "Contact management", "Basic pipeline", "Email integration", "Community support"], cta: "Get Started", ctaLink: "/checkout?product=smart-crm&tier=starter" },
+      { name: "Pro", price: "$59/mo", priceMonthly: 59, priceYearly: 566, features: ["Per seat pricing", "AI lead scoring", "Email drafting", "Deal prediction", "Advanced analytics", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=smart-crm&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited seats", "Custom AI models", "Salesforce sync", "SSO & SAML", "Dedicated account manager", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=smart-crm" },
+    ],
     howItWorks: [
       { step: "1", title: "Import Contacts", description: "Import your existing contacts from CSV, HubSpot, or Salesforce." },
       { step: "2", title: "AI Enriches Data", description: "Our AI scores leads, enriches profiles, and identifies high-value opportunities." },
@@ -342,6 +400,11 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://hire.cloudrix.io",
     pricing: "paid",
+    pricingTiers: [
+      { name: "Pay Per Use", price: "$5/candidate", priceMonthly: 5, features: ["Per-candidate screening", "Structured scorecards", "Interview questions", "PDF reports"], cta: "Get Started", ctaLink: "/checkout?product=ai-hiring-assistant&tier=payperuse" },
+      { name: "Pro", price: "$199/mo", priceMonthly: 199, priceYearly: 1910, features: ["Unlimited screenings", "ATS integration", "Bias detection", "Custom scorecards", "Priority support", "Team collaboration"], cta: "Go Pro", ctaLink: "/checkout?product=ai-hiring-assistant&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited everything", "Custom AI models", "SSO & SAML", "Greenhouse/Lever integration", "Dedicated support", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-hiring-assistant" },
+    ],
     howItWorks: [
       { step: "1", title: "Define the Role", description: "Paste or upload the job description with must-have and nice-to-have requirements." },
       { step: "2", title: "Upload CVs", description: "Drag and drop candidate CVs in bulk. We support PDF, DOCX, and LinkedIn profiles." },
@@ -376,6 +439,11 @@ export const products: Product[] = [
     status: "coming-soon",
     productUrl: "https://insight.cloudrix.io",
     pricing: "paid",
+    pricingTiers: [
+      { name: "Starter", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["1 data source", "100 queries/month", "Basic charts", "Email reports", "Community support"], cta: "Get Started", ctaLink: "/checkout?product=smart-analytics&tier=starter" },
+      { name: "Pro", price: "$149/mo", priceMonthly: 149, priceYearly: 1430, features: ["5 data sources", "Unlimited queries", "Custom dashboards", "Slack integration", "Anomaly detection", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=smart-analytics&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited data sources", "BigQuery/Snowflake connectors", "SSO & SAML", "Team dashboards", "Dedicated support", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=smart-analytics" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect Data Sources", description: "Link your database, warehouse, or SaaS tools with secure read-only connectors." },
       { step: "2", title: "Ask Questions", description: "Type questions in plain English. Our AI translates them into optimized queries." },
@@ -410,6 +478,12 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://content.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["5 pieces/month", "1 brand voice", "Blog + social formats", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-content-studio&tier=free" },
+      { name: "Pro", price: "$39/mo", priceMonthly: 39, priceYearly: 374, features: ["Unlimited content", "3 brand voices", "SEO optimization", "Content calendar", "Email campaigns", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=ai-content-studio&tier=pro", popular: true },
+      { name: "Team", price: "$99/mo", priceMonthly: 99, priceYearly: 950, features: ["Everything in Pro", "10 brand voices", "Approval workflows", "A/B variants", "Team collaboration", "Analytics"], cta: "Start Team", ctaLink: "/checkout?product=ai-content-studio&tier=team" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited everything", "Custom AI training", "SSO & SAML", "API access", "Dedicated support"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-content-studio" },
+    ],
     howItWorks: [
       { step: "1", title: "Train Your Voice", description: "Upload existing content so the AI learns your brand tone and style." },
       { step: "2", title: "Create Content", description: "Generate blog posts, social media, and emails with a single brief." },
@@ -444,6 +518,11 @@ export const products: Product[] = [
     status: "coming-soon",
     productUrl: "https://helpdesk.cloudrix.io",
     pricing: "paid",
+    pricingTiers: [
+      { name: "Starter", price: "$39/mo", priceMonthly: 39, priceYearly: 374, features: ["3 agent seats", "Email + chat channels", "Basic ticket routing", "Knowledge base", "Community support"], cta: "Get Started", ctaLink: "/checkout?product=smart-helpdesk&tier=starter" },
+      { name: "Pro", price: "$89/mo", priceMonthly: 89, priceYearly: 854, features: ["10 agent seats", "AI auto-responses", "Sentiment analysis", "SLA tracking", "Slack integration", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=smart-helpdesk&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited agents", "Custom AI training", "Multi-brand support", "SSO & SAML", "PagerDuty integration", "Dedicated support"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=smart-helpdesk" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect Channels", description: "Integrate email, live chat, and social media into a unified inbox." },
       { step: "2", title: "AI Processes Tickets", description: "Incoming tickets are classified, prioritized, and routed automatically." },
@@ -478,6 +557,12 @@ export const products: Product[] = [
     status: "coming-soon",
     productUrl: "https://translate.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["5,000 words/month", "10 language pairs", "Basic document translation", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-translation&tier=free" },
+      { name: "Pro", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["50,000 words/month", "40+ language pairs", "Document translation (PDF, DOCX)", "Translation memory", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=ai-translation&tier=pro", popular: true },
+      { name: "Business", price: "$149/mo", priceMonthly: 149, priceYearly: 1430, features: ["500,000 words/month", "Website localization API", "Glossary management", "Human review workflow", "Team collaboration"], cta: "Start Business", ctaLink: "/checkout?product=ai-translation&tier=business" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited words", "Custom language models", "SSO & SAML", "On-premise deployment", "Dedicated support", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=ai-translation" },
+    ],
     howItWorks: [
       { step: "1", title: "Upload or Connect", description: "Upload documents or connect your website/app via API or script tag." },
       { step: "2", title: "AI Translates", description: "Our LLM translates with full context awareness, not word-by-word." },
@@ -512,6 +597,11 @@ export const products: Product[] = [
     status: "coming-soon",
     productUrl: "https://invoice.cloudrix.io",
     pricing: "paid",
+    pricingTiers: [
+      { name: "Starter", price: "$29/mo", priceMonthly: 29, priceYearly: 278, features: ["100 invoices/month", "OCR extraction", "Expense categorization", "Basic approval workflow", "Community support"], cta: "Get Started", ctaLink: "/checkout?product=smart-invoice&tier=starter" },
+      { name: "Pro", price: "$79/mo", priceMonthly: 79, priceYearly: 758, features: ["1,000 invoices/month", "PO matching", "Anomaly detection", "QuickBooks/Xero sync", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=smart-invoice&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited invoices", "SAP integration", "Custom workflows", "SSO & audit logs", "Dedicated support", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=smart-invoice" },
+    ],
     howItWorks: [
       { step: "1", title: "Upload Invoices", description: "Drag and drop invoices or forward them via email. Any format works." },
       { step: "2", title: "AI Extracts Data", description: "Line items, amounts, dates, and vendor info are extracted and validated." },
@@ -548,6 +638,11 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://demo.cloudrix.io",
     pricing: "open-source",
+    pricingTiers: [
+      { name: "Open Source", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Full source code", "MIT license", "Community support", "Self-hosted", "All core features"], cta: "Clone Repo", ctaLink: "/checkout?product=saas-starter&tier=free" },
+      { name: "Pro Support", price: "$99/mo", priceMonthly: 99, priceYearly: 950, features: ["Everything in Open Source", "Priority email support", "Architecture reviews", "Upgrade assistance", "Bug fix priority"], cta: "Get Support", ctaLink: "/checkout?product=saas-starter&tier=pro", popular: true },
+      { name: "Enterprise License", price: "$499/mo", priceMonthly: 499, priceYearly: 4790, features: ["Commercial license", "White-label rights", "Custom feature development", "Dedicated Slack channel", "SLA guarantee", "On-boarding sessions"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=saas-starter" },
+    ],
     howItWorks: [
       { step: "1", title: "Clone the Repo", description: "Fork the repository and run the setup script. You are up and running in 5 minutes." },
       { step: "2", title: "Configure Services", description: "Set your Stripe keys, database URL, and email provider. All via environment variables." },
@@ -582,6 +677,11 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://migrate.cloudrix.io",
     pricing: "free",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Basic migration planning", "Up to 10 workloads", "PDF export", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=cloud-migration-planner&tier=free" },
+      { name: "Pro", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["Unlimited workloads", "Dependency graph", "Risk assessment", "Interactive Gantt chart", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=cloud-migration-planner&tier=pro", popular: true },
+      { name: "Enterprise", price: "Custom", features: ["Everything in Pro", "AWS/Azure discovery import", "Custom integrations", "Team collaboration", "Dedicated support"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=cloud-migration-planner" },
+    ],
     howItWorks: [
       { step: "1", title: "Map Infrastructure", description: "List your servers, databases, and services. Or import from AWS/Azure discovery tools." },
       { step: "2", title: "Plan Migration Waves", description: "Group workloads into migration waves based on dependencies and risk." },
@@ -616,6 +716,12 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://devops.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["3 pipelines", "Basic DORA metrics", "7-day history", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=devops-dashboard&tier=free" },
+      { name: "Pro", price: "$79/mo", priceMonthly: 79, priceYearly: 758, features: ["25 pipelines", "Full DORA metrics", "90-day history", "Slack integration", "Incident tracking", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=devops-dashboard&tier=pro", popular: true },
+      { name: "Team", price: "$199/mo", priceMonthly: 199, priceYearly: 1910, features: ["Unlimited pipelines", "Team dashboards", "PagerDuty integration", "Custom metrics", "Deployment rollbacks", "API access"], cta: "Start Team", ctaLink: "/checkout?product=devops-dashboard&tier=team" },
+      { name: "Enterprise", price: "Custom", features: ["Everything in Team", "SSO & SAML", "Self-hosted option", "Custom integrations", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=devops-dashboard" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect CI/CD Tools", description: "Integrate GitHub Actions, GitLab CI, Jenkins, or ArgoCD with API keys." },
       { step: "2", title: "Configure Dashboards", description: "Set up team views, service groups, and alerting thresholds." },
@@ -650,6 +756,12 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://monitor.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["5 monitors", "5-minute intervals", "3 global locations", "Email alerts", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=api-monitor&tier=free" },
+      { name: "Pro", price: "$29/mo", priceMonthly: 29, priceYearly: 278, features: ["50 monitors", "30-second intervals", "12 global locations", "Slack + email alerts", "SSL monitoring", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=api-monitor&tier=pro", popular: true },
+      { name: "Business", price: "$79/mo", priceMonthly: 79, priceYearly: 758, features: ["200 monitors", "Multi-step transactions", "Public status page", "PagerDuty integration", "API access", "Custom check intervals"], cta: "Start Business", ctaLink: "/checkout?product=api-monitor&tier=business" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited monitors", "Private locations", "SSO & SAML", "Custom integrations", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=api-monitor" },
+    ],
     howItWorks: [
       { step: "1", title: "Add Endpoints", description: "Paste your API URLs and configure expected response codes and content." },
       { step: "2", title: "Configure Alerts", description: "Set up Slack, email, or PagerDuty notifications for downtime and degradation." },
@@ -684,6 +796,9 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://www.cloudrix.io/products/tech-stack-advisor",
     pricing: "free",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Unlimited assessments", "Tech stack recommendations", "Pros & cons analysis", "Shareable reports", "Community support"], cta: "Start Free", ctaLink: "/products/tech-stack-advisor" },
+    ],
     howItWorks: [
       { step: "1", title: "Answer Questions", description: "Tell us about your project type, scale, team, timeline, and constraints." },
       { step: "2", title: "Get Recommendations", description: "Receive a ranked list of tech stacks with detailed pros and cons." },
@@ -718,6 +833,11 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://scan.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 scan/week", "OWASP Top 10 basics", "Summary report", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=security-scanner&tier=free" },
+      { name: "Pro", price: "$59/mo", priceMonthly: 59, priceYearly: 566, features: ["Daily scans", "Full OWASP coverage", "Dependency scanning", "PDF reports", "Fix instructions", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=security-scanner&tier=pro", popular: true },
+      { name: "Enterprise", price: "$199/mo", priceMonthly: 199, priceYearly: 1910, features: ["Continuous scanning", "CI/CD integration", "Custom rules", "API access", "SSO & audit logs", "Dedicated support"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=security-scanner" },
+    ],
     howItWorks: [
       { step: "1", title: "Enter Your URL", description: "Provide your web application URL and authentication details if needed." },
       { step: "2", title: "Scan Runs", description: "Our scanner checks for vulnerabilities, misconfigurations, and exposed data." },
@@ -752,6 +872,9 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://www.cloudrix.io/calculator",
     pricing: "free",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Unlimited calculations", "AWS, Azure & GCP", "CSV/PDF export", "Saved configurations", "Community support"], cta: "Start Free", ctaLink: "/calculator" },
+    ],
     howItWorks: [
       { step: "1", title: "Configure Resources", description: "Select compute instances, storage volumes, databases, and networking." },
       { step: "2", title: "Compare Providers", description: "See real-time price comparisons across AWS, Azure, and GCP." },
@@ -786,6 +909,12 @@ export const products: Product[] = [
     status: "live",
     productUrl: "https://status.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 status page", "5 components", "Email notifications", "Basic branding", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=status-page&tier=free" },
+      { name: "Pro", price: "$29/mo", priceMonthly: 29, priceYearly: 278, features: ["3 status pages", "Unlimited components", "Custom domain", "SMS notifications", "Scheduled maintenance", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=status-page&tier=pro", popular: true },
+      { name: "Business", price: "$79/mo", priceMonthly: 79, priceYearly: 758, features: ["10 status pages", "API-driven incidents", "Subscriber management", "Custom CSS", "Uptime SLA", "Team management"], cta: "Start Business", ctaLink: "/checkout?product=status-page&tier=business" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited pages", "SSO & SAML", "Private status pages", "Custom integrations", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=status-page" },
+    ],
     howItWorks: [
       { step: "1", title: "Set Up Components", description: "Define your services and components (API, web app, database, etc.)." },
       { step: "2", title: "Customize & Brand", description: "Add your logo, colors, and custom domain. Goes live in minutes." },
@@ -820,6 +949,11 @@ export const products: Product[] = [
     status: "coming-soon",
     productUrl: "https://dbmigrate.cloudrix.io",
     pricing: "open-source",
+    pricingTiers: [
+      { name: "Open Source", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Full source code", "PostgreSQL & MySQL", "CLI tool", "Basic migrations", "Community support"], cta: "Clone Repo", ctaLink: "/checkout?product=db-migration-tool&tier=free" },
+      { name: "Pro Support", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["Everything in Open Source", "Priority support", "Shadow DB simulation", "Rollback plans", "MongoDB support"], cta: "Get Support", ctaLink: "/checkout?product=db-migration-tool&tier=pro", popular: true },
+      { name: "Enterprise", price: "$199/mo", priceMonthly: 199, priceYearly: 1910, features: ["Commercial license", "CI/CD integration", "Zero-downtime strategies", "Custom DB support", "Dedicated Slack channel", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=db-migration-tool" },
+    ],
     howItWorks: [
       { step: "1", title: "Connect Database", description: "Provide read-only access to your database for schema analysis." },
       { step: "2", title: "Define Changes", description: "Describe schema changes or let DBMigrate detect drift from your models." },
@@ -854,6 +988,12 @@ export const products: Product[] = [
     status: "beta",
     productUrl: "https://perf.cloudrix.io",
     pricing: "freemium",
+    pricingTiers: [
+      { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 site", "Core Web Vitals", "7-day data retention", "Basic reports", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=performance-profiler&tier=free" },
+      { name: "Pro", price: "$39/mo", priceMonthly: 39, priceYearly: 374, features: ["5 sites", "RUM data collection", "90-day retention", "Optimization recommendations", "Regression alerts", "Priority support"], cta: "Go Pro", ctaLink: "/checkout?product=performance-profiler&tier=pro", popular: true },
+      { name: "Business", price: "$99/mo", priceMonthly: 99, priceYearly: 950, features: ["20 sites", "365-day retention", "Lighthouse tracking", "Custom metrics", "API access", "Team dashboards"], cta: "Start Business", ctaLink: "/checkout?product=performance-profiler&tier=business" },
+      { name: "Enterprise", price: "Custom", features: ["Unlimited sites", "SSO & SAML", "Custom retention", "Private deployment", "SLA guarantee"], cta: "Contact Sales", ctaLink: "/contact?type=enterprise&product=performance-profiler" },
+    ],
     howItWorks: [
       { step: "1", title: "Add Script Tag", description: "Add a lightweight snippet to your site. It collects real user performance data." },
       { step: "2", title: "Analyze Performance", description: "View Core Web Vitals, page load breakdowns, and slowest pages." },

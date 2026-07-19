@@ -183,6 +183,26 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/products/free" className="text-sm hover:text-white transition-colors">
+                  Free Tools
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/pricing" className="text-sm hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/startups" className="text-sm hover:text-white transition-colors">
+                  For Startups
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/enterprise" className="text-sm hover:text-white transition-colors">
+                  For Enterprise
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-gray-800">
                 <Link href="/products/eu-ai-act-scanner/demo" className="text-sm hover:text-white transition-colors">
                   AI Act Scanner
                 </Link>
