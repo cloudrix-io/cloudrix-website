@@ -43,6 +43,7 @@ import {
   categoryInfo,
   getProductBySlug,
   getRelatedProducts,
+  productCategories,
   type Product,
   type ProductCategory,
 } from "@/data/products";
@@ -269,12 +270,7 @@ export default async function ProductPage({
   const Icon = iconMap[product.icon];
   const info = categoryInfo[product.category];
   const relatedProducts = getRelatedProducts(slug, 3);
-  const ctaLabel =
-    product.status === "coming-soon"
-      ? "Join Waitlist"
-      : product.status === "beta"
-        ? "Try the Beta"
-        : "Try It Free";
+  const ctaLabel = `Open ${product.name}`;
   const isExternalUrl = product.productUrl.startsWith("http");
 
   return (
@@ -337,30 +333,30 @@ export default async function ProductPage({
                 {product.description}
               </p>
 
-              {/* CTA Buttons */}
+              {/* Primary CTA - Launch Product */}
               <div className="mt-8 flex flex-wrap gap-4">
                 {isExternalUrl ? (
                   <a
                     href={product.productUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-all hover:shadow-violet-500/40 hover:brightness-110"
+                    className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-4 text-base font-bold text-white shadow-lg shadow-emerald-500/25 transition-all hover:shadow-emerald-500/40 hover:brightness-110 hover:scale-[1.02]"
                   >
                     {ctaLabel}
-                    <ExternalLink className="h-4 w-4" />
+                    <ExternalLink className="h-5 w-5" />
                   </a>
                 ) : (
                   <Link
                     href={product.productUrl}
-                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-all hover:shadow-violet-500/40 hover:brightness-110"
+                    className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-4 text-base font-bold text-white shadow-lg shadow-emerald-500/25 transition-all hover:shadow-emerald-500/40 hover:brightness-110 hover:scale-[1.02]"
                   >
                     {ctaLabel}
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-5 w-5" />
                   </Link>
                 )}
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 transition-all hover:border-slate-600 hover:text-white hover:bg-slate-900"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-4 text-sm font-semibold text-slate-300 transition-all hover:border-slate-600 hover:text-white hover:bg-slate-900"
                 >
                   Request a Demo
                 </Link>

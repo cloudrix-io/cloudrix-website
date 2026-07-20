@@ -22,6 +22,9 @@ import {
   Globe,
   Users,
   TrendingUp,
+  ShieldCheck,
+  Activity,
+  ExternalLink,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import type { IHomePageContent, ILocalizedContent } from "@/lib/models/page";
@@ -109,30 +112,48 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
   );
 }
 
-const popularTools = [
+const popularProducts = [
   {
-    icon: MessageSquareText,
-    title: "AI Code Reviewer",
-    description: "Paste code, get instant review",
-    href: "/products/ai-code-reviewer/demo",
-  },
-  {
-    icon: Calculator,
-    title: "Cloud Cost Calculator",
-    description: "Compare AWS vs Azure vs GCP",
-    href: "/products/cloud-cost-calculator/demo",
+    icon: ShieldCheck,
+    title: "AI Act Scanner",
+    tagline: "Check EU AI Act compliance in minutes",
+    href: "https://scanner.cloudrix.io",
+    learnMore: "/products/eu-ai-act-scanner",
   },
   {
     icon: ScanSearch,
-    title: "EU AI Act Scanner",
-    description: "Check your AI compliance",
-    href: "/products/eu-ai-act-scanner/demo",
+    title: "CodeScan AI",
+    tagline: "Instant security + performance code review",
+    href: "https://codescan.cloudrix.io",
+    learnMore: "/products/ai-code-reviewer",
   },
   {
-    icon: Compass,
-    title: "Tech Stack Advisor",
-    description: "Get personalized recommendations",
-    href: "/products/tech-stack-advisor/demo",
+    icon: Activity,
+    title: "API Monitor",
+    tagline: "Uptime monitoring from 12 global locations",
+    href: "https://monitor.cloudrix.io",
+    learnMore: "/products/api-monitor",
+  },
+  {
+    icon: CheckCircle2,
+    title: "StatusPage",
+    tagline: "Beautiful status pages for your services",
+    href: "https://status.cloudrix.io",
+    learnMore: "/products/status-page",
+  },
+  {
+    icon: Users,
+    title: "SmartCRM",
+    tagline: "CRM with AI lead scoring and deal prediction",
+    href: "https://crm.cloudrix.io",
+    learnMore: "/products/smart-crm",
+  },
+  {
+    icon: MessageSquareText,
+    title: "CloudrixAI Chat",
+    tagline: "AI support agent that learns from your docs",
+    href: "https://chat.cloudrix.io",
+    learnMore: "/products/cloudrix-ai-chat",
   },
 ];
 
@@ -881,24 +902,24 @@ export function HomeContent({
         </div>
       </section>
 
-      {/* Popular Tools Section */}
+      {/* Popular Products Section */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              {t("Try Our Free AI Tools", "Essayez Nos Outils IA Gratuits")}
+              {t("Popular Products", "Produits Populaires")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t(
-                "24 free tools, no signup required. Built by senior engineers to solve real problems.",
-                "24 outils gratuits, sans inscription. Construits par des ingenieurs seniors pour resoudre de vrais problemes."
+                "20+ live products with free tiers. No credit card required. Try any product instantly.",
+                "20+ produits en ligne avec niveaux gratuits. Pas de carte de credit requise. Essayez n'importe quel produit instantanement."
               )}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularTools.map((tool, index) => {
-              const Icon = tool.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {popularProducts.map((product, index) => {
+              const Icon = product.icon;
               return (
                 <div
                   key={index}
@@ -907,19 +928,30 @@ export function HomeContent({
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
                     <Icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {tool.title}
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    {product.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-4">
-                    {tool.description}
+                    {product.tagline}
                   </p>
-                  <Link
-                    href={tool.href}
-                    className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700 group/link"
-                  >
-                    {t("Try Free", "Essayer Gratuitement")}
-                    <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={product.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
+                    >
+                      {t("Try Free", "Essayer")}
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                    <Link
+                      href={product.learnMore}
+                      className="inline-flex items-center text-gray-500 hover:text-blue-600 text-sm font-medium transition-colors"
+                    >
+                      {t("Details", "Details")}
+                      <ArrowRight className="ml-1 w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </div>
               );
             })}
@@ -930,7 +962,7 @@ export function HomeContent({
               href="/products"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium group"
             >
-              {t("View All 24 Tools", "Voir les 24 Outils")}
+              {t("View All 20+ Products", "Voir les 20+ Produits")}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

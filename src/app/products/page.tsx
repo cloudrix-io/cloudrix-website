@@ -28,7 +28,10 @@ import {
   ArrowRight,
   Sparkles,
   Brain,
-  Wrench,
+  Code,
+  Shield,
+  ExternalLink,
+  Star,
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui";
 import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
@@ -37,50 +40,52 @@ const productsFaqs = [
   {
     question: "Are Cloudrix tools free to use?",
     answer:
-      "Yes, most of our 24 tools are completely free to use with no signup required. This includes the AI Code Reviewer, EU AI Act Compliance Scanner, Cloud Cost Calculator, and Tech Stack Advisor. Some advanced features are available in freemium or paid tiers.",
+      "Most of our 20+ products offer a free tier with no signup required. Premium plans start from $29/mo for advanced features, team collaboration, and priority support.",
   },
   {
     question: "What types of tools does Cloudrix offer?",
     answer:
-      "Cloudrix offers three categories of tools: AI-Powered tools (like the AI Code Reviewer and EU AI Act Scanner that use large language models), AI-Enhanced business tools (like CRM and analytics dashboards), and Engineering Tools (like deployment pipelines and monitoring utilities).",
+      "Cloudrix offers five categories of products: Security & Compliance, Monitoring & Reliability, AI & Automation, Developer Tools, and Business Intelligence. All are live and production-ready.",
   },
   {
     question: "Do I need to create an account to use the tools?",
     answer:
-      "No, you can try all live tool demos without creating an account or signing up. Simply visit the product page and click Try Demo Free to get started immediately.",
+      "No, you can try most products without creating an account. Simply click 'Try Now' to open the live product. Some features require a free account for persistence.",
   },
   {
     question: "Can Cloudrix build a custom tool for my company?",
     answer:
-      "Absolutely. Every product in our portfolio was born from solving a real client challenge. If you need a tailored solution, we offer custom development starting from EUR 15,000 for project-based work or EUR 8,500 per month for a dedicated engineering team.",
+      "Absolutely. Every product in our portfolio was born from solving a real client challenge. If you need a tailored solution, we offer custom development starting from EUR 15,000 for project-based work.",
   },
   {
     question: "What technology powers Cloudrix tools?",
     answer:
-      "Our tools are built with production-grade technology including Next.js, React, TypeScript, Python, and Node.js on the frontend and backend; Claude, GPT-4o, and open-source LLMs for AI features; and AWS, Kubernetes, and Docker for infrastructure.",
+      "Our tools are built with production-grade technology including Next.js, React, TypeScript, NestJS on the frontend and backend; Claude API and open-source LLMs for AI features; and AWS for infrastructure.",
   },
 ];
 import {
   products,
-  categoryInfo,
-  getProductsByCategory,
+  productCategories,
+  getProductsBySmartCategory,
+  getProductBySlug,
+  popularProductSlugs,
   type Product,
-  type ProductCategory,
+  type SmartCategory,
 } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "Products & Tools — Built to Solve Real Problems",
+  title: "20+ AI & IT Products. One Platform. | Cloudrix",
   description:
-    "Try 24 free AI tools — no signup required. AI Code Reviewer, EU AI Act Scanner, Cloud Cost Calculator, and more. Built by senior engineers serving 50+ countries.",
+    "From security scanning to AI chatbots — 20+ live products that run your business. Free tiers available. Try any product instantly.",
   openGraph: {
-    title: "Products & Tools — Built to Solve Real Problems",
+    title: "20+ AI & IT Products. One Platform.",
     description:
-      "Explore 24 AI-powered products, intelligent business solutions, and engineering tools built by Cloudrix.",
+      "From security scanning to AI chatbots — tools that run your business. All live. All production-ready.",
     url: "https://www.cloudrix.io/products",
     type: "website",
     images: [
       {
-        url: `/og?title=${encodeURIComponent("Our Products & Tools")}&subtitle=${encodeURIComponent("24 products built to solve real problems")}&type=products`,
+        url: `/og?title=${encodeURIComponent("20+ AI & IT Products")}&subtitle=${encodeURIComponent("One Platform. All Live.")}&type=products`,
         width: 1200,
         height: 630,
         alt: "Cloudrix Products & Tools",
@@ -89,9 +94,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Products & Tools",
+    title: "20+ AI & IT Products. One Platform.",
     description:
-      "Explore 24 AI-powered products, intelligent business solutions, and engineering tools built by Cloudrix.",
+      "From security scanning to AI chatbots — tools that run your business.",
   },
   alternates: {
     canonical: "https://www.cloudrix.io/products",
@@ -125,86 +130,57 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Gauge,
 };
 
-const categoryIcons: Record<ProductCategory, React.ComponentType<{ className?: string }>> = {
-  "ai-powered": Sparkles,
-  "ai-enhanced": Brain,
-  "engineering-tools": Wrench,
+const categoryIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Shield,
+  Activity,
+  Brain,
+  Code,
+  BarChart3,
 };
 
-function StatusBadge({ status }: { status: Product["status"] }) {
-  const config = {
-    live: { label: "Live", className: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" },
-    beta: { label: "Beta", className: "bg-amber-500/10 text-amber-400 border-amber-500/20" },
-    "coming-soon": { label: "Coming Soon", className: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-  };
-  const { label, className } = config[status];
-  return (
-    <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full border ${className}`}>
-      {label}
-    </span>
-  );
-}
-
-function PricingBadge({ product }: { product: Product }) {
-  const { pricing, pricingTiers } = product;
-
-  // Determine the starting price label
-  let label: string;
-  let className: string;
-
-  if (pricing === "free") {
-    label = "Free";
-    className = "bg-emerald-500/10 text-emerald-400";
-  } else if (pricing === "open-source") {
-    label = "Open Source";
-    className = "bg-orange-500/10 text-orange-400";
-  } else if (pricingTiers && pricingTiers.length > 0) {
-    const paidTiers = pricingTiers.filter(
+function getStartingPrice(product: Product): string {
+  if (product.pricing === "free" || product.pricing === "open-source") return "Free";
+  if (product.pricingTiers && product.pricingTiers.length > 0) {
+    const hasFree = product.pricingTiers.some((t) => t.priceMonthly === 0);
+    if (hasFree) return "Free";
+    const paidTiers = product.pricingTiers.filter(
       (t) => t.priceMonthly !== undefined && t.priceMonthly > 0
     );
     if (paidTiers.length > 0) {
       const cheapest = Math.min(...paidTiers.map((t) => t.priceMonthly!));
-      const hasFree = pricingTiers.some((t) => t.priceMonthly === 0);
-      label = hasFree ? `Free / From $${cheapest}/mo` : `From $${cheapest}/mo`;
-      className = "bg-blue-500/10 text-blue-400";
-    } else {
-      label = "Free";
-      className = "bg-emerald-500/10 text-emerald-400";
+      return `From $${cheapest}/mo`;
     }
-  } else if (pricing === "freemium") {
-    label = "Freemium";
-    className = "bg-blue-500/10 text-blue-400";
-  } else {
-    label = "Paid";
-    className = "bg-purple-500/10 text-purple-400";
   }
-
-  return (
-    <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full ${className}`}>
-      {label}
-    </span>
-  );
+  return "Free";
 }
 
 function ProductCard({ product }: { product: Product }) {
   const Icon = iconMap[product.icon];
-  const categoryGradient = categoryInfo[product.category].gradient;
-  const hasDemo = product.status !== "coming-soon";
+  const isPopular = popularProductSlugs.includes(product.slug);
+  const startingPrice = getStartingPrice(product);
 
   return (
     <div className="group relative flex flex-col rounded-2xl border border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-purple-500/5 hover:-translate-y-1">
-      {/* Gradient glow on hover */}
-      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${categoryGradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300`} />
+      {isPopular && (
+        <div className="absolute -top-3 left-4">
+          <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+            <Star className="h-3 w-3" />
+            Popular
+          </span>
+        </div>
+      )}
 
       <div className="relative flex flex-col flex-1">
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
-          <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${categoryGradient} shadow-lg`}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-purple-600 shadow-lg">
             {Icon && <Icon className="h-6 w-6 text-white" />}
           </div>
           <div className="flex items-center gap-2">
-            <StatusBadge status={product.status} />
-            <PricingBadge product={product} />
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-medium rounded-full border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Live
+            </span>
           </div>
         </div>
 
@@ -212,47 +188,33 @@ function ProductCard({ product }: { product: Product }) {
         <h3 className="text-lg font-semibold text-white mb-2">
           {product.name}
         </h3>
-        <p className="text-sm text-slate-400 mb-2 line-clamp-2">
+        <p className="text-sm text-slate-400 mb-3 line-clamp-2 flex-1">
           {product.tagline}
         </p>
-        <p className="text-xs text-slate-500 mb-4 flex-1 line-clamp-2">
-          {product.description}
-        </p>
 
-        {/* Tech stack tags */}
-        <div className="flex flex-wrap gap-1 mb-4">
-          {product.techStack.slice(0, 4).map((tech) => (
-            <span key={tech} className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">
-              {tech}
-            </span>
-          ))}
-          {product.techStack.length > 4 && (
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-500">
-              +{product.techStack.length - 4}
-            </span>
-          )}
+        {/* Price */}
+        <div className="mb-4">
+          <span className="text-sm font-medium text-emerald-400">
+            {startingPrice}
+          </span>
         </div>
 
         {/* Action buttons */}
         <div className="flex items-center gap-2 pt-4 border-t border-slate-800">
-          {hasDemo ? (
-            <Link
-              href={`/products/${product.slug}/demo`}
-              className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white rounded-lg bg-gradient-to-r ${categoryGradient} hover:opacity-90 transition-opacity`}
-            >
-              <Sparkles className="h-4 w-4" />
-              Try Demo Free
-            </Link>
-          ) : (
-            <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-slate-500 rounded-lg bg-slate-800 cursor-not-allowed">
-              Coming Soon
-            </span>
-          )}
+          <a
+            href={product.productUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-violet-600 to-purple-600 hover:opacity-90 transition-opacity"
+          >
+            Try Now
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
           <Link
             href={`/products/${product.slug}`}
             className="inline-flex items-center justify-center px-3 py-2.5 text-sm font-medium text-slate-400 rounded-lg border border-slate-700 hover:text-white hover:border-slate-500 transition-colors"
           >
-            Details
+            Learn More
             <ArrowRight className="h-3.5 w-3.5 ml-1" />
           </Link>
         </div>
@@ -263,31 +225,39 @@ function ProductCard({ product }: { product: Product }) {
 
 function CategorySection({
   category,
-  index,
 }: {
-  category: ProductCategory;
-  index: number;
+  category: SmartCategory;
 }) {
-  const info = categoryInfo[category];
-  const categoryProducts = getProductsByCategory(category);
-  const CategoryIcon = categoryIcons[category];
+  const categoryProducts = getProductsBySmartCategory(category.slug);
+  const CategoryIcon = categoryIconMap[category.icon];
 
   return (
-    <section id={category} className="scroll-mt-24">
+    <section id={category.slug} className="scroll-mt-24">
       {/* Category Header */}
-      <div className="flex items-center gap-4 mb-8">
-        <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${info.gradient}`}>
-          <CategoryIcon className="h-5 w-5 text-white" />
+      <div className="mb-8">
+        <div className="flex items-center gap-4 mb-3">
+          <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${category.gradient} shadow-lg`}>
+            {CategoryIcon && <CategoryIcon className="h-6 w-6 text-white" />}
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                {category.name}
+              </h2>
+              <span className="inline-flex items-center justify-center rounded-full bg-slate-800 px-3 py-1 text-sm font-medium text-slate-300">
+                {categoryProducts.length} products
+              </span>
+            </div>
+            <p className="text-slate-400 mt-1">{category.description}</p>
+          </div>
+          <Link
+            href={`/products/category/${category.slug}`}
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white transition-colors"
+          >
+            View category
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            {info.label}
-          </h2>
-          <p className="text-slate-400 mt-1">{info.description}</p>
-        </div>
-        <span className="ml-auto hidden sm:inline-flex items-center justify-center rounded-full bg-slate-800 px-3 py-1 text-sm font-medium text-slate-300">
-          {categoryProducts.length} products
-        </span>
       </div>
 
       {/* Product Grid */}
@@ -301,11 +271,7 @@ function CategorySection({
 }
 
 export default function ProductsPage() {
-  const categories: ProductCategory[] = [
-    "ai-powered",
-    "ai-enhanced",
-    "engineering-tools",
-  ];
+  const liveCount = products.filter((p) => p.status === "live").length;
 
   return (
     <>
@@ -328,45 +294,45 @@ export default function ProductsPage() {
             items={[{ name: "Products", url: "/products" }]}
           />
 
-          <div className="mt-8 max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-400 border border-violet-500/20 mb-6">
-              <Sparkles className="h-4 w-4" />
-              {products.length} Products & Tools
+          <div className="mt-8 max-w-4xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400 border border-emerald-500/20">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                {liveCount} products live
+              </div>
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Our Products &amp; Tools
+              20+ AI &amp; IT Products.
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400">
-                Built to Solve Real Problems
+                One Platform.
               </span>
             </h1>
-            <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl">
-              From AI-powered agents to engineering utilities, every product in our
-              portfolio was born from solving a real client challenge. Try them free,
-              explore the demos, or let us build something custom for you.
+            <p className="mt-6 text-xl text-slate-400 leading-relaxed max-w-2xl">
+              From security scanning to AI chatbots — tools that run your business.
+              All live. All production-ready. Free tiers on every product.
             </p>
           </div>
 
-          {/* Category quick links */}
-          <div className="mt-10 flex flex-wrap gap-3">
-            {categories.map((cat) => {
-              const info = categoryInfo[cat];
-              const Icon = categoryIcons[cat];
-              const count = getProductsByCategory(cat).length;
+          {/* Category navigation bar */}
+          <nav className="mt-10 flex flex-wrap gap-3">
+            {productCategories.map((cat) => {
+              const CatIcon = categoryIconMap[cat.icon];
+              const count = getProductsBySmartCategory(cat.slug).length;
               return (
                 <a
-                  key={cat}
-                  href={`#${cat}`}
-                  className={`group inline-flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-2.5 text-sm font-medium text-slate-300 transition-all hover:border-slate-700 hover:bg-slate-900 hover:text-white`}
+                  key={cat.slug}
+                  href={`#${cat.slug}`}
+                  className="group inline-flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-2.5 text-sm font-medium text-slate-300 transition-all hover:border-slate-700 hover:bg-slate-900 hover:text-white"
                 >
-                  <Icon className="h-4 w-4" />
-                  {info.label}
+                  {CatIcon && <CatIcon className="h-4 w-4" />}
+                  {cat.name}
                   <span className="rounded-full bg-slate-800 px-2 py-0.5 text-xs text-slate-400 group-hover:bg-slate-700 group-hover:text-slate-300 transition-colors">
                     {count}
                   </span>
                 </a>
               );
             })}
-          </div>
+          </nav>
         </div>
       </section>
 
@@ -394,8 +360,8 @@ export default function ProductsPage() {
       {/* Products by Category */}
       <section className="bg-slate-950 py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-24">
-          {categories.map((cat, i) => (
-            <CategorySection key={cat} category={cat} index={i} />
+          {productCategories.map((cat) => (
+            <CategorySection key={cat.slug} category={cat} />
           ))}
         </div>
       </section>

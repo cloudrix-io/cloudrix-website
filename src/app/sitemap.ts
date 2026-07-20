@@ -3,7 +3,7 @@ import { caseStudies } from "@/data/case-studies";
 import { technologies } from "@/data/technologies";
 import { roles } from "@/data/roles";
 import { complianceFrameworks } from "@/data/compliance";
-import { products } from "@/data/products";
+import { products, productCategories } from "@/data/products";
 import dbConnect from "@/lib/mongodb";
 import { BlogPost, Service } from "@/lib/models";
 
@@ -499,6 +499,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date("2026-07-15"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...productCategories.map((cat) => ({
+      url: `${baseUrl}/products/category/${cat.slug}`,
+      lastModified: new Date("2026-07-15"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
     })),
   ];
 

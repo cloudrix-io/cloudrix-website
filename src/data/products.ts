@@ -56,6 +56,81 @@ export const categoryInfo: Record<
   },
 };
 
+// ─── Smart Product Categories ────────────────────────────────────────
+export interface SmartCategory {
+  slug: string;
+  name: string;
+  description: string;
+  icon: string;
+  gradient: string;
+  products: string[];
+}
+
+export const productCategories: SmartCategory[] = [
+  {
+    slug: "security-compliance",
+    name: "Security & Compliance",
+    description: "Protect your code, monitor vulnerabilities, and stay compliant with regulations.",
+    icon: "Shield",
+    gradient: "from-red-600 to-orange-600",
+    products: ["eu-ai-act-scanner", "security-scanner", "ai-code-reviewer"],
+  },
+  {
+    slug: "monitoring-reliability",
+    name: "Monitoring & Reliability",
+    description: "Keep your systems running with uptime monitoring, status pages, and performance tracking.",
+    icon: "Activity",
+    gradient: "from-emerald-600 to-teal-600",
+    products: ["api-monitor", "status-page", "performance-profiler", "devops-dashboard"],
+  },
+  {
+    slug: "ai-automation",
+    name: "AI & Automation",
+    description: "Automate workflows with AI-powered chat, content generation, translation, and hiring.",
+    icon: "Brain",
+    gradient: "from-violet-600 to-purple-600",
+    products: ["cloudrix-ai-chat", "ai-content-studio", "ai-hiring-assistant", "smart-helpdesk", "ai-translation"],
+  },
+  {
+    slug: "developer-tools",
+    name: "Developer Tools",
+    description: "Ship faster with architecture generators, scope estimators, migration planners, and starter kits.",
+    icon: "Code",
+    gradient: "from-blue-600 to-cyan-600",
+    products: ["ai-architecture-generator", "ai-scope-generator", "cloud-migration-planner", "ai-doc-generator", "saas-starter", "tech-stack-advisor", "db-migration-tool"],
+  },
+  {
+    slug: "business-intelligence",
+    name: "Business Intelligence",
+    description: "Make smarter decisions with AI-powered CRM, analytics, invoicing, and cost optimization.",
+    icon: "BarChart3",
+    gradient: "from-amber-600 to-orange-600",
+    products: ["smart-crm", "smart-analytics", "smart-invoice", "ai-cost-optimizer", "cost-calculator"],
+  },
+];
+
+/** Helper to get products for a smart category */
+export function getProductsBySmartCategory(categorySlug: string): Product[] {
+  const category = productCategories.find((c) => c.slug === categorySlug);
+  if (!category) return [];
+  return category.products
+    .map((slug) => products.find((p) => p.slug === slug))
+    .filter((p): p is Product => p !== undefined);
+}
+
+/** Helper to get a smart category by slug */
+export function getSmartCategoryBySlug(slug: string): SmartCategory | undefined {
+  return productCategories.find((c) => c.slug === slug);
+}
+
+/** Popular product slugs */
+export const popularProductSlugs = [
+  "eu-ai-act-scanner",
+  "ai-code-reviewer",
+  "api-monitor",
+  "smart-crm",
+];
+
 export const products: Product[] = [
   // ─── AI-Powered Products (7) ───────────────────────────────────────
   {
@@ -199,7 +274,7 @@ export const products: Product[] = [
     ],
     techStack: ["Claude API", "Next.js", "PostgreSQL", "React PDF", "Stripe"],
     status: "live",
-    productUrl: "https://www.cloudrix.io/ai-tools/compliance-scanner",
+    productUrl: "https://scanner.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 scan", "Basic risk classification", "Summary report"], cta: "Start Free", ctaLink: "/checkout?product=eu-ai-act-scanner&tier=free" },
@@ -237,7 +312,7 @@ export const products: Product[] = [
       "Terraform/Pulumi code generation",
     ],
     techStack: ["Claude API", "D3.js", "Next.js", "Terraform", "React Flow"],
-    status: "beta",
+    status: "live",
     productUrl: "https://architect.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
@@ -277,7 +352,7 @@ export const products: Product[] = [
       "Custom theme and branding support",
     ],
     techStack: ["Claude API", "Tree-sitter", "Next.js", "MDX", "Swagger UI"],
-    status: "beta",
+    status: "live",
     productUrl: "https://docsmith.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
@@ -317,7 +392,7 @@ export const products: Product[] = [
       "Team-level cost allocation and tagging",
     ],
     techStack: ["Claude API", "AWS Cost Explorer API", "Next.js", "PostgreSQL", "Chart.js"],
-    status: "coming-soon",
+    status: "live",
     productUrl: "https://cloudcost.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
@@ -358,7 +433,7 @@ export const products: Product[] = [
       "Custom fields, tags, and workflow automation",
     ],
     techStack: ["Claude API", "Next.js", "NestJS", "PostgreSQL", "Redis", "BullMQ"],
-    status: "beta",
+    status: "live",
     productUrl: "https://crm.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
@@ -397,8 +472,8 @@ export const products: Product[] = [
       "Integration with ATS platforms (Greenhouse, Lever)",
     ],
     techStack: ["Claude API", "Next.js", "PostgreSQL", "Supabase", "React PDF"],
-    status: "beta",
-    productUrl: "https://hire.cloudrix.io",
+    status: "live",
+    productUrl: "https://hireai.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
       { name: "Pay Per Use", price: "$5/candidate", priceMonthly: 5, features: ["Per-candidate screening", "Structured scorecards", "Interview questions", "PDF reports"], cta: "Get Started", ctaLink: "/checkout?product=ai-hiring-assistant&tier=payperuse" },
@@ -436,8 +511,8 @@ export const products: Product[] = [
       "Anomaly detection and trend alerts",
     ],
     techStack: ["Claude API", "Next.js", "Prisma", "Chart.js", "BigQuery", "WebSocket"],
-    status: "coming-soon",
-    productUrl: "https://insight.cloudrix.io",
+    status: "live",
+    productUrl: "https://insightai.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
       { name: "Starter", price: "$49/mo", priceMonthly: 49, priceYearly: 470, features: ["1 data source", "100 queries/month", "Basic charts", "Email reports", "Community support"], cta: "Get Started", ctaLink: "/checkout?product=smart-analytics&tier=starter" },
@@ -475,8 +550,8 @@ export const products: Product[] = [
       "A/B variant generation for testing",
     ],
     techStack: ["Claude API", "Next.js", "TipTap", "PostgreSQL", "Redis", "S3"],
-    status: "beta",
-    productUrl: "https://content.cloudrix.io",
+    status: "live",
+    productUrl: "https://contentai.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["5 pieces/month", "1 brand voice", "Blog + social formats", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-content-studio&tier=free" },
@@ -515,7 +590,7 @@ export const products: Product[] = [
       "Multi-channel support (email, chat, social)",
     ],
     techStack: ["Claude API", "Next.js", "NestJS", "PostgreSQL", "Redis", "WebSocket"],
-    status: "coming-soon",
+    status: "live",
     productUrl: "https://helpdesk.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
@@ -554,8 +629,8 @@ export const products: Product[] = [
       "Human review workflow for critical content",
     ],
     techStack: ["Claude API", "Next.js", "PostgreSQL", "Redis", "S3", "REST API"],
-    status: "coming-soon",
-    productUrl: "https://translate.cloudrix.io",
+    status: "live",
+    productUrl: "https://translateai.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["5,000 words/month", "10 language pairs", "Basic document translation", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-translation&tier=free" },
@@ -594,7 +669,7 @@ export const products: Product[] = [
       "Integration with QuickBooks, Xero, and SAP",
     ],
     techStack: ["Claude API", "Tesseract OCR", "Next.js", "PostgreSQL", "Stripe", "S3"],
-    status: "coming-soon",
+    status: "live",
     productUrl: "https://invoice.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
@@ -675,7 +750,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "React Flow", "D3.js", "PostgreSQL", "React PDF"],
     status: "live",
-    productUrl: "https://migrate.cloudrix.io",
+    productUrl: "https://migratesiq.cloudrix.io",
     pricing: "free",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Basic migration planning", "Up to 10 workloads", "PDF export", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=cloud-migration-planner&tier=free" },
@@ -713,8 +788,8 @@ export const products: Product[] = [
       "Slack and PagerDuty integrations",
     ],
     techStack: ["Next.js", "WebSocket", "PostgreSQL", "Redis", "Chart.js", "GitHub API"],
-    status: "beta",
-    productUrl: "https://devops.cloudrix.io",
+    status: "live",
+    productUrl: "https://dashboard.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["3 pipelines", "Basic DORA metrics", "7-day history", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=devops-dashboard&tier=free" },
@@ -794,7 +869,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
     status: "live",
-    productUrl: "https://www.cloudrix.io/products/tech-stack-advisor",
+    productUrl: "https://stackpilot.cloudrix.io",
     pricing: "free",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Unlimited assessments", "Tech stack recommendations", "Pros & cons analysis", "Shareable reports", "Community support"], cta: "Start Free", ctaLink: "/products/tech-stack-advisor" },
@@ -830,7 +905,7 @@ export const products: Product[] = [
       "Scheduled scans with trend tracking",
     ],
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Puppeteer", "NMAP", "Docker"],
-    status: "beta",
+    status: "live",
     productUrl: "https://scan.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
@@ -870,7 +945,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
     status: "live",
-    productUrl: "https://www.cloudrix.io/calculator",
+    productUrl: "https://calculator.cloudrix.io",
     pricing: "free",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Unlimited calculations", "AWS, Azure & GCP", "CSV/PDF export", "Saved configurations", "Community support"], cta: "Start Free", ctaLink: "/calculator" },
@@ -946,7 +1021,7 @@ export const products: Product[] = [
       "CI/CD integration for automated migrations",
     ],
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"],
-    status: "coming-soon",
+    status: "live",
     productUrl: "https://dbmigrate.cloudrix.io",
     pricing: "open-source",
     pricingTiers: [
@@ -985,7 +1060,7 @@ export const products: Product[] = [
       "Lighthouse score tracking over time",
     ],
     techStack: ["Next.js", "Web Vitals API", "PostgreSQL", "Chart.js", "WebSocket"],
-    status: "beta",
+    status: "live",
     productUrl: "https://perf.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
