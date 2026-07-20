@@ -17,7 +17,7 @@ export function Footer() {
               <span className="text-xl font-semibold text-white">Cloudrix</span>
             </div>
             <p className="text-sm text-gray-400 mb-4">
-              AI-powered software and cloud engineering for businesses worldwide. EU AI Act compliance experts. Serving Europe, US, Middle East, Asia-Pacific, and Africa.
+              AI & IT products for modern businesses. 24 production-ready tools for monitoring, security, compliance, and automation. Enterprise services available by request.
             </p>
             <div className="flex space-x-4">
               <a
@@ -39,7 +39,59 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Products - FIRST column */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Products</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/products" className="text-sm hover:text-white transition-colors font-medium text-emerald-400">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/free" className="text-sm hover:text-white transition-colors">
+                  Free Tools
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/pricing" className="text-sm hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-gray-800">
+                <a href="https://scanner.cloudrix.io" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">
+                  Scanner — EU AI Act
+                </a>
+              </li>
+              <li>
+                <a href="https://codescan.cloudrix.io" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">
+                  CodeScan AI
+                </a>
+              </li>
+              <li>
+                <a href="https://monitor.cloudrix.io" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">
+                  API Monitor
+                </a>
+              </li>
+              <li>
+                <a href="https://status.cloudrix.io" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">
+                  StatusPage
+                </a>
+              </li>
+              <li>
+                <Link href="/products/startups" className="text-sm hover:text-white transition-colors">
+                  For Startups
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/enterprise" className="text-sm hover:text-white transition-colors">
+                  For Enterprise
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
           <div>
             <h3 className="text-white font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
@@ -171,68 +223,6 @@ export function Footer() {
             <p className="text-xs text-gray-500 mt-4">
               Invoicing in EUR, USD, GBP, and AED
             </p>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Products</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/products" className="text-sm hover:text-white transition-colors font-medium text-emerald-400">
-                  All Products
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/free" className="text-sm hover:text-white transition-colors">
-                  Free Tools
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/pricing" className="text-sm hover:text-white transition-colors">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/startups" className="text-sm hover:text-white transition-colors">
-                  For Startups
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/enterprise" className="text-sm hover:text-white transition-colors">
-                  For Enterprise
-                </Link>
-              </li>
-              <li className="pt-2 border-t border-gray-800">
-                <Link href="/products/eu-ai-act-scanner/demo" className="text-sm hover:text-white transition-colors">
-                  AI Act Scanner
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/ai-code-reviewer/demo" className="text-sm hover:text-white transition-colors">
-                  AI Code Reviewer
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/ai-scope-generator/demo" className="text-sm hover:text-white transition-colors">
-                  Project Scope AI
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/cloud-cost-calculator/demo" className="text-sm hover:text-white transition-colors">
-                  Cloud Cost Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/tech-stack-advisor/demo" className="text-sm hover:text-white transition-colors">
-                  Tech Stack Advisor
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/devops-assessment/demo" className="text-sm hover:text-white transition-colors">
-                  DevOps Assessment
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Contact Info */}

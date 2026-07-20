@@ -130,6 +130,22 @@ export default async function ServicesPage() {
         ]}
       />
       <div className="bg-white">
+      {/* Products Banner */}
+      <div className="bg-gradient-to-r from-emerald-500 to-teal-600 py-3 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3">
+          <p className="text-sm font-semibold text-white text-center">
+            Looking for our products? We have 24 AI-powered tools ready to use.
+          </p>
+          <Link
+            href="/products"
+            className="inline-flex items-center text-sm font-bold text-white underline underline-offset-2 hover:no-underline"
+          >
+            Visit our Products page
+            <ArrowRight className="ml-1 w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </div>
+
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services" }]} />
@@ -144,6 +160,13 @@ export default async function ServicesPage() {
             <p className="text-xl text-gray-600 leading-relaxed">
               From AI agent deployment and RAG systems to cloud architecture and DevOps — comprehensive engineering solutions designed to help businesses worldwide lead with technology.
             </p>
+            <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <p className="text-sm text-amber-800">
+                <strong>Note:</strong> Cloudrix is primarily a product company. Our services are available for enterprise clients by request.
+                For most needs, our <Link href="/products" className="text-amber-900 underline font-semibold hover:no-underline">24 AI-powered products</Link> provide
+                ready-to-use solutions without the need for custom consulting.
+              </p>
+            </div>
           </div>
         </div>
       </section>

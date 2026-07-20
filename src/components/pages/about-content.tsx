@@ -61,18 +61,18 @@ export function AboutContent({
 
   // Default values with translations - POWERFUL CONVERSION-FOCUSED COPY
   const hero = content.hero || {
-    title: t("Senior Engineering, Direct — No Middlemen", "Ingénierie Senior, Directe — Sans Intermédiaires"),
+    title: t("We Build AI & IT Products Used Worldwide", "Nous Construisons des Produits IA & IT Utilisés dans le Monde Entier"),
     subtitle: t(
-      "Cloudrix is a Dutch-registered consultancy founded by a senior engineer with 8+ years of production experience. You work directly with the people who build your system — no layers of project managers, no juniors learning on your project.",
-      "Cloudrix est un cabinet néerlandais fondé par un ingénieur senior avec 8+ ans d'expérience en production. Vous travaillez directement avec les personnes qui construisent votre système."
+      "Cloudrix is a Dutch-registered product company with 24 AI-powered SaaS tools for monitoring, security, compliance, and automation. Founded by a senior engineer with 8+ years of production experience. We also offer select consulting services for enterprise clients by request.",
+      "Cloudrix est une entreprise produit néerlandaise avec 24 outils SaaS alimentés par l'IA pour le monitoring, la sécurité, la conformité et l'automatisation. Fondée par un ingénieur senior avec 8+ ans d'expérience. Nous offrons également des services de conseil pour les entreprises sur demande."
     ),
   };
 
   const mission = content.mission || {
     title: t("Why Cloudrix Exists", "Pourquoi Cloudrix Existe"),
     content: t(
-      "Businesses worldwide deserve engineering partners who deliver real results without the overhead of large agencies or the risk of unreliable freelancers. Cloudrix bridges that gap — offering senior-level cloud architecture, DevOps, and AI expertise with the accountability of a proper Dutch company, serving clients across Europe, the US, Middle East, Asia-Pacific, and Africa.",
-      "Les entreprises du monde entier méritent des partenaires d'ingénierie qui livrent des résultats réels. Cloudrix comble ce fossé — offrant une expertise senior en architecture cloud, DevOps et IA avec la responsabilité d'une vraie entreprise néerlandaise, au service de clients en Europe, aux États-Unis, au Moyen-Orient, en Asie-Pacifique et en Afrique."
+      "We believe every business should have access to powerful AI and IT tools without needing a custom development team. Cloudrix builds production-ready SaaS products that solve real problems — from API monitoring and code security to compliance scanning and status pages. Our 24 products serve companies across Europe, the US, Middle East, Asia-Pacific, and Africa. For enterprise clients who need custom solutions, we also offer select consulting and engineering services.",
+      "Nous croyons que chaque entreprise devrait avoir accès à de puissants outils IA et IT sans avoir besoin d'une équipe de développement sur mesure. Cloudrix construit des produits SaaS prêts pour la production. Nos 24 produits servent des entreprises en Europe, aux États-Unis, au Moyen-Orient, en Asie-Pacifique et en Afrique. Pour les clients entreprise, nous offrons également des services de conseil et d'ingénierie."
     ),
   };
 
@@ -102,7 +102,7 @@ export function AboutContent({
       { year: "2016", title: t("Started professional software engineering career", "Début de carrière en ingénierie logicielle"), description: t("Full-stack development across Angular, PHP, NestJS, and cloud platforms", "Développement full-stack: Angular, PHP, NestJS, plateformes cloud") },
       { year: "2024", title: t("Cloudrix founded in Tilburg, Netherlands", "Cloudrix fondée à Tilburg, Pays-Bas"), description: t("Registered as a Dutch KVK entity to serve companies globally with European quality standards", "Enregistrée comme entité KVK néerlandaise pour servir les entreprises mondiales avec des standards européens") },
       { year: "2025", title: t("Launched AI & EU AI Act consulting services", "Lancement des services IA et conseil EU AI Act"), description: t("Expanded into AI agent development, RAG systems, and regulatory compliance", "Expansion vers les agents IA, systèmes RAG et conformité réglementaire") },
-      { year: "2026", title: t("SaaS boilerplate product launch", "Lancement du produit SaaS boilerplate"), description: t("NestJS + Angular boilerplate — the only one of its kind on the market", "Boilerplate NestJS + Angular — le seul de son genre sur le marché") },
+      { year: "2026", title: t("Pivoted to product company — 24 SaaS tools live", "Pivot vers une entreprise produit — 24 outils SaaS en ligne"), description: t("Launched Scanner, CodeScan, Monitor, StatusPage, and 20 more AI-powered products. Services now offered by request for enterprise clients.", "Lancement de Scanner, CodeScan, Monitor, StatusPage et 20+ produits IA. Services désormais offerts sur demande pour les entreprises.") },
     ],
   };
 

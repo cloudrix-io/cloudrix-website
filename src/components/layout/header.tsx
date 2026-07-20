@@ -54,11 +54,11 @@ export function Header() {
 
   const navigation = [
     { name: "Home", href: "/" },
+    { name: "Products", href: "/products", hasDropdown: true, dropdownType: "products" as const },
+    { name: "Pricing", href: "/pricing" },
     { name: "Services", href: "/services", hasDropdown: true, dropdownType: "services" as const },
     { name: "AI Services", href: "/ai-services" },
-    { name: "Products", href: "/products", hasDropdown: true, dropdownType: "products" as const },
     { name: "Markets", href: "/markets", hasDropdown: true, dropdownType: "markets" as const },
-    { name: "Pricing", href: "/pricing" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
@@ -234,10 +234,10 @@ export function Header() {
             )}
 
             <Link
-              href="/contact"
+              href="/products"
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
             >
-              Get AI Strategy Call
+              Explore Products
             </Link>
           </div>
 
@@ -365,11 +365,11 @@ export function Header() {
               )
             )}
             <Link
-              href="/contact"
+              href="/products"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center font-medium mt-2"
             >
-              Get AI Strategy Call
+              Explore Products
             </Link>
           </div>
         </div>

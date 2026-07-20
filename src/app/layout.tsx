@@ -35,41 +35,38 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cloudrix.io"),
   title: {
-    default: "Cloudrix | AI & Cloud Engineering for Global Companies",
+    default: "Cloudrix | AI & IT Products for Modern Businesses",
     template: "%s | Cloudrix",
   },
   description:
-    "AI agent development, RAG systems, EU AI Act compliance, and cloud engineering for companies worldwide. Europe, US, Middle East, and APAC. Free strategy call.",
+    "24 AI-powered SaaS products for monitoring, security, compliance, and automation. API Monitor, CodeScan AI, EU AI Act Scanner, StatusPage, and more. Free tiers available.",
   keywords: [
+    // Product keywords
+    "AI SaaS products",
+    "API monitoring tool",
+    "AI code review",
+    "EU AI Act scanner",
+    "status page tool",
+    "cloud cost calculator",
+    "SaaS platform",
+    "AI-powered tools",
+    "IT products",
+    "business automation tools",
     // AI keywords
     "AI agent development",
     "RAG system development",
     "EU AI Act compliance",
-    "AI consulting Europe",
     "LLM integration",
-    "conversational AI",
-    "MCP server development",
     "AI infrastructure",
     // Primary keywords
     "cloud architecture",
     "software engineering",
     "DevOps consulting",
-    "AWS consulting",
     "full-stack development",
     // Location-based
-    "AI consulting Netherlands",
-    "software development EU",
+    "AI products Netherlands",
+    "SaaS tools Europe",
     "cloud services Europe",
-    "engineering team Netherlands",
-    "cloud consulting US",
-    "AI consulting Middle East",
-    "software development Asia Pacific",
-    "cloud services Africa",
-    // Service-specific
-    "Kubernetes consulting",
-    "cloud migration services",
-    "technical due diligence",
-    "legacy modernization",
     // Technology
     "LangChain development",
     "Claude API integration",
@@ -98,15 +95,15 @@ export const metadata: Metadata = {
     alternateLocale: [],
     url: "https://www.cloudrix.io",
     siteName: "Cloudrix",
-    title: "Cloudrix | AI & Cloud Engineering for Global Companies",
+    title: "Cloudrix | AI & IT Products for Modern Businesses",
     description:
-      "AI agent development, RAG systems, cloud architecture, and DevOps for companies worldwide. Serving Europe, US, Middle East, and Asia-Pacific. Book a free consultation.",
+      "24 AI-powered SaaS products for monitoring, security, compliance, and automation. Free tiers available. Enterprise services by request.",
     images: [
       {
-        url: "/og?title=AI%20%26%20Cloud%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
+        url: "/og?title=AI%20%26%20IT%20Products&subtitle=24%20production-ready%20tools%20for%20modern%20businesses",
         width: 1200,
         height: 630,
-        alt: "Cloudrix - AI & Cloud Engineering for Global Companies",
+        alt: "Cloudrix - AI & IT Products for Modern Businesses",
       },
     ],
     countryName: "Netherlands",
@@ -115,12 +112,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@cloudrix",
     creator: "@cloudrix",
-    title: "Cloudrix | AI & Cloud Engineering for Global Companies",
+    title: "Cloudrix | AI & IT Products for Modern Businesses",
     description:
-      "AI agent development, RAG systems, cloud architecture, and DevOps for companies worldwide. Serving Europe, US, Middle East, and Asia-Pacific.",
+      "24 AI-powered SaaS products for monitoring, security, compliance, and automation. Free tiers available. Enterprise services by request.",
     images: {
-      url: "/og?title=AI%20%26%20Cloud%20Engineering&subtitle=Senior%20engineering%20teams%20for%20global%20companies",
-      alt: "Cloudrix - AI & Cloud Engineering",
+      url: "/og?title=AI%20%26%20IT%20Products&subtitle=24%20production-ready%20tools%20for%20modern%20businesses",
+      alt: "Cloudrix - AI & IT Products",
     },
   },
   robots: {

@@ -161,14 +161,14 @@ function UrgencyBanner() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
           </span>
           <p className="text-sm font-semibold text-white text-center">
-            Currently accepting 3 new AI projects for Q3 2026
+            New: StatusPage & API Monitor now live — try free today
           </p>
           <span className="hidden sm:inline text-white/80 text-sm">&mdash;</span>
           <Link
-            href="/contact"
+            href="/products"
             className="hidden sm:inline-flex items-center text-sm font-bold text-white underline underline-offset-2 hover:no-underline"
           >
-            Book your spot
+            Explore Products
             <ArrowRight className="ml-1 w-3.5 h-3.5" />
           </Link>
         </div>
@@ -413,23 +413,23 @@ export function HomeContent({
 
   // Default values - POWERFUL CONVERSION-FOCUSED COPY
   const hero = content.hero || {
-    badge: t("EU AI Act Deadline: August 2, 2026 — Are You Ready?", "Délai EU AI Act: 2 Août 2026 — Êtes-vous Prêt?"),
-    title: t("Senior Engineering & AI for Companies Worldwide", "Ingénierie Senior & IA pour les Entreprises du Monde Entier"),
+    badge: t("24 AI & IT Products Live — Explore the Platform", "24 Produits IA & IT en Ligne — Explorez la Plateforme"),
+    title: t("AI & IT Products That Run Your Business", "Produits IA & IT Qui Font Tourner Votre Entreprise"),
     subtitle: t(
-      "We build AI agents, RAG systems, and cloud infrastructure that works in production. A Dutch-registered consultancy serving clients globally with 8+ years of hands-on engineering experience. EU AI Act compliant.",
-      "Nous construisons des agents IA, des systèmes RAG et des infrastructures cloud qui fonctionnent en production. Un cabinet néerlandais au service de clients dans le monde entier avec 8+ ans d'expérience. Conforme EU AI Act."
+      "24 AI-powered products for monitoring, security, compliance, and automation. From API Monitor to CodeScan AI — production-ready tools built by senior engineers. Free tiers available. Enterprise services by request.",
+      "24 produits alimentés par l'IA pour le monitoring, la sécurité, la conformité et l'automatisation. De l'API Monitor à CodeScan AI — des outils prêts pour la production. Niveaux gratuits disponibles. Services entreprise sur demande."
     ),
-    ctaText: t("Book a Free 30-Min Call", "Réservez un Appel Gratuit de 30 Min"),
-    ctaLink: "/contact",
-    secondaryCtaText: t("See How We Work", "Voir Comment Nous Travaillons"),
-    secondaryCtaLink: "/how-we-work",
+    ctaText: t("Explore Our Products", "Explorer Nos Produits"),
+    ctaLink: "/products",
+    secondaryCtaText: t("Try Free Tools", "Essayer les Outils Gratuits"),
+    secondaryCtaLink: "/products/free",
   };
 
   const servicesSection = content.services || {
-    title: t("What We Build", "Ce Que Nous Construisons"),
+    title: t("Enterprise Services", "Services Entreprise"),
     subtitle: t(
-      "From cloud architecture to production AI systems — we focus on what works, not what sounds impressive.",
-      "De l'architecture cloud aux systèmes IA en production — nous nous concentrons sur ce qui fonctionne."
+      "Need custom engineering? We offer consulting and development services for enterprise clients by request.",
+      "Besoin d'ingénierie sur mesure ? Nous offrons des services de conseil et de développement pour les entreprises sur demande."
     ),
   };
 
@@ -455,18 +455,18 @@ export function HomeContent({
   };
 
   const ctaSection = content.cta || {
-    title: t("Let's Talk About Your Project", "Parlons de Votre Projet"),
+    title: t("Start Using Our Products Today", "Commencez à Utiliser Nos Produits Aujourd'hui"),
     subtitle: t(
-      "Free 30-minute call — no sales pitch, just an honest conversation about your technical challenges and whether we're the right fit.",
-      "Appel gratuit de 30 minutes — pas de pitch, juste une conversation honnête sur vos défis techniques."
+      "24 AI-powered products with free tiers. No credit card required. Sign up in seconds and start getting value immediately.",
+      "24 produits alimentés par l'IA avec des niveaux gratuits. Pas de carte de crédit requise. Inscrivez-vous en quelques secondes."
     ),
-    buttonText: t("Book a Free Call", "Réservez un Appel Gratuit"),
+    buttonText: t("Explore Products", "Explorer les Produits"),
   };
 
   const credibilityPoints = content.credibilityPoints || [
-    t("KVK-Registered Dutch Company", "Société Néerlandaise Enregistrée KVK"),
-    t("8+ Years Senior Engineering Experience", "8+ Ans d'Expérience Ingénierie Senior"),
-    t("EU AI Act Compliance Expertise", "Expertise Conformité EU AI Act"),
+    t("24 Products Live", "24 Produits en Ligne"),
+    t("Used by 50+ Companies", "Utilisé par 50+ Entreprises"),
+    t("Free Tiers Available", "Niveaux Gratuits Disponibles"),
   ];
 
   return (
@@ -602,55 +602,55 @@ export function HomeContent({
         </div>
       </section>
 
-      {/* AI Services Spotlight */}
+      {/* Product Spotlight */}
       <section className="py-16 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Bot className="w-4 h-4" />
-                <span>{t("New: AI & Machine Learning", "Nouveau: IA & Machine Learning")}</span>
+                <span>{t("Featured Products", "Produits Phares")}</span>
               </div>
               <h2 className="text-4xl font-bold text-white mb-4">
-                {t("AI That Ships to Production", "L'IA Qui Va en Production")}
+                {t("AI-Powered Products, Live Now", "Produits Alimentés par l'IA, Disponibles Maintenant")}
               </h2>
               <p className="text-lg text-indigo-100 mb-8">
                 {t(
-                  "From AI agents and RAG systems to EU AI Act compliance — we build production-grade AI with proper guardrails, monitoring, and human oversight.",
-                  "Des agents IA et systèmes RAG à la conformité EU AI Act — nous construisons de l'IA en production avec des garde-fous, du monitoring et une supervision humaine."
+                  "From compliance scanning to API monitoring — our products are live, production-tested, and ready to use. Free tiers on every product. No sales call required.",
+                  "Du scan de conformité au monitoring d'API — nos produits sont en ligne, testés en production et prêts à l'emploi. Niveaux gratuits sur chaque produit."
                 )}
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-white">Claude</div>
-                  <div className="text-sm text-indigo-200">{t("& GPT, Gemini, Open Source", "& GPT, Gemini, Open Source")}</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-white">RAG</div>
-                  <div className="text-sm text-indigo-200">{t("Production Systems", "Systèmes en Production")}</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-white">EU AI Act</div>
-                  <div className="text-sm text-indigo-200">{t("Compliance Built-In", "Conformité Intégrée")}</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-white">MCP</div>
-                  <div className="text-sm text-indigo-200">{t("Server Development", "Développement de Serveurs")}</div>
-                </div>
+                <a href="https://scanner.cloudrix.io" target="_blank" rel="noopener noreferrer" className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-colors">
+                  <div className="text-2xl font-bold text-white">Scanner</div>
+                  <div className="text-sm text-indigo-200">{t("EU AI Act Compliance", "Conformité EU AI Act")}</div>
+                </a>
+                <a href="https://codescan.cloudrix.io" target="_blank" rel="noopener noreferrer" className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-colors">
+                  <div className="text-2xl font-bold text-white">CodeScan</div>
+                  <div className="text-sm text-indigo-200">{t("AI Code Review", "Revue de Code IA")}</div>
+                </a>
+                <a href="https://monitor.cloudrix.io" target="_blank" rel="noopener noreferrer" className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-colors">
+                  <div className="text-2xl font-bold text-white">Monitor</div>
+                  <div className="text-sm text-indigo-200">{t("API Monitoring", "Monitoring d'API")}</div>
+                </a>
+                <a href="https://status.cloudrix.io" target="_blank" rel="noopener noreferrer" className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-colors">
+                  <div className="text-2xl font-bold text-white">StatusPage</div>
+                  <div className="text-sm text-indigo-200">{t("Uptime Status Pages", "Pages de Statut")}</div>
+                </a>
               </div>
               <Link
-                href="/ai-services"
+                href="/products"
                 className="inline-flex items-center bg-white text-indigo-700 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold group"
               >
-                {t("Explore AI Services", "Explorer les Services IA")}
+                {t("View All 24 Products", "Voir les 24 Produits")}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             <div className="grid grid-cols-1 gap-4">
               {[
-                { icon: "Bot", title: t("AI Agent Development", "Développement d'Agents IA"), desc: t("Production-ready agents that automate complex workflows", "Agents prêts pour la production") },
-                { icon: "Database", title: t("RAG Systems", "Systèmes RAG"), desc: t("Connect LLMs to your proprietary data securely", "Connectez les LLMs à vos données en toute sécurité") },
-                { icon: "Shield", title: t("EU AI Act Compliance", "Conformité EU AI Act"), desc: t("Full compliance before the August 2026 deadline", "Conformité complète avant août 2026") },
+                { title: t("AI-Powered Analysis", "Analyse Alimentée par l'IA"), desc: t("Every product uses AI to deliver smarter insights and automation", "Chaque produit utilise l'IA pour des analyses et automatisations plus intelligentes") },
+                { title: t("Free Tiers on Every Product", "Niveaux Gratuits sur Chaque Produit"), desc: t("Start for free, upgrade as you grow. No credit card required.", "Commencez gratuitement, mettez à niveau en grandissant.") },
+                { title: t("Enterprise Ready", "Prêt pour l'Entreprise"), desc: t("SOC 2, GDPR, EU AI Act compliant. Custom deployments available.", "SOC 2, RGPD, EU AI Act conforme. Déploiements personnalisés disponibles.") },
               ].map((item, index) => (
                 <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                   <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
@@ -950,7 +950,7 @@ export function HomeContent({
             {ctaSection.subtitle}
           </p>
           <Link
-            href="/contact"
+            href="/products"
             className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
           >
             {ctaSection.buttonText}
