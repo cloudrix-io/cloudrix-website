@@ -19,6 +19,7 @@ const blogPosts = [
   {
     title: "Cloud Migration Cost Calculator: The Complete Guide for 2026",
     slug: "cloud-migration-cost-calculator-guide",
+    featuredImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&q=80",
     excerpt:
       "Cloud migration costs typically range from €15,000 for small workloads to over €500,000 for enterprise estates. This guide breaks down every cost category, hidden fees, and how to build an accurate TCO model before you commit.",
     category: "Cloud Architecture",
@@ -199,6 +200,7 @@ const blogPosts = [
   {
     title: "How to Hire a Cloud Architect in Europe: 2026 Guide",
     slug: "hire-cloud-architect-europe",
+    featuredImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&q=80",
     excerpt:
       "Senior cloud architects in Europe command €90,000–€160,000 per year depending on country and specialisation. This guide covers salary benchmarks, must-have skills, interview questions, and when to use staff augmentation instead of hiring.",
     category: "Technical Leadership",
@@ -374,6 +376,7 @@ const blogPosts = [
     title:
       "DevOps Consulting: What It Includes, What It Costs, and Is It Worth It?",
     slug: "devops-consulting-guide",
+    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&q=80",
     excerpt:
       "DevOps consulting engagements typically cost €20,000–€150,000 and deliver measurable ROI within 6 months through faster deployments, fewer incidents, and reduced toil. Here's exactly what you get, what it costs, and how to evaluate if it's right for your organisation.",
     category: "DevOps",
@@ -493,6 +496,7 @@ const blogPosts = [
     title:
       "Technical Due Diligence Checklist for M&A: What Investors Actually Check",
     slug: "technical-due-diligence-checklist-ma",
+    featuredImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&q=80",
     excerpt:
       "Technical due diligence in M&A examines code quality, architecture, security, scalability, team capability, and technical debt. This complete checklist covers exactly what investors and acquirers check — and how to prepare your company to pass.",
     category: "Technical Leadership",
@@ -626,6 +630,7 @@ const blogPosts = [
   {
     title: "AWS vs Azure vs GCP: Which Cloud Platform for European Companies?",
     slug: "aws-vs-azure-vs-gcp-europe",
+    featuredImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&q=80",
     excerpt:
       "For most European companies, AWS offers the broadest service depth and market support, Azure is the default choice for Microsoft-heavy organisations, and GCP leads on data analytics and AI/ML workloads. This guide gives you an honest comparison for 2026.",
     category: "Cloud Architecture",
@@ -753,6 +758,7 @@ const blogPosts = [
   {
     title: "How to Reduce Your AWS Bill by 40%: A Practical Guide",
     slug: "how-to-reduce-aws-bill-40-percent",
+    featuredImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&q=80",
     excerpt:
       "Most AWS bills can be reduced by 30–50% without sacrificing performance or reliability. The savings come from five areas: Reserved Instances and Savings Plans, right-sizing, Spot Instances, storage lifecycle management, and unused resource cleanup.",
     category: "Cloud Architecture",
@@ -900,6 +906,7 @@ const blogPosts = [
   {
     title: "7 Signs Your Legacy System Needs Modernization",
     slug: "signs-legacy-system-needs-modernization",
+    featuredImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&q=80",
     excerpt:
       "A legacy system is slowing you down when it costs more to maintain than to replace, when you can't hire developers who want to work on it, or when it's actively blocking your ability to compete. Here are the 7 definitive signs — and what to do about each.",
     category: "Software Development",
@@ -1023,6 +1030,7 @@ const blogPosts = [
     title:
       "Why Your Cloud Migration Failed: 7 Common Mistakes (And How to Avoid Them)",
     slug: "why-cloud-migration-failed-7-mistakes",
+    featuredImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&q=80",
     excerpt:
       "Cloud migrations fail because of seven predictable mistakes: no discovery assessment, lift-and-shift of everything, ignoring security, no cost monitoring, skipping team training, big bang cutover, and no rollback plan. This guide shows you exactly how to avoid each.",
     category: "Cloud Architecture",
@@ -1173,6 +1181,7 @@ const blogPosts = [
   {
     title: "Toptal vs Boutique Agencies: An Honest Comparison for European Companies",
     slug: "toptal-vs-boutique-agencies-comparison",
+    featuredImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&auto=format&q=80",
     excerpt:
       "Toptal offers vetted freelancers on demand; boutique agencies like Cloudrix offer dedicated teams with accountability, project context, and cultural alignment. For most European companies building real products, boutique agencies deliver better outcomes at lower total cost.",
     category: "Technical Leadership",
@@ -1334,6 +1343,7 @@ const blogPosts = [
   {
     title: "In-House vs Outsourced Development: EU Cost Comparison for 2026",
     slug: "in-house-vs-outsourced-development-eu-cost",
+    featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&q=80",
     excerpt:
       "A senior dev in the Netherlands costs €95K–€140K total. Outsourcing starts at €120K/year but eliminates recruitment, benefits, and turnover costs. Here's the full break-even analysis.",
     category: "Technical Leadership",
@@ -1559,6 +1569,7 @@ const blogPosts = [
   {
     title: "Nearshore vs Offshore: Why Netherlands-Based Teams Win for EU Companies",
     slug: "nearshore-vs-offshore-netherlands-teams",
+    featuredImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&q=80",
     excerpt:
       "Offshore dev costs less on paper but more in practice once timezone friction, GDPR overhead, and communication losses add up. Netherlands-based nearshore teams are the sweet spot: EU timezone, GDPR-native, and 30-40% cheaper than London.",
     category: "Technical Leadership",
@@ -1729,6 +1740,7 @@ const blogPosts = [
   {
     title: "The True Cost of Technical Debt: How to Quantify and Convince Leadership",
     slug: "true-cost-technical-debt",
+    featuredImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&auto=format&q=80",
     excerpt:
       "Technical debt costs the average software organisation 23–42% of developer time. Translating that into euros your CFO understands — lost engineering capacity, delayed features, escalating maintenance costs — is the key to getting the budget to fix it.",
     category: "Software Development",
@@ -1848,6 +1860,7 @@ const blogPosts = [
   {
     title: "LLM Integration for Enterprise: Architecture Guide for 2026",
     slug: "llm-integration-enterprise-architecture-guide",
+    featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80",
     excerpt:
       "Enterprise LLM integration in 2026 requires choosing between RAG, fine-tuning, and prompt engineering, then solving security, GDPR, cost, and reliability for production scale. This guide covers the full architecture stack.",
     category: "AI & Machine Learning",
@@ -1974,6 +1987,7 @@ const blogPosts = [
   {
     title: "How to Build a RAG System: Complete Technical Guide",
     slug: "how-to-build-rag-system-guide",
+    featuredImage: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1200&auto=format&q=80",
     excerpt:
       "RAG (Retrieval Augmented Generation) lets your LLM answer questions from your own documents and databases without fine-tuning. This guide covers the complete implementation stack: document ingestion, chunking, embedding, vector databases, retrieval optimisation, and production deployment.",
     category: "AI & Machine Learning",
@@ -2206,6 +2220,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "AI Strategy for European Companies: GDPR-Compliant AI in 2026",
     slug: "ai-strategy-european-companies-gdpr",
+    featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80",
     excerpt:
       "The EU AI Act is live and GDPR applies to AI processing personal data. Companies that build AI strategy around compliance-first move faster — avoiding costly retrofitting that non-compliant competitors face.",
     category: "AI & Machine Learning",
@@ -2361,6 +2376,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "AI Automation: 10 Real Use Cases with ROI Data",
     slug: "ai-automation-real-use-cases-roi",
+    featuredImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&q=80",
     excerpt:
       "AI automation is generating measurable ROI across European enterprises in 2026 — not theoretical future value, but documented productivity gains ranging from 40% reduction in customer support costs to 80% faster document processing. Here are 10 concrete use cases with real numbers.",
     category: "AI & Machine Learning",
@@ -2537,6 +2553,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "EU AI Act Compliance Checklist: What You Must Do Before August 2026",
     slug: "eu-ai-act-compliance-checklist",
+    featuredImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&auto=format&q=80",
     excerpt:
       "The EU AI Act's general-purpose AI and high-risk obligations take effect August 2026. This actionable checklist covers system inventory, risk classification, FRIA, documentation, technical controls, governance, and training — with deadlines.",
     seoTitle: "EU AI Act Compliance Checklist for August 2026",
@@ -2731,6 +2748,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "How Much Does AI Integration Cost for a European Mid-Market Company",
     slug: "ai-integration-cost-europe",
+    featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&q=80",
     excerpt:
       "AI integration costs range from 15K euros for a proof of concept to 200K+ for a full production deployment. This guide breaks down pricing by project type, compares build vs buy, and gives real cost benchmarks for RAG, agents, and voice AI.",
     seoTitle: "AI Integration Cost Europe: Pricing Guide 2026",
@@ -2997,6 +3015,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "RAG vs Fine-Tuning: Which Approach Is Right for Your Business Data",
     slug: "rag-vs-fine-tuning-comparison",
+    featuredImage: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1200&auto=format&q=80",
     excerpt:
       "RAG and fine-tuning solve different problems. RAG grounds LLM responses in your current data without retraining. Fine-tuning teaches a model specialised behaviour. This guide compares cost, accuracy, implementation time, and ideal use cases.",
     seoTitle: "RAG vs Fine-Tuning: Complete Business Comparison 2026",
@@ -3204,6 +3223,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "Building Your First AI Agent: A CTO's Guide from Pilot to Production",
     slug: "building-first-ai-agent-guide",
+    featuredImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&q=80",
     excerpt:
       "AI agents that autonomously execute business tasks are the next wave after chatbots. This guide covers the 6-phase approach from scope definition to production monitoring, including common pitfalls and tech stack recommendations.",
     seoTitle: "Building AI Agents: CTO's Guide to Production 2026",
@@ -3399,6 +3419,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "From 88% Failure Rate to Production: Why Most AI Agent Projects Fail",
     slug: "why-ai-agent-projects-fail",
+    featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80",
     excerpt:
       "Industry data shows 88 percent of AI agent projects never reach production. The reasons are not technical — they are strategic. This article covers the 7 most common failure modes and how to avoid each one.",
     seoTitle: "Why AI Agent Projects Fail: 7 Reasons and Fixes",
@@ -3545,6 +3566,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "Cloud-Migration für deutsche Unternehmen: Datenschutz, DSGVO und Best Practices",
     slug: "cloud-migration-deutsche-unternehmen",
+    featuredImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&q=80",
     excerpt:
       "Cloud-Migration in Deutschland erfordert besondere Sorgfalt bei Datenschutz und DSGVO-Konformität. Dieser Leitfaden zeigt, wie deutsche Unternehmen sicher und compliant in die Cloud migrieren — mit praxiserprobten Strategien und konkreten Handlungsempfehlungen.",
     category: "Cloud Architecture",
@@ -3671,6 +3693,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "Cloud Migratie voor Nederlandse Bedrijven: Van On-Premise naar AWS/Azure",
     slug: "cloud-migratie-nederlandse-bedrijven",
+    featuredImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&q=80",
     excerpt:
       "Nederlandse bedrijven stappen massaal over naar de cloud, maar een succesvolle migratie vereist meer dan alleen servers verhuizen. Deze gids behandelt de complete aanpak — van strategie tot uitvoering — met specifieke aandacht voor de Nederlandse markt.",
     category: "Cloud Architecture",
@@ -3793,6 +3816,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "Guide Complet de la Migration Cloud pour les Entreprises Européennes",
     slug: "guide-migration-cloud-entreprises-europeennes",
+    featuredImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&q=80",
     excerpt:
       "La migration cloud en Europe implique des défis uniques : conformité RGPD, souveraineté des données, et réglementations sectorielles. Ce guide pratique couvre chaque étape, de l'audit initial au déploiement en production.",
     category: "Cloud Architecture",
@@ -3893,6 +3917,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "دليل الهجرة السحابية للشركات في الشرق الأوسط 2026",
     slug: "cloud-migration-guide-middle-east",
+    featuredImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&q=80",
     excerpt:
       "سوق الحوسبة السحابية في الشرق الأوسط يتجاوز 10 مليارات دولار في 2026. هذا الدليل الشامل يغطي استراتيجيات الهجرة السحابية، متطلبات الامتثال المحلية، واختيار مزود الخدمة المناسب للشركات في المنطقة.",
     category: "Cloud Architecture",
@@ -4011,6 +4036,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "企業向けAI導入ガイド：LLM統合からROI最大化まで",
     slug: "enterprise-ai-integration-guide-japan",
+    featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80",
     excerpt:
       "日本企業のAI導入は加速しているものの、実運用に至るケースは依然として少ない。本ガイドでは、LLMの統合からROI最大化まで、日本市場に特化した実践的なAI導入戦略を解説します。",
     category: "AI & Machine Learning",
@@ -4131,6 +4157,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "Transformación Digital con IA: Guía para Empresas en 2026",
     slug: "transformacion-digital-ia-empresas",
+    featuredImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&q=80",
     excerpt:
       "La inteligencia artificial está redefiniendo la competitividad empresarial en el mundo hispanohablante. Esta guía práctica cubre desde la selección de modelos LLM hasta la implementación en producción, con casos de uso reales y métricas de ROI.",
     category: "AI & Machine Learning",
@@ -4236,6 +4263,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "DevOps para Startups Brasileiras: Do Zero ao Deploy Automatizado",
     slug: "devops-startups-brasileiras",
+    featuredImage: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&auto=format&q=80",
     excerpt:
       "Startups brasileiras enfrentam desafios únicos para implementar DevOps: equipes enxutas, orçamento limitado e necessidade de escalar rapidamente. Este guia prático mostra como construir uma pipeline de CI/CD robusta gastando menos de R$ 5.000/mês.",
     category: "DevOps",
@@ -4385,6 +4413,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "한국 기업을 위한 클라우드 마이그레이션 완벽 가이드 2026",
     slug: "cloud-migration-guide-korea",
+    featuredImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&q=80",
     excerpt:
       "한국의 클라우드 시장은 2026년 15조 원을 돌파하며 급성장하고 있습니다. 이 가이드는 한국 기업의 클라우드 전환에 필요한 전략, 규정 준수, 비용 분석을 종합적으로 다룹니다.",
     category: "Cloud Architecture",
@@ -4520,6 +4549,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "भारतीय स्टार्टअप्स के लिए क्लाउड आर्किटेक्चर गाइड 2026",
     slug: "cloud-architecture-guide-india",
+    featuredImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&q=80",
     excerpt:
       "भारत का क्लाउड बाज़ार 2026 में $15 बिलियन को पार कर रहा है। यह गाइड भारतीय स्टार्टअप्स और एंटरप्राइज़ेज़ के लिए क्लाउड आर्किटेक्चर की सम्पूर्ण रणनीति प्रस्तुत करता है — AWS Mumbai से लेकर कॉस्ट ऑप्टिमाइज़ेशन तक।",
     category: "Cloud Architecture",
@@ -4626,6 +4656,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   {
     title: "2026年企业AI转型完整指南：从大语言模型到生产部署",
     slug: "enterprise-ai-transformation-guide-china",
+    featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80",
     excerpt:
       "中国企业AI市场在2026年突破5000亿元人民币。本指南深入解析从大语言模型选型到生产环境部署的全流程，为中国企业提供可落地的AI转型路径。",
     category: "AI & Machine Learning",
@@ -4829,6 +4860,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
     title:
       "How to Choose the Right Cloud Provider: AWS vs Azure vs GCP in 2026",
     slug: "choosing-cloud-provider-aws-azure-gcp-2026",
+    featuredImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&q=80",
     excerpt:
       "Picking the wrong cloud provider costs organisations 20-35% more over three years. This guide compares AWS, Azure, and GCP across pricing, services, EU compliance, and ecosystem fit so you can make a decision backed by data, not marketing.",
     category: "Cloud Architecture",
@@ -5009,6 +5041,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
     title:
       "Kubernetes Cost Optimization: 10 Strategies That Saved Our Clients 40%",
     slug: "kubernetes-cost-optimization-strategies",
+    featuredImage: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=1200&auto=format&q=80",
     excerpt:
       "Kubernetes clusters are notorious for wasted resources — the average cluster runs at 30-40% utilisation. Here are 10 battle-tested strategies that consistently reduce K8s costs by 35-50% without sacrificing reliability.",
     category: "DevOps",
@@ -5271,6 +5304,7 @@ spec:
     title:
       "The Complete Guide to LLM Integration for Enterprise Applications",
     slug: "llm-integration-enterprise-complete-guide",
+    featuredImage: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1200&auto=format&q=80",
     excerpt:
       "Integrating LLMs into production enterprise systems requires more than API calls. This guide covers architecture patterns, guardrails, cost management, latency optimisation, and the evaluation frameworks that separate successful LLM deployments from expensive failures.",
     category: "AI & Machine Learning",
@@ -5461,6 +5495,7 @@ async function agentLoop(userQuery: string, tools: Tool[]) {
   {
     title: "Why 73% of Cloud Migrations Fail (And How to Avoid It)",
     slug: "why-cloud-migrations-fail-how-to-avoid",
+    featuredImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&q=80",
     excerpt:
       "Nearly three quarters of cloud migration projects fail to deliver expected benefits. Based on our experience leading 40+ migrations for European companies, here are the seven root causes and the specific practices that prevent each one.",
     category: "Cloud Architecture",
@@ -5591,6 +5626,7 @@ async function agentLoop(userQuery: string, tools: Tool[]) {
   {
     title: "Building RAG Systems That Actually Work: A Practical Guide",
     slug: "building-rag-systems-practical-guide",
+    featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80",
     excerpt:
       "Most RAG implementations fail because they treat retrieval as an afterthought. This guide covers the chunking strategies, embedding models, retrieval architectures, and evaluation methods that separate production-grade RAG from demo-quality prototypes.",
     category: "AI & Machine Learning",
@@ -5801,6 +5837,7 @@ async function hybridRetrieve(
   {
     title: "DevOps Maturity Model: Where Does Your Organisation Stand?",
     slug: "devops-maturity-model-assessment",
+    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&q=80",
     excerpt:
       "Most organisations overestimate their DevOps maturity. This framework defines five maturity levels across eight dimensions — from CI/CD to observability to security — so you can honestly assess where you are and build a roadmap to where you need to be.",
     category: "DevOps",
@@ -5975,6 +6012,7 @@ async function hybridRetrieve(
     title:
       "EU AI Act Compliance Checklist: What Your Business Needs to Know in 2026",
     slug: "eu-ai-act-compliance-checklist-2026",
+    featuredImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&auto=format&q=80",
     excerpt:
       "The EU AI Act is now enforceable with penalties up to EUR 35 million or 7% of global turnover. This checklist covers risk classification, documentation requirements, and the technical controls your AI systems need to be compliant.",
     category: "AI & Machine Learning",
@@ -6185,6 +6223,7 @@ interface AIAuditLog {
     title:
       "Microservices vs Monolith: Making the Right Choice for Your Scale",
     slug: "microservices-vs-monolith-right-choice",
+    featuredImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&q=80",
     excerpt:
       "The microservices vs monolith debate is not about which is better — it is about which is right for your team size, traffic scale, and organisational maturity. This guide provides a data-driven framework for making the decision.",
     category: "Software Development",
@@ -6323,6 +6362,7 @@ src/
   {
     title: "How We Reduced a Client's AWS Bill by 47% in 30 Days",
     slug: "reduced-client-aws-bill-47-percent",
+    featuredImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&q=80",
     excerpt:
       "A European SaaS company was spending EUR 38,000/month on AWS with no clear understanding of where the money went. In 30 days, we cut their bill to EUR 20,100/month — without reducing capacity or performance. Here is exactly what we did.",
     category: "Case Studies",
@@ -6505,6 +6545,7 @@ aws ec2 describe-snapshots --owner-ids self \\
   {
     title: "The Hidden Costs of Technical Debt: A CTO's Guide",
     slug: "hidden-costs-technical-debt",
+    featuredImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&auto=format&q=80",
     excerpt:
       "Technical debt costs the average enterprise 23-42% of engineering capacity. This guide quantifies the hidden costs, provides a framework for measuring and prioritising debt reduction, and shows how to make the business case to non-technical stakeholders.",
     category: "Technical Leadership",
@@ -6649,6 +6690,7 @@ aws ec2 describe-snapshots --owner-ids self \\
   {
     title: "CI/CD Pipeline Best Practices for Enterprise Teams in 2026",
     slug: "cicd-pipeline-best-practices-2026",
+    featuredImage: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&auto=format&q=80",
     excerpt:
       "Enterprise CI/CD in 2026 means pipelines that handle security scanning, compliance gates, cost estimation, and multi-environment deployment — not just build and test. This guide covers the architecture and practices that elite engineering teams use.",
     category: "DevOps",
@@ -6896,6 +6938,7 @@ test:
     title:
       "AI-Powered Customer Support: ROI Analysis and Implementation Guide",
     slug: "ai-powered-customer-support-roi",
+    featuredImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&q=80",
     excerpt:
       "AI-powered customer support can resolve 40-65% of tickets automatically while reducing cost-per-resolution by 60%. This guide covers the real ROI numbers, implementation architecture, and the phased approach that separates successful deployments from chatbot graveyards.",
     category: "AI & Machine Learning",
@@ -7068,6 +7111,7 @@ async function handleSupportTicket(ticket: SupportTicket): Promise&lt;Resolution
   {
     title: "Zero-Downtime Database Migration: A Step-by-Step Tutorial",
     slug: "zero-downtime-database-migration",
+    featuredImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&auto=format&q=80",
     excerpt:
       "Migrating a production database without downtime requires careful planning and specific techniques. This tutorial walks through the expand-contract pattern, online schema changes, and data migration strategies that keep your application serving traffic throughout.",
     category: "Tutorials",
@@ -7302,6 +7346,7 @@ async function validateMigration(source: Database, target: Database) {
   {
     title: "Why Startups Should Outsource Their First Cloud Architecture",
     slug: "startups-outsource-cloud-architecture",
+    featuredImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&q=80",
     excerpt:
       "Hiring a senior cloud architect costs EUR 120,000+/year. Getting your cloud architecture wrong costs far more. For seed and Series A startups, outsourcing cloud architecture to a specialist delivers better results at a fraction of the cost of a full-time hire.",
     category: "Industry Insights",
@@ -7474,6 +7519,7 @@ Cost (typical at startup scale):
     title:
       "Platform Engineering vs Traditional DevOps: What Changed in 2026",
     slug: "platform-engineering-vs-devops-2026",
+    featuredImage: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&auto=format&q=80",
     excerpt:
       "Platform engineering has emerged as the evolution of DevOps, shifting from 'you build it, you run it' to 'we build the platform, you build on it.' This guide explains the differences, when to make the transition, and how to build an internal developer platform that actually gets adopted.",
     category: "DevOps",
@@ -7681,6 +7727,7 @@ spec:
   {
     title: "Terraform vs Pulumi vs CDK: Infrastructure as Code Comparison 2026",
     slug: "terraform-vs-pulumi-vs-cdk-iac-comparison",
+    featuredImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&q=80",
     excerpt:
       "Infrastructure as Code adoption has reached 78% among cloud-mature organisations. This guide compares Terraform, Pulumi, and AWS CDK across language support, state management, multi-cloud capability, and team productivity to help you pick the right IaC tool.",
     category: "DevOps",
@@ -7849,6 +7896,7 @@ spec:
   {
     title: "How AI is Transforming Healthcare IT: 5 Real-World Applications",
     slug: "ai-transforming-healthcare-it-applications",
+    featuredImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&q=80",
     excerpt:
       "AI in healthcare is projected to reach $187 billion by 2030. From diagnostic imaging to predictive patient flow, here are five proven applications where AI is delivering measurable outcomes in European healthcare systems today.",
     category: "Industry Insights",
@@ -7958,6 +8006,7 @@ spec:
   {
     title: "Securing Your Cloud Infrastructure: A Comprehensive Security Audit Guide",
     slug: "cloud-infrastructure-security-audit-guide",
+    featuredImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&q=80",
     excerpt:
       "Cloud security breaches cost organisations an average of EUR 4.45 million per incident. This guide walks through a structured cloud security audit covering IAM, network architecture, data protection, logging, and compliance — with actionable checklists for AWS, Azure, and GCP.",
     category: "Cloud Architecture",
@@ -8062,6 +8111,7 @@ spec:
   {
     title: "Building Multi-Tenant SaaS Applications: Architecture Patterns",
     slug: "multi-tenant-saas-architecture-patterns",
+    featuredImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&q=80",
     excerpt:
       "Multi-tenancy is the foundation of scalable SaaS. This guide compares silo, pool, and bridge isolation models, covers database strategies, explains tenant-aware authentication, and provides architectural blueprints for building SaaS applications that scale from 10 to 10,000 tenants.",
     category: "Software Development",
@@ -8179,6 +8229,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "The ROI of DevOps: How Companies Are Saving Millions",
     slug: "roi-of-devops-saving-millions",
+    featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&q=80",
     excerpt:
       "High-performing DevOps teams deploy 973x more frequently with 6,570x faster lead times. This article quantifies the financial impact of DevOps practices with real data from the DORA metrics, industry reports, and our client engagements across Europe.",
     category: "Technical Leadership",
@@ -8237,6 +8288,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "Vector Databases Explained: Choosing the Right One for Your AI App",
     slug: "vector-databases-explained-choosing-right-one",
+    featuredImage: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=1200&auto=format&q=80",
     excerpt:
       "Vector databases are the backbone of modern AI applications, from RAG systems to recommendation engines. This guide compares Pinecone, Weaviate, Milvus, Qdrant, pgvector, and Chroma across performance, cost, scalability, and operational complexity.",
     category: "AI & Machine Learning",
@@ -8316,6 +8368,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "Legacy System Modernization: A 6-Step Migration Framework",
     slug: "legacy-system-modernization-6-step-framework",
+    featuredImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&auto=format&q=80",
     excerpt:
       "Over 70% of enterprise IT budgets go to maintaining legacy systems. This guide presents a proven 6-step framework for modernising legacy applications — from assessment through strangler fig migration to decommissioning — with realistic timelines and risk mitigation strategies.",
     category: "Cloud Architecture",
@@ -8398,6 +8451,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "Automated Testing Strategies for Cloud-Native Applications",
     slug: "automated-testing-cloud-native-applications",
+    featuredImage: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&auto=format&q=80",
     excerpt:
       "Cloud-native applications demand testing strategies that account for distributed systems, eventual consistency, and infrastructure dependencies. This guide covers the testing pyramid for microservices, contract testing, chaos engineering, and CI/CD pipeline design.",
     category: "Software Development",
@@ -8467,6 +8521,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "How FinTech Companies Are Using AI for Fraud Detection",
     slug: "fintech-ai-fraud-detection",
+    featuredImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&auto=format&q=80",
     excerpt:
       "Financial fraud losses exceeded $485 billion globally in 2023. AI-powered fraud detection systems now catch 95% of fraudulent transactions in real-time while reducing false positives by 60%. This article examines the architectures and models behind modern FinTech fraud prevention.",
     category: "Industry Insights",
@@ -8538,6 +8593,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "Serverless vs Containers: When to Use Each in 2026",
     slug: "serverless-vs-containers-when-to-use-2026",
+    featuredImage: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=1200&auto=format&q=80",
     excerpt:
       "The serverless vs containers debate has matured. In 2026, the answer is almost always 'both.' This guide breaks down when to use Lambda/Cloud Functions vs ECS/EKS/GKE based on workload characteristics, cost models, team skills, and architectural patterns.",
     category: "Cloud Architecture",
@@ -8606,6 +8662,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "Building a Data Pipeline with Apache Kafka and Cloud Services",
     slug: "building-data-pipeline-apache-kafka-cloud",
+    featuredImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&auto=format&q=80",
     excerpt:
       "Apache Kafka processes trillions of events per day across the world's largest companies. This tutorial walks through designing and implementing a production-grade data pipeline using Kafka, cloud-native connectors, and stream processing — with code examples and deployment patterns.",
     category: "Tutorials",
@@ -8666,6 +8723,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "The CTO's Guide to Technical Due Diligence",
     slug: "cto-guide-technical-due-diligence",
+    featuredImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&q=80",
     excerpt:
       "Technical due diligence can make or break an acquisition. This guide covers the 8 critical areas every CTO should assess — from code quality and architecture to team capabilities and technical debt — with scoring frameworks and red flags that kill deals.",
     category: "Technical Leadership",
@@ -8734,6 +8792,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "How to Build an AI Chatbot for Your Business in 2026",
     slug: "build-ai-chatbot-business-2026",
+    featuredImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&q=80",
     excerpt:
       "AI chatbots have matured from frustrating keyword matchers to genuine business tools. This guide covers architecture, LLM selection, RAG integration, guardrails, and deployment strategies — with realistic cost and timeline estimates.",
     category: "AI & Machine Learning",
@@ -8811,6 +8870,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "Cloud Cost Management: Tools and Strategies That Actually Work",
     slug: "cloud-cost-management-tools-strategies",
+    featuredImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&q=80",
     excerpt:
       "Cloud waste accounts for 32% of total cloud spend. This guide covers practical strategies, tools, and organisational changes that actually reduce cloud costs — from quick wins that save 20% in the first month to long-term FinOps practices.",
     category: "Cloud Architecture",
@@ -8880,6 +8940,7 @@ SELECT * FROM invoices WHERE status = 'pending';</code></pre>
   {
     title: "API Security Best Practices: Protecting Your Digital Assets",
     slug: "api-security-best-practices",
+    featuredImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&q=80",
     excerpt:
       "APIs are the #1 attack vector for web applications, with API-related breaches increasing 681% in three years. This guide covers the OWASP API Security Top 10, authentication patterns, rate limiting, input validation, and monitoring strategies.",
     category: "Software Development",
