@@ -190,6 +190,12 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <WebsiteJsonLd />
         <LocalBusinessJsonLd />
+        {/* Cloudrix Analytics — custom tracking across all products */}
+        <script
+          src="https://analytics.cloudrix.io/sdk.js"
+          data-product="website"
+          defer
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
