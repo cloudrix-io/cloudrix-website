@@ -750,7 +750,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "React Flow", "D3.js", "PostgreSQL", "React PDF"],
     status: "live",
-    productUrl: "https://migratesiq.cloudrix.io",
+    productUrl: "https://migrateiq.cloudrix.io",
     pricing: "free",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Basic migration planning", "Up to 10 workloads", "PDF export", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=cloud-migration-planner&tier=free" },
