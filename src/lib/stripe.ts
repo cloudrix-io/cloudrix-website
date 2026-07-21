@@ -11,3 +11,9 @@ export const stripe = process.env.STRIPE_SECRET_KEY
 export function isStripeConfigured(): boolean {
   return !!process.env.STRIPE_SECRET_KEY;
 }
+
+export const PLANS = {
+  free: { name: "Free", price: 0, priceId: null },
+  pro: { name: "Pro", price: 9900, priceId: process.env.STRIPE_PRO_PRICE_ID || "" },
+  enterprise: { name: "Enterprise", price: 29900, priceId: process.env.STRIPE_ENTERPRISE_PRICE_ID || "" },
+} as const;
