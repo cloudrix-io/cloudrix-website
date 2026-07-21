@@ -1,11 +1,10 @@
+import { Suspense } from "react";
 import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import connectDB from "@/lib/mongodb";
 import { BlogPost } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
 import { Breadcrumbs } from "@/components/ui";
+import { BlogPageClient, type BlogPostData } from "./blog-page-client";
 
 // Static blog posts data for fallback
 const staticBlogPosts = [
@@ -149,34 +148,6 @@ export const metadata: Metadata = {
   },
 };
 
-const categories = [
-  "All",
-  "Cloud Architecture",
-  "DevOps",
-  "Software Development",
-  "AI & Machine Learning",
-  "Technical Leadership",
-  "Tutorials",
-];
-
-interface BlogPostData {
-  _id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  author: {
-    name: string;
-    role?: string;
-    image?: string;
-  };
-  category: string;
-  tags: string[];
-  featuredImage?: string;
-  readingTime: number;
-  publishedAt: string;
-  isFeatured: boolean;
-}
-
 async function getBlogPosts() {
   try {
     await connectDB();
@@ -202,9 +173,6 @@ async function getBlogPosts() {
 export default async function BlogPage() {
   const { posts } = await getBlogPosts();
 
-  const featuredPost = posts.find((p) => p.isFeatured) || posts[0];
-  const regularPosts = posts.filter((p) => p._id !== featuredPost?._id);
-
   return (
     <>
       <BreadcrumbJsonLd
@@ -219,6 +187,7 @@ export default async function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }]} />
         </div>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -234,181 +203,25 @@ export default async function BlogPage() {
           </div>
         </section>
 
-        {/* Categories Filter */}
-        <section className="border-b border-gray-200 sticky top-16 bg-white z-40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-4 overflow-x-auto py-4 scrollbar-hide">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-                    category === "All"
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {category}
-                </button>
+        {/* Client-side interactive blog content */}
+        <Suspense fallback={
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="rounded-xl border border-gray-200 overflow-hidden">
+                  <div className="h-48 bg-gray-200 animate-pulse" />
+                  <div className="p-6">
+                    <div className="h-5 w-20 bg-gray-100 rounded-full animate-pulse mb-3" />
+                    <div className="h-6 w-full bg-gray-200 rounded animate-pulse mb-2" />
+                    <div className="h-4 w-5/6 bg-gray-100 rounded animate-pulse" />
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* Blog Content */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {posts.length === 0 ? (
-              /* Empty State */
-              <div className="text-center py-20">
-                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                  </svg>
-                </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Blog Coming Soon</h2>
-                <p className="text-gray-600 max-w-md mx-auto mb-8">
-                  We&apos;re working on bringing you valuable insights on cloud architecture,
-                  DevOps, and software development. Check back soon!
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                >
-                  Get Notified When We Launch
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            ) : (
-              <>
-                {/* Featured Post */}
-                {featuredPost && (
-                  <div className="mb-16">
-                    <Link href={`/blog/${featuredPost.slug}`} className="group">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-blue-50 to-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
-                        <div className="relative h-64 lg:h-full min-h-[300px]">
-                          {featuredPost.featuredImage ? (
-                            <Image
-                              src={featuredPost.featuredImage}
-                              alt={featuredPost.title}
-                              fill
-                              className="object-cover"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                              <span className="text-6xl text-white/20 font-bold">C</span>
-                            </div>
-                          )}
-                          <div className="absolute top-4 left-4">
-                            <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                              Featured
-                            </span>
-                          </div>
-                        </div>
-                        <div className="p-8 lg:py-12">
-                          <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                            <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
-                              {featuredPost.category}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              {featuredPost.readingTime} min read
-                            </span>
-                          </div>
-                          <h2 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
-                            {featuredPost.title}
-                          </h2>
-                          <p className="text-gray-600 mb-6 leading-relaxed">
-                            {featuredPost.excerpt}
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                                <span className="text-gray-600 font-semibold">
-                                  {featuredPost.author.name.charAt(0)}
-                                </span>
-                              </div>
-                              <div>
-                                <div className="font-medium text-gray-900">
-                                  {featuredPost.author.name}
-                                </div>
-                                <div className="text-sm text-gray-500">
-                                  {new Date(featuredPost.publishedAt).toLocaleDateString("en-US", {
-                                    month: "long",
-                                    day: "numeric",
-                                    year: "numeric",
-                                  })}
-                                </div>
-                              </div>
-                            </div>
-                            <span className="text-blue-600 font-medium flex items-center group-hover:translate-x-1 transition-transform">
-                              Read More
-                              <ArrowRight className="ml-1 w-4 h-4" />
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-
-                {/* Regular Posts Grid */}
-                {regularPosts.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {regularPosts.map((post) => (
-                      <Link
-                        key={post._id}
-                        href={`/blog/${post.slug}`}
-                        className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
-                      >
-                        <div className="relative h-48">
-                          {post.featuredImage ? (
-                            <Image
-                              src={post.featuredImage}
-                              alt={post.title}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                              <span className="text-4xl text-gray-300 font-bold">C</span>
-                            </div>
-                          )}
-                        </div>
-                        <div className="p-6">
-                          <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-                            <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-medium">
-                              {post.category}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              {post.readingTime} min
-                            </span>
-                          </div>
-                          <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
-                            {post.title}
-                          </h3>
-                          <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                            {post.excerpt}
-                          </p>
-                          <div className="flex items-center gap-2 text-sm">
-                            <Calendar className="w-4 h-4 text-gray-400" />
-                            <span className="text-gray-500">
-                              {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric",
-                              })}
-                            </span>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </>
-            )}
-          </div>
-        </section>
+        }>
+          <BlogPageClient posts={posts} />
+        </Suspense>
 
         {/* Newsletter CTA */}
         <section className="py-20 bg-gray-50">
@@ -449,13 +262,15 @@ export default async function BlogPage() {
               Still stuck after reading everything? Sometimes you need an expert
               who&apos;s done it 100 times before. We can help.
             </p>
-            <Link
+            <a
               href="/contact"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
             >
               Book Free Consultation
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </section>
       </div>
