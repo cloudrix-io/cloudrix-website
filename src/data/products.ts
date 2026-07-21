@@ -393,7 +393,7 @@ export const products: Product[] = [
     ],
     techStack: ["Claude API", "AWS Cost Explorer API", "Next.js", "PostgreSQL", "Chart.js"],
     status: "live",
-    productUrl: "https://cloudcost.cloudrix.io",
+    productUrl: "https://analytics.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 cloud account", "Basic cost overview", "Monthly summary", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=ai-cost-optimizer&tier=free" },
@@ -670,7 +670,7 @@ export const products: Product[] = [
     ],
     techStack: ["Claude API", "Tesseract OCR", "Next.js", "PostgreSQL", "Stripe", "S3"],
     status: "live",
-    productUrl: "https://invoice.cloudrix.io",
+    productUrl: "https://insightai.cloudrix.io",
     pricing: "paid",
     pricingTiers: [
       { name: "Starter", price: "$29/mo", priceMonthly: 29, priceYearly: 278, features: ["100 invoices/month", "OCR extraction", "Expense categorization", "Basic approval workflow", "Community support"], cta: "Get Started", ctaLink: "/checkout?product=smart-invoice&tier=starter" },
@@ -906,7 +906,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Puppeteer", "NMAP", "Docker"],
     status: "live",
-    productUrl: "https://scan.cloudrix.io",
+    productUrl: "https://securescan.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 scan/week", "OWASP Top 10 basics", "Summary report", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=security-scanner&tier=free" },
@@ -1022,7 +1022,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"],
     status: "live",
-    productUrl: "https://dbmigrate.cloudrix.io",
+    productUrl: "https://demo.cloudrix.io",
     pricing: "open-source",
     pricingTiers: [
       { name: "Open Source", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["Full source code", "PostgreSQL & MySQL", "CLI tool", "Basic migrations", "Community support"], cta: "Clone Repo", ctaLink: "/checkout?product=db-migration-tool&tier=free" },
@@ -1061,7 +1061,7 @@ export const products: Product[] = [
     ],
     techStack: ["Next.js", "Web Vitals API", "PostgreSQL", "Chart.js", "WebSocket"],
     status: "live",
-    productUrl: "https://perf.cloudrix.io",
+    productUrl: "https://perfprofiler.cloudrix.io",
     pricing: "freemium",
     pricingTiers: [
       { name: "Free", price: "$0", priceMonthly: 0, priceYearly: 0, features: ["1 site", "Core Web Vitals", "7-day data retention", "Basic reports", "Community support"], cta: "Start Free", ctaLink: "/checkout?product=performance-profiler&tier=free" },
