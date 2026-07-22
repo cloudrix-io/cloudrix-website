@@ -30,7 +30,6 @@ import { useLanguage } from "@/contexts/language-context";
 import type { IHomePageContent, ILocalizedContent } from "@/lib/models/page";
 import { TechLogosMarquee } from "@/components/ui/tech-logos-marquee";
 import { StatsCounter } from "@/components/ui/stats-counter";
-import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
 
 // Icon mapping for services
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -182,14 +181,14 @@ function UrgencyBanner() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
           </span>
           <p className="text-sm font-semibold text-white text-center">
-            New: StatusPage & API Monitor now live — try free today
+            EU AI Act update: high-risk deadline moved to Dec 2, 2027 — start now, at planning prices instead of panic prices
           </p>
           <span className="hidden sm:inline text-white/80 text-sm">&mdash;</span>
           <Link
-            href="/products"
+            href="/eu-ai-act"
             className="hidden sm:inline-flex items-center text-sm font-bold text-white underline underline-offset-2 hover:no-underline"
           >
-            Explore Products
+            See How It Works
             <ArrowRight className="ml-1 w-3.5 h-3.5" />
           </Link>
         </div>
@@ -211,42 +210,42 @@ function ObjectionSection({ t }: { t: (en: string, fr: string) => string }) {
 
   const objections = [
     {
-      objection: t("\"We're too small for AI\"", "\"Nous sommes trop petits pour l'IA\""),
+      objection: t("\"The AI Act deadline moved \u2014 why start now?\"", "\"La date limite de l'AI Act a \u00E9t\u00E9 report\u00E9e \u2014 pourquoi commencer maintenant ?\""),
       response: t(
-        "We've deployed AI for 10-person startups. Our Proof of Concept starts at \u20AC15K \u2014 less than one senior dev's monthly salary. Start small, prove ROI, then scale.",
-        "Nous avons d\u00E9ploy\u00E9 de l'IA pour des startups de 10 personnes. Notre PoC d\u00E9marre \u00E0 15K\u20AC. Commencez petit, prouvez le ROI, puis scalez."
-      ),
-      icon: Users,
-    },
-    {
-      objection: t("\"AI is just hype\"", "\"L'IA n'est que du battage m\u00E9diatique\""),
-      response: t(
-        "73% query automation. \u20AC840K savings. Real numbers from real clients. We don't sell hype \u2014 we ship measurable outcomes with clear before/after metrics.",
-        "73% d'automatisation des requ\u00EAtes. 840K\u20AC d'\u00E9conomies. Des chiffres r\u00E9els de vrais clients. Nous livrons des r\u00E9sultats mesurables."
+        "The high-risk deadline moved to December 2, 2027. That window is exactly why starting now is cheaper: you spread the work over normal sprints instead of paying panic prices in late 2027 \u2014 and you can ship AI features your competitors are still afraid to build.",
+        "La date limite haut risque a \u00E9t\u00E9 report\u00E9e au 2 d\u00E9cembre 2027. Cette fen\u00EAtre est justement la raison de commencer maintenant : vous \u00E9talez le travail au lieu de payer des prix de panique fin 2027."
       ),
       icon: TrendingUp,
     },
     {
+      objection: t("\"We're too small for AI\"", "\"Nous sommes trop petits pour l'IA\""),
+      response: t(
+        "You don't need an AI department. A focused Proof of Concept starts at \u20AC15K \u2014 less than one senior dev's monthly salary in most EU markets. Start small, prove ROI, then scale.",
+        "Vous n'avez pas besoin d'un d\u00E9partement IA. Un PoC cibl\u00E9 d\u00E9marre \u00E0 15K\u20AC. Commencez petit, prouvez le ROI, puis scalez."
+      ),
+      icon: Users,
+    },
+    {
       objection: t("\"We tried AI before and it failed\"", "\"Nous avons d\u00E9j\u00E0 essay\u00E9 l'IA et \u00E7a a \u00E9chou\u00E9\""),
       response: t(
-        "88% of AI projects fail. That's exactly why you hire the 12% that ships. We start with a 2-week technical audit to identify why it failed and what to do differently.",
-        "88% des projets IA \u00E9chouent. C'est exactement pourquoi vous engagez les 12% qui livrent. Nous commen\u00E7ons par un audit technique de 2 semaines."
+        "Most AI projects fail on integration and scope, not on the models. We start with a short technical audit to identify why it failed and what to do differently \u2014 before writing any new code.",
+        "La plupart des projets IA \u00E9chouent sur l'int\u00E9gration et le p\u00E9rim\u00E8tre, pas sur les mod\u00E8les. Nous commen\u00E7ons par un court audit technique pour identifier pourquoi \u00E7a a \u00E9chou\u00E9."
       ),
       icon: Shield,
     },
     {
       objection: t("\"We can't afford consultants\"", "\"Nous ne pouvons pas nous permettre des consultants\""),
       response: t(
-        "We cost 50-70% less than Big Four firms. And we actually build, not just advise. No 200-page PowerPoints \u2014 you get working code, deployed to production.",
-        "Nous co\u00FBtons 50 \u00E0 70% moins cher que les Big Four. Et nous construisons r\u00E9ellement, pas juste du conseil. Du code fonctionnel, d\u00E9ploy\u00E9 en production."
+        "You're not paying for an agency's overhead \u2014 the founder does the work. No juniors, no handoffs, no 200-page PowerPoints. You get working code, deployed to production, at a fraction of Big Four rates.",
+        "Vous ne payez pas les frais g\u00E9n\u00E9raux d'une agence \u2014 le fondateur fait le travail. Pas de juniors, pas de transferts. Du code fonctionnel, d\u00E9ploy\u00E9 en production."
       ),
       icon: Calculator,
     },
     {
       objection: t("\"What about GDPR/compliance?\"", "\"Qu'en est-il du RGPD/conformit\u00E9 ?\""),
       response: t(
-        "EU-native. Netherlands-registered. EU AI Act compliance built into every project. We handle data residency, model governance, and regulatory documentation from day one.",
-        "Natif UE. Enregistr\u00E9 aux Pays-Bas. Conformit\u00E9 EU AI Act int\u00E9gr\u00E9e \u00E0 chaque projet. Nous g\u00E9rons la r\u00E9sidence des donn\u00E9es et la gouvernance des mod\u00E8les d\u00E8s le premier jour."
+        "EU-native. Netherlands-registered (KVK 97732699). GDPR-compliant practices and EU AI Act requirements are designed into every project \u2014 data residency, model governance, and regulatory documentation from day one.",
+        "Natif UE. Enregistr\u00E9 aux Pays-Bas (KVK 97732699). Pratiques conformes RGPD et exigences EU AI Act int\u00E9gr\u00E9es \u00E0 chaque projet d\u00E8s le premier jour."
       ),
       icon: Globe,
     },
@@ -321,7 +320,7 @@ function ObjectionSection({ t }: { t: (en: string, fr: string) => string }) {
 
         <div className="text-center mt-10">
           <Link
-            href="/contact"
+            href="/book"
             className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium group"
           >
             {t("Still have concerns? Let's talk.", "Encore des questions ? Parlons-en.")}
@@ -333,15 +332,13 @@ function ObjectionSection({ t }: { t: (en: string, fr: string) => string }) {
   );
 }
 
-// Enhanced Trust Bar with company logos
+// Honest trust bar — founder-led studio, verifiable facts only
 function EnhancedTrustBar({ t }: { t: (en: string, fr: string) => string }) {
-  const companyLogos = [
-    { name: "FinTech Startup", industry: "Financial Services" },
-    { name: "HealthTech Co", industry: "Healthcare" },
-    { name: "LogiFlow", industry: "Logistics" },
-    { name: "RetailAI", industry: "Retail" },
-    { name: "InsureTech", industry: "Insurance" },
-    { name: "ManufactureX", industry: "Manufacturing" },
+  const facts = [
+    { value: "10+", label: t("years engineering experience", "ans d'exp\u00E9rience en ing\u00E9nierie") },
+    { value: "KVK 97732699", label: t("Dutch-registered company", "entreprise n\u00E9erlandaise enregistr\u00E9e") },
+    { value: "<24h", label: t("response time", "temps de r\u00E9ponse") },
+    { value: "0", label: t("juniors or handoffs \u2014 founder does the work", "juniors ou transferts \u2014 le fondateur fait le travail") },
   ];
 
   return (
@@ -350,47 +347,20 @@ function EnhancedTrustBar({ t }: { t: (en: string, fr: string) => string }) {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="flex flex-col items-center mb-8">
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4">
-            {t("Trusted by innovative companies", "Fait confiance par des entreprises innovantes")}
+            {t("A founder-led senior studio \u2014 no fake logos, just facts you can verify", "Un studio senior dirig\u00E9 par son fondateur \u2014 des faits v\u00E9rifiables")}
           </p>
-          <div className="flex items-center gap-6 text-sm text-gray-500">
-            <div className="flex items-center gap-1.5">
-              <span className="text-2xl font-bold text-gray-900">50+</span>
-              <span>{t("companies", "entreprises")}</span>
-            </div>
-            <div className="w-px h-6 bg-gray-300"></div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-2xl font-bold text-gray-900">15</span>
-              <span>{t("countries", "pays")}</span>
-            </div>
-            <div className="w-px h-6 bg-gray-300"></div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-2xl font-bold text-gray-900">8+</span>
-              <span>{t("years", "ans")}</span>
-            </div>
-          </div>
         </div>
 
-        {/* Company logos - styled as grayscale pills */}
         <div className="flex flex-wrap justify-center gap-4">
-          {companyLogos.map((company, index) => (
+          {facts.map((fact, index) => (
             <div
               key={index}
-              className="group flex items-center gap-2.5 px-5 py-2.5 bg-white rounded-full border border-gray-200 grayscale hover:grayscale-0 transition-all duration-300 hover:shadow-md hover:border-blue-200"
+              className="flex items-center gap-2.5 px-5 py-2.5 bg-white rounded-full border border-gray-200 hover:shadow-md hover:border-blue-200 transition-all duration-300"
             >
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 group-hover:from-blue-500 group-hover:to-indigo-500 flex items-center justify-center transition-all duration-300">
-                <span className="text-xs font-bold text-blue-600 group-hover:text-white transition-colors">
-                  {company.name.charAt(0)}
-                </span>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
-                  {company.name}
-                </p>
-                <p className="text-[10px] text-gray-400 leading-tight">{company.industry}</p>
-              </div>
+              <span className="text-sm font-bold text-blue-600">{fact.value}</span>
+              <span className="text-sm text-gray-600">{fact.label}</span>
             </div>
           ))}
         </div>
@@ -432,18 +402,18 @@ export function HomeContent({
   // Get content for current language
   const content = (pageContent[language] || pageContent.en || {}) as IHomePageContent;
 
-  // Default values - POWERFUL CONVERSION-FOCUSED COPY
+  // Default values — one hero offer: EU AI Act implementation engineering
   const hero = content.hero || {
-    badge: t("24 AI & IT Products Live — Explore the Platform", "24 Produits IA & IT en Ligne — Explorez la Plateforme"),
-    title: t("AI & IT Products That Run Your Business", "Produits IA & IT Qui Font Tourner Votre Entreprise"),
+    badge: t("EU AI Act high-risk deadline: December 2, 2027", "Date limite haut risque EU AI Act : 2 d\u00E9cembre 2027"),
+    title: t("Make Your AI Systems EU AI Act Compliant — Built by Engineers, Not Lawyers", "Rendez Vos Syst\u00E8mes IA Conformes \u00E0 l'EU AI Act — Par des Ing\u00E9nieurs, Pas des Avocats"),
     subtitle: t(
-      "24 AI-powered products for monitoring, security, compliance, and automation. From API Monitor to CodeScan AI — production-ready tools built by senior engineers. Free tiers available. Enterprise services by request.",
-      "24 produits alimentés par l'IA pour le monitoring, la sécurité, la conformité et l'automatisation. De l'API Monitor à CodeScan AI — des outils prêts pour la production. Niveaux gratuits disponibles. Services entreprise sur demande."
+      "The deadline moved to Dec 2, 2027 — that's your window to implement compliance properly and affordably, instead of paying panic prices in late 2027. Start with a \u20AC2,500 Quick Scan: risk classification for every AI system you run, in one day. We also build AI agents, RAG systems, and cloud infrastructure.",
+      "La date limite a \u00E9t\u00E9 report\u00E9e au 2 d\u00E9cembre 2027 — c'est votre fen\u00EAtre pour impl\u00E9menter la conformit\u00E9 correctement et \u00E0 moindre co\u00FBt. Commencez avec un Quick Scan \u00E0 2 500\u20AC : classification des risques de chaque syst\u00E8me IA, en une journ\u00E9e."
     ),
-    ctaText: t("Explore Our Products", "Explorer Nos Produits"),
-    ctaLink: "/products",
-    secondaryCtaText: t("Try Free Tools", "Essayer les Outils Gratuits"),
-    secondaryCtaLink: "/products/free",
+    ctaText: t("Book a Free Compliance Call", "R\u00E9server un Appel Gratuit"),
+    ctaLink: "/book",
+    secondaryCtaText: t("See the Compliance Roadmap", "Voir la Feuille de Route"),
+    secondaryCtaLink: "/eu-ai-act",
   };
 
   const servicesSection = content.services || {
@@ -454,11 +424,6 @@ export function HomeContent({
     ),
   };
 
-  const statsSection = content.stats || {
-    title: t("Why Cloudrix", "Pourquoi Cloudrix"),
-    subtitle: t("A trusted engineering partner you can verify.", "Un partenaire d'ingénierie de confiance que vous pouvez vérifier."),
-  };
-
   const processSection = content.process || {
     title: t("From Chaos to Confidence in 4 Steps", "Du Chaos à la Confiance en 4 Étapes"),
     subtitle: t(
@@ -467,27 +432,19 @@ export function HomeContent({
     ),
   };
 
-  const testimonialsSection = content.testimonials || {
-    title: t("What Our Approach Looks Like in Practice", "Notre Approche en Pratique"),
-    subtitle: t(
-      "Representative scenarios from our project work across industries.",
-      "Scénarios représentatifs de notre travail dans différentes industries."
-    ),
-  };
-
   const ctaSection = content.cta || {
-    title: t("Start Using Our Products Today", "Commencez à Utiliser Nos Produits Aujourd'hui"),
+    title: t("Know Where You Stand Before the 2027 Deadline", "Sachez O\u00F9 Vous en \u00CAtes Avant l'\u00C9ch\u00E9ance 2027"),
     subtitle: t(
-      "24 AI-powered products with free tiers. No credit card required. Sign up in seconds and start getting value immediately.",
-      "24 produits alimentés par l'IA avec des niveaux gratuits. Pas de carte de crédit requise. Inscrivez-vous en quelques secondes."
+      "A free 30-minute call with the engineer who will actually do the work. Honest assessment, clear next steps, no sales pitch.",
+      "Un appel gratuit de 30 minutes avec l'ing\u00E9nieur qui fera r\u00E9ellement le travail. \u00C9valuation honn\u00EAte, \u00E9tapes claires, pas de pitch commercial."
     ),
-    buttonText: t("Explore Products", "Explorer les Produits"),
+    buttonText: t("Book a Free Call", "R\u00E9server un Appel Gratuit"),
   };
 
   const credibilityPoints = content.credibilityPoints || [
-    t("24 Products Live", "24 Produits en Ligne"),
-    t("Used by 50+ Companies", "Utilisé par 50+ Entreprises"),
-    t("Free Tiers Available", "Niveaux Gratuits Disponibles"),
+    t("Quick Scan from \u20AC2,500 — results in 1 day", "Quick Scan d\u00E8s 2 500\u20AC — r\u00E9sultats en 1 jour"),
+    t("First-sprint refund guarantee", "Garantie de remboursement du premier sprint"),
+    t("Founder does the work — no juniors", "Le fondateur fait le travail — pas de juniors"),
   ];
 
   return (
@@ -567,17 +524,16 @@ export function HomeContent({
       {/* Tech Logos Marquee */}
       <TechLogosMarquee />
 
-      {/* Stats Section with Animated Counter */}
-      {stats.length > 0 && (
-        <StatsCounter
-          stats={stats.map((stat) => {
-            const numericMatch = stat.value.match(/^([\d.]+)/);
-            const numericValue = numericMatch ? parseFloat(numericMatch[1]) : 0;
-            const suffix = stat.value.replace(/^[\d.]+/, "");
-            return { value: numericValue, suffix, label: stat.label };
-          })}
-        />
-      )}
+      {/* Stats Section — honest, verifiable facts only */}
+      <StatsCounter
+        stats={[
+          { value: 10, suffix: "+", label: t("Years of engineering experience", "Ann\u00E9es d'exp\u00E9rience en ing\u00E9nierie") },
+          { value: 1, suffix: " day", label: t("EU AI Act Quick Scan turnaround", "D\u00E9lai du Quick Scan EU AI Act") },
+          { value: 24, suffix: "h", label: t("Maximum response time", "Temps de r\u00E9ponse maximum") },
+          { value: 100, suffix: "%", label: t("Source code ownership from day one", "Propri\u00E9t\u00E9 du code d\u00E8s le premier jour") },
+        ]}
+      />
+      {/* Note: dynamic stats from CMS intentionally not rendered — replaced with verifiable claims */}
 
       {/* Services Section */}
       <section className="py-20 bg-white">
@@ -671,7 +627,7 @@ export function HomeContent({
               {[
                 { title: t("AI-Powered Analysis", "Analyse Alimentée par l'IA"), desc: t("Every product uses AI to deliver smarter insights and automation", "Chaque produit utilise l'IA pour des analyses et automatisations plus intelligentes") },
                 { title: t("Free Tiers on Every Product", "Niveaux Gratuits sur Chaque Produit"), desc: t("Start for free, upgrade as you grow. No credit card required.", "Commencez gratuitement, mettez à niveau en grandissant.") },
-                { title: t("Enterprise Ready", "Prêt pour l'Entreprise"), desc: t("SOC 2, GDPR, EU AI Act compliant. Custom deployments available.", "SOC 2, RGPD, EU AI Act conforme. Déploiements personnalisés disponibles.") },
+                { title: t("Privacy by Design", "Confidentialit\u00E9 d\u00E8s la Conception"), desc: t("GDPR-compliant by design, built with EU AI Act requirements in mind. Custom deployments available.", "Conforme RGPD d\u00E8s la conception, con\u00E7u avec les exigences de l'EU AI Act. D\u00E9ploiements personnalis\u00E9s disponibles.") },
               ].map((item, index) => (
                 <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                   <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
@@ -730,33 +686,70 @@ export function HomeContent({
         </section>
       )}
 
-      {/* Testimonials Section */}
-      {caseStudies.length > 0 && caseStudies.some((cs) => cs.testimonial?.quote) && (
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                <span className="gradient-text">{testimonialsSection.title}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                {testimonialsSection.subtitle}
+      {/* Honesty as differentiation — guarantees instead of anonymous testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <span className="gradient-text">{t("An Early-Stage Studio, and Proud of It", "Un Studio en Phase de Lancement, et Fier de l'\u00CAtre")}</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t(
+                "No logo wall, no anonymous quotes. Our first clients get founder-level attention, case-study pricing, and guarantees we actually stand behind.",
+                "Pas de mur de logos, pas de citations anonymes. Nos premiers clients b\u00E9n\u00E9ficient de l'attention du fondateur, de tarifs d'\u00E9tude de cas et de vraies garanties."
+              )}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                <Shield className="w-7 h-7 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                {t("First-Sprint Refund", "Remboursement du Premier Sprint")}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {t(
+                  "Not satisfied with the first sprint? Full refund, no questions asked. See our refund policy for details.",
+                  "Pas satisfait du premier sprint ? Remboursement int\u00E9gral, sans question. Voir notre politique de remboursement."
+                )}{" "}
+                <Link href="/refunds" className="text-blue-600 hover:underline">
+                  {t("Refund policy", "Politique de remboursement")}
+                </Link>
               </p>
             </div>
-
-            <TestimonialCarousel
-              testimonials={caseStudies
-                .filter((cs) => cs.testimonial?.quote)
-                .slice(0, 6)
-                .map((cs) => ({
-                  quote: cs.testimonial!.quote,
-                  author: cs.testimonial!.author,
-                  position: cs.testimonial!.position,
-                  rating: 5,
-                }))}
-            />
+            <div className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <CheckCircle2 className="w-7 h-7 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                {t("Fixed Scope, Fixed Price", "P\u00E9rim\u00E8tre Fixe, Prix Fixe")}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {t(
+                  "Every engagement starts with a written scope and a fixed price. Changes require your sign-off — no surprise invoices.",
+                  "Chaque mission d\u00E9marre avec un p\u00E9rim\u00E8tre \u00E9crit et un prix fixe. Tout changement n\u00E9cessite votre accord — pas de factures surprises."
+                )}
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <Users className="w-7 h-7 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                {t("Direct Access to the Engineer", "Acc\u00E8s Direct \u00E0 l'Ing\u00E9nieur")}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {t(
+                  "You talk to the person writing the code — the founder. No account managers, no juniors, no handoffs.",
+                  "Vous parlez \u00E0 la personne qui \u00E9crit le code — le fondateur. Pas de gestionnaires de compte, pas de juniors, pas de transferts."
+                )}
+              </p>
+            </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Why Cloudrix - Trust Badges Section */}
       <section className="py-20 bg-gray-50">
@@ -982,7 +975,7 @@ export function HomeContent({
             {ctaSection.subtitle}
           </p>
           <Link
-            href="/products"
+            href="/book"
             className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
           >
             {ctaSection.buttonText}

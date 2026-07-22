@@ -34,7 +34,7 @@ const aiServicesFaqs = [
   {
     question: "What is the EU AI Act deadline and how can Cloudrix help?",
     answer:
-      "The key EU AI Act deadline is August 2, 2026 for most obligations including high-risk AI systems. Non-compliance can result in fines up to EUR 35M or 7% of global turnover. Cloudrix offers compliance packages from a EUR 2,500 Quick Scan to full EUR 60K implementation programs.",
+      "Prohibitions and GPAI obligations already apply, and under the Digital Omnibus the high-risk (Annex III) deadline is December 2, 2027. Non-compliance can result in fines up to EUR 35M or 7% of global turnover. Cloudrix offers compliance packages from a EUR 2,500 Quick Scan to full EUR 60K implementation programs.",
   },
   {
     question: "What AI tech stack does Cloudrix use?",
@@ -119,7 +119,7 @@ const tier1Services = [
     title: "EU AI Act Compliance",
     price: "\u20AC2,500 quick scan to \u20AC60K full program",
     description:
-      "Get compliant before the August 2, 2026 deadline. Risk classification, conformity assessments, technical documentation, and governance frameworks.",
+      "High-risk obligations land December 2, 2027 — implement now at planning prices, not panic prices. Risk classification, conformity assessments, technical documentation, and governance frameworks.",
     features: [
       "AI system risk classification",
       "Fundamental Rights Impact Assessment",
@@ -267,7 +267,7 @@ export default function AIServicesPage() {
             <div className="text-center max-w-4xl mx-auto">
               <span className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold mb-6">
                 <AlertTriangle className="w-4 h-4 mr-2" />
-                EU AI Act Deadline: August 2, 2026
+                EU AI Act: prohibitions apply now &middot; high-risk deadline Dec 2, 2027
               </span>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 AI That Actually Ships to Production
@@ -446,12 +446,13 @@ export default function AIServicesPage() {
             <div className="flex items-center justify-center mb-6">
               <Clock className="w-8 h-8 text-red-400 mr-3" />
               <h2 className="text-3xl font-bold text-white">
-                EU AI Act Deadline: August 2, 2026
+                EU AI Act: High-Risk Deadline Dec 2, 2027
               </h2>
             </div>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               Non-compliance means fines up to &euro;35M or 7% of global turnover.
-              Most companies need 6\u201312 months to get compliant. The clock is ticking.
+              Prohibitions and GPAI obligations already apply today \u2014 starting
+              now means planning prices instead of panic prices in late 2027.
             </p>
             <Link
               href="/eu-ai-act"

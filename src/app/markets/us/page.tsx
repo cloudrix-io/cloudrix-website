@@ -34,7 +34,7 @@ export default function USMarketPage() {
         heroTitle: "Enterprise Cloud Engineering for American Companies",
         heroSubtitle: "US Market Specialists",
         heroDescription:
-          "From Wall Street to Silicon Valley, we deliver production-grade cloud architecture, AI agent development, and full-stack engineering for US businesses. SOC 2 Type II certified processes, HIPAA-ready infrastructure, and transparent USD pricing with no currency conversion headaches.",
+          "From Wall Street to Silicon Valley, we deliver production-grade cloud architecture, AI agent development, and full-stack engineering for US businesses. SOC 2-aligned engineering practices, HIPAA-ready infrastructure, and transparent USD pricing with no currency conversion headaches.",
         currency: "USD",
         currencySymbol: "$",
         starterPrice: "4,500",

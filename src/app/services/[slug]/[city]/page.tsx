@@ -182,6 +182,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    // Programmatic city variants are thin near-duplicates of the main
+    // service pages — keep them out of the index to avoid scaled-content
+    // classification, but let crawlers follow links to canonical pages.
+    robots: { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -189,7 +193,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     alternates: {
-      canonical: `https://www.cloudrix.io/services/${slug}/${city}`,
+      canonical: `https://www.cloudrix.io/services/${slug}`,
     },
   };
 }

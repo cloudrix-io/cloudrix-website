@@ -142,10 +142,10 @@ export const services: Service[] = [
     id: "eu-ai-act-compliance",
     title: "EU AI Act Compliance Consulting",
     description:
-      "Navigate the EU AI Act with confidence. The €609M compliance market is growing fast, with fines up to €35M or 7% of global turnover for non-compliance. The August 2, 2026 deadline is approaching.",
+      "Navigate the EU AI Act with confidence. Prohibitions and GPAI obligations already apply, and high-risk (Annex III) requirements take effect December 2, 2027 — with fines up to €35M or 7% of global turnover for non-compliance.",
     icon: "Scale",
     problem:
-      "Organizations face massive fines and operational disruption if their AI systems don't comply with the EU AI Act by the August 2026 deadline",
+      "Organizations face massive fines and operational disruption if their AI systems don't comply with the EU AI Act — prohibitions already apply today, and high-risk obligations land December 2, 2027",
     solution:
       "End-to-end compliance program: AI system inventory, risk classification, Fundamental Rights Impact Assessments, technical controls, and governance frameworks",
     result:

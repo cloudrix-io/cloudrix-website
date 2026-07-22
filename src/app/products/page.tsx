@@ -40,12 +40,12 @@ const productsFaqs = [
   {
     question: "Are Cloudrix tools free to use?",
     answer:
-      "Most of our 20+ products offer a free tier with no signup required. Premium plans start from $29/mo for advanced features, team collaboration, and priority support.",
+      "Most of our products offer a free tier with no signup required. Premium plans start from \u20ac29/mo for advanced features, team collaboration, and priority support.",
   },
   {
     question: "What types of tools does Cloudrix offer?",
     answer:
-      "Cloudrix offers five categories of products: Security & Compliance, Monitoring & Reliability, AI & Automation, Developer Tools, and Business Intelligence. All are live and production-ready.",
+      "Cloudrix focuses on a small portfolio of flagship products across Security & Compliance, Monitoring & Reliability, AI & Automation, and Business Intelligence. All are live and production-ready.",
   },
   {
     question: "Do I need to create an account to use the tools?",
@@ -64,28 +64,27 @@ const productsFaqs = [
   },
 ];
 import {
-  products,
-  productCategories,
+  visibleProducts,
+  visibleProductCategories,
   getProductsBySmartCategory,
-  getProductBySlug,
   popularProductSlugs,
   type Product,
   type SmartCategory,
 } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "20+ AI & IT Products. One Platform. | Cloudrix",
+  title: "AI & IT Products. One Platform. | Cloudrix",
   description:
-    "From security scanning to AI chatbots — 20+ live products that run your business. Free tiers available. Try any product instantly.",
+    "From EU AI Act compliance to AI customer support — flagship products that run your business. Free tiers available. Try any product instantly.",
   openGraph: {
-    title: "20+ AI & IT Products. One Platform.",
+    title: "AI & IT Products. One Platform.",
     description:
-      "From security scanning to AI chatbots — tools that run your business. All live. All production-ready.",
+      "From EU AI Act compliance to AI customer support — tools that run your business. All live. All production-ready.",
     url: "https://www.cloudrix.io/products",
     type: "website",
     images: [
       {
-        url: `/og?title=${encodeURIComponent("20+ AI & IT Products")}&subtitle=${encodeURIComponent("One Platform. All Live.")}&type=products`,
+        url: `/og?title=${encodeURIComponent("AI & IT Products")}&subtitle=${encodeURIComponent("One Platform. All Live.")}&type=products`,
         width: 1200,
         height: 630,
         alt: "Cloudrix Products & Tools",
@@ -94,9 +93,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "20+ AI & IT Products. One Platform.",
+    title: "AI & IT Products. One Platform.",
     description:
-      "From security scanning to AI chatbots — tools that run your business.",
+      "From EU AI Act compliance to AI customer support — tools that run your business.",
   },
   alternates: {
     canonical: "https://www.cloudrix.io/products",
@@ -148,7 +147,7 @@ function getStartingPrice(product: Product): string {
     );
     if (paidTiers.length > 0) {
       const cheapest = Math.min(...paidTiers.map((t) => t.priceMonthly!));
-      return `From $${cheapest}/mo`;
+      return `From \u20ac${cheapest}/mo`;
     }
   }
   return "Free";
@@ -271,7 +270,7 @@ function CategorySection({
 }
 
 export default function ProductsPage() {
-  const liveCount = products.filter((p) => p.status === "live").length;
+  const liveCount = visibleProducts.filter((p) => p.status === "live").length;
 
   return (
     <>
@@ -302,7 +301,7 @@ export default function ProductsPage() {
               </div>
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              20+ AI &amp; IT Products.
+              AI &amp; IT Products.
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400">
                 One Platform.
               </span>
@@ -315,7 +314,7 @@ export default function ProductsPage() {
 
           {/* Category navigation bar */}
           <nav className="mt-10 flex flex-wrap gap-3">
-            {productCategories.map((cat) => {
+            {visibleProductCategories.map((cat) => {
               const CatIcon = categoryIconMap[cat.icon];
               const count = getProductsBySmartCategory(cat.slug).length;
               return (
@@ -360,7 +359,7 @@ export default function ProductsPage() {
       {/* Products by Category */}
       <section className="bg-slate-950 py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-24">
-          {productCategories.map((cat) => (
+          {visibleProductCategories.map((cat) => (
             <CategorySection key={cat.slug} category={cat} />
           ))}
         </div>

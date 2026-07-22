@@ -45,24 +45,24 @@ const faqs = [
   },
 ];
 
-const testimonials = [
+const guarantees = [
   {
     quote:
-      "The strategy call alone saved us months of going down the wrong path. They identified exactly where AI could move the needle for our operations.",
-    name: "Thomas V.",
-    role: "CTO, Logistics SaaS",
+      "If you're not satisfied with the first sprint of any paid engagement, you get a full refund. The free call carries zero risk by definition.",
+    name: "First-Sprint Refund",
+    role: "Written into every contract",
   },
   {
     quote:
-      "Honest, practical, no-nonsense. They told us what we needed to hear, not what we wanted to hear. That's rare.",
-    name: "Sarah M.",
-    role: "VP Engineering, FinTech",
+      "You speak with the founder — the senior engineer (10+ years) who would actually write your code. No account managers, no handoffs.",
+    name: "Direct Access to the Engineer",
+    role: "Founder-led studio",
   },
   {
     quote:
-      "We came in confused about EU AI Act compliance. Left with a clear checklist and a roadmap. Booked a full engagement the next week.",
-    name: "Marco R.",
-    role: "Head of Innovation, Manufacturing",
+      "Cloudrix is an early-stage studio founded in 2026. We won't show you invented quotes — we'd rather earn a named case study from you.",
+    name: "No Fake Testimonials",
+    role: "KVK 97732699, Tilburg, NL",
   },
 ];
 
@@ -171,7 +171,7 @@ export default function BookPage() {
                         icon: Scale,
                         title: "Learn your EU AI Act compliance status",
                         description:
-                          "Understand where you stand and what steps you need to take before enforcement deadlines.",
+                          "Understand where you stand and what steps to take before the high-risk deadline of December 2, 2027.",
                       },
                       {
                         icon: Users,
@@ -286,36 +286,31 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Guarantees instead of testimonials */}
         <section className="py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <h2 className="text-2xl font-bold text-gray-900">
-                What Clients Say After the Call
+                Guarantees, Not Anonymous Quotes
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((t, index) => (
+              {guarantees.map((g, index) => (
                 <div
                   key={index}
                   className="bg-white border border-gray-200 rounded-xl p-6"
                 >
                   <div className="flex gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Sparkles
-                        key={i}
-                        className="w-4 h-4 text-amber-400 fill-amber-400"
-                      />
-                    ))}
+                    <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400" />
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                    &ldquo;{t.quote}&rdquo;
+                    {g.quote}
                   </p>
                   <div>
                     <div className="font-medium text-gray-900 text-sm">
-                      {t.name}
+                      {g.name}
                     </div>
-                    <div className="text-xs text-gray-500">{t.role}</div>
+                    <div className="text-xs text-gray-500">{g.role}</div>
                   </div>
                 </div>
               ))}

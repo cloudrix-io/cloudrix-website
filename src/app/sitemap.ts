@@ -3,7 +3,7 @@ import { caseStudies } from "@/data/case-studies";
 import { technologies } from "@/data/technologies";
 import { roles } from "@/data/roles";
 import { complianceFrameworks } from "@/data/compliance";
-import { products, productCategories } from "@/data/products";
+import { visibleProducts, visibleProductCategories } from "@/data/products";
 import dbConnect from "@/lib/mongodb";
 import { BlogPost, Service } from "@/lib/models";
 
@@ -385,36 +385,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // City + Service pages
-  const cityServiceCombos = ["cloud-migration", "devops-consulting", "ai-consulting", "full-stack-development", "dedicated-teams", "llm-integration", "legacy-modernization", "technical-due-diligence", "api-development"];
-  const dutchCities = ["amsterdam", "rotterdam", "the-hague", "utrecht", "eindhoven"];
-  // Top 20 international cities (high priority for sitemap)
-  const internationalCities = [
-    "new-york", "san-francisco", "austin", "boston", "chicago", "seattle", "miami", "los-angeles",
-    "london", "manchester",
-    "berlin", "munich", "frankfurt",
-    "dubai", "riyadh", "abu-dhabi",
-    "singapore", "tokyo", "sydney", "bangalore",
-    "lagos", "cape-town", "nairobi",
-    "sao-paulo", "mexico-city",
-  ];
-  const dutchCityServicePages: MetadataRoute.Sitemap = cityServiceCombos.flatMap((service) =>
-    dutchCities.map((city) => ({
-      url: `${baseUrl}/services/${service}/${city}`,
-      lastModified: new Date("2026-06-01"),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    }))
-  );
-  const internationalCityServicePages: MetadataRoute.Sitemap = cityServiceCombos.flatMap((service) =>
-    internationalCities.map((city) => ({
-      url: `${baseUrl}/services/${service}/${city}`,
-      lastModified: new Date("2026-06-01"),
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    }))
-  );
-  const cityServicePages: MetadataRoute.Sitemap = [...dutchCityServicePages, ...internationalCityServicePages];
+  // NOTE: programmatic city+service pages (/services/{service}/{city}) are
+  // intentionally excluded from the sitemap. They are thin, near-duplicate
+  // pages and are marked noindex; keeping them out avoids scaled-content
+  // classification. Routes remain alive for existing links.
 
   // Blog category pages
   const blogCategoryPages: MetadataRoute.Sitemap = [
@@ -426,33 +400,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Market pages
+  // Market pages — only the markets index and the main regional pages with
+  // unique substance. Country/city market pages are thin programmatic
+  // variants and are excluded (routes stay alive).
   const marketSlugs = [
     "markets",
     "markets/us",
-    "markets/us/new-york",
-    "markets/us/san-francisco",
-    "markets/us/austin",
-    "markets/us/boston",
     "markets/middle-east",
-    "markets/uae",
-    "markets/uae/dubai",
-    "markets/saudi-arabia",
-    "markets/qatar",
     "markets/asia-pacific",
-    "markets/singapore",
-    "markets/australia",
-    "markets/japan",
-    "markets/south-korea",
     "markets/africa",
-    "markets/nigeria",
-    "markets/kenya",
-    "markets/south-africa",
     "markets/latin-america",
-    "markets/brazil",
-    "markets/mexico",
-    "markets/uk",
-    "markets/germany",
   ];
   const marketPages: MetadataRoute.Sitemap = marketSlugs.map((slug) => ({
     url: `${baseUrl}/${slug}`,
@@ -555,13 +512,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    ...products.map((product) => ({
+    ...visibleProducts.map((product) => ({
       url: `${baseUrl}/products/${product.slug}`,
       lastModified: new Date("2026-07-15"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-    ...productCategories.map((cat) => ({
+    ...visibleProductCategories.map((cat) => ({
       url: `${baseUrl}/products/category/${cat.slug}`,
       lastModified: new Date("2026-07-15"),
       changeFrequency: "monthly" as const,
@@ -569,14 +526,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  // Product demo pages
+  // Product demo pages (visible/flagship products only)
   const productDemoSlugs = [
-    "cloudrix-ai-chat", "ai-code-reviewer", "ai-scope-generator", "eu-ai-act-scanner",
-    "ai-architecture-generator", "ai-doc-generator", "ai-cost-optimizer", "smart-crm",
-    "ai-hiring-assistant", "smart-analytics", "ai-content-studio", "smart-helpdesk",
-    "ai-translation", "smart-invoice", "saas-starter", "cloud-cost-calculator",
-    "devops-assessment", "api-monitor", "tech-stack-advisor", "security-scanner",
-    "migration-calculator", "status-page", "db-migration-tool", "performance-profiler",
+    "cloudrix-ai-chat", "ai-code-reviewer", "eu-ai-act-scanner",
+    "smart-crm", "api-monitor", "status-page",
   ];
   const productDemoPages: MetadataRoute.Sitemap = productDemoSlugs.map((slug) => ({
     url: `${baseUrl}/products/${slug}/demo`,
@@ -585,5 +538,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...servicePages, ...comparisonPages, ...cityServicePages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages, ...marketPages, ...technologyPages, ...hirePages, ...compliancePages, ...productPages, ...productDemoPages];
+  const allPages = [...staticPages, ...servicePages, ...comparisonPages, ...blogCategoryPages, ...caseStudyPages, ...blogPages, ...industryPages, ...marketPages, ...technologyPages, ...hirePages, ...compliancePages, ...productPages, ...productDemoPages];
+
+  // Never emit future-dated lastmod values — clamp to now.
+  const now = new Date();
+  return allPages.map((page) => {
+    if (page.lastModified instanceof Date && page.lastModified > now) {
+      return { ...page, lastModified: now };
+    }
+    return page;
+  });
 }

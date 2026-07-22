@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import connectDB from "@/lib/mongodb";
 import { CompanyInfo, TeamMember, Stat, TrustPoint, Page } from "@/lib/models";
 import { AboutContent } from "@/components/pages/about-content";
-import { TeamJsonLd, BreadcrumbJsonLd } from "@/components/seo";
+import { BreadcrumbJsonLd } from "@/components/seo";
 import type { ILocalizedContent } from "@/lib/models/page";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -10,9 +10,9 @@ export async function generateMetadata(): Promise<Metadata> {
     await connectDB();
     const pageData = await Page.findOne({ slug: "about", isPublished: true }).lean();
 
-    const title = pageData?.seoTitle?.en || "About Cloudrix - Senior Engineering for EU Companies";
+    const title = pageData?.seoTitle?.en || "About Cloudrix - Founder-Led Senior Engineering Studio";
     const description = pageData?.seoDescription?.en ||
-      "Meet the team behind Cloudrix. Senior engineers with 10+ years experience, serving European companies with cloud, development, and DevOps expertise.";
+      "Cloudrix is a founder-led engineering studio in Tilburg, Netherlands (founded 2026). One senior engineer with 10+ years of full-stack experience — EU AI Act implementation, AI systems, and cloud engineering.";
 
     return {
       title,
@@ -24,10 +24,10 @@ export async function generateMetadata(): Promise<Metadata> {
         type: "website",
         images: [
           {
-            url: `/og?title=${encodeURIComponent("Engineers Who Get Things Done")}&subtitle=${encodeURIComponent("Meet the senior team behind Cloudrix")}&type=about`,
+            url: `/og?title=${encodeURIComponent("A Founder-Led Engineering Studio")}&subtitle=${encodeURIComponent("Senior engineering, no juniors, no handoffs")}&type=about`,
             width: 1200,
             height: 630,
-            alt: "About Cloudrix - Our Team",
+            alt: "About Cloudrix",
           },
         ],
       },
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
         card: "summary_large_image",
         title: `${title}`,
         description,
-        images: [`/og?title=${encodeURIComponent("Engineers Who Get Things Done")}&subtitle=${encodeURIComponent("Meet the senior team behind Cloudrix")}&type=about`],
+        images: [`/og?title=${encodeURIComponent("A Founder-Led Engineering Studio")}&subtitle=${encodeURIComponent("Senior engineering, no juniors, no handoffs")}&type=about`],
       },
       alternates: {
         canonical: "https://www.cloudrix.io/about",
@@ -87,7 +87,6 @@ export default async function AboutPage() {
 
   return (
     <>
-      <TeamJsonLd members={teamMembers} />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "/" },

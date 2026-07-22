@@ -109,7 +109,7 @@ const leadMagnets = [
     icon: FileText,
     title: "EU AI Act Compliance Playbook",
     description:
-      "Step-by-step compliance checklist, risk classification matrix, documentation templates, and timeline planner. Everything you need to prepare for the deadline.",
+      "Step-by-step compliance checklist, risk classification matrix, documentation templates, and timeline planner. Covers the rules already in force and the December 2027 high-risk deadline.",
     pages: "28 pages",
     format: "PDF + Templates",
   },
@@ -129,7 +129,7 @@ const blogTopics = [
     category: "Cost Guide",
   },
   {
-    title: "EU AI Act compliance checklist: what you must do before the deadline",
+    title: "EU AI Act compliance checklist: what already applies and what's due by December 2027",
     category: "Compliance",
   },
   {

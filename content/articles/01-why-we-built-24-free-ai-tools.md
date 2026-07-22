@@ -72,7 +72,7 @@ We built a shared component library across all 24 tools — form inputs, report 
 
 ### The compliance scanner took off
 
-Our AI Act Compliance Scanner became the most-used tool within weeks of launch. We built it because we needed it for our own consulting work. It turns out every CTO in Europe is quietly panicking about the August 2026 deadline and wants a quick risk assessment.
+Our AI Act Compliance Scanner became the most-used tool within weeks of launch. We built it because we needed it for our own consulting work. It turns out every CTO in Europe wants a quick risk assessment — and even though the Digital Omnibus has pushed the high-risk deadline to December 2027, the prohibition and GPAI rules already apply, and procurement teams are asking AI Act questions today.
 
 ### Code review is sticky
 

@@ -3,6 +3,21 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      {
+        source: "/enterprise",
+        destination: "/products/enterprise",
+        permanent: true,
+      },
+      {
+        source: "/services/eu-ai-act-compliance",
+        destination: "/eu-ai-act",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

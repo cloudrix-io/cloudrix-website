@@ -36,7 +36,7 @@ import {
   Target,
   Layers,
 } from "lucide-react";
-import { Breadcrumbs } from "@/components/ui";
+import { Breadcrumbs, ProductMockup } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/seo";
 import {
   products,
@@ -98,6 +98,8 @@ export async function generateMetadata({
   return {
     title,
     description,
+    // Archived products stay routable but are kept out of the index
+    ...(product.hidden ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: `${title}`,
       description,
@@ -206,11 +208,11 @@ function PricingTiersSection({ product }: { product: Product }) {
           <div className="mb-4">
             {tier.priceMonthly !== undefined && tier.priceMonthly > 0 ? (
               <>
-                <span className="text-3xl font-bold text-white">${tier.priceMonthly}</span>
+                <span className="text-3xl font-bold text-white">&euro;{tier.priceMonthly}</span>
                 <span className="text-slate-400 text-sm">/mo</span>
                 {tier.priceYearly !== undefined && tier.priceYearly > 0 && (
                   <p className="text-xs text-slate-500 mt-1">
-                    ${tier.priceYearly}/yr (save ${tier.priceMonthly * 12 - tier.priceYearly})
+                    &euro;{tier.priceYearly}/yr (save &euro;{tier.priceMonthly * 12 - tier.priceYearly})
                   </p>
                 )}
               </>
@@ -363,19 +365,16 @@ export default async function ProductPage({
               </div>
             </div>
 
-            {/* Screenshot Placeholder */}
+            {/* Stylized product mockup (CSS-built from real feature list) */}
             <div className="relative lg:w-[480px] shrink-0">
               <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-1 shadow-2xl">
-                <div className="rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 aspect-[16/10] flex flex-col items-center justify-center gap-3 text-slate-600">
-                  <div
-                    className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${info.gradient} opacity-20`}
-                  >
-                    {Icon && <Icon className="h-8 w-8 text-white" />}
-                  </div>
-                  <span className="text-sm font-medium text-slate-500">
-                    Product Screenshot
-                  </span>
-                </div>
+                <ProductMockup
+                  name={product.name}
+                  slug={product.slug}
+                  gradient={info.gradient}
+                  features={product.features}
+                  icon={Icon ? <Icon /> : undefined}
+                />
               </div>
               {/* Decorative dots */}
               <div className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-violet-600/10 blur-2xl" />

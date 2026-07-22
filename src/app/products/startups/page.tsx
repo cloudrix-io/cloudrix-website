@@ -23,16 +23,16 @@ import { BreadcrumbJsonLd } from "@/components/seo";
 export const metadata: Metadata = {
   title: "Startup Program — 60% Off All Products | Cloudrix",
   description:
-    "Get CloudrixAI Chat, CodeScan AI, ScopeAI, StatusPage, and API Monitor for $299/month. 60% discount for startups under $1M revenue.",
+    "Get CloudrixAI Chat, CodeScan AI, ScopeAI, StatusPage, and API Monitor for €299/month. 60% discount for startups under €1M revenue.",
   openGraph: {
     title: "Startup Program — 60% Off All Products | Cloudrix",
     description:
-      "The complete startup stack for $299/month. Apply in 2 minutes, get approved in 24 hours, start building immediately.",
+      "The complete startup stack for €299/month. Apply in 2 minutes, get approved in 24 hours, start building immediately.",
     url: "https://www.cloudrix.io/products/startups",
     type: "website",
     images: [
       {
-        url: `/og?title=${encodeURIComponent("Startup Program")}&subtitle=${encodeURIComponent("60% off — everything for $299/mo")}&type=startups`,
+        url: `/og?title=${encodeURIComponent("Startup Program")}&subtitle=${encodeURIComponent("60% off — everything for €299/mo")}&type=startups`,
         width: 1200,
         height: 630,
         alt: "Cloudrix Startup Program",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Startup Program — 60% Off All Products",
     description:
-      "CloudrixAI Chat + CodeScan AI + ScopeAI + StatusPage + API Monitor for $299/month.",
+      "CloudrixAI Chat + CodeScan AI + ScopeAI + StatusPage + API Monitor for €299/month.",
   },
   alternates: {
     canonical: "https://www.cloudrix.io/products/startups",
@@ -54,35 +54,35 @@ const bundleProducts = [
   {
     name: "CloudrixAI Chat",
     description: "AI-powered customer support agent with RAG pipeline",
-    normalPrice: "$149/mo",
+    normalPrice: "€149/mo",
     icon: MessageSquareText,
     tier: "Pro",
   },
   {
     name: "CodeScan AI",
     description: "AI code review with security, performance, and architecture analysis",
-    normalPrice: "$79/mo",
+    normalPrice: "€79/mo",
     icon: ScanSearch,
     tier: "Team",
   },
   {
     name: "ScopeAI",
     description: "AI project scoping with timeline, cost, and tech stack recommendations",
-    normalPrice: "$99/mo",
+    normalPrice: "€99/mo",
     icon: FileText,
     tier: "Team",
   },
   {
     name: "StatusPage",
     description: "Professional status page with custom branding and subscriber alerts",
-    normalPrice: "$49/mo",
+    normalPrice: "€49/mo",
     icon: StatusIcon,
     tier: "Pro",
   },
   {
     name: "API Monitor",
     description: "Uptime monitoring from 12 global locations with 30-second checks",
-    normalPrice: "$49/mo",
+    normalPrice: "€49/mo",
     icon: Activity,
     tier: "Pro",
   },
@@ -95,7 +95,7 @@ const savingsPercent = Math.round(
 );
 
 const eligibilityCriteria = [
-  { text: "Under $1M in annual revenue", icon: DollarSign },
+  { text: "Under €1M in annual revenue", icon: DollarSign },
   { text: "Under 20 full-time employees", icon: Users },
   { text: "Founded less than 5 years ago", icon: Clock },
   { text: "Building a technology product", icon: Rocket },
@@ -125,7 +125,7 @@ const howItWorks = [
 const testimonials = [
   {
     quote:
-      "We replaced three separate tools with the Cloudrix startup bundle. Our monthly tooling cost dropped from $800 to $299 and everything works better together.",
+      "We replaced three separate tools with the Cloudrix startup bundle. Our monthly tooling cost dropped from €800 to €299 and everything works better together.",
     name: "Sarah Chen",
     title: "CTO, PayTrack (YC W24)",
     avatar: "SC",
@@ -179,7 +179,7 @@ export default function StartupsPage() {
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Startup Stack:
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400">
-                Everything for $299/month
+                Everything for €299/month
               </span>
             </h1>
             <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl">

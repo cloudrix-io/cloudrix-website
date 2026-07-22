@@ -144,14 +144,14 @@ const caseStudiesData = [
     slug: "eu-ai-act-compliance-program",
     client: "FinTech Company (Confidential)",
     industry: "FinTech / Regulatory",
-    challenge: "A FinTech company had deployed multiple AI systems across fraud detection, credit scoring, and customer onboarding — but had no compliance framework for the EU AI Act. An internal audit revealed that several systems likely qualified as 'high-risk' under the Act, exposing the company to significant fines. With the August 2, 2026 deadline approaching, the board demanded a comprehensive compliance program.",
+    challenge: "A FinTech company had deployed multiple AI systems across fraud detection, credit scoring, and customer onboarding — but had no compliance framework for the EU AI Act. An internal audit revealed that several systems likely qualified as 'high-risk' under the Act, exposing the company to significant fines. With the high-risk compliance deadline (since moved to December 2, 2027 by the Digital Omnibus) on the horizon and enterprise partners already asking AI Act questions in vendor reviews, the board demanded a comprehensive compliance program.",
     solution: "We executed a four-phase compliance program: AI system inventory and risk classification, Fundamental Rights Impact Assessments for high-risk systems, technical compliance controls (audit logging, bias monitoring, human override interfaces), and a governance framework including an AI ethics board charter and staff training.",
     results: [
       "All AI systems classified, documented, and mapped to EU AI Act risk categories",
       "High-risk systems fully remediated with technical and organizational controls",
       "Compliance documentation accepted during preliminary regulatory consultation",
       "Risk exposure reduced significantly through documented compliance posture",
-      "Program completed well ahead of the August 2026 deadline",
+      "Program completed well ahead of the regulatory deadline (now December 2, 2027)",
     ],
     technologies: ["Custom compliance tooling", "LangFuse", "Python", "Azure", "Power BI"],
     testimonial: {

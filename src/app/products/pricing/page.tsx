@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import {
-  products,
+  visibleProducts,
   categoryInfo,
   type ProductCategory,
   type PricingTier,
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: "Do you offer discounts for startups or non-profits?",
-    a: "Yes. We offer 50% off for qualifying startups (under 2 years old, under $1M ARR) and 30% off for registered non-profit organizations. Contact sales@cloudrix.io with your details.",
+    a: "Yes. We offer 50% off for qualifying startups (under 2 years old, under €1M ARR) and 30% off for registered non-profit organizations. Contact sales@cloudrix.io with your details.",
   },
   {
     q: "How does enterprise pricing work?",
@@ -62,7 +62,7 @@ function formatPrice(
   currency: "usd" | "eur"
 ): string {
   const sym = currency === "eur" ? "\u20AC" : "$";
-  if (tier.priceMonthly === 0 || tier.price === "$0") return `${sym}0`;
+  if (tier.priceMonthly === 0 || tier.price === "\u20AC0") return `${sym}0`;
   if (tier.price === "Custom" || !tier.priceMonthly) return "Custom";
   if (billingPeriod === "annual" && tier.priceYearly) {
     return `${sym}${Math.round(tier.priceYearly / 12)}`;
@@ -71,7 +71,7 @@ function formatPrice(
 }
 
 function getPerUnit(tier: PricingTier): string {
-  if (tier.priceMonthly === 0 || tier.price === "$0") return "";
+  if (tier.priceMonthly === 0 || tier.price === "\u20AC0") return "";
   if (tier.price === "Custom" || !tier.priceMonthly) return "";
   if (tier.price.includes("/candidate")) return "/candidate";
   return "/mo";
@@ -79,14 +79,14 @@ function getPerUnit(tier: PricingTier): string {
 
 export default function ProductPricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
-  const [currency, setCurrency] = useState<"usd" | "eur">("usd");
+  const [currency, setCurrency] = useState<"usd" | "eur">("eur");
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState<ProductCategory | "all">("all");
 
   const filteredProducts =
     activeCategory === "all"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+      ? visibleProducts
+      : visibleProducts.filter((p) => p.category === activeCategory);
 
   return (
     <>
@@ -99,7 +99,7 @@ export default function ProductPricingPage() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-300 mb-6">
             <Sparkles className="h-4 w-4" />
-            24 Products, Transparent Pricing
+            Transparent Pricing, No Surprises
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
             Choose the Right Plan for{" "}
@@ -261,7 +261,7 @@ export default function ProductPricingPage() {
                             {tiers.map((tier) => {
                               const displayPrice = formatPrice(tier, billingPeriod, currency);
                               const perUnit = getPerUnit(tier);
-                              const isFree = tier.priceMonthly === 0 || tier.price === "$0";
+                              const isFree = tier.priceMonthly === 0 || tier.price === "\u20AC0";
                               const isEnterprise = tier.price === "Custom" || !tier.priceMonthly;
                               const isPaid = !isFree && !isEnterprise;
                               const currencySymbol = currency === "eur" ? "\u20AC" : "$";

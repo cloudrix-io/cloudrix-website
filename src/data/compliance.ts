@@ -305,7 +305,7 @@ export const complianceFrameworks: ComplianceFramework[] = [
     ],
     externalLink: "/eu-ai-act",
     faq: [
-      { question: "When does the EU AI Act take effect?", answer: "The Act entered into force in August 2024. Prohibitions on unacceptable risk AI apply from February 2025. High-risk system requirements apply from August 2026. Full enforcement for all provisions by August 2027." },
+      { question: "When does the EU AI Act take effect?", answer: "The Act entered into force in August 2024. Prohibitions on unacceptable-risk AI apply since February 2025, and GPAI model obligations since August 2025. Under the June 2026 Digital Omnibus, high-risk (Annex III) requirements were delayed to December 2, 2027, and requirements for AI embedded in Annex I regulated products to August 2028. The delay is a window to implement properly now — market and procurement expectations already apply today." },
       { question: "Is our AI system high-risk?", answer: "AI systems are high-risk if used in areas listed in Annex III: biometric identification, critical infrastructure, education, employment, essential services, law enforcement, migration, and justice. We help you determine your classification." },
       { question: "What about general-purpose AI models like GPT?", answer: "GPAI providers have specific obligations: technical documentation, transparency, copyright compliance, and (for systemic risk models) adversarial testing, incident reporting, and cybersecurity measures." },
       { question: "How does this interact with GDPR?", answer: "The EU AI Act complements GDPR. AI systems processing personal data must comply with both. We implement controls that satisfy both regulatory frameworks simultaneously." },

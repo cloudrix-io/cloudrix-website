@@ -89,7 +89,7 @@ const comparisons: ComparisonCategory[] = [
       { feature: "On-premise deployment", support: { "CloudrixAI Chat": "full", Intercom: "none", Drift: "none", "Zendesk Chat": "none" } },
     ],
     pricing: [
-      { name: "CloudrixAI Chat", price: "From $0/mo" },
+      { name: "CloudrixAI Chat", price: "From \u20AC0/mo" },
       { name: "Intercom", price: "From $39/seat/mo" },
       { name: "Drift", price: "From $2,500/mo" },
       { name: "Zendesk Chat", price: "From $55/agent/mo" },
@@ -126,7 +126,7 @@ const comparisons: ComparisonCategory[] = [
       { feature: "EU data residency", support: { "CodeScan AI": "full", Snyk: "none", SonarCloud: "none", CodeClimate: "none" } },
     ],
     pricing: [
-      { name: "CodeScan AI", price: "From $0/mo" },
+      { name: "CodeScan AI", price: "From \u20AC0/mo" },
       { name: "Snyk", price: "From $0/mo (limited)" },
       { name: "SonarCloud", price: "From $0/mo (limited)" },
       { name: "CodeClimate", price: "From $49/mo" },
@@ -160,7 +160,7 @@ const comparisons: ComparisonCategory[] = [
       { feature: "Self-serve onboarding", support: { "AI Act Scanner": "full", OneTrust: "none", Vanta: "partial" } },
     ],
     pricing: [
-      { name: "AI Act Scanner", price: "From $0/mo" },
+      { name: "AI Act Scanner", price: "From \u20AC0/mo" },
       { name: "OneTrust", price: "Custom (typically $50K+/yr)" },
       { name: "Vanta", price: "From $4,000/yr" },
     ],
@@ -196,7 +196,7 @@ const comparisons: ComparisonCategory[] = [
       { feature: "AI meeting prep summaries", support: { SmartCRM: "full", HubSpot: "none", Salesforce: "none", Pipedrive: "none" } },
     ],
     pricing: [
-      { name: "SmartCRM", price: "From $39/mo (flat)" },
+      { name: "SmartCRM", price: "From \u20AC29/mo" },
       { name: "HubSpot", price: "From $0/mo (limited)" },
       { name: "Salesforce", price: "From $25/user/mo" },
       { name: "Pipedrive", price: "From $14/user/mo" },
@@ -206,41 +206,6 @@ const comparisons: ComparisonCategory[] = [
       "Flat pricing — no per-user or per-contact charges that scale unpredictably",
       "Full data export with no vendor lock-in",
       "EU-hosted with GDPR compliance by default",
-    ],
-  },
-  {
-    id: "helpdesk",
-    title: "AI Helpdesk",
-    cloudrixProduct: "HelpDesk AI",
-    competitors: [
-      { name: "HelpDesk AI", isCloudrix: true },
-      { name: "Zendesk" },
-      { name: "Freshdesk" },
-      { name: "Intercom" },
-    ],
-    features: [
-      { feature: "AI ticket routing & prioritization", support: { "HelpDesk AI": "full", Zendesk: "partial", Freshdesk: "partial", Intercom: "partial" } },
-      { feature: "AI auto-draft responses", support: { "HelpDesk AI": "full", Zendesk: "partial", Freshdesk: "none", Intercom: "full" } },
-      { feature: "Real-time sentiment analysis", support: { "HelpDesk AI": "full", Zendesk: "none", Freshdesk: "none", Intercom: "partial" } },
-      { feature: "Knowledge base suggestions", support: { "HelpDesk AI": "full", Zendesk: "full", Freshdesk: "full", Intercom: "full" } },
-      { feature: "SLA tracking & escalation", support: { "HelpDesk AI": "full", Zendesk: "full", Freshdesk: "full", Intercom: "partial" } },
-      { feature: "Multi-channel (email, chat, social)", support: { "HelpDesk AI": "full", Zendesk: "full", Freshdesk: "full", Intercom: "full" } },
-      { feature: "No per-agent pricing", support: { "HelpDesk AI": "full", Zendesk: "none", Freshdesk: "none", Intercom: "none" } },
-      { feature: "EU AI Act compliant", support: { "HelpDesk AI": "full", Zendesk: "none", Freshdesk: "none", Intercom: "none" } },
-      { feature: "On-premise deployment", support: { "HelpDesk AI": "full", Zendesk: "none", Freshdesk: "none", Intercom: "none" } },
-      { feature: "Custom AI model tuning", support: { "HelpDesk AI": "full", Zendesk: "none", Freshdesk: "none", Intercom: "partial" } },
-    ],
-    pricing: [
-      { name: "HelpDesk AI", price: "From $49/mo (flat)" },
-      { name: "Zendesk", price: "From $55/agent/mo" },
-      { name: "Freshdesk", price: "From $0/mo (limited)" },
-      { name: "Intercom", price: "From $39/seat/mo" },
-    ],
-    cloudrixAdvantages: [
-      "AI-native with sentiment analysis and auto-draft responses built in",
-      "No per-agent pricing — scale your team without scaling costs",
-      "EU AI Act compliant and available for on-premise deployment",
-      "Custom AI model tuning to match your support tone and domain",
     ],
   },
 ];

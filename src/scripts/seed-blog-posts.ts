@@ -2232,7 +2232,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
     relatedPostSlugs: ["ai-automation-real-use-cases-roi"],
     readingTime: 12,
     content: `<h2>AI Strategy for European Companies: The Regulatory Context Is Now Real</h2>
-<p>The EU AI Act entered into force in August 2024 with a phased implementation schedule. As of 2026, the prohibitions on unacceptable-risk AI are fully in effect, high-risk AI system requirements are actively enforced, and the EU AI Office is operational and conducting investigations. For European companies building AI products or deploying AI internally, compliance is no longer a future consideration — it is a current legal obligation. This guide gives you a practical AI strategy framework that treats compliance as a competitive advantage, not a constraint.</p>
+<p>The EU AI Act entered into force in August 2024 with a phased implementation schedule. As of 2026, the prohibitions on unacceptable-risk AI are fully in effect, GPAI model obligations apply, and the EU AI Office is operational. High-risk (Annex III) system requirements were delayed by the June 2026 Digital Omnibus and now apply from 2 December 2027 — but for European companies building AI products or deploying AI internally, compliance is no longer a purely future consideration: parts of the Act are current legal obligations, and enterprise buyers already ask for AI Act readiness in vendor reviews. This guide gives you a practical AI strategy framework that treats compliance as a competitive advantage, not a constraint.</p>
 
 <p>The business case for EU-compliant AI is becoming clearer: <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" rel="noopener noreferrer" target="_blank">McKinsey's State of AI report</a> finds that companies with mature AI governance practices outperform peers on AI adoption ROI by 35%, primarily because they avoid costly retroactive compliance remediation and maintain customer trust that enables broader AI deployment.</p>
 
@@ -2551,14 +2551,14 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
   // 17. EU AI Act Compliance Checklist
   // ─────────────────────────────────────────────────────────────────────────────
   {
-    title: "EU AI Act Compliance Checklist: What You Must Do Before August 2026",
+    title: "EU AI Act Compliance Checklist: What Already Applies and What's Due by December 2027",
     slug: "eu-ai-act-compliance-checklist",
     featuredImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&auto=format&q=80",
     excerpt:
-      "The EU AI Act's general-purpose AI and high-risk obligations take effect August 2026. This actionable checklist covers system inventory, risk classification, FRIA, documentation, technical controls, governance, and training — with deadlines.",
-    seoTitle: "EU AI Act Compliance Checklist for August 2026",
+      "The Digital Omnibus moved the EU AI Act's high-risk deadline to December 2, 2027 — but prohibitions, GPAI rules, and AI-literacy duties already apply. This actionable checklist covers system inventory, risk classification, FRIA, documentation, technical controls, governance, and training — with the updated deadlines.",
+    seoTitle: "EU AI Act Compliance Checklist (Updated for the Digital Omnibus)",
     seoDescription:
-      "Actionable EU AI Act compliance checklist: risk classification, FRIA, documentation, governance. Step-by-step guide for August 2026 deadline.",
+      "Actionable EU AI Act compliance checklist: risk classification, FRIA, documentation, governance. Updated for the December 2, 2027 high-risk deadline.",
     category: "AI & Machine Learning",
     tags: ["eu ai act", "compliance", "regulation", "ai governance", "gdpr"],
     isFeatured: false,
@@ -2567,8 +2567,10 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
     relatedServiceSlugs: ["ai-consulting", "llm-integration"],
     relatedPostSlugs: ["ai-strategy-european-companies-gdpr", "ai-automation-real-use-cases-roi"],
     readingTime: 10,
-    content: `<h2>The August 2026 Deadline Is Real — and Most Companies Are Not Ready</h2>
-<p>The EU AI Act entered into force on 1 August 2024, but the obligations that affect most businesses — general-purpose AI model rules and high-risk AI system requirements — take effect on <strong>2 August 2026</strong>. That gives you roughly one month from the date of this article to ensure compliance.</p>
+    content: `<h2>The Deadline Moved — but the Work Didn't Go Away</h2>
+<p>The EU AI Act entered into force on 1 August 2024. Under the <strong>Digital Omnibus</strong> (endorsed by the European Parliament on 16 June 2026, final Council approval 29 June 2026), the high-risk (Annex III) obligations originally due 2 August 2026 now apply from <strong>2 December 2027</strong>, and obligations for AI embedded in Annex I regulated products from <strong>August 2028</strong>. The Omnibus also targets roughly a 35% reduction in compliance burden for SMEs.</p>
+
+<p>That does not mean you can relax: prohibitions on unacceptable-risk AI (since February 2025), GPAI model obligations (since August 2025), and AI-literacy requirements are already in force — and enterprise procurement questionnaires and vendor reviews are asking AI Act questions today. The delay is a window to implement properly and affordably now, rather than scrambling alongside everyone else in late 2027.</p>
 
 <p>If your organisation uses AI systems that classify, score, recommend, or make decisions about people — whether in HR, finance, healthcare, or customer service — you are likely operating a high-risk AI system under the Act. Non-compliance carries fines of up to <strong>35 million euros or 7% of global turnover</strong>, whichever is higher.</p>
 
@@ -2712,13 +2714,13 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
       <td>Already in effect</td>
     </tr>
     <tr>
-      <td>2 Aug 2026</td>
-      <td>GPAI model obligations; high-risk system requirements (for systems in Annex III)</td>
-      <td>Due in ~1 month</td>
+      <td>2 Dec 2027</td>
+      <td>High-risk system requirements for Annex III systems (delayed from 2 Aug 2026 by the Digital Omnibus)</td>
+      <td>Upcoming</td>
     </tr>
     <tr>
-      <td>2 Aug 2027</td>
-      <td>High-risk systems that are safety components of products (Annex I)</td>
+      <td>Aug 2028</td>
+      <td>High-risk systems that are safety components of products (Annex I, delayed by the Digital Omnibus)</td>
       <td>Future</td>
     </tr>
   </tbody>
@@ -6014,7 +6016,7 @@ async function hybridRetrieve(
     slug: "eu-ai-act-compliance-checklist-2026",
     featuredImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&auto=format&q=80",
     excerpt:
-      "The EU AI Act is now enforceable with penalties up to EUR 35 million or 7% of global turnover. This checklist covers risk classification, documentation requirements, and the technical controls your AI systems need to be compliant.",
+      "The EU AI Act's prohibitions and GPAI rules already apply, and high-risk obligations land on December 2, 2027 after the Digital Omnibus delay. This checklist covers risk classification, documentation requirements, and the technical controls your AI systems need to be compliant.",
     category: "AI & Machine Learning",
     tags: [
       "eu ai act",
@@ -6034,8 +6036,8 @@ async function hybridRetrieve(
       "ai-powered-customer-support-roi",
     ],
     readingTime: 11,
-    content: `<h2>The EU AI Act Is Now Enforceable</h2>
-<p>As of February 2025, the EU AI Act's prohibited practices provisions are in force. By August 2025, the transparency obligations for general-purpose AI models applied. And starting August 2026, the full regulation — including high-risk AI system requirements — becomes enforceable with penalties up to <strong>EUR 35 million or 7% of global annual turnover</strong>, whichever is higher.</p>
+    content: `<h2>The EU AI Act Is Already Partly Enforceable — and the Rest Now Lands in December 2027</h2>
+<p>As of February 2025, the EU AI Act's prohibited practices provisions are in force. Since August 2025, the obligations for general-purpose AI models apply. And under the Digital Omnibus (adopted June 2026), the high-risk (Annex III) system requirements now become enforceable on <strong>2 December 2027</strong> — with penalties up to <strong>EUR 35 million or 7% of global annual turnover</strong>, whichever is higher. AI embedded in Annex I regulated products follows in August 2028.</p>
 
 <p>This is not theoretical. The <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" rel="noopener noreferrer" target="_blank">European AI Office</a> is actively setting up enforcement mechanisms. If you deploy or develop AI systems that serve EU citizens, this regulation applies to you — regardless of where your company is headquartered.</p>
 
@@ -6075,7 +6077,7 @@ async function hybridRetrieve(
 <p>Most AI systems fall here — spam filters, recommendation engines, search rankings, predictive maintenance. These have no specific obligations under the EU AI Act, but GDPR still applies to any personal data processing.</p>
 
 <h2>Step 2: High-Risk AI System Requirements Checklist</h2>
-<p>If any of your AI systems are classified as high-risk, you must comply with these requirements by August 2026:</p>
+<p>If any of your AI systems are classified as high-risk, you must comply with these requirements by 2 December 2027 — and enterprise customers may expect evidence of progress well before then:</p>
 
 <h3>Risk Management System (Article 9)</h3>
 <ul>
@@ -6211,8 +6213,8 @@ interface AIAuditLog {
 
 <p>For SMEs and startups, the fines are proportionally lower but still significant.</p>
 
-<h2>Get Compliant Before the Deadline</h2>
-<p>The August 2026 enforcement deadline for high-risk systems is approaching. If you need help classifying your AI systems, implementing technical controls, or preparing documentation, our <a href="/services/ai-consulting">AI consulting team</a> runs a structured EU AI Act compliance programme. <a href="/contact">Book a free compliance assessment</a> to understand your exposure and build a remediation roadmap.</p>`,
+<h2>Use the Delay Wisely</h2>
+<p>The Digital Omnibus moved the high-risk enforcement deadline to December 2, 2027 — which means you can implement properly and affordably now instead of competing for scarce compliance capacity in late 2027. And the prohibitions, GPAI obligations, and AI-literacy rules already apply today. If you need help classifying your AI systems, implementing technical controls, or preparing documentation, our <a href="/services/ai-consulting">AI consulting team</a> runs a structured EU AI Act compliance programme. <a href="/contact">Book a free compliance assessment</a> to understand your exposure and build a remediation roadmap.</p>`,
   },
 
   // ─────────────────────────────────────────────────────────────────────────────

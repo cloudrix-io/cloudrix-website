@@ -63,7 +63,7 @@ const SAMPLE_RESULT = {
     immediate: "Begin risk management system design and data governance audit",
     threeMonths: "Complete technical documentation and implement logging systems",
     sixMonths: "Conduct conformity assessment and register in EU database",
-    twelveMonths: "Full compliance with all high-risk requirements by August 2026 deadline",
+    twelveMonths: "Full compliance with all high-risk requirements well ahead of the December 2, 2027 deadline",
   },
 };
 

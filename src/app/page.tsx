@@ -13,26 +13,26 @@ import type { ILocalizedContent } from "@/lib/models/page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloudrix | AI & Cloud Engineering — 24 Free Tools, 50+ Markets",
+  title: "Cloudrix | EU AI Act Implementation Engineering & AI Systems",
   description:
-    "Senior AI & cloud engineers serving 50+ countries. 24 free tools, EU AI Act compliance, RAG systems, and DevOps. Try free tools or book a free 30-min strategy call — no lock-in.",
+    "EU AI Act implementation by engineers, not lawyers. The high-risk deadline moved to Dec 2, 2027 — start now and implement compliance properly, from a EUR 2,500 Quick Scan to full programs. Plus AI agents, RAG systems, and cloud engineering.",
 };
 
 const homeFaqs = [
   {
     question: "What services does Cloudrix offer?",
     answer:
-      "Cloudrix offers cloud migration, AI agent development, RAG system implementation, EU AI Act compliance consulting, DevOps automation, and full-stack product development. We serve companies worldwide from our Netherlands base.",
+      "Cloudrix specializes in EU AI Act implementation engineering — risk classification, technical documentation, and compliance controls built into your codebase. We also build AI agents, RAG systems, and cloud infrastructure. Founder-led, Netherlands-based.",
   },
   {
     question: "How much does Cloudrix charge?",
     answer:
-      "Quick Win engagements start from EUR 1,500, dedicated engineering teams from EUR 8,500 per month (with a EUR 7,500 trial month), and AI projects from EUR 2,500 for a compliance scan up to EUR 200K+ for full enterprise deployments. Multi-currency invoicing in EUR, USD, GBP, and AED.",
+      "EU AI Act work starts at EUR 2,500 for a 1-day Quick Scan, EUR 8,000\u201315,000 for a full compliance audit, and EUR 25,000\u201360,000 for an implementation program. Dedicated engineering starts at EUR 8,500 per month, with a discounted first month at EUR 7,500 so you can evaluate the fit. All prices in EUR.",
   },
   {
     question: "Does Cloudrix work with US and international companies?",
     answer:
-      "Yes, Cloudrix serves clients in 50+ countries including the US, UK, Germany, UAE, Singapore, Australia, and more. We use async-first workflows and flexible scheduling across timezones, with USD, GBP, and AED invoicing available.",
+      "Yes. The EU AI Act applies to any company whose AI systems are used in the EU, regardless of where the company is headquartered. We work async-first with flexible scheduling across timezones.",
   },
   {
     question: "What free AI tools does Cloudrix offer?",
@@ -40,9 +40,14 @@ const homeFaqs = [
       "Cloudrix offers 24 free tools including an AI Code Reviewer, EU AI Act Compliance Scanner, Cloud Cost Calculator, Tech Stack Advisor, and more. All tools are free to use with no signup required.",
   },
   {
+    question: "What is the current EU AI Act deadline?",
+    answer:
+      "Following the EU Digital Omnibus (approved June 2026), high-risk (Annex III) obligations now apply from December 2, 2027, and Annex I embedded-AI obligations from August 2028. Prohibitions (February 2025) and GPAI obligations (August 2025) already apply. The extended window is the opportunity: companies that start now spread the cost and avoid paying panic prices in late 2027.",
+  },
+  {
     question: "Where is Cloudrix based?",
     answer:
-      "Cloudrix is based in Tilburg, Netherlands and is registered with the Dutch Chamber of Commerce (KVK). We operate under EU jurisdiction with full GDPR compliance, serving clients globally across Europe, the Americas, Middle East, Asia-Pacific, and Africa.",
+      "Cloudrix is based in Tilburg, Netherlands and is registered with the Dutch Chamber of Commerce (KVK 97732699). We operate under EU jurisdiction with GDPR-compliant practices and serve clients internationally.",
   },
 ];
 

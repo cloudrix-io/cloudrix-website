@@ -1,20 +1,20 @@
 ---
-title: "EU AI Act Compliance: What Every CTO Needs to Know Before August 2026"
+title: "EU AI Act Compliance: What Every CTO Needs to Know Now That the Deadline Moved"
 published: true
-description: "The EU AI Act's main compliance deadline is August 2, 2026. Here's a practical breakdown of risk classifications, what your company needs to do, and how to avoid fines up to €35M."
+description: "The EU Digital Omnibus delayed high-risk AI Act obligations to December 2, 2027 — but prohibitions and GPAI duties already apply. Here's a practical breakdown of risk classifications, what your company needs to do, and how to avoid fines up to €35M."
 tags: ai, compliance, security, startup
 canonical_url: https://www.cloudrix.io/eu-ai-act
 cover_image:
 series:
 ---
 
-# EU AI Act Compliance: What Every CTO Needs to Know Before August 2026
+# EU AI Act Compliance: What Every CTO Needs to Know Now That the Deadline Moved
 
 The EU AI Act is the world's first comprehensive AI regulation. If your company develops, deploys, or uses AI systems that affect EU citizens — regardless of where your headquarters is — this applies to you.
 
-The main compliance deadline is **August 2, 2026**. Fines range from **€7.5M to €35M**, or **1-7% of global annual turnover**, whichever is higher.
+The timeline just changed. Under the EU **Digital Omnibus** (endorsed by the European Parliament on June 16, 2026, with final Council approval on June 29, 2026), the high-risk (Annex III) obligations originally due August 2, 2026 are now delayed to **December 2, 2027**, and obligations for AI embedded in Annex I regulated products move to **August 2028**. The Omnibus also targets roughly a 35% reduction in compliance burden for SMEs. Fines still range from **€7.5M to €35M**, or **1-7% of global annual turnover**, whichever is higher.
 
-This is not theoretical. The prohibited practices section is already enforceable as of February 2025. Companies are already being assessed.
+Don't mistake the delay for a reprieve. The prohibited practices section has been enforceable since February 2, 2025, GPAI model obligations have applied since August 2, 2025, and AI-literacy requirements are in force. Enterprise buyers and procurement teams are already asking vendors AI Act questions today.
 
 Here's what you actually need to do.
 
@@ -91,11 +91,11 @@ This is relatively straightforward. If you run a chatbot, add a disclosure. If y
 | Date | What Happens |
 |------|-------------|
 | **Feb 2, 2025** | Prohibited AI practices enforceable (already in effect) |
-| **Aug 2, 2025** | General-purpose AI (GPAI) model obligations begin |
-| **Aug 2, 2026** | Main compliance deadline: high-risk systems, transparency obligations, governance requirements |
-| **Aug 2, 2027** | Extended deadline for certain high-risk AI in regulated products |
+| **Aug 2, 2025** | General-purpose AI (GPAI) model obligations begin (already in effect) |
+| **Dec 2, 2027** | High-risk (Annex III) obligations apply — delayed from Aug 2, 2026 by the Digital Omnibus |
+| **Aug 2028** | Obligations for AI embedded in Annex I regulated products |
 
-If you're reading this in 2026, you have roughly 13 months for the main deadline. That sounds like a lot. It isn't.
+The delay is a genuine window: you can implement properly and cheaply now, or panic-buy consultants in late 2027 alongside everyone else. Documentation, data governance, and organizational change are exactly the things that can't be compressed into a last-minute sprint.
 
 ## A Practical Compliance Roadmap
 
@@ -162,7 +162,7 @@ Compliance is not a one-time project. You need:
 
 **Ignoring third-party AI tools.** If your team uses ChatGPT, Copilot, or any AI SaaS tool for work that affects decisions, you may have obligations. The Act covers deployers, not just developers.
 
-**Waiting for "final guidance."** The Act is final. The timelines are set. Waiting for more clarity is a strategy for missing the deadline.
+**Treating the Omnibus delay as a reason to do nothing.** The high-risk deadline moved to December 2027, but prohibitions and GPAI obligations already apply, and enterprise procurement questionnaires and vendor security reviews are asking about AI Act readiness right now. The delay changes when regulators can fine you — not when the market expects answers.
 
 **Treating it as a legal problem.** This requires engineering involvement. Technical documentation, logging systems, bias testing, and human oversight mechanisms are engineering deliverables.
 
@@ -183,7 +183,7 @@ These numbers vary significantly based on how many AI systems you operate and th
 
 The companies that will have the smoothest path to compliance are the ones starting now. Not because the technical work is hard — most of it is documentation and process — but because organizational change takes time.
 
-Start with the inventory. Know what AI systems you're running. Classify them. Then work backwards from August 2026 to build your remediation timeline.
+Start with the inventory. Know what AI systems you're running. Classify them. Then work backwards from December 2027 to build your remediation timeline — with plenty of margin, while advisory capacity is still cheap and available.
 
 If you want an instant risk assessment, we built a [free AI Act Compliance Scanner](https://www.cloudrix.io/products/ai-act-scanner/demo) that classifies your AI system and identifies compliance gaps in minutes.
 

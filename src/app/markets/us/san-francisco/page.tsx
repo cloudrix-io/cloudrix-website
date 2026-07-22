@@ -4,6 +4,7 @@ import { MarketPage } from "@/components/pages/market-page";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Cloud & AI Engineering for San Francisco Startups - Silicon Valley Focus",
   description:
     "Cloud architecture, AI/ML engineering, and DevOps for SF Bay Area startups and scale-ups. From seed to Series C. SOC 2 ready, investor-grade infrastructure. Book a free call.",

@@ -315,10 +315,10 @@ export const caseStudies: CaseStudy[] = [
     client: "FinTech Company (Confidential)",
     industry: "FinTech / Regulatory",
     description:
-      "Executed a comprehensive EU AI Act compliance program for a FinTech company, classifying and remediating all AI systems ahead of the August 2026 deadline.",
+      "Executed a comprehensive EU AI Act compliance program for a FinTech company, classifying and remediating all AI systems well ahead of the regulatory timeline \u2014 now December 2027 for high-risk systems.",
     duration: "5 months",
     challenge:
-      "A FinTech company had deployed multiple AI systems across fraud detection, credit scoring, and customer onboarding — but had no compliance framework for the EU AI Act. An internal audit revealed that several systems likely qualified as 'high-risk' under the Act, exposing the company to fines of up to 7% of global turnover. With the August 2, 2026 deadline approaching, the board demanded a comprehensive compliance program.",
+      "A FinTech company had deployed multiple AI systems across fraud detection, credit scoring, and customer onboarding — but had no compliance framework for the EU AI Act. An internal audit revealed that several systems likely qualified as 'high-risk' under the Act, exposing the company to fines of up to 7% of global turnover. With the high-risk compliance deadline (since moved to December 2, 2027 by the Digital Omnibus) on the horizon and enterprise partners already asking AI Act questions in vendor reviews, the board demanded a comprehensive compliance program.",
     solution:
       "We executed a four-phase compliance program: AI system inventory and risk classification, Fundamental Rights Impact Assessments for high-risk systems, technical compliance controls (audit logging, bias monitoring, human override interfaces), and a governance framework including an AI ethics board charter and staff training. Each phase included regulatory consultation checkpoints.",
     results: [
@@ -326,7 +326,7 @@ export const caseStudies: CaseStudy[] = [
       "4 high-risk systems fully remediated with technical and organizational controls",
       "Compliance documentation accepted during preliminary regulatory consultation",
       "Potential fine exposure reduced from 7% of turnover to documented compliance",
-      "Program completed 6 months ahead of the August 2026 deadline",
+      "Program completed well ahead of the regulatory deadline (now December 2, 2027)",
       "AI ethics board established with quarterly review cadence",
     ],
     technologies: [
@@ -346,7 +346,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { label: "Systems", value: "All compliant" },
       { label: "Risk", value: "Mitigated" },
-      { label: "Timeline", value: "6mo early" },
+      { label: "Timeline", value: "Ahead of deadline" },
     ],
   },
 ];

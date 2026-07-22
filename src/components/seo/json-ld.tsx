@@ -18,7 +18,7 @@ export function OrganizationJsonLd() {
     description:
       "Senior engineering teams for companies worldwide. Cloud architecture, product development, DevOps, and AI/ML consulting. Serving Europe, US, Middle East, Asia-Pacific, and Africa.",
     email: "contact@cloudrix.io",
-    foundingDate: "2024",
+    foundingDate: "2026",
     founders: [
       {
         "@type": "Person",

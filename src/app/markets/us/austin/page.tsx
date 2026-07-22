@@ -4,6 +4,7 @@ import { MarketPage } from "@/components/pages/market-page";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Cloud & AI Engineering for Austin Tech Companies",
   description:
     "Cloud architecture, AI integration, and DevOps for Austin's booming tech scene. From enterprise relocations to homegrown startups. SOC 2 ready, CST overlap. Free strategy call.",

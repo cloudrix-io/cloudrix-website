@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/seo";
-import { products } from "@/data/products";
+import { visibleProducts } from "@/data/products";
 
 export const metadata: Metadata = {
   title: "Enterprise AI & Engineering Products | Cloudrix",
@@ -157,23 +157,23 @@ const productCategories = [
   {
     name: "AI-Powered Suite",
     description: "LLM-powered tools for code review, compliance, content, and customer support.",
-    products: products.filter((p) => p.category === "ai-powered"),
+    products: visibleProducts.filter((p) => p.category === "ai-powered"),
     gradient: "from-violet-600 to-purple-600",
-    enterprisePrice: "From $2,500/mo",
+    enterprisePrice: "From \u20AC2,500/mo",
   },
   {
     name: "AI-Enhanced Business Suite",
     description: "CRM, analytics, helpdesk, and invoicing with built-in AI intelligence.",
-    products: products.filter((p) => p.category === "ai-enhanced"),
+    products: visibleProducts.filter((p) => p.category === "ai-enhanced"),
     gradient: "from-blue-600 to-cyan-600",
-    enterprisePrice: "From $3,000/mo",
+    enterprisePrice: "From \u20AC3,000/mo",
   },
   {
     name: "Engineering & DevOps Suite",
     description: "Monitoring, deployment, security scanning, and infrastructure management.",
-    products: products.filter((p) => p.category === "engineering-tools"),
+    products: visibleProducts.filter((p) => p.category === "engineering-tools"),
     gradient: "from-emerald-600 to-teal-600",
-    enterprisePrice: "From $1,500/mo",
+    enterprisePrice: "From \u20AC1,500/mo",
   },
 ];
 

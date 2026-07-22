@@ -4,6 +4,7 @@ import { MarketPage } from "@/components/pages/market-page";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Cloud & AI Engineering for Dubai Tech Hub - Smart City & Fintech",
   description:
     "Cloud architecture, AI solutions, and fintech platforms for Dubai's technology ecosystem. DIFC compliance, smart city infrastructure, Dubai Blockchain Strategy. AED pricing. Free consultation.",

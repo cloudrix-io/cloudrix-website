@@ -4,6 +4,7 @@ import { MarketPage } from "@/components/pages/market-page";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Cloud & AI Engineering for Boston Healthcare & Biotech Companies",
   description:
     "HIPAA-compliant cloud architecture, AI/ML engineering, and DevOps for Boston's healthcare, biotech, and edtech sectors. FDA-ready systems. Full EST overlap. Free consultation.",

@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { Header, Footer } from "@/components/layout";
-import { ExitIntentPopup, SocialProofNotification, AiChatWidget, ToolsBanner } from "@/components/ui";
+import { ExitIntentPopup, AiChatWidget, ToolsBanner } from "@/components/ui";
 import { LanguageProvider } from "@/contexts/language-context";
 import {
   OrganizationJsonLd,
@@ -206,7 +206,6 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
           <ExitIntentPopup />
-          <SocialProofNotification />
           <AiChatWidget />
         </LanguageProvider>
         <Analytics />

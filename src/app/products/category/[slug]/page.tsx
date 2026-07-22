@@ -33,7 +33,7 @@ import {
   Brain,
   Code,
 } from "lucide-react";
-import { Breadcrumbs } from "@/components/ui";
+import { Breadcrumbs, ProductMockup } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/seo";
 import {
   productCategories,
@@ -119,7 +119,7 @@ function getStartingPrice(product: Product): string {
     );
     if (paidTiers.length > 0) {
       const cheapest = Math.min(...paidTiers.map((t) => t.priceMonthly!));
-      return `From $${cheapest}/mo`;
+      return `From \u20AC${cheapest}/mo`;
     }
   }
   return "Free";
@@ -175,14 +175,16 @@ function DetailedProductCard({ product, gradient }: { product: Product; gradient
   return (
     <div className="group rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/80">
       <div className="grid lg:grid-cols-5 gap-0">
-        {/* Screenshot placeholder */}
-        <div className="lg:col-span-2 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 flex items-center justify-center min-h-[240px]">
-          <div className="text-center">
-            <div className={`flex h-20 w-20 mx-auto items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} opacity-30 mb-4`}>
-              {Icon && <Icon className="h-10 w-10 text-white" />}
-            </div>
-            <span className="text-sm text-slate-500">Product Screenshot</span>
-          </div>
+        {/* Stylized product mockup (CSS-built from real feature list) */}
+        <div className="lg:col-span-2 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-6 flex items-center justify-center min-h-[240px]">
+          <ProductMockup
+            name={product.name}
+            slug={product.slug}
+            gradient={gradient}
+            features={product.features}
+            icon={Icon ? <Icon /> : undefined}
+            className="w-full max-w-sm shadow-xl"
+          />
         </div>
 
         {/* Content */}

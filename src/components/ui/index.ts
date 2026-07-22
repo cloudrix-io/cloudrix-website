@@ -30,3 +30,4 @@ export { GridPattern } from "./grid-pattern";
 export { ServiceIcon } from "./service-icon";
 export { PricingCard, type PricingCardProps } from "./pricing-card";
 export { BillingToggle } from "./billing-toggle";
+export { ProductMockup } from "./product-mockup";

@@ -4,6 +4,7 @@ import { MarketPage } from "@/components/pages/market-page";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Cloud & AI Engineering for New York Companies - Financial Services Focus",
   description:
     "Enterprise cloud solutions for NYC financial services, fintech, and media companies. SOC 2, PCI DSS, SOX compliant. Full EST overlap. Book a free strategy call today.",

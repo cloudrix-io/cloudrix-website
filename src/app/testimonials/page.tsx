@@ -1,18 +1,16 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Quote, ArrowRight, Building2 } from "lucide-react";
-import connectDB from "@/lib/mongodb";
-import { CaseStudy } from "@/lib/models";
+import { ArrowRight, Shield, Users, FileCode, Sparkles } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "Project Scenarios — Representative Work",
+  title: "Client Proof & Guarantees — An Honest Page",
   description:
-    "Representative project scenarios illustrating our approach to cloud architecture, AI systems, and software development for companies worldwide.",
+    "Cloudrix is an early-stage, founder-led studio. Instead of anonymous testimonials, we offer real guarantees: first-sprint refund, fixed scope, and direct access to the engineer.",
   openGraph: {
-    title: "Client Testimonials",
+    title: "Client Proof & Guarantees | Cloudrix",
     description:
-      "Hear from the companies we've helped worldwide with cloud architecture, software development, and DevOps.",
+      "No anonymous quotes, no fake logos. Early clients get founder-level attention, case-study pricing, and a first-sprint refund guarantee.",
     url: "https://www.cloudrix.io/testimonials",
   },
   alternates: {
@@ -20,85 +18,36 @@ export const metadata: Metadata = {
   },
 };
 
-interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
-  company: string;
-  industry: string;
-  metrics?: { label: string; value: string }[];
-}
-
-async function getTestimonials() {
-  try {
-    await connectDB();
-
-    const caseStudies = await CaseStudy.find({
-      isActive: true,
-      "testimonial.quote": { $exists: true, $ne: "" },
-    })
-      .sort({ order: 1 })
-      .lean();
-
-    const testimonials: Testimonial[] = caseStudies.map((cs) => ({
-      quote: cs.testimonial?.quote || "",
-      author: cs.testimonial?.author || "",
-      role: cs.testimonial?.role || "",
-      company: cs.client,
-      industry: cs.industry,
-      metrics: cs.metrics,
-    }));
-
-    return { testimonials };
-  } catch (error) {
-    console.error("Error fetching testimonials:", error);
-    return { testimonials: [] };
-  }
-}
-
-const featuredTestimonials: Testimonial[] = [
+const guarantees = [
   {
-    quote:
-      "The migration transformed how we operate. We went from dreading high-traffic periods to confidently scaling for them. The team understood our compliance requirements without lengthy explanations.",
-    author: "VP of Engineering",
-    role: "Cloud Migration",
-    company: "FinTech Company (Confidential)",
-    industry: "Financial Services / FinTech",
-    metrics: [
-      { label: "Uptime", value: "99.99%" },
-      { label: "Infra Cost", value: "-55%" },
-    ],
+    icon: Shield,
+    title: "First-Sprint Refund",
+    description:
+      "If you're not satisfied with the first sprint delivery, you get a full refund. No questions asked, no fine print games.",
+    link: "/refunds",
+    linkText: "Read the refund policy",
   },
   {
-    quote:
-      "Working with Cloudrix was like having a world-class engineering team from day one. They helped us think through product decisions and built something that investors immediately recognized as enterprise-grade.",
-    author: "Co-founder & CEO",
-    role: "MVP Development",
-    company: "SaaS Startup (Confidential)",
-    industry: "Enterprise SaaS",
-    metrics: [
-      { label: "Time to MVP", value: "14 weeks" },
-      { label: "Funding", value: "Secured" },
-    ],
+    icon: FileCode,
+    title: "Fixed Scope, Fixed Price",
+    description:
+      "Every engagement starts with a written scope and a fixed price. Any change requires your explicit sign-off before it costs you a cent.",
   },
   {
-    quote:
-      "We were terrified of touching our ERP — one wrong change and production stops. The incremental approach let us modernize without betting the company. Our system is now an asset instead of a liability.",
-    author: "Operations Director",
-    role: "Legacy Modernization",
-    company: "Manufacturing Company (Confidential)",
-    industry: "Manufacturing",
-    metrics: [
-      { label: "Modernized", value: "73%" },
-      { label: "Downtime", value: "0 hrs" },
-    ],
+    icon: Users,
+    title: "Direct Access to the Engineer",
+    description:
+      "You work directly with the founder — the senior engineer writing your code. No account managers, no juniors, no handoffs.",
+  },
+  {
+    icon: Sparkles,
+    title: "Case-Study Pricing for Early Clients",
+    description:
+      "As an early-stage studio, our first clients get preferential pricing in exchange for a reference and a written case study once the project ships.",
   },
 ];
 
-export default async function TestimonialsPage() {
-  const { testimonials: dbTestimonials } = await getTestimonials();
-  const testimonials = dbTestimonials.length > 0 ? dbTestimonials : featuredTestimonials;
-
+export default function TestimonialsPage() {
   return (
     <>
       <BreadcrumbJsonLd
@@ -114,27 +63,29 @@ export default async function TestimonialsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Our Approach in Practice
+                An Honest Page About Proof
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Representative project scenarios illustrating how we work.
-                Client details are anonymized for confidentiality.
+                Cloudrix was founded in 2026. We don&apos;t have a wall of logos yet, and we won&apos;t
+                invent one. What we offer instead: real guarantees, founder-level attention, and
+                verifiable facts. As client projects ship, named case studies will appear here —
+                with permission, never anonymized inventions.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Trust Bar */}
+        {/* Trust Bar — verifiable facts */}
         <section className="bg-blue-600 py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-white mb-1">8+</div>
-                <div className="text-blue-100">Years Experience</div>
+                <div className="text-4xl font-bold text-white mb-1">10+</div>
+                <div className="text-blue-100">Years Engineering Experience</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-1">NL</div>
-                <div className="text-blue-100">KVK Registered</div>
+                <div className="text-blue-100">KVK 97732699, Tilburg</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-1">CET</div>
@@ -148,86 +99,43 @@ export default async function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Testimonials Grid */}
+        {/* Guarantees Grid */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex justify-between items-start mb-6">
-                    <Quote className="w-10 h-10 text-blue-200" />
-                  </div>
-
-                  <p className="text-gray-700 text-lg leading-relaxed mb-6 italic">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-
-                  {testimonial.metrics && testimonial.metrics.length > 0 && (
-                    <div className="flex gap-4 mb-6">
-                      {testimonial.metrics.slice(0, 3).map((metric, idx) => (
-                        <div
-                          key={idx}
-                          className="bg-blue-50 px-4 py-2 rounded-lg text-center"
-                        >
-                          <div className="text-xl font-bold text-blue-600">
-                            {metric.value}
-                          </div>
-                          <div className="text-xs text-gray-600">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">
-                          {testimonial.author.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">
-                          {testimonial.author}
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          {testimonial.role}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-medium text-gray-900 flex items-center gap-1">
-                        <Building2 className="w-4 h-4 text-gray-400" />
-                        {testimonial.company}
-                      </div>
-                      <div className="text-xs text-gray-500">{testimonial.industry}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Guarantees Instead of Anonymous Quotes
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Anyone can write &quot;VP of Engineering, Confidential Company&quot; under a quote.
+                These commitments are written into every contract instead.
+              </p>
             </div>
-          </div>
-        </section>
-
-        {/* Case Studies CTA */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Want to See the Full Story?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Explore our detailed case studies to see how we helped these companies
-              achieve their goals.
-            </p>
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg group"
-            >
-              View Case Studies
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {guarantees.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-xl transition-shadow"
+                  >
+                    <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                      <Icon className="w-7 h-7 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    {item.link && (
+                      <Link
+                        href={item.link}
+                        className="inline-block mt-4 text-blue-600 font-medium hover:underline"
+                      >
+                        {item.linkText} &rarr;
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -235,14 +143,14 @@ export default async function TestimonialsPage() {
         <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Your Story Could Be Next
+              Be One of Our First Case Studies
             </h2>
             <p className="text-xl text-blue-100 mb-10">
-              In 6 months, you could be writing one of these testimonials.
-              Or you could still be stuck with the same problems. Your call.
+              Early clients get founder-level attention and case-study pricing. Book a free
+              30-minute call with the engineer who will do the work.
             </p>
             <Link
-              href="/contact"
+              href="/book"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
             >
               Book Free Consultation
@@ -255,4 +163,4 @@ export default async function TestimonialsPage() {
   );
 }
 
-export const revalidate = 60;
+export const revalidate = 3600;

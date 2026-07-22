@@ -18,18 +18,18 @@ import {
 import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/seo";
 
 export const metadata: Metadata = {
-  title: "EU AI Act Compliance Consulting — Get Compliant Before the Deadline",
+  title: "EU AI Act Implementation Engineering — High-Risk Deadline: Dec 2, 2027",
   description:
-    "EU AI Act deadline: August 2, 2026. Fines up to EUR 35M. Get compliant fast — Quick Scan from EUR 2,500, full programs from EUR 25K. Netherlands-based, technical + legal expertise. Book now.",
+    "The EU AI Act high-risk deadline moved to December 2, 2027. Use the window to implement compliance properly and affordably — Quick Scan from EUR 2,500, implementation programs from EUR 25K. Engineers, not lawyers.",
   openGraph: {
-    title: "EU AI Act Compliance Consulting | Cloudrix",
+    title: "EU AI Act Implementation Engineering | Cloudrix",
     description:
-      "EU AI Act compliance consulting. Risk classification, conformity assessments, and implementation programs. Deadline: August 2, 2026.",
+      "Risk classification, conformity assessments, and technical implementation. High-risk (Annex III) deadline: December 2, 2027. Start now at planning prices, not panic prices.",
     url: "https://www.cloudrix.io/eu-ai-act",
     type: "website",
     images: [
       {
-        url: `/og?title=${encodeURIComponent("EU AI Act Compliance")}&subtitle=${encodeURIComponent("Get compliant before the deadline")}&type=services`,
+        url: `/og?title=${encodeURIComponent("EU AI Act Compliance")}&subtitle=${encodeURIComponent("High-risk deadline: Dec 2, 2027 — your window to do it right")}&type=services`,
         width: 1200,
         height: 630,
         alt: "Cloudrix EU AI Act Compliance",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EU AI Act Compliance Consulting | Cloudrix",
+    title: "EU AI Act Implementation Engineering | Cloudrix",
     description:
-      "EU AI Act compliance consulting. Risk classification, conformity assessments, and implementation. Deadline: August 2, 2026.",
+      "Risk classification, conformity assessments, and technical implementation. High-risk deadline: December 2, 2027.",
   },
   alternates: {
     canonical: "https://www.cloudrix.io/eu-ai-act",
@@ -91,7 +91,7 @@ const packages = [
     ],
     ideal: "Companies unsure if the AI Act applies to them",
     cta: "Book Quick Scan",
-    ctaLink: "/contact?type=ai-act-scan",
+    ctaLink: "/book",
   },
   {
     name: "AI Act Compliance Audit",
@@ -111,7 +111,7 @@ const packages = [
     ],
     ideal: "Companies that know they use AI and need a compliance roadmap",
     cta: "Start Audit",
-    ctaLink: "/contact?type=ai-act-audit",
+    ctaLink: "/book",
   },
   {
     name: "AI Act Implementation Program",
@@ -133,7 +133,7 @@ const packages = [
     ],
     ideal: "Companies with high-risk AI systems needing full compliance",
     cta: "Start Program",
-    ctaLink: "/contact?type=ai-act-program",
+    ctaLink: "/book",
   },
   {
     name: "AI Governance Retainer",
@@ -152,7 +152,7 @@ const packages = [
     ],
     ideal: "Companies that need ongoing compliance assurance",
     cta: "Start Retainer",
-    ctaLink: "/contact?type=ai-act-retainer",
+    ctaLink: "/book",
   },
 ];
 
@@ -213,8 +213,8 @@ const whyCloudrix = [
   },
   {
     icon: Users,
-    title: "Deep Project Experience",
-    description: "50+ projects across European companies. We\u2019ve seen the patterns, the pitfalls, and the shortcuts that actually work.",
+    title: "Founder-Level Attention",
+    description: "You work directly with a senior engineer with 10+ years of production experience \u2014 no juniors, no handoffs, no account managers.",
   },
 ];
 
@@ -227,7 +227,12 @@ const faqs = [
   {
     question: "What is the deadline for EU AI Act compliance?",
     answer:
-      "The key deadline is August 2, 2026 for most obligations, including high-risk AI system requirements. However, prohibited AI practices were already banned from February 2, 2025, and GPAI model obligations apply from August 2, 2025.",
+      "Following the EU Digital Omnibus (endorsed by Parliament on June 16, 2026, and given final Council approval on June 29, 2026), high-risk (Annex III) obligations now apply from December 2, 2027, and Annex I embedded-AI obligations from August 2028. Prohibited AI practices have been banned since February 2, 2025, and GPAI model obligations have applied since August 2, 2025.",
+  },
+  {
+    question: "The deadline moved to December 2027 — should I wait?",
+    answer:
+      "No, and here's why: the extended window is your opportunity to implement compliance properly and affordably. Companies that start now spread the cost over normal development cycles and can ship AI features competitors won't touch. Companies that wait will compete for scarce implementation capacity at panic prices in late 2027. Compliance for high-risk systems typically takes 3\u20136 months — the window closes faster than it looks.",
   },
   {
     question: "What are the fines for non-compliance?",
@@ -252,7 +257,7 @@ const faqs = [
   {
     question: "Can you help with the technical implementation?",
     answer:
-      "Yes. Unlike pure legal consultancies, we have a team of AI engineers who can implement technical controls, monitoring systems, and documentation pipelines. We handle both the compliance strategy and the technical execution.",
+      "Yes \u2014 that's the point of Cloudrix. Unlike pure legal consultancies, we are engineers: we implement technical controls, monitoring systems, and documentation pipelines directly in your codebase. We handle both the compliance strategy and the technical execution.",
   },
   {
     question: "Do you work with companies outside the Netherlands?",
@@ -279,17 +284,19 @@ export default function EUAIActPage() {
             <div className="text-center max-w-4xl mx-auto">
               <span className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold mb-6">
                 <Clock className="w-4 h-4 mr-2" />
-                Deadline: August 2, 2026
+                High-Risk Deadline: December 2, 2027
               </span>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                EU AI Act Compliance Before It&apos;s Too Late
+                The Deadline Moved. Your Window Just Opened.
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-10">
-                Fines up to &euro;35M or 7% of global turnover. The deadline is approaching.
-                We help you get compliant \u2014 fast.
+                The EU Digital Omnibus pushed high-risk obligations to December 2, 2027 &mdash; that&apos;s
+                your window to implement compliance properly and affordably, instead of paying panic
+                prices in late 2027. Fines remain up to &euro;35M or 7% of global turnover. We&apos;re the
+                technical implementation partner: engineers, not lawyers.
               </p>
               <Link
-                href="/contact?type=ai-act-scan"
+                href="/book"
                 className="inline-flex items-center justify-center bg-red-600 text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-colors font-medium text-lg group"
               >
                 Get Your AI Act Quick Scan \u2014 &euro;2,500
@@ -545,19 +552,20 @@ export default function EUAIActPage() {
             <div className="flex items-center justify-center mb-6">
               <Clock className="w-8 h-8 text-red-200 mr-3" />
               <span className="text-red-200 font-semibold text-lg">
-                Deadline: August 2, 2026
+                High-Risk Deadline: December 2, 2027
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Don&apos;t Wait Until It&apos;s Too Late
+              Start Now at Planning Prices, Not Panic Prices
             </h2>
             <p className="text-xl text-red-100 mb-10 leading-relaxed">
-              Most companies need 6\u201312 months to achieve compliance. Every week you delay
-              increases the risk and the cost. Start with a &euro;2,500 Quick Scan and know exactly where you stand.
+              Most companies need 6&ndash;12 months to achieve compliance. Companies that start now
+              spread the cost over normal sprints and ship AI features competitors can&apos;t.
+              Start with a &euro;2,500 Quick Scan and know exactly where you stand.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact?type=ai-act-scan"
+                href="/book"
                 className="inline-flex items-center justify-center bg-white text-red-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
               >
                 Book Your Quick Scan

@@ -145,7 +145,7 @@ export function ExitIntentPopup() {
                 Before You Go... One Thing
               </h3>
               <p className="text-blue-100">
-                The exact checklist we use on €500K+ migration projects. Yours free.
+                The exact checklist we use on real cloud migration projects. Yours free.
               </p>
             </div>
 

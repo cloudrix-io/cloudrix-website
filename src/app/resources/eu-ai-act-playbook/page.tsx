@@ -73,13 +73,19 @@ const timelineEvents = [
     status: "past",
   },
   {
-    date: "August 2026",
-    event: "High-risk AI system obligations take effect",
+    date: "June 2026",
+    event:
+      "Digital Omnibus adopted — high-risk (Annex III) obligations delayed from August 2026 to December 2027, with ~35% compliance-burden reduction targeted for SMEs",
+    status: "past",
+  },
+  {
+    date: "December 2, 2027",
+    event: "High-risk (Annex III) AI system obligations take effect",
     status: "upcoming",
   },
   {
-    date: "August 2027",
-    event: "Full enforcement for all AI systems",
+    date: "August 2028",
+    event: "Obligations for AI embedded in Annex I regulated products",
     status: "future",
   },
 ];
@@ -782,9 +788,9 @@ export default function EuAiActPlaybookPage() {
                 <div className="space-y-4">
                   {[
                     {
-                      mistake: "Waiting until the deadline",
+                      mistake: "Treating the Omnibus delay as a free pass",
                       explanation:
-                        "High-risk obligations kick in August 2026. Building a compliance program takes 6-12 months. If you haven't started, you're already behind.",
+                        "High-risk obligations now kick in December 2, 2027 — but prohibitions and GPAI duties already apply, and enterprise procurement teams are asking AI Act questions today. Building a compliance program takes 6-12 months; starting now means doing it calmly and cheaply instead of panic-buying in late 2027.",
                     },
                     {
                       mistake: "Treating it as a legal-only problem",

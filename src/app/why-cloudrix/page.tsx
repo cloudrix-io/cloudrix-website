@@ -12,8 +12,6 @@ import {
   Clock,
   CheckCircle2,
   Star,
-  Award,
-  Play,
   ChevronDown,
 } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/seo";
@@ -52,9 +50,9 @@ export const metadata: Metadata = {
 const differentiators = [
   {
     icon: Users,
-    title: "Senior-Only Engineers",
+    title: "Founder-Led, Senior Only",
     description:
-      "Every engineer has 8+ years of experience. No juniors learning on your project, no bait-and-switch after the sales call.",
+      "The founder — a senior engineer with 10+ years of experience — does the work personally. No juniors learning on your project, no bait-and-switch after the sales call.",
     color: "blue",
   },
   {
@@ -187,26 +185,26 @@ const comparisonData: ComparisonRow[] = [
 ];
 
 const clientResults = [
-  { metric: "55%", label: "Average infrastructure cost reduction", icon: CreditCard },
-  { metric: "99.99%", label: "Uptime achieved for critical systems", icon: Shield },
-  { metric: "14 weeks", label: "Average MVP delivery time", icon: Clock },
-  { metric: "12x/day", label: "Deployment frequency improvement", icon: Code2 },
+  { metric: "10+ yrs", label: "Senior engineering experience behind every project", icon: Clock },
+  { metric: "<24h", label: "Response time on every channel", icon: Shield },
+  { metric: "100%", label: "Source code ownership from day one", icon: Code2 },
+  { metric: "1st sprint", label: "Full refund guarantee if not satisfied", icon: CreditCard },
 ];
 
 const trustSignals = [
-  "KVK-Registered Netherlands Entity",
-  "GDPR & EU AI Act Compliant",
-  "AWS Advanced Partner",
-  "Google Cloud Partner",
-  "ISO 27001 Aligned Practices",
-  "SOC 2 Type II Compatible",
+  "KVK-Registered Netherlands Entity (97732699)",
+  "GDPR-Compliant by Design",
+  "EU AI Act Implementation Expertise",
+  "EU Data Residency",
+  "NDA Signed Before Any Sensitive Discussion",
+  "Secure Development Practices",
 ];
 
 const faqs = [
   {
-    question: "How do you ensure all engineers are truly senior?",
+    question: "Who actually does the work?",
     answer:
-      "Every engineer goes through a rigorous vetting process including technical interviews, system design exercises, and reference checks. We require a minimum of 8 years of professional experience, with demonstrated expertise in production-scale systems. We regularly turn down talented engineers who don't meet our seniority bar.",
+      "The founder — a senior software engineer with 10+ years of full-stack production experience across Angular, PHP, NestJS, and AWS. Cloudrix is a founder-led studio: there are no juniors, no handoffs, and no bench. When a project needs additional capacity, we bring in trusted senior specialists from our network, always disclosed upfront.",
   },
   {
     question: "What happens if I'm not satisfied with the work?",
@@ -221,7 +219,7 @@ const faqs = [
   {
     question: "Can you work with our existing team?",
     answer:
-      "Absolutely. We frequently embed engineers into existing teams. We adapt to your workflows, tools, and processes. Our engineers join your Slack, attend your standups, and use your ticketing system. It feels like hiring a senior engineer, not working with an agency.",
+      "Absolutely. We adapt to your workflows, tools, and processes — joining your Slack, attending your standups, and using your ticketing system. It feels like hiring a senior engineer, because that's exactly what it is.",
   },
   {
     question: "What's your approach to AI and automation?",
@@ -262,19 +260,18 @@ export default function WhyCloudrixPage() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Star className="w-4 h-4" />
-                <span>Trusted by companies across Europe</span>
+                <span>Founder-led senior engineering studio</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Not Another <span className="text-blue-600">Outsourcing Agency</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
-                We&apos;re a senior engineering partner. No juniors, no lock-in, no surprises.
-                Just experienced engineers who ship production-quality software and treat your
-                business like their own.
+                We&apos;re a founder-led senior engineering partner. No juniors, no lock-in, no surprises.
+                The engineer you talk to is the engineer who ships your production-quality software.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  href="/contact"
+                  href="/book"
                   className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg group"
                 >
                   Start a Conversation
@@ -383,10 +380,10 @@ export default function WhyCloudrixPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Results That Speak for Themselves
+                Commitments You Can Hold Us To
               </h2>
               <p className="text-xl text-gray-600">
-                Real metrics from real projects. No vanity numbers.
+                No vanity numbers — just guarantees written into every contract.
               </p>
             </div>
 
@@ -433,35 +430,28 @@ export default function WhyCloudrixPage() {
           </div>
         </section>
 
-        {/* Video Testimonial Placeholder */}
+        {/* Early-Stage Honesty */}
         <section className="py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Hear It From Our Clients
+                Why an Early-Stage Studio Is Your Advantage
               </h2>
             </div>
 
-            <div className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-video flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-gray-900/90" />
-              <div className="relative text-center">
-                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 cursor-pointer hover:bg-white/30 transition-colors">
-                  <Play className="w-10 h-10 text-white ml-1" />
-                </div>
-                <p className="text-white text-xl font-medium mb-2">Client Testimonial</p>
-                <p className="text-blue-200 text-sm">Video coming soon</p>
-              </div>
-            </div>
-
-            {/* Quote */}
-            <div className="mt-12 bg-blue-50 border border-blue-100 rounded-xl p-8 text-center">
-              <blockquote className="text-xl text-gray-700 italic leading-relaxed mb-4">
-                &ldquo;The migration transformed how we operate. We went from dreading high-traffic
-                periods to confidently scaling for them. The team understood our compliance
-                requirements without lengthy explanations.&rdquo;
-              </blockquote>
-              <div className="text-gray-900 font-semibold">VP of Engineering</div>
-              <div className="text-gray-500 text-sm">European FinTech Company</div>
+            <div className="bg-blue-50 border border-blue-100 rounded-xl p-8 text-center">
+              <p className="text-xl text-gray-700 leading-relaxed mb-4">
+                Cloudrix was founded in 2026, and we won&apos;t pretend otherwise — no invented logo
+                walls, no anonymous testimonials. What our first clients get instead: founder-level
+                attention on every ticket, case-study pricing, a first-sprint refund guarantee, and
+                direct access to the engineer doing the work.
+              </p>
+              <Link
+                href="/refunds"
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Read our refund guarantee &rarr;
+              </Link>
             </div>
           </div>
         </section>
@@ -506,7 +496,7 @@ export default function WhyCloudrixPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/contact"
+                href="/book"
                 className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
               >
                 Book Free Consultation

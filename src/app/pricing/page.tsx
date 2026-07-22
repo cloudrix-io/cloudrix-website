@@ -131,7 +131,7 @@ const pricingTiers = [
     description: "Perfect for defined scope projects with clear deliverables",
     icon: Zap,
     price: "From \u20ac15,000",
-    priceAlt: "(or $17,000)",
+    priceAlt: "",
     priceDetail: "per project",
     highlight: false,
     features: [
@@ -147,24 +147,23 @@ const pricingTiers = [
     ctaLink: "/contact?type=project",
   },
   {
-    name: "Dedicated Team",
-    description: "Scale your engineering capacity with senior developers",
+    name: "Dedicated Engineering",
+    description: "A senior engineer embedded in your team, month to month",
     icon: Users,
-    price: "\u20ac7,500",
-    priceAlt: "trial month",
-    priceDetail: "\u20ac8,500/mo standard | \u20ac5,000/mo part-time",
+    price: "\u20ac8,500",
+    priceAlt: "per month",
+    priceDetail: "First month \u20ac7,500 (\u20ac1,000 off to evaluate the fit) | \u20ac5,000/mo part-time",
     highlight: true,
     popular: true,
     features: [
-      "Senior engineers (7+ years exp)",
+      "Senior engineering only (10+ years exp)",
       "Full-time or part-time options",
       "Direct Slack/Teams access",
       "Global timezone flexibility",
-      "Flexible team scaling",
       "No long-term commitment",
       "Weekly/daily standups",
       "Transparent time tracking",
-      "\u20ac7,500 trial month to evaluate fit",
+      "Discounted first month (\u20ac7,500 instead of \u20ac8,500) to evaluate fit",
     ],
     ideal: ["Ongoing development", "Team augmentation", "Long-term partnerships", "Product development"],
     cta: "Build Your Team",
@@ -221,11 +220,19 @@ const aiPricingItems = [
   },
 ];
 
-const guarantees = [
+const guarantees: {
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  link?: string;
+  linkText?: string;
+}[] = [
   {
     title: "No-Risk First Sprint",
-    description: "If you are not satisfied with the first sprint delivery, we will refund your payment in full. No questions asked.",
+    description: "If you are not satisfied with the first sprint delivery, we will refund your payment in full. No questions asked. See our refund policy for full details.",
     icon: Shield,
+    link: "/refunds",
+    linkText: "Read the refund policy",
   },
   {
     title: "Cloud Savings 2x ROI",
@@ -245,7 +252,7 @@ const guarantees = [
 ];
 
 const comparisonFeatures = [
-  { feature: "Senior Engineers (7+ years)", project: true, team: true, enterprise: true },
+  { feature: "Senior Engineering (10+ years, founder-led)", project: true, team: true, enterprise: true },
   { feature: "Fixed Price Option", project: true, team: false, enterprise: true },
   { feature: "Flexible Scaling", project: false, team: true, enterprise: true },
   { feature: "Dedicated Project Manager", project: true, team: true, enterprise: true },
@@ -273,7 +280,7 @@ const faqs = [
   {
     question: "Do you require long-term contracts?",
     answer:
-      "No. For dedicated teams, we operate on a monthly basis with 30 days notice. We even offer a discounted trial month at \u20ac7,500 so you can evaluate the fit before committing. Enterprise agreements can include longer terms with corresponding discounts.",
+      "No. Dedicated engineering runs on a monthly basis with 30 days notice. Your first month is discounted to \u20ac7,500 (\u20ac1,000 off the standard \u20ac8,500 rate) so you can evaluate the fit before committing to the standard rate. Enterprise agreements can include longer terms with corresponding discounts.",
   },
   {
     question: "How do you handle payment?",
@@ -298,7 +305,7 @@ const faqs = [
   {
     question: "How do you ensure quality?",
     answer:
-      "All code goes through peer review, automated testing, and security scanning. We guarantee 80%+ test coverage on critical paths. Our engineers average 8+ years of hands-on production experience.",
+      "All code goes through review, automated testing, and security scanning. We guarantee 80%+ test coverage on critical paths. The work is done by the founder \u2014 a senior engineer with 10+ years of hands-on production experience \u2014 not delegated to juniors.",
   },
   {
     question: "What AI services do you offer?",
@@ -318,7 +325,7 @@ const faqs = [
   {
     question: "What guarantees do you offer?",
     answer:
-      "We offer a No-Risk First Sprint guarantee (full refund if not satisfied), 2x ROI guarantee on Cloud Cost Optimizer engagements, 80%+ test coverage on all deliveries, and full source code ownership from day one.",
+      "We offer a No-Risk First Sprint guarantee (full refund if not satisfied \u2014 see our refund policy at cloudrix.io/refunds), 2x ROI guarantee on Cloud Cost Optimizer engagements, 80%+ test coverage on all deliveries, and full source code ownership from day one.",
   },
 ];
 
@@ -672,6 +679,11 @@ export default function PricingPage() {
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                    {item.link && (
+                      <Link href={item.link} className="inline-block mt-3 text-sm text-green-700 font-semibold hover:underline">
+                        {item.linkText} &rarr;
+                      </Link>
+                    )}
                   </div>
                 );
               })}
@@ -817,7 +829,7 @@ export default function PricingPage() {
                 <tbody>
                   {[
                     ["Monthly Cost / Engineer", "\u20ac8,500", "\u20ac10-15K", "\u20ac5-12K", "\u20ac15-25K"],
-                    ["Seniority Level", "Senior only (5+ yrs)", "Mixed", "Varies widely", "Mixed (junior-heavy)"],
+                    ["Seniority Level", "Senior only (10+ yrs), founder-led", "Mixed", "Varies widely", "Mixed (junior-heavy)"],
                     ["Global Timezone Support", "\u2713 Async-first, flexible", "Varies", "Varies", "Partial"],
                     ["Team Integration", "\u2713 Full (standups, Slack)", "\u2717 Independent", "\u2717 Independent", "\u2713 With overhead"],
                     ["Minimum Commitment", "Month-to-month", "Project-based", "None", "6-12 months"],
@@ -890,7 +902,7 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/book"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
               >
                 Book Free Consultation

@@ -42,7 +42,7 @@ function CheckoutContent() {
   const tierName = searchParams.get("tier");
 
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
-  const [currency, setCurrency] = useState<"usd" | "eur">("usd");
+  const [currency, setCurrency] = useState<"usd" | "eur">("eur");
   const [cardNumber, setCardNumber] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCvc, setCardCvc] = useState("");
@@ -79,8 +79,8 @@ function CheckoutContent() {
   }
 
   const currencySymbol = currency === "eur" ? "\u20AC" : "$";
-  const isFree = tier?.priceMonthly === 0 || tier?.price === "$0";
-  const isEnterprise = tier?.price === "Custom" || (!tier?.priceMonthly && tier?.price !== "$0");
+  const isFree = tier?.priceMonthly === 0 || tier?.price === "\u20AC0";
+  const isEnterprise = tier?.price === "Custom" || (!tier?.priceMonthly && tier?.price !== "\u20AC0");
 
   function getDisplayPrice(): string {
     if (!tier) return "--";
