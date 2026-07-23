@@ -555,7 +555,7 @@ export default async function ProductPage({
       <section className="bg-slate-950 py-12 border-t border-slate-900">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <p className="text-lg text-slate-300 font-medium">
-            Trusted by 50+ companies in 15 countries.
+            Built and run by the Cloudrix engineering team in the EU.
           </p>
           <p className="mt-2 text-sm text-slate-400">
             14-day money-back guarantee. Cancel anytime. No questions asked.

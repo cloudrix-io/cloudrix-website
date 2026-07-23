@@ -2714,6 +2714,11 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
       <td>Already in effect</td>
     </tr>
     <tr>
+      <td>2 Aug 2026</td>
+      <td>Most transparency obligations (chatbot disclosure, deepfake labelling)</td>
+      <td>Upcoming</td>
+    </tr>
+    <tr>
       <td>2 Dec 2027</td>
       <td>High-risk system requirements for Annex III systems (delayed from 2 Aug 2026 by the Digital Omnibus)</td>
       <td>Upcoming</td>

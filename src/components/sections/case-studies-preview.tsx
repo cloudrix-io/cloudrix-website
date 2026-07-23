@@ -12,14 +12,15 @@ export function CaseStudiesPreview() {
         {/* Section Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <Badge variant="primary" className="mb-4">
-            Case Studies
+            Reference Scenarios
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Real Results for Real Companies
+            How We&apos;d Approach Your Project
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            See how we helped European companies solve complex technical
-            challenges.
+            Illustrative engagement blueprints — not client claims. We&apos;re a
+            new studio and would rather show exactly how we work than invent
+            testimonials.
           </p>
         </div>
 
@@ -63,7 +64,7 @@ export function CaseStudiesPreview() {
                 href={`/case-studies/${featuredStudy.slug}`}
                 className="mt-8 inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
               >
-                Read Full Case Study
+                View Full Scenario
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
@@ -134,7 +135,7 @@ export function CaseStudiesPreview() {
             href="/case-studies"
             className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
           >
-            View All Case Studies
+            View All Reference Scenarios
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>

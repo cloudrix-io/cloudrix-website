@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free Tools — No Credit Card Required | Cloudrix",
   description:
-    "Try 15+ free AI and engineering tools with no signup required. Cloud cost calculators, AI code review, security scanning, and more. Used by 10,000+ developers worldwide.",
+    "Try 15+ free AI and engineering tools with no signup required. Cloud cost calculators, AI code review, security scanning, and more. No credit card required.",
   openGraph: {
     title: "Free Tools — No Credit Card Required | Cloudrix",
     description:

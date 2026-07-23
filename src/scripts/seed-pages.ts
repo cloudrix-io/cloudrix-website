@@ -3,6 +3,26 @@ import Page from "../lib/models/page";
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/cloudrix";
 
+// ============================================================================
+// HONESTY POLICY FOR THIS SEED
+// ----------------------------------------------------------------------------
+// Cloudrix is a solo-founder Dutch studio, founded in 2026 in Tilburg, NL
+// (KVK 97732699). Every claim in this file must be verifiable:
+//  - NO invented project counts ("47 projects"), retention rates ("94%"),
+//    revenue impact, or client counts.
+//  - NO fake company history (no 2020-2025 timeline, no "5 engineers",
+//    no "€500K+ project").
+//  - NO SOC 2 / CISSP / certification badges we do not hold.
+//  - NO fabricated testimonials or logo walls.
+//  - EU AI Act dates: prohibitions + AI literacy in force since Feb 2, 2025;
+//    GPAI obligations since Aug 2, 2025; transparency obligations Aug 2026;
+//    high-risk Annex III delayed to Dec 2, 2027 (Digital Omnibus, June 2026);
+//    Annex I embedded AI: Aug 2028.
+// This content intentionally mirrors the honest code defaults in
+// src/components/pages/home-content.tsx and about-content.tsx, because the
+// components render DB content when present (content.hero || codeDefault).
+// ============================================================================
+
 const defaultPages = [
   // ============================================================================
   // HOME PAGE
@@ -13,86 +33,70 @@ const defaultPages = [
     isPublished: true,
     order: 1,
     seoTitle: {
-      en: "Cloudrix - Cloud & Software Engineering for EU Companies",
-      fr: "Cloudrix - Cloud & Ingenierie Logicielle pour l'Europe",
+      en: "Cloudrix - EU AI Act Compliance Engineering & AI Systems",
+      fr: "Cloudrix - Ingenierie de Conformite EU AI Act & Systemes IA",
     },
     seoDescription: {
-      en: "Senior engineering teams for European companies. Cloud architecture, product development, and DevOps. 47 projects delivered. Book a free consultation.",
-      fr: "Equipes d'ingenieurs seniors pour entreprises europeennes. Architecture cloud, developpement et DevOps. 47 projets livres. Consultation gratuite.",
+      en: "EU AI Act compliance implemented by engineers, not lawyers. Founder-led Dutch studio (KVK 97732699). Quick Scan from €2,500. AI agents, RAG systems, cloud consulting.",
+      fr: "Conformite EU AI Act implementee par des ingenieurs, pas des avocats. Studio neerlandais dirige par son fondateur (KVK 97732699). Quick Scan des 2 500€.",
     },
     content: {
       en: {
         hero: {
-          badge: "Now accepting Q1 2025 projects",
-          title: "Engineering Teams That Actually Ship",
-          subtitle: "Cloud architecture, product development, and DevOps for European companies. Senior engineers who understand EU markets, communicate in your timezone, and deliver code that passes investor due diligence.",
-          ctaText: "Book Free Consultation",
-          ctaLink: "/contact",
-          secondaryCtaText: "View Case Studies",
-          secondaryCtaLink: "/case-studies",
+          badge: "EU AI Act high-risk deadline: December 2, 2027",
+          title: "Make Your AI Systems EU AI Act Compliant — Built by Engineers, Not Lawyers",
+          subtitle: "The deadline moved to Dec 2, 2027 — that's your window to implement compliance properly and affordably, instead of paying panic prices in late 2027. Start with a €2,500 Quick Scan: risk classification for every AI system you run, in one day. We also build AI agents, RAG systems, and cloud infrastructure.",
+          ctaText: "Book a Free Compliance Call",
+          ctaLink: "/book",
+          secondaryCtaText: "See the Compliance Roadmap",
+          secondaryCtaLink: "/eu-ai-act",
         },
         services: {
-          title: "Engineering Services That Scale",
-          subtitle: "From architecture to deployment, we handle the technical complexity so you can focus on growing your business.",
-        },
-        stats: {
-          title: "Trusted by European Companies",
-          subtitle: "Real results from real projects. Our track record speaks for itself.",
+          title: "Enterprise Services",
+          subtitle: "Need custom engineering? We offer consulting and development services for enterprise clients by request.",
         },
         process: {
-          title: "From First Call to Production",
-          subtitle: "A structured approach that keeps you informed and in control at every stage. No surprises, no black boxes.",
-        },
-        testimonials: {
-          title: "What Our Clients Say",
-          subtitle: "Don't take our word for it. Here's what engineering leaders say about working with us.",
+          title: "From Chaos to Confidence in 4 Steps",
+          subtitle: "No endless meetings. No scope creep. Just a battle-tested process that actually ships.",
         },
         cta: {
-          title: "Ready to Build Something Great?",
-          subtitle: "Book a free 30-minute consultation. No sales pitch - just an honest conversation about your challenges and how we might help.",
-          buttonText: "Schedule a Call",
+          title: "Know Where You Stand Before the 2027 Deadline",
+          subtitle: "A free 30-minute call with the engineer who will actually do the work. Honest assessment, clear next steps, no sales pitch.",
+          buttonText: "Book a Free Call",
         },
         credibilityPoints: [
-          "47 projects delivered for EU companies",
-          "94% client retention rate",
-          "Code that passes VC due diligence",
+          "Quick Scan from €2,500 — results in 1 day",
+          "First-sprint refund guarantee",
+          "Founder does the work — no juniors",
         ],
       },
       fr: {
         hero: {
-          badge: "Projets Q1 2025 acceptes",
-          title: "Des Equipes Qui Livrent Vraiment",
-          subtitle: "Architecture cloud, developpement produit et DevOps pour les entreprises europeennes. Des ingenieurs seniors qui comprennent les marches UE et livrent du code pret pour la due diligence.",
-          ctaText: "Consultation Gratuite",
-          ctaLink: "/contact",
-          secondaryCtaText: "Voir les Etudes de Cas",
-          secondaryCtaLink: "/case-studies",
+          badge: "Date limite haut risque EU AI Act : 2 decembre 2027",
+          title: "Rendez Vos Systemes IA Conformes a l'EU AI Act — Par des Ingenieurs, Pas des Avocats",
+          subtitle: "La date limite a ete reportee au 2 decembre 2027 — c'est votre fenetre pour implementer la conformite correctement et a moindre cout. Commencez avec un Quick Scan a 2 500€ : classification des risques de chaque systeme IA, en une journee. Nous construisons aussi des agents IA, des systemes RAG et des infrastructures cloud.",
+          ctaText: "Reserver un Appel Gratuit",
+          ctaLink: "/book",
+          secondaryCtaText: "Voir la Feuille de Route",
+          secondaryCtaLink: "/eu-ai-act",
         },
         services: {
-          title: "Services d'Ingenierie Evolutifs",
-          subtitle: "De l'architecture au deploiement, nous gerons la complexite technique pour que vous puissiez vous concentrer sur votre croissance.",
-        },
-        stats: {
-          title: "La Confiance des Entreprises Europeennes",
-          subtitle: "Des resultats reels de projets reels. Notre historique parle de lui-meme.",
+          title: "Services Entreprise",
+          subtitle: "Besoin d'ingenierie sur mesure ? Nous offrons des services de conseil et de developpement pour les entreprises sur demande.",
         },
         process: {
-          title: "Du Premier Appel a la Production",
-          subtitle: "Une approche structuree qui vous garde informe et en controle a chaque etape. Pas de surprises.",
-        },
-        testimonials: {
-          title: "Ce Que Disent Nos Clients",
-          subtitle: "Ne nous croyez pas sur parole. Voici ce que disent les leaders techniques sur leur collaboration avec nous.",
+          title: "Du Chaos a la Confiance en 4 Etapes",
+          subtitle: "Pas de reunions interminables. Pas de derive du perimetre. Juste un processus eprouve qui livre vraiment.",
         },
         cta: {
-          title: "Pret a Construire Quelque Chose de Grand?",
-          subtitle: "Reservez une consultation gratuite de 30 minutes. Pas de discours commercial - juste une conversation honnete.",
-          buttonText: "Planifier un Appel",
+          title: "Sachez Ou Vous en Etes Avant l'Echeance 2027",
+          subtitle: "Un appel gratuit de 30 minutes avec l'ingenieur qui fera reellement le travail. Evaluation honnete, etapes claires, pas de pitch commercial.",
+          buttonText: "Reserver un Appel Gratuit",
         },
         credibilityPoints: [
-          "47 projets livres pour des entreprises UE",
-          "94% de taux de retention client",
-          "Code qui passe la due diligence VC",
+          "Quick Scan des 2 500€ — resultats en 1 jour",
+          "Garantie de remboursement du premier sprint",
+          "Le fondateur fait le travail — pas de juniors",
         ],
       },
     },
@@ -107,38 +111,38 @@ const defaultPages = [
     isPublished: true,
     order: 2,
     seoTitle: {
-      en: "Cloud & Software Engineering Services | Cloudrix",
-      fr: "Services Cloud & Ingenierie Logicielle | Cloudrix",
+      en: "EU AI Act, AI & Cloud Engineering Services | Cloudrix",
+      fr: "Services EU AI Act, IA & Ingenierie Cloud | Cloudrix",
     },
     seoDescription: {
-      en: "Cloud architecture, full-stack development, DevOps, and technical consulting for European companies. Senior engineers, transparent pricing, EU timezone.",
-      fr: "Architecture cloud, developpement full-stack, DevOps et conseil technique pour entreprises europeennes. Ingenieurs seniors, tarification transparente.",
+      en: "EU AI Act compliance implementation, AI systems, cloud architecture, and DevOps. Founder-led Dutch studio, transparent pricing, EU jurisdiction.",
+      fr: "Implementation de la conformite EU AI Act, systemes IA, architecture cloud et DevOps. Studio neerlandais dirige par son fondateur, tarification transparente.",
     },
     content: {
       en: {
         hero: {
-          title: "Engineering Services Built for Scale",
-          subtitle: "Whether you need to migrate to the cloud, build a new product, or modernize legacy systems, we have the expertise to make it happen. Senior engineers, proven methodologies, real results.",
+          title: "Senior Engineering, Done by the Founder",
+          subtitle: "Whether you need EU AI Act compliance implemented in your codebase, an AI system built, a cloud migration, or legacy modernization — you work directly with a senior engineer with 10+ years of production experience. No juniors, no handoffs.",
         },
         services: {
           title: "What We Do",
           subtitle: "Deep expertise across the full technology stack, from infrastructure to user interface.",
         },
         industries: {
-          title: "Industries We Serve",
-          subtitle: "Domain expertise that accelerates delivery and reduces risk.",
+          title: "Where This Matters Most",
+          subtitle: "Sectors where compliance-aware engineering delivers the most value.",
           items: [
-            { name: "Financial Services & FinTech", description: "PCI-DSS compliance, payment systems, trading platforms" },
-            { name: "Healthcare & Digital Health", description: "HIPAA/GDPR compliance, telemedicine, health records" },
-            { name: "E-Commerce & Retail", description: "High-traffic platforms, inventory systems, checkout optimization" },
-            { name: "SaaS & Enterprise Software", description: "Multi-tenant architecture, API platforms, integrations" },
-            { name: "Manufacturing & Industrial", description: "ERP modernization, IoT integration, supply chain" },
-            { name: "Logistics & Supply Chain", description: "Fleet management, route optimization, warehouse systems" },
+            { name: "Financial Services & FinTech", description: "Payment systems, credit-scoring AI (high-risk under the AI Act), audit trails" },
+            { name: "Healthcare & Digital Health", description: "GDPR-compliant data handling, diagnostic AI governance (Annex III)" },
+            { name: "HR & Recruitment Tech", description: "CV screening and assessment AI — high-risk systems needing controls by Dec 2027" },
+            { name: "SaaS & Enterprise Software", description: "Multi-tenant architecture, API platforms, AI feature compliance" },
+            { name: "E-Commerce & Retail", description: "Recommendation systems, chatbot transparency obligations, checkout optimization" },
+            { name: "Logistics & Supply Chain", description: "Route optimization, forecasting models, integration engineering" },
           ],
         },
         technologies: {
           title: "Technologies We Master",
-          subtitle: "We choose the right tool for the job, not the trendy one. Our stack is battle-tested across 47+ production deployments.",
+          subtitle: "We choose the right tool for the job, not the trendy one — grounded in 10+ years of hands-on production experience.",
         },
         cta: {
           title: "Not Sure What You Need?",
@@ -148,28 +152,28 @@ const defaultPages = [
       },
       fr: {
         hero: {
-          title: "Services d'Ingenierie Connus pour l'Echelle",
-          subtitle: "Que vous ayez besoin de migrer vers le cloud, construire un nouveau produit ou moderniser des systemes legacy, nous avons l'expertise pour le realiser.",
+          title: "Ingenierie Senior, Realisee par le Fondateur",
+          subtitle: "Que vous ayez besoin d'implementer la conformite EU AI Act dans votre code, de construire un systeme IA, de migrer vers le cloud ou de moderniser du legacy — vous travaillez directement avec un ingenieur senior avec 10+ ans d'experience. Pas de juniors, pas de transferts.",
         },
         services: {
           title: "Ce Que Nous Faisons",
           subtitle: "Une expertise approfondie sur toute la stack technologique, de l'infrastructure a l'interface utilisateur.",
         },
         industries: {
-          title: "Secteurs d'Activite",
-          subtitle: "Une expertise sectorielle qui accelere la livraison et reduit les risques.",
+          title: "Ou Cela Compte le Plus",
+          subtitle: "Les secteurs ou l'ingenierie consciente de la conformite apporte le plus de valeur.",
           items: [
-            { name: "Services Financiers & FinTech", description: "Conformite PCI-DSS, systemes de paiement, plateformes de trading" },
-            { name: "Sante & Sante Numerique", description: "Conformite HIPAA/RGPD, telemedecine, dossiers medicaux" },
-            { name: "E-Commerce & Retail", description: "Plateformes a fort trafic, systemes d'inventaire, optimisation checkout" },
-            { name: "SaaS & Logiciels d'Entreprise", description: "Architecture multi-tenant, plateformes API, integrations" },
-            { name: "Industrie & Manufacturing", description: "Modernisation ERP, integration IoT, supply chain" },
-            { name: "Logistique & Supply Chain", description: "Gestion de flotte, optimisation de routes, systemes d'entrepot" },
+            { name: "Services Financiers & FinTech", description: "Systemes de paiement, IA de scoring credit (haut risque selon l'AI Act), pistes d'audit" },
+            { name: "Sante & Sante Numerique", description: "Traitement de donnees conforme RGPD, gouvernance de l'IA diagnostique (Annexe III)" },
+            { name: "RH & Tech de Recrutement", description: "IA de tri de CV et d'evaluation — systemes haut risque necessitant des controles d'ici dec. 2027" },
+            { name: "SaaS & Logiciels d'Entreprise", description: "Architecture multi-tenant, plateformes API, conformite des fonctionnalites IA" },
+            { name: "E-Commerce & Retail", description: "Systemes de recommandation, obligations de transparence des chatbots, optimisation checkout" },
+            { name: "Logistique & Supply Chain", description: "Optimisation de routes, modeles de prevision, ingenierie d'integration" },
           ],
         },
         technologies: {
           title: "Technologies Que Nous Maitrisons",
-          subtitle: "Nous choisissons le bon outil pour le travail, pas le plus tendance. Notre stack est eprouvee sur 47+ deploiements production.",
+          subtitle: "Nous choisissons le bon outil pour le travail, pas le plus tendance — sur la base de 10+ ans d'experience en production.",
         },
         cta: {
           title: "Pas Sur de Ce Dont Vous Avez Besoin?",
@@ -189,104 +193,96 @@ const defaultPages = [
     isPublished: true,
     order: 3,
     seoTitle: {
-      en: "About Cloudrix - Senior Engineering for EU Companies",
-      fr: "A Propos de Cloudrix - Ingenierie Senior pour l'Europe",
+      en: "About Cloudrix - Founder-Led Engineering Studio in the Netherlands",
+      fr: "A Propos de Cloudrix - Studio d'Ingenierie Dirige par son Fondateur",
     },
     seoDescription: {
-      en: "Meet the team behind Cloudrix. Senior engineers with 10+ years experience, serving European companies with cloud, development, and DevOps expertise.",
-      fr: "Decouvrez l'equipe Cloudrix. Ingenieurs seniors avec 10+ ans d'experience, au service des entreprises europeennes.",
+      en: "Cloudrix is a founder-led Dutch engineering studio founded in 2026 (KVK 97732699). One senior engineer with 10+ years of experience, focused on EU AI Act implementation, AI systems, and cloud consulting.",
+      fr: "Cloudrix est un studio d'ingenierie neerlandais fonde en 2026 (KVK 97732699). Un ingenieur senior avec 10+ ans d'experience, specialise dans l'EU AI Act, les systemes IA et le cloud.",
     },
     content: {
       en: {
         hero: {
-          title: "We're Engineers Who Get Things Done",
-          subtitle: "A senior engineering team that helps European companies build, scale, and modernize their software systems. We combine technical excellence with a deep understanding of EU business culture.",
+          title: "A Founder-Led Engineering Studio",
+          subtitle: "Cloudrix was founded in 2026 in Tilburg, Netherlands, by a senior software engineer with 10+ years of full-stack experience (Angular, PHP, NestJS, AWS) who also works in the online-video industry. No fake team photos, no invented history: one senior engineer who does the work personally, backed by a network of trusted specialists when a project requires it.",
         },
         mission: {
-          title: "Our Mission",
-          content: "To be the engineering partner that European companies can trust for their most critical technical challenges. We believe great software is built by experienced engineers who take ownership, communicate clearly, and deliver what they promise.",
+          title: "Why Cloudrix Exists",
+          content: "Most companies facing the EU AI Act get one of two things: expensive legal advice with no implementation, or offshore development with no compliance understanding. Cloudrix exists to close that gap — a senior engineer who implements compliance controls, AI agents, RAG systems, and cloud infrastructure directly in your codebase. When you hire Cloudrix, the founder does the work. No juniors, no handoffs, no account managers.",
         },
         values: {
-          title: "What We Stand For",
-          subtitle: "The principles that guide every project and every interaction.",
+          title: "Our Values",
+          subtitle: "The principles that guide our work and relationships with clients.",
         },
         team: {
-          title: "Meet the Team",
-          subtitle: "Senior engineers with decades of combined experience building production systems.",
+          title: "Founder",
+          subtitle: "Cloudrix is a solo consultancy backed by a network of trusted specialists when projects require it.",
         },
         timeline: {
-          title: "Our Journey",
-          subtitle: "From a solo consultancy to a trusted engineering partner for EU companies.",
+          title: "The Story So Far",
+          subtitle: "A short, honest timeline — Cloudrix is young, and that's exactly why early clients get founder-level attention.",
           items: [
-            { year: "2020", title: "Cloudrix founded", description: "Started as a solo consultancy, focused on cloud migrations for Dutch startups." },
-            { year: "2021", title: "First enterprise clients", description: "Expanded to serve mid-market companies. Delivered first €500K+ project." },
-            { year: "2022", title: "Team expansion", description: "Grew to 5 engineers. Launched dedicated teams offering. Opened Netherlands entity." },
-            { year: "2023", title: "50+ projects milestone", description: "Crossed 50 successful projects. 94% client retention rate achieved." },
-            { year: "2024", title: "Healthcare & FinTech focus", description: "Deep expertise in regulated industries. SOC 2 practices implemented." },
-            { year: "2025", title: "Scaling for growth", description: "Expanding team to meet demand. Accepting new strategic partnerships." },
+            { year: "2016", title: "Started professional software engineering career", description: "Full-stack development across Angular, PHP, NestJS, and cloud platforms — 10+ years of hands-on production experience since, including senior engineering work in the online-video industry." },
+            { year: "2026", title: "Cloudrix founded in Tilburg, Netherlands", description: "Registered with the Dutch Chamber of Commerce (KVK 97732699), focused on EU AI Act implementation engineering, AI systems, and cloud consulting." },
           ],
         },
         certifications: {
-          title: "Certifications & Expertise",
-          subtitle: "Recognized credentials that demonstrate our commitment to excellence.",
+          title: "Expertise & Compliance",
+          subtitle: "Core areas of expertise and compliance standards we adhere to.",
           items: [
-            { name: "AWS Solutions Architect Professional", description: "Advanced cloud architecture", icon: "Award" },
-            { name: "Google Cloud Professional Architect", description: "Multi-cloud expertise", icon: "Award" },
-            { name: "CISSP Certified", description: "Information security", icon: "Shield" },
-            { name: "Kubernetes Administrator (CKA)", description: "Container orchestration", icon: "Award" },
-            { name: "GDPR Compliant Practices", description: "EU data protection", icon: "Shield" },
-            { name: "SOC 2 Type II Practices", description: "Security controls", icon: "Shield" },
+            { name: "GDPR-Compliant Practices", description: "EU data protection by design", icon: "Shield" },
+            { name: "EU AI Act Expertise", description: "Technical implementation of the Act", icon: "Shield" },
+            { name: "Secure Development Practices", description: "OWASP-aligned engineering", icon: "Shield" },
+            { name: "AWS / GCP / Azure", description: "Hands-on cloud experience", icon: "Zap" },
+            { name: "AI & Machine Learning", description: "LLMs, RAG, agents in production", icon: "Zap" },
+            { name: "KVK-Registered Entity", description: "Dutch Chamber of Commerce 97732699", icon: "Award" },
           ],
         },
         stats: {
-          title: "By the Numbers",
-          subtitle: "Metrics that matter.",
+          title: "Facts You Can Verify",
+          subtitle: "No invented metrics — just verifiable facts.",
         },
       },
       fr: {
         hero: {
-          title: "Des Ingenieurs Qui Font Avancer les Choses",
-          subtitle: "Une equipe d'ingenieurs seniors qui aide les entreprises europeennes a construire, faire evoluer et moderniser leurs systemes logiciels.",
+          title: "Un Studio d'Ingenierie Dirige par son Fondateur",
+          subtitle: "Cloudrix a ete fondee en 2026 a Tilburg, aux Pays-Bas, par un ingenieur logiciel senior avec 10+ ans d'experience full-stack (Angular, PHP, NestJS, AWS). Pas de fausses photos d'equipe, pas d'historique invente : un ingenieur senior qui fait le travail personnellement, soutenu par un reseau de specialistes de confiance quand un projet l'exige.",
         },
         mission: {
-          title: "Notre Mission",
-          content: "Etre le partenaire d'ingenierie sur lequel les entreprises europeennes peuvent compter pour leurs defis techniques les plus critiques. Nous croyons que les grands logiciels sont construits par des ingenieurs experimentes qui prennent leurs responsabilites et tiennent leurs promesses.",
+          title: "Pourquoi Cloudrix Existe",
+          content: "La plupart des entreprises confrontees a l'EU AI Act obtiennent l'une de deux choses : des conseils juridiques couteux sans implementation, ou du developpement offshore sans comprehension de la conformite. Cloudrix existe pour combler cet ecart — un ingenieur senior qui implemente les controles de conformite, les agents IA, les systemes RAG et l'infrastructure cloud directement dans votre code. Quand vous engagez Cloudrix, le fondateur fait le travail. Pas de juniors, pas de transferts, pas de gestionnaires de compte.",
         },
         values: {
-          title: "Ce Que Nous Defendons",
-          subtitle: "Les principes qui guident chaque projet et chaque interaction.",
+          title: "Nos Valeurs",
+          subtitle: "Les principes qui guident notre travail et nos relations avec les clients.",
         },
         team: {
-          title: "Rencontrez l'Equipe",
-          subtitle: "Des ingenieurs seniors avec des decennies d'experience combinee dans la construction de systemes de production.",
+          title: "Fondateur",
+          subtitle: "Cloudrix est un cabinet individuel soutenu par un reseau de specialistes de confiance quand les projets l'exigent.",
         },
         timeline: {
-          title: "Notre Parcours",
-          subtitle: "D'un cabinet de conseil solo a un partenaire d'ingenierie de confiance pour les entreprises UE.",
+          title: "L'Histoire Jusqu'ici",
+          subtitle: "Une chronologie courte et honnete — Cloudrix est jeune, et c'est exactement pourquoi les premiers clients beneficient de l'attention du fondateur.",
           items: [
-            { year: "2020", title: "Cloudrix fondee", description: "Debut en tant que consultant solo, specialise dans les migrations cloud pour startups neerlandaises." },
-            { year: "2021", title: "Premiers clients entreprise", description: "Expansion vers les entreprises mid-market. Premier projet a plus de 500K€ livre." },
-            { year: "2022", title: "Expansion de l'equipe", description: "Croissance a 5 ingenieurs. Lancement de l'offre equipes dediees. Ouverture de l'entite Pays-Bas." },
-            { year: "2023", title: "Cap des 50+ projets", description: "Plus de 50 projets reussis. Taux de retention client de 94% atteint." },
-            { year: "2024", title: "Focus Sante & FinTech", description: "Expertise approfondie dans les secteurs reglementes. Pratiques SOC 2 implementees." },
-            { year: "2025", title: "Croissance et expansion", description: "Expansion de l'equipe pour repondre a la demande. Nouveaux partenariats strategiques." },
+            { year: "2016", title: "Debut de carriere en ingenierie logicielle", description: "Developpement full-stack : Angular, PHP, NestJS, plateformes cloud — 10+ ans d'experience en production, y compris dans l'industrie de la video en ligne." },
+            { year: "2026", title: "Cloudrix fondee a Tilburg, Pays-Bas", description: "Enregistree a la Chambre de Commerce neerlandaise (KVK 97732699), specialisee dans l'implementation de l'EU AI Act, les systemes IA et le conseil cloud." },
           ],
         },
         certifications: {
-          title: "Certifications & Expertise",
-          subtitle: "Des credentials reconnus qui demontrent notre engagement envers l'excellence.",
+          title: "Expertise & Conformite",
+          subtitle: "Domaines d'expertise et normes de conformite que nous respectons.",
           items: [
-            { name: "AWS Solutions Architect Professional", description: "Architecture cloud avancee", icon: "Award" },
-            { name: "Google Cloud Professional Architect", description: "Expertise multi-cloud", icon: "Award" },
-            { name: "CISSP Certifie", description: "Securite de l'information", icon: "Shield" },
-            { name: "Kubernetes Administrator (CKA)", description: "Orchestration de conteneurs", icon: "Award" },
-            { name: "Pratiques Conformes RGPD", description: "Protection des donnees UE", icon: "Shield" },
-            { name: "Pratiques SOC 2 Type II", description: "Controles de securite", icon: "Shield" },
+            { name: "Pratiques Conformes RGPD", description: "Protection des donnees UE des la conception", icon: "Shield" },
+            { name: "Expertise EU AI Act", description: "Implementation technique du reglement", icon: "Shield" },
+            { name: "Pratiques de Developpement Securise", description: "Ingenierie alignee OWASP", icon: "Shield" },
+            { name: "AWS / GCP / Azure", description: "Experience cloud pratique", icon: "Zap" },
+            { name: "IA & Machine Learning", description: "LLMs, RAG, agents en production", icon: "Zap" },
+            { name: "Entite Enregistree KVK", description: "Chambre de Commerce neerlandaise 97732699", icon: "Award" },
           ],
         },
         stats: {
-          title: "En Chiffres",
-          subtitle: "Les metriques qui comptent.",
+          title: "Des Faits Verifiables",
+          subtitle: "Pas de metriques inventees — juste des faits verifiables.",
         },
       },
     },
@@ -305,14 +301,14 @@ const defaultPages = [
       fr: "Contactez Cloudrix - Consultation Gratuite",
     },
     seoDescription: {
-      en: "Book a free 30-minute consultation with our engineering team. Discuss your cloud, development, or DevOps challenges. No sales pitch, just honest advice.",
-      fr: "Reservez une consultation gratuite de 30 minutes. Discutez de vos defis cloud, developpement ou DevOps. Pas de discours commercial.",
+      en: "Book a free 30-minute consultation with the founder — the engineer who will actually do the work. Discuss EU AI Act compliance, AI, cloud, or DevOps challenges. No sales pitch.",
+      fr: "Reservez une consultation gratuite de 30 minutes avec le fondateur. Discutez de vos defis EU AI Act, IA, cloud ou DevOps. Pas de discours commercial.",
     },
     content: {
       en: {
         hero: {
           title: "Let's Talk About Your Project",
-          subtitle: "Book a free 30-minute consultation. We'll discuss your challenges, explore solutions, and give you honest advice - even if that means recommending someone else.",
+          subtitle: "Book a free 30-minute consultation with the founder. We'll discuss your challenges, explore solutions, and give you honest advice - even if that means recommending someone else.",
         },
         form: {
           title: "Book Your Free Consultation",
@@ -327,11 +323,11 @@ const defaultPages = [
             },
             {
               question: "How quickly can you start a project?",
-              answer: "For urgent needs, we can typically start within 1-2 weeks. For larger engagements, we recommend a 2-3 week discovery phase to ensure we fully understand the scope and can staff the right team."
+              answer: "For urgent needs, we can typically start within 1-2 weeks. For larger engagements, we recommend a short discovery phase to ensure we fully understand the scope before committing to a plan and price."
             },
             {
               question: "What are your rates?",
-              answer: "Our rates depend on the engagement type, team composition, and duration. We offer project-based pricing for defined scope work and time-and-materials for ongoing engagements. We're transparent about costs from the first conversation."
+              answer: "Fixed-scope offers start at €2,500 (EU AI Act Quick Scan). Larger engagements are priced per written scope with a fixed price — changes require your sign-off. We're transparent about costs from the first conversation."
             },
             {
               question: "Do you sign NDAs?",
@@ -339,11 +335,11 @@ const defaultPages = [
             },
             {
               question: "How do you handle communication and updates?",
-              answer: "We integrate with your existing tools (Slack, Teams, etc.) and provide daily async updates, weekly demos, and direct access to the engineers working on your project. You'll never wonder about status."
+              answer: "We integrate with your existing tools (Slack, Teams, etc.) and provide regular async updates, demos, and direct access to the engineer doing the work — the founder. You'll never wonder about status."
             },
             {
               question: "What currencies do you invoice in?",
-              answer: "We invoice in EUR through our Netherlands entity. This keeps things simple for EU clients and avoids currency conversion complications."
+              answer: "We invoice through our Netherlands entity (KVK 97732699), in EUR by default, with multi-currency invoicing available for international clients."
             },
           ],
         },
@@ -361,7 +357,7 @@ const defaultPages = [
       fr: {
         hero: {
           title: "Parlons de Votre Projet",
-          subtitle: "Reservez une consultation gratuite de 30 minutes. Nous discuterons de vos defis, explorerons des solutions et vous donnerons des conseils honnetes.",
+          subtitle: "Reservez une consultation gratuite de 30 minutes avec le fondateur. Nous discuterons de vos defis, explorerons des solutions et vous donnerons des conseils honnetes.",
         },
         form: {
           title: "Reservez Votre Consultation Gratuite",
@@ -376,11 +372,11 @@ const defaultPages = [
             },
             {
               question: "Quelle est votre rapidite de demarrage?",
-              answer: "Pour les besoins urgents, nous pouvons generalement commencer sous 1-2 semaines. Pour les engagements plus importants, nous recommandons une phase de decouverte de 2-3 semaines."
+              answer: "Pour les besoins urgents, nous pouvons generalement commencer sous 1-2 semaines. Pour les engagements plus importants, nous recommandons une courte phase de decouverte avant de nous engager sur un plan et un prix."
             },
             {
               question: "Quels sont vos tarifs?",
-              answer: "Nos tarifs dependent du type d'engagement, de la composition de l'equipe et de la duree. Nous proposons des tarifs au projet pour les perimetre definis et en regie pour les engagements continus."
+              answer: "Les offres a perimetre fixe commencent a 2 500€ (Quick Scan EU AI Act). Les engagements plus larges sont chiffres sur perimetre ecrit avec un prix fixe — tout changement necessite votre accord."
             },
             {
               question: "Signez-vous des NDA?",
@@ -388,11 +384,11 @@ const defaultPages = [
             },
             {
               question: "Comment gerez-vous la communication?",
-              answer: "Nous nous integrons a vos outils existants (Slack, Teams, etc.) et fournissons des mises a jour quotidiennes, des demos hebdomadaires et un acces direct aux ingenieurs travaillant sur votre projet."
+              answer: "Nous nous integrons a vos outils existants (Slack, Teams, etc.) et fournissons des mises a jour asynchrones regulieres, des demos et un acces direct a l'ingenieur qui fait le travail — le fondateur."
             },
             {
               question: "Dans quelles devises facturez-vous?",
-              answer: "Nous facturons en EUR via notre entite aux Pays-Bas. Cela simplifie les choses pour les clients UE et evite les complications de conversion de devises."
+              answer: "Nous facturons via notre entite aux Pays-Bas (KVK 97732699), en EUR par defaut, avec facturation multi-devises disponible pour les clients internationaux."
             },
           ],
         },
@@ -419,65 +415,65 @@ const defaultPages = [
     isPublished: true,
     order: 5,
     seoTitle: {
-      en: "Case Studies - Real Results for EU Companies | Cloudrix",
-      fr: "Etudes de Cas - Resultats Reels pour l'Europe | Cloudrix",
+      en: "Case Studies - Representative Project Scenarios | Cloudrix",
+      fr: "Etudes de Cas - Scenarios de Projets Representatifs | Cloudrix",
     },
     seoDescription: {
-      en: "See how we helped European companies reduce costs by 55%, launch products in 14 weeks, and achieve 99.99% uptime. Real projects, real results.",
-      fr: "Comment nous avons aide des entreprises UE a reduire leurs couts de 55%, lancer des produits en 14 semaines. Projets reels, resultats reels.",
+      en: "Representative, anonymized project scenarios illustrating how Cloudrix approaches cloud migration, AI systems, and compliance engineering. Honest about what's illustrative.",
+      fr: "Scenarios de projets representatifs et anonymises illustrant l'approche Cloudrix : migration cloud, systemes IA et ingenierie de conformite.",
     },
     content: {
       en: {
         hero: {
-          title: "Real Projects, Real Results",
-          subtitle: "See how we've helped European companies solve their most challenging technical problems. Each case study includes the challenge, our approach, and measurable outcomes.",
+          title: "How We Approach Real Problems",
+          subtitle: "These are representative project scenarios illustrating our capabilities and approach — client names and specifics are anonymized for confidentiality. Each one walks through the challenge, our approach, and the outcomes we engineer toward.",
         },
         featured: {
           title: "Featured Case Studies",
         },
         grid: {
-          title: "More Success Stories",
+          title: "More Scenarios",
         },
         stats: {
-          title: "Our Impact in Numbers",
-          subtitle: "Aggregate results across all client engagements.",
+          title: "Facts You Can Verify",
+          subtitle: "No invented aggregate metrics — just verifiable facts about how Cloudrix works.",
           items: [
-            { value: "€12M+", label: "Client Revenue Impact" },
-            { value: "55%", label: "Average Cost Reduction" },
-            { value: "99.9%", label: "Average Uptime Achieved" },
-            { value: "14 weeks", label: "Average MVP Delivery" },
+            { value: "10+", label: "Years of Engineering Experience" },
+            { value: "2026", label: "Founded in Tilburg, NL (KVK 97732699)" },
+            { value: "<24h", label: "Response Time" },
+            { value: "1", label: "Engineer on Your Project — the Founder" },
           ],
         },
         cta: {
-          title: "Your Success Story Starts Here",
-          subtitle: "Every case study started with a conversation. Let's discuss how we can help you achieve similar results.",
+          title: "Be One of Our First Named Case Studies",
+          subtitle: "Early clients get founder-level attention and case-study pricing. Let's discuss what a documented success would look like for you.",
           buttonText: "Book Free Consultation",
         },
       },
       fr: {
         hero: {
-          title: "Projets Reels, Resultats Reels",
-          subtitle: "Decouvrez comment nous avons aide des entreprises europeennes a resoudre leurs defis techniques les plus complexes. Chaque etude de cas inclut le defi, notre approche et les resultats mesurables.",
+          title: "Comment Nous Abordons de Vrais Problemes",
+          subtitle: "Voici des scenarios de projets representatifs illustrant nos capacites et notre approche — les noms des clients et les details sont anonymises par confidentialite. Chacun detaille le defi, notre approche et les resultats vises.",
         },
         featured: {
           title: "Etudes de Cas en Vedette",
         },
         grid: {
-          title: "Plus de Succes",
+          title: "Plus de Scenarios",
         },
         stats: {
-          title: "Notre Impact en Chiffres",
-          subtitle: "Resultats agreges sur tous les engagements clients.",
+          title: "Des Faits Verifiables",
+          subtitle: "Pas de metriques agregees inventees — juste des faits verifiables sur la facon dont Cloudrix travaille.",
           items: [
-            { value: "12M€+", label: "Impact sur les Revenus Clients" },
-            { value: "55%", label: "Reduction Moyenne des Couts" },
-            { value: "99,9%", label: "Disponibilite Moyenne Atteinte" },
-            { value: "14 semaines", label: "Livraison MVP Moyenne" },
+            { value: "10+", label: "Annees d'Experience en Ingenierie" },
+            { value: "2026", label: "Fondee a Tilburg, NL (KVK 97732699)" },
+            { value: "<24h", label: "Temps de Reponse" },
+            { value: "1", label: "Ingenieur sur Votre Projet — le Fondateur" },
           ],
         },
         cta: {
-          title: "Votre Success Story Commence Ici",
-          subtitle: "Chaque etude de cas a commence par une conversation. Discutons de comment nous pouvons vous aider a atteindre des resultats similaires.",
+          title: "Devenez l'une de Nos Premieres Etudes de Cas Nommees",
+          subtitle: "Les premiers clients beneficient de l'attention du fondateur et de tarifs d'etude de cas. Discutons de ce a quoi ressemblerait un succes documente pour vous.",
           buttonText: "Consultation Gratuite",
         },
       },
@@ -497,8 +493,8 @@ const defaultPages = [
       fr: "Notre Methode de Travail - Processus d'Ingenierie | Cloudrix",
     },
     seoDescription: {
-      en: "Discover our proven engineering methodology. From discovery to delivery, we keep you informed at every step. Agile, transparent, results-focused.",
-      fr: "Notre methodologie d'ingenierie eprouvee. De la decouverte a la livraison, transparence totale. Processus agile, axe sur les resultats.",
+      en: "Discover our engineering methodology. From discovery to delivery, we keep you informed at every step. Agile, transparent, results-focused.",
+      fr: "Notre methodologie d'ingenierie. De la decouverte a la livraison, transparence totale. Processus agile, axe sur les resultats.",
     },
     content: {
       en: {
@@ -508,7 +504,7 @@ const defaultPages = [
         },
         methodology: {
           title: "Our 5-Step Methodology",
-          subtitle: "A battle-tested approach refined across 47+ projects.",
+          subtitle: "A structured approach, shaped by 10+ years of hands-on production engineering, applied to every engagement.",
         },
         principles: {
           title: "Our Core Principles",
@@ -520,7 +516,7 @@ const defaultPages = [
             },
             {
               title: "Transparency By Default",
-              description: "You have full visibility into our work. Daily updates, weekly demos, access to all code and documentation. No surprises.",
+              description: "You have full visibility into our work. Regular updates, demos, access to all code and documentation. No surprises.",
             },
             {
               title: "Quality Is Non-Negotiable",
@@ -537,16 +533,16 @@ const defaultPages = [
           subtitle: "Clear, consistent, proactive communication.",
           items: [
             {
-              title: "Daily Async Updates",
-              description: "A brief summary of what was accomplished, what's in progress, and any blockers. Posted in your Slack/Teams by end of each day.",
+              title: "Regular Async Updates",
+              description: "A brief summary of what was accomplished, what's in progress, and any blockers. Posted in your Slack/Teams.",
             },
             {
               title: "Weekly Video Demos",
-              description: "Every Friday, we demo what we've built. You see real progress, ask questions, and provide feedback while it's fresh.",
+              description: "Every week, we demo what we've built. You see real progress, ask questions, and provide feedback while it's fresh.",
             },
             {
               title: "Direct Engineer Access",
-              description: "Talk directly to the people doing the work. No account managers filtering your questions. Real answers from real engineers.",
+              description: "Talk directly to the person doing the work — the founder. No account managers filtering your questions. Real answers from a real engineer.",
             },
           ],
         },
@@ -577,7 +573,7 @@ const defaultPages = [
         },
         methodology: {
           title: "Notre Methodologie en 5 Etapes",
-          subtitle: "Une approche eprouvee, affinee sur plus de 47 projets.",
+          subtitle: "Une approche structuree, faconnee par 10+ ans d'ingenierie en production, appliquee a chaque mission.",
         },
         principles: {
           title: "Nos Principes Fondamentaux",
@@ -589,7 +585,7 @@ const defaultPages = [
             },
             {
               title: "Transparence Par Defaut",
-              description: "Vous avez une visibilite complete sur notre travail. Mises a jour quotidiennes, demos hebdomadaires, acces a tout le code et la documentation.",
+              description: "Vous avez une visibilite complete sur notre travail. Mises a jour regulieres, demos, acces a tout le code et la documentation.",
             },
             {
               title: "La Qualite N'est Pas Negociable",
@@ -606,16 +602,16 @@ const defaultPages = [
           subtitle: "Communication claire, coherente et proactive.",
           items: [
             {
-              title: "Mises a Jour Async Quotidiennes",
-              description: "Un bref resume de ce qui a ete accompli, ce qui est en cours et les blocages. Poste dans votre Slack/Teams en fin de journee.",
+              title: "Mises a Jour Async Regulieres",
+              description: "Un bref resume de ce qui a ete accompli, ce qui est en cours et les blocages. Poste dans votre Slack/Teams.",
             },
             {
               title: "Demos Video Hebdomadaires",
-              description: "Chaque vendredi, nous faisons une demo de ce que nous avons construit. Vous voyez les progres reels et donnez votre feedback.",
+              description: "Chaque semaine, nous faisons une demo de ce que nous avons construit. Vous voyez les progres reels et donnez votre feedback.",
             },
             {
-              title: "Acces Direct aux Ingenieurs",
-              description: "Parlez directement aux personnes qui font le travail. Pas de gestionnaires de compte filtrant vos questions.",
+              title: "Acces Direct a l'Ingenieur",
+              description: "Parlez directement a la personne qui fait le travail — le fondateur. Pas de gestionnaires de compte filtrant vos questions.",
             },
           ],
         },
@@ -667,7 +663,7 @@ async function seedPages() {
     console.log("\n📊 Summary:");
     console.log("   • 6 pages created (Home, Services, About, Contact, Case Studies, How We Work)");
     console.log("   • All pages published and bilingual (EN/FR)");
-    console.log("   • SEO metadata configured for all pages");
+    console.log("   • Honest content only: no invented stats, no fake history, no SOC 2 claims");
     console.log("\n");
 
     await mongoose.disconnect();

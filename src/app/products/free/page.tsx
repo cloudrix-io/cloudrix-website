@@ -256,7 +256,7 @@ export default function FreeToolsPage() {
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-emerald-400" />
                 <span className="text-sm text-slate-300 font-medium">
-                  Used by 10,000+ developers worldwide
+                  Free forever — no signup required
                 </span>
               </div>
               <div className="hidden sm:flex items-center gap-2">

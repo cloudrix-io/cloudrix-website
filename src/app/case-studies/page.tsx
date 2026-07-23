@@ -1,27 +1,22 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, TrendingUp, Clock, Award, Filter, Globe, Briefcase, MapPin, CheckCircle2, Shield, DollarSign, Zap } from "lucide-react";
+import { ArrowRight, Clock, Award, Filter, CheckCircle2, Info, Sparkles } from "lucide-react";
 import connectDB from "@/lib/mongodb";
 import { CaseStudy, Stat, Page } from "@/lib/models";
 import { BreadcrumbJsonLd } from "@/components/seo";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { caseStudies as staticCaseStudies } from "@/data/case-studies";
+import {
+  caseStudies as staticCaseStudies,
+  referenceScenarioDisclaimer,
+} from "@/data/case-studies";
 
-// Static stats for fallback
+// Static stats for fallback — verifiable facts only
 const staticStats = [
   { value: "8+", label: "Years Engineering Experience" },
   { value: "NL", label: "KVK-Registered Entity" },
   { value: "24/7", label: "Global Timezone Coverage" },
   { value: "24h", label: "Response Time" },
-];
-
-// Results highlights for the top section
-const resultsHighlights = [
-  { value: "55%", label: "Avg Cost Reduction", icon: DollarSign, color: "text-green-600", bg: "bg-green-100" },
-  { value: "99.99%", label: "Uptime Achieved", icon: Shield, color: "text-blue-600", bg: "bg-blue-100" },
-  { value: "14 wks", label: "Avg MVP Delivery", icon: Clock, color: "text-purple-600", bg: "bg-purple-100" },
-  { value: "12x/day", label: "Deploy Frequency", icon: Zap, color: "text-orange-600", bg: "bg-orange-100" },
 ];
 
 // Filter categories
@@ -34,23 +29,14 @@ const industryFilters = [
   "Manufacturing",
 ];
 
-const serviceFilters = [
-  "All Services",
-  "Cloud Migration",
-  "Full-Stack Development",
-  "DevOps & CI/CD",
-  "AI / ML Integration",
-  "Legacy Modernization",
-];
-
 export async function generateMetadata(): Promise<Metadata> {
   try {
     await connectDB();
     const pageData = await Page.findOne({ slug: "case-studies", isPublished: true }).lean();
 
-    const title = pageData?.seoTitle?.en || "Case Studies - Real Results for Global Companies";
+    const title = pageData?.seoTitle?.en || "Reference Scenarios - How We'd Approach Your Project";
     const description = pageData?.seoDescription?.en ||
-      "See how we helped companies worldwide reduce costs by 55%, launch products in 14 weeks, and achieve 99.99% uptime. Real projects, real results.";
+      "Illustrative engagement blueprints — not client claims. See exactly how Cloudrix would approach cloud migration, AI deployment, and EU AI Act compliance: architecture, timelines, deliverables, and honest budget ranges.";
 
     return {
       title,
@@ -62,10 +48,10 @@ export async function generateMetadata(): Promise<Metadata> {
         type: "website",
         images: [
           {
-            url: `/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how we've helped companies succeed")}&type=case-studies`,
+            url: `/og?title=${encodeURIComponent("Reference Scenarios")}&subtitle=${encodeURIComponent("How we'd approach your project — no invented case studies")}&type=case-studies`,
             width: 1200,
             height: 630,
-            alt: "Cloudrix Case Studies",
+            alt: "Cloudrix Reference Scenarios",
           },
         ],
       },
@@ -73,7 +59,7 @@ export async function generateMetadata(): Promise<Metadata> {
         card: "summary_large_image",
         title: `${title}`,
         description,
-        images: [`/og?title=${encodeURIComponent("Real Projects, Real Results")}&subtitle=${encodeURIComponent("See how we've helped companies succeed")}&type=case-studies`],
+        images: [`/og?title=${encodeURIComponent("Reference Scenarios")}&subtitle=${encodeURIComponent("How we'd approach your project — no invented case studies")}&type=case-studies`],
       },
       alternates: {
         canonical: "https://www.cloudrix.io/case-studies",
@@ -81,8 +67,9 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } catch {
     return {
-      title: "Case Studies",
-      description: "Real results for companies worldwide. See how we helped clients solve complex technical challenges.",
+      title: "Reference Scenarios",
+      description:
+        "Illustrative engagement blueprints — not client claims. See exactly how Cloudrix would approach your project.",
     };
   }
 }
@@ -130,7 +117,7 @@ export default async function CaseStudiesPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "/" },
-          { name: "Case Studies", url: "/case-studies" },
+          { name: "Reference Scenarios", url: "/case-studies" },
         ]}
       />
       <div className="bg-white">
@@ -139,7 +126,7 @@ export default async function CaseStudiesPage() {
           <Breadcrumbs
             items={[
               { name: "Home", url: "/" },
-              { name: "Case Studies", url: "/case-studies" },
+              { name: "Reference Scenarios", url: "/case-studies" },
             ]}
           />
         </div>
@@ -148,51 +135,53 @@ export default async function CaseStudiesPage() {
         <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Info className="w-4 h-4" />
+                Reference scenarios — not client case studies
+              </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Case Studies
+                How We&apos;d Approach Your Project
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Real results from real projects. See how we&apos;ve helped
-                businesses worldwide achieve their goals through expert cloud and
-                software engineering.
+                Engagement blueprints showing exactly how we work: the
+                architecture, the approach, the stack, the timeline, the
+                deliverables, and an honest budget range — for the kinds of
+                projects we&apos;re built to deliver.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/contact"
+                  href="/book"
                   className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium group"
                 >
-                  Start Your Project
+                  Become Our First Named Case Study
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
-                  href="/results"
+                  href="/how-we-work"
                   className="inline-flex items-center border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-medium"
                 >
-                  View Aggregated Results
+                  See How We Work
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Results Highlights */}
+        {/* Honesty Disclaimer */}
         <section className="py-12 bg-white border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {resultsHighlights.map((highlight) => {
-                const Icon = highlight.icon;
-                return (
-                  <div key={highlight.label} className="flex items-center gap-4">
-                    <div className={`w-12 h-12 ${highlight.bg} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                      <Icon className={`w-6 h-6 ${highlight.color}`} />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-gray-900">{highlight.value}</div>
-                      <div className="text-gray-500 text-sm">{highlight.label}</div>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 lg:p-8 flex flex-col sm:flex-row gap-4">
+              <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Info className="w-6 h-6 text-amber-700" />
+              </div>
+              <div>
+                <h2 className="font-semibold text-gray-900 mb-2">
+                  Read this before the scenarios
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  {referenceScenarioDisclaimer}
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -223,7 +212,7 @@ export default async function CaseStudiesPage() {
           </div>
         </section>
 
-        {/* Case Studies */}
+        {/* Reference Scenarios */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-24">
@@ -276,8 +265,14 @@ export default async function CaseStudiesPage() {
                           isEven ? "" : "lg:col-start-1 lg:row-start-1"
                         }`}
                       >
-                        <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                          {study.industry}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
+                            {study.industry}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium">
+                            <Info className="w-3.5 h-3.5" />
+                            Reference Scenario
+                          </span>
                         </div>
                         <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                           {study.title}
@@ -291,15 +286,15 @@ export default async function CaseStudiesPage() {
                           <div className="flex items-center space-x-2">
                             <Award className="w-5 h-5 text-blue-600" />
                             <span className="text-sm text-gray-700">
-                              <span className="font-medium">Client:</span>{" "}
-                              {study.client}
+                              <span className="font-medium">Type:</span>{" "}
+                              Illustrative blueprint — not a client claim
                             </span>
                           </div>
                           {study.duration && (
                             <div className="flex items-center space-x-2">
                               <Clock className="w-5 h-5 text-blue-600" />
                               <span className="text-sm text-gray-700">
-                                <span className="font-medium">Duration:</span>{" "}
+                                <span className="font-medium">Timeline:</span>{" "}
                                 {study.duration}
                               </span>
                             </div>
@@ -311,7 +306,7 @@ export default async function CaseStudiesPage() {
                           {study.challenge && (
                             <div>
                               <h3 className="font-semibold text-gray-900 mb-2">
-                                The Challenge
+                                The Typical Situation
                               </h3>
                               <p className="text-gray-600 leading-relaxed">
                                 {study.challenge}
@@ -321,7 +316,7 @@ export default async function CaseStudiesPage() {
                           {study.solution && (
                             <div>
                               <h3 className="font-semibold text-gray-900 mb-2">
-                                Our Solution
+                                How We&apos;d Approach It
                               </h3>
                               <p className="text-gray-600 leading-relaxed">
                                 {study.solution}
@@ -330,19 +325,19 @@ export default async function CaseStudiesPage() {
                           )}
                         </div>
 
-                        {/* Results */}
+                        {/* Deliverables */}
                         {study.results && study.results.length > 0 && (
-                          <div className="bg-green-50 border border-green-100 rounded-lg p-6 mb-6">
+                          <div className="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-6">
                             <div className="flex items-center space-x-2 mb-4">
-                              <TrendingUp className="w-5 h-5 text-green-600" />
+                              <CheckCircle2 className="w-5 h-5 text-blue-600" />
                               <h3 className="font-semibold text-gray-900">
-                                Results Achieved
+                                What You&apos;d Get
                               </h3>
                             </div>
                             <ul className="space-y-2">
                               {study.results.map((result, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                  <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                                   <span className="text-gray-700">{result}</span>
                                 </li>
                               ))}
@@ -354,7 +349,7 @@ export default async function CaseStudiesPage() {
                         {study.technologies && study.technologies.length > 0 && (
                           <div className="mb-6">
                             <h3 className="font-semibold text-gray-900 mb-3">
-                              Technologies Used
+                              Typical Stack
                             </h3>
                             <div className="flex flex-wrap gap-2">
                               {study.technologies.map((tech, idx) => (
@@ -369,12 +364,12 @@ export default async function CaseStudiesPage() {
                           </div>
                         )}
 
-                        {/* View Full Case Study Link */}
+                        {/* View Full Scenario Link */}
                         <Link
                           href={`/case-studies/${study.slug}`}
                           className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium group"
                         >
-                          View Full Case Study
+                          View Full Scenario
                           <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </div>
@@ -386,14 +381,18 @@ export default async function CaseStudiesPage() {
           </div>
         </section>
 
-        {/* Stats Section */}
+        {/* Stats Section — verifiable facts only */}
         {stats.length > 0 && (
           <section className="py-20 bg-blue-600">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-white mb-4">
-                  Our Impact in Numbers
+                  Facts You Can Verify
                 </h2>
+                <p className="text-blue-100 max-w-2xl mx-auto">
+                  No inflated numbers — just things you can check yourself,
+                  starting with our KVK registration (97732699).
+                </p>
               </div>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 {stats.map(
@@ -414,26 +413,32 @@ export default async function CaseStudiesPage() {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-blue-100 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              Early-client offer
+            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Write Your Success Story?
+              Become Our First Named Case Study
             </h2>
             <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-              Let&apos;s discuss how we can help you achieve similar results for
-              your business.
+              Founder-level attention on every deliverable, case-study pricing,
+              and — only if you&apos;re happy with the result — your project
+              becomes the first real case study on this page. That&apos;s the
+              deal, stated plainly.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/contact"
+                href="/book"
                 className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg group"
               >
-                Start Your Project
+                Book a Free Intro Call
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/results"
+                href="/testimonials"
                 className="inline-flex items-center border-2 border-white/30 text-white px-8 py-4 rounded-lg hover:border-white/60 transition-colors font-medium text-lg"
               >
-                View All Results
+                Guarantees, Not Anonymous Quotes
               </Link>
             </div>
           </div>

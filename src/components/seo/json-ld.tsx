@@ -356,7 +356,7 @@ export function CaseStudyJsonLd({
       { "@type": "Thing", name: client },
       { "@type": "Thing", name: industry },
     ],
-    articleSection: "Case Studies",
+    articleSection: "Reference Scenarios",
     inLanguage: "en",
   };
 

@@ -25,7 +25,7 @@ import { visibleProducts } from "@/data/products";
 export const metadata: Metadata = {
   title: "Enterprise AI & Engineering Products | Cloudrix",
   description:
-    "Enterprise-grade AI and engineering products trusted by companies in 50+ countries. Self-serve or custom deployment with GDPR, SOC 2, ISO 27001, and EU AI Act compliance.",
+    "Enterprise-grade AI and engineering products. Self-serve or custom deployment built for GDPR and EU AI Act compliance, with SSO, audit logs, and SLA guarantees.",
   openGraph: {
     title: "Enterprise AI & Engineering Products | Cloudrix",
     description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `/og?title=${encodeURIComponent("Enterprise Products")}&subtitle=${encodeURIComponent("Trusted by companies in 50+ countries")}&type=enterprise`,
+        url: `/og?title=${encodeURIComponent("Enterprise Products")}&subtitle=${encodeURIComponent("SSO, audit logs, and SLA guarantees")}&type=enterprise`,
         width: 1200,
         height: 630,
         alt: "Cloudrix Enterprise Products",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Enterprise AI & Engineering Products",
     description:
-      "Enterprise-grade AI products with GDPR, SOC 2, ISO 27001, and EU AI Act compliance.",
+      "Enterprise-grade AI products built for GDPR and EU AI Act compliance.",
   },
   alternates: {
     canonical: "https://www.cloudrix.io/products/enterprise",
@@ -59,13 +59,13 @@ const complianceBadges = [
     icon: ShieldCheck,
   },
   {
-    name: "SOC 2 Type II",
-    description: "Service Organization Control",
+    name: "Encryption",
+    description: "Data encrypted in transit and at rest",
     icon: Lock,
   },
   {
-    name: "ISO 27001",
-    description: "Information Security Management",
+    name: "EU Data Residency",
+    description: "Data stored and processed in the EU",
     icon: FileCheck,
   },
   {
@@ -85,7 +85,7 @@ const deploymentOptions = [
       "Multi-region deployment (EU, US, APAC)",
       "Automatic scaling and load balancing",
       "Daily backups with 30-day retention",
-      "SOC 2 compliant data centers",
+      "EU-region data centers (GDPR-aligned)",
     ],
   },
   {
@@ -215,8 +215,8 @@ export default function EnterprisePage() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl">
-              Trusted by companies in 50+ countries. Self-serve or enterprise-grade
-              deployment with the compliance, security, and support your organization demands.
+              Self-serve or enterprise-grade deployment with the compliance,
+              security, and support your organization demands.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">

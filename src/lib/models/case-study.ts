@@ -5,6 +5,8 @@ export interface ICaseStudy extends Document {
   slug: string;
   client: string;
   industry: string;
+  description?: string;
+  duration?: string;
   challenge: string;
   solution: string;
   results: string[];
@@ -49,6 +51,14 @@ const CaseStudySchema = new Schema<ICaseStudy>(
     industry: {
       type: String,
       required: [true, "Industry is required"],
+      trim: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+    },
+    duration: {
+      type: String,
       trim: true,
     },
     challenge: {
