@@ -2555,7 +2555,7 @@ User: Can I get a refund on a digital download I bought last week?</code></pre>
     slug: "eu-ai-act-compliance-checklist",
     featuredImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&auto=format&q=80",
     excerpt:
-      "The Digital Omnibus moved the EU AI Act's high-risk deadline to December 2, 2027 — but prohibitions, GPAI rules, and AI-literacy duties already apply. This actionable checklist covers system inventory, risk classification, FRIA, documentation, technical controls, governance, and training — with the updated deadlines.",
+      "The Digital Omnibus moved the EU AI Act's high-risk deadline to December 2, 2027 — but prohibitions, GPAI rules, and AI-literacy duties already apply. An actionable checklist: inventory, risk classification, FRIA, documentation, controls, and governance.",
     seoTitle: "EU AI Act Compliance Checklist (Updated for the Digital Omnibus)",
     seoDescription:
       "Actionable EU AI Act compliance checklist: risk classification, FRIA, documentation, governance. Updated for the December 2, 2027 high-risk deadline.",

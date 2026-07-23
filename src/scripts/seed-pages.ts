@@ -37,7 +37,7 @@ const defaultPages = [
       fr: "Cloudrix - Ingenierie de Conformite EU AI Act & Systemes IA",
     },
     seoDescription: {
-      en: "EU AI Act compliance implemented by engineers, not lawyers. Founder-led Dutch studio (KVK 97732699). Quick Scan from €2,500. AI agents, RAG systems, cloud consulting.",
+      en: "EU AI Act compliance implemented by engineers, not lawyers. Founder-led Dutch studio (KVK 97732699). Quick Scan from €2,500. AI agents, RAG, cloud.",
       fr: "Conformite EU AI Act implementee par des ingenieurs, pas des avocats. Studio neerlandais dirige par son fondateur (KVK 97732699). Quick Scan des 2 500€.",
     },
     content: {
@@ -197,8 +197,8 @@ const defaultPages = [
       fr: "A Propos de Cloudrix - Studio d'Ingenierie Dirige par son Fondateur",
     },
     seoDescription: {
-      en: "Cloudrix is a founder-led Dutch engineering studio founded in 2026 (KVK 97732699). One senior engineer with 10+ years of experience, focused on EU AI Act implementation, AI systems, and cloud consulting.",
-      fr: "Cloudrix est un studio d'ingenierie neerlandais fonde en 2026 (KVK 97732699). Un ingenieur senior avec 10+ ans d'experience, specialise dans l'EU AI Act, les systemes IA et le cloud.",
+      en: "Founder-led Dutch engineering studio founded in 2026 (KVK 97732699). Senior engineering focused on EU AI Act implementation, AI systems, and cloud.",
+      fr: "Studio d'ingenierie neerlandais fonde en 2026 (KVK 97732699). Ingenierie senior specialisee dans l'EU AI Act, les systemes IA et le cloud.",
     },
     content: {
       en: {
@@ -301,7 +301,7 @@ const defaultPages = [
       fr: "Contactez Cloudrix - Consultation Gratuite",
     },
     seoDescription: {
-      en: "Book a free 30-minute consultation with the founder — the engineer who will actually do the work. Discuss EU AI Act compliance, AI, cloud, or DevOps challenges. No sales pitch.",
+      en: "Book a free 30-minute consultation with the founder — the engineer who does the work. EU AI Act, AI, cloud, or DevOps. No sales pitch.",
       fr: "Reservez une consultation gratuite de 30 minutes avec le fondateur. Discutez de vos defis EU AI Act, IA, cloud ou DevOps. Pas de discours commercial.",
     },
     content: {
@@ -419,7 +419,7 @@ const defaultPages = [
       fr: "Etudes de Cas - Scenarios de Projets Representatifs | Cloudrix",
     },
     seoDescription: {
-      en: "Representative, anonymized project scenarios illustrating how Cloudrix approaches cloud migration, AI systems, and compliance engineering. Honest about what's illustrative.",
+      en: "Representative, anonymized scenarios showing how Cloudrix approaches cloud migration, AI systems, and compliance engineering.",
       fr: "Scenarios de projets representatifs et anonymises illustrant l'approche Cloudrix : migration cloud, systemes IA et ingenierie de conformite.",
     },
     content: {
